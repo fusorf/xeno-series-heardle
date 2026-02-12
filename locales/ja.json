@@ -1,0 +1,41 @@
+{
+  "search": "曲を検索...",
+  "skip": "スキップ",
+  "submit": "回答",
+  "giveUp": "降参",
+  "skipped": "スキップ",
+  "todaySong": "今日の曲：",
+  "todayGame": "今日のゲーム",
+  "guessedIn": "正解！",
+  "try": "回",
+  "tries": "回",
+  "youLost": "また明日！",
+  "copyResults": "結果をコピー",
+  "copied": "コピーしました！",
+  "comeBackIn": "次の曲まで",
+  "forNextOne": "お待ちください！",
+  "composer": "作曲",
+  "artist": "歌手",
+  "credits": {
+    "madeBy": "制作",
+    "specialThanks": "協力"
+  },
+  "modes": {
+    "full-xeno": {
+      "name": "ゼノシリーズ全作品",
+      "description": "全ゼノゲーム + DLC"
+    },
+    "xenoblade": {
+      "name": "ゼノブレイドHeardle",
+      "description": "ゼノブレイドシリーズ + DLC"
+    },
+    "xenosaga": {
+      "name": "ゼノサーガHeardle",
+      "description": "ゼノサーガ三部作"
+    },
+    "random": {
+      "name": "ランダム デイリー",
+      "description": "全ゼノゲームから日替わり"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+
+# Music files (local only, not committed)
+music/
+
+# Generated files (temporary)
+generated_songs.js

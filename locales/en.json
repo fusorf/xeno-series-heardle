@@ -1,0 +1,41 @@
+{
+  "search": "Search for a song...",
+  "skip": "Skip",
+  "submit": "Submit",
+  "giveUp": "Give Up",
+  "skipped": "Skipped",
+  "todaySong": "Today's song:",
+  "todayGame": "Today's Game",
+  "guessedIn": "You guessed it in",
+  "try": "try",
+  "tries": "tries",
+  "youLost": "Better luck tomorrow!",
+  "copyResults": "Copy Results",
+  "copied": "Copied!",
+  "comeBackIn": "Come back in",
+  "forNextOne": "for the next one!",
+  "composer": "Composer",
+  "artist": "Artist",
+  "credits": {
+    "madeBy": "Made by",
+    "specialThanks": "Special thanks to"
+  },
+  "modes": {
+    "full-xeno": {
+      "name": "Full Xeno Series",
+      "description": "All main Xeno games + DLC"
+    },
+    "xenoblade": {
+      "name": "Xenoblade Heardle",
+      "description": "Xenoblade Chronicles series + DLC"
+    },
+    "xenosaga": {
+      "name": "Xenosaga Heardle",
+      "description": "Xenosaga trilogy"
+    },
+    "random": {
+      "name": "Random Daily",
+      "description": "Daily surprise from any Xeno game"
+    }
+  }
+}
