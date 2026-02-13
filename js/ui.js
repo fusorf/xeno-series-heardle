@@ -148,10 +148,11 @@ function showResults(dailySong, guesses, locale, won) {
 
     // Display composer and artist metadata right after title
     if (dailySong.composer) {
-        html += `<p class="song-credit">${escapeHtml(dailySong.composer)}</p>`;
+        html += `<p class="song-credit">${locale.composer}: ${escapeHtml(dailySong.composer)}</p>`;
     }
-    if (dailySong.artist) {
-        html += `<p class="song-credit">${escapeHtml(dailySong.artist)}</p>`;
+    // Only show artist if different from composer
+    if (dailySong.artist && dailySong.artist !== dailySong.composer) {
+        html += `<p class="song-credit">${locale.artist}: ${escapeHtml(dailySong.artist)}</p>`;
     }
 
     if (won) {

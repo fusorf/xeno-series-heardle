@@ -150,7 +150,15 @@ function pauseAudio(dailySong) {
     currentTime = 0;
     const fillEl = document.getElementById('progressFill');
     const labelEl = document.getElementById('currentTimeLabel');
-    if (fillEl) fillEl.style.width = '0%';
+    if (fillEl) {
+        // Remove transition for instant reset
+        fillEl.style.transition = 'none';
+        fillEl.style.width = '0%';
+        // Force reflow to ensure the change is applied
+        void fillEl.offsetWidth;
+        // Re-enable transition
+        fillEl.style.transition = '';
+    }
     if (labelEl) labelEl.textContent = '0s';
 }
 

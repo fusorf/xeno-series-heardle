@@ -2887,7 +2887,7 @@ const SONGS_XENOBLADE_3_FR = [
 const SONGS_XENOBLADE_X = [
   {
     "title": "no1=CODENAMEZ",
-    "localizedTitle": "no1=CODENAMEZ",
+    "localizedTitle": "Codename Z",
     "file": "1-01. no1=CODENAMEZ.mp3",
     "duration": 314,
     "game": "xenoblade-x",
@@ -2896,7 +2896,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no2=THEMEX",
-    "localizedTitle": "no2=THEMEX",
+    "localizedTitle": "Theme X",
     "file": "1-02. no2=THEMEX.mp3",
     "duration": 320,
     "game": "xenoblade-x",
@@ -2905,7 +2905,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no3=NO.EX01",
-    "localizedTitle": "no3=NO.EX01",
+    "localizedTitle": "No.EX 01",
     "file": "1-03. no3=NO.EX01.mp3",
     "duration": 256,
     "game": "xenoblade-x",
@@ -2914,7 +2914,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no4=D91M",
-    "localizedTitle": "no4=D91M",
+    "localizedTitle": "Requiem",
     "file": "1-04. no4=D91M.mp3",
     "duration": 299,
     "game": "xenoblade-x",
@@ -2923,7 +2923,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no5=KAKU-WEST＊→▲★★KAI",
-    "localizedTitle": "no5=KAKU-WEST＊→▲★★KAI",
+    "localizedTitle": "Kakusei Houkai",
     "file": "1-05. no5=KAKU-WEST＊→▲★★KAI.mp3",
     "duration": 365,
     "game": "xenoblade-x",
@@ -2932,7 +2932,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no6=LP",
-    "localizedTitle": "no6=LP",
+    "localizedTitle": "LP",
     "file": "1-06. no6=LP.mp3",
     "duration": 286,
     "game": "xenoblade-x",
@@ -2941,7 +2941,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no7=G-LOW-S→F.S.K.O",
-    "localizedTitle": "no7=G-LOW-S→F.S.K.O",
+    "localizedTitle": "Growth F.S.K.O",
     "file": "1-07. no7=G-LOW-S→F.S.K.O.mp3",
     "duration": 328,
     "game": "xenoblade-x",
@@ -2950,7 +2950,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no8=UN↑口and巨DIE",
-    "localizedTitle": "no8=UN↑口and巨DIE",
+    "localizedTitle": "Michi Kyodai",
     "file": "1-08. no8=UN↑口and巨DIE.mp3",
     "duration": 308,
     "game": "xenoblade-x",
@@ -2959,7 +2959,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no9=MONOX",
-    "localizedTitle": "no9=MONOX",
+    "localizedTitle": "Mono X",
     "file": "1-09. no9=MONOX.mp3",
     "duration": 197,
     "game": "xenoblade-x",
@@ -2968,7 +2968,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no10=CR17S19S8",
-    "localizedTitle": "no10=CR17S19S8",
+    "localizedTitle": "CR17S19S8",
     "file": "1-10. no10=CR17S19S8.mp3",
     "duration": 357,
     "game": "xenoblade-x",
@@ -2977,7 +2977,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "no11=RE:ARR.X",
-    "localizedTitle": "no11=RE:ARR.X",
+    "localizedTitle": "Re:Arr X",
     "file": "1-11. no11=REARR.X.mp3",
     "duration": 370,
     "game": "xenoblade-x",
@@ -3031,7 +3031,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z5m20i12r04a28",
-    "localizedTitle": "z5m20i12r04a28",
+    "localizedTitle": "Z5 Mira",
     "file": "2-02. z5m20i12r04a28.mp3",
     "duration": 297,
     "game": "xenoblade-x",
@@ -3040,7 +3040,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z10b2r0i1e2f0i9n1g3",
-    "localizedTitle": "z10b2r0i1e2f0i9n1g3",
+    "localizedTitle": "Z10 Briefing",
     "file": "2-03. z10b2r0i1e2f0i9n1g3.mp3",
     "duration": 269,
     "game": "xenoblade-x",
@@ -3058,7 +3058,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z15f20i12e09l14d",
-    "localizedTitle": "z15f20i12e09l14d",
+    "localizedTitle": "Z15 Field",
     "file": "2-05. z15f20i12e09l14d.mp3",
     "duration": 379,
     "game": "xenoblade-x",
@@ -3067,7 +3067,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z39b20co13mi01cal09",
-    "localizedTitle": "z39b20co13mi01cal09",
+    "localizedTitle": "Z39B Comical",
     "file": "2-06. z39b20co13mi01cal09.mp3",
     "duration": 227,
     "game": "xenoblade-x",
@@ -3085,7 +3085,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z?2f0i1e2l0d914",
-    "localizedTitle": "z?2f0i1e2l0d914",
+    "localizedTitle": "Z ? Field",
     "file": "2-08. z2f0i1e2l0d914.mp3",
     "duration": 156,
     "game": "xenoblade-x",
@@ -3094,7 +3094,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z37b20a13t01t08le",
-    "localizedTitle": "z37b20a13t01t08le",
+    "localizedTitle": "Z37 Battle",
     "file": "2-09. z37b20a13t01t08le.mp3",
     "duration": 188,
     "game": "xenoblade-x",
@@ -3103,7 +3103,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z30huri2ba0tt12le1110",
-    "localizedTitle": "z30huri2ba0tt12le1110",
+    "localizedTitle": "Z30 Furi Battle",
     "file": "2-10. z30huri2ba0tt12le1110.mp3",
     "duration": 171,
     "game": "xenoblade-x",
@@ -3112,7 +3112,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z12e201v2e091n4t",
-    "localizedTitle": "z12e201v2e091n4t",
+    "localizedTitle": "Z12 Event",
     "file": "2-11. z12e201v2e091n4t.mp3",
     "duration": 411,
     "game": "xenoblade-x",
@@ -3121,7 +3121,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z29ba2t0t1l301e17",
-    "localizedTitle": "z29ba2t0t1l301e17",
+    "localizedTitle": "Z29 Battle",
     "file": "2-12. z29ba2t0t1l301e17.mp3",
     "duration": 172,
     "game": "xenoblade-x",
@@ -3130,7 +3130,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z16b2gu012ro09u1su4",
-    "localizedTitle": "z16b2gu012ro09u1su4",
+    "localizedTitle": "Z16B Growth",
     "file": "2-13. z16b2gu012ro09u1su4.mp3",
     "duration": 172,
     "game": "xenoblade-x",
@@ -3139,7 +3139,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z13e20v12e09n14t",
-    "localizedTitle": "z13e20v12e09n14t",
+    "localizedTitle": "Z13 Event",
     "file": "2-14. z13e20v12e09n14t.mp3",
     "duration": 356,
     "game": "xenoblade-x",
@@ -3148,7 +3148,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z7b2012lp0427arr",
-    "localizedTitle": "z7b2012lp0427arr",
+    "localizedTitle": "Z7B LP Arrange",
     "file": "2-15. z7b2012lp0427arr.mp3",
     "duration": 142,
     "game": "xenoblade-x",
@@ -3166,7 +3166,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "z23s20a12m0a9-1r4u",
-    "localizedTitle": "z23s20a12m0a9-1r4u",
+    "localizedTitle": "Z23 Samaar",
     "file": "2-17. z23s20a12m0a9-1r4u.mp3",
     "duration": 296,
     "game": "xenoblade-x",
@@ -3193,7 +3193,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "N周L辺A",
-    "localizedTitle": "N周L辺A",
+    "localizedTitle": "NLA Shuuhen",
     "file": "3-02. N周L辺A.mp3",
     "duration": 318,
     "game": "xenoblade-x",
@@ -3202,7 +3202,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "N木ig木ht木L",
-    "localizedTitle": "N木ig木ht木L",
+    "localizedTitle": "Yakou Mori",
     "file": "3-03. N木ig木ht木L.mp3",
     "duration": 330,
     "game": "xenoblade-x",
@@ -3211,7 +3211,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "N市L街A",
-    "localizedTitle": "N市L街A",
+    "localizedTitle": "NLA Shigai",
     "file": "3-04. N市L街A.mp3",
     "duration": 307,
     "game": "xenoblade-x",
@@ -3220,7 +3220,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "亡KEI却KOKU心",
-    "localizedTitle": "亡KEI却KOKU心",
+    "localizedTitle": "Boukyaku Keikoku",
     "file": "3-05. 亡KEI却KOKU心.mp3",
     "duration": 347,
     "game": "xenoblade-x",
@@ -3238,7 +3238,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "fiKAIeldJOU",
-    "localizedTitle": "fiKAIeldJOU",
+    "localizedTitle": "Field Kaijou",
     "file": "3-07. fiKAIeldJOU.mp3",
     "duration": 377,
     "game": "xenoblade-x",
@@ -3247,7 +3247,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "aBOreSSs",
-    "localizedTitle": "aBOreSSs",
+    "localizedTitle": "Ares Boss",
     "file": "3-08. aBOreSSs.mp3",
     "duration": 336,
     "game": "xenoblade-x",
@@ -3256,7 +3256,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "MNN＋@0・",
-    "localizedTitle": "MNN＋@0・",
+    "localizedTitle": "Ma-non",
     "file": "3-09. MNN＋@0・.mp3",
     "duration": 351,
     "game": "xenoblade-x",
@@ -3265,7 +3265,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "In the forest <X→Z ver.>",
-    "localizedTitle": "In the forest <X→Z ver.>",
+    "localizedTitle": "In the forest <X/Y ver.>",
     "file": "3-10. In the forest X→Z ver..mp3",
     "duration": 288,
     "game": "xenoblade-x",
@@ -3274,7 +3274,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "46-:ri9",
-    "localizedTitle": "46-:ri9",
+    "localizedTitle": "Shiro no Tairiku",
     "file": "3-11. 46-ri9.mp3",
     "duration": 312,
     "game": "xenoblade-x",
@@ -3283,7 +3283,7 @@ const SONGS_XENOBLADE_X = [
   },
   {
     "title": "96-:rip",
-    "localizedTitle": "96-:rip",
+    "localizedTitle": "Kuro no Tairiku",
     "file": "3-12. 96-rip.mp3",
     "duration": 354,
     "game": "xenoblade-x",

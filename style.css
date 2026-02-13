@@ -186,7 +186,7 @@ h1::before {
     max-width: 700px;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .result-message {
@@ -583,6 +583,7 @@ h1::before {
 .search-container {
     position: relative;
     margin-bottom: 20px;
+    z-index: 10000;
 }
 
 .search-input {
@@ -634,9 +635,9 @@ h1::before {
     border-radius: 0 0 12px 12px;
     max-height: 350px;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 10000;
     display: none;
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.8),
         0 0 20px rgba(57, 166, 164, 0.2);
 }
@@ -1275,7 +1276,6 @@ button:active::before {
 .lang-toggle:hover {
     background: rgba(57, 166, 164, 0.2);
     border-color: var(--theme-primary);
-    transform: scale(1.05);
     box-shadow: 0 4px 15px var(--theme-glow);
 }
 
@@ -1314,7 +1314,6 @@ button:active::before {
 .lang-option:hover {
     background: rgba(57, 166, 164, 0.3);
     border-color: var(--theme-primary);
-    transform: translateX(3px);
 }
 
 .lang-option.active {

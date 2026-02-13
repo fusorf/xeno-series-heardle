@@ -61,7 +61,7 @@ function getUTCDateString() {
 
 // Get day number since epoch (for consistent numbering)
 function getDaysSinceEpoch(dateString) {
-  const baseDate = new Date('2025-01-01T00:00:00Z'); // Epoch start
+  const baseDate = new Date('2026-02-09T00:00:00Z'); // Epoch start (launch date)
   const currentDate = new Date(dateString + 'T00:00:00Z');
   const diffTime = currentDate - baseDate;
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));

@@ -12,7 +12,7 @@ GAMES_METADATA = """const GAMES = {
   'xenoblade-x': {
     id: 'xenoblade-x',
     name: 'Xenoblade Chronicles X',
-    shortName: 'XC X',
+    shortName: 'XCX',
     color: '#00A8E8',
     bgImage: 'assets/bg/xenoblade-x.jpg',
     coverArt: 'assets/covers/xenoblade-x.jpg',
