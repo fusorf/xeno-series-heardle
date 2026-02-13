@@ -17,7 +17,7 @@ const GAMES = {
     color: '#00A8E8',
     bgImage: 'assets/bg/xenoblade-x.jpg',
     coverArt: 'assets/covers/xenoblade-x.jpg',
-    folder: 'xenoblade-x'
+    folder: 'Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)'
   },
   'xenoblade-x-de': {
     id: 'xenoblade-x-de',
@@ -26,7 +26,7 @@ const GAMES = {
     color: '#00D4FF',
     bgImage: 'assets/bg/xenoblade-x-de.jpg',
     coverArt: 'assets/covers/xenoblade-x-de.jpg',
-    folder: 'xenoblade-x-de',
+    folder: 'Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)',
     parentGame: 'xenoblade-x',
     isDLC: true
   },
@@ -39,7 +39,7 @@ const GAMES = {
     color: '#E63946',
     bgImage: 'assets/bg/xenoblade-1.jpg',
     coverArt: 'assets/covers/xenoblade-1.jpg',
-    folder: 'xenoblade-1'
+    folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
   },
   'xenoblade-1-fc': {
     id: 'xenoblade-1-fc',
@@ -48,7 +48,7 @@ const GAMES = {
     color: '#FF6B9D',
     bgImage: 'assets/bg/xenoblade-1-fc.jpg',
     coverArt: 'assets/covers/xenoblade-1-fc.jpg',
-    folder: 'xenoblade-1-fc',
+    folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)',
     parentGame: 'xenoblade-1',
     isDLC: true
   },
@@ -60,7 +60,7 @@ const GAMES = {
     color: '#06D6A0',
     bgImage: 'assets/bg/xenoblade-2.jpg',
     coverArt: 'assets/covers/xenoblade-2.jpg',
-    folder: 'xenoblade-2'
+    folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
   },
   'xenoblade-2-torna': {
     id: 'xenoblade-2-torna',
@@ -69,7 +69,7 @@ const GAMES = {
     color: '#20C997',
     bgImage: 'assets/bg/xenoblade-2-torna.jpg',
     coverArt: 'assets/covers/xenoblade-2-torna.jpg',
-    folder: 'xenoblade-2-torna',
+    folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)',
     parentGame: 'xenoblade-2',
     isDLC: true
   },
@@ -82,7 +82,7 @@ const GAMES = {
     color: '#FFB700',
     bgImage: 'assets/bg/xenoblade-3.jpg',
     coverArt: 'assets/covers/xenoblade-3.jpg',
-    folder: 'xenoblade-3'
+    folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
   },
   'xenoblade-3-fr': {
     id: 'xenoblade-3-fr',
@@ -91,7 +91,7 @@ const GAMES = {
     color: '#FFC300',
     bgImage: 'assets/bg/xenoblade-3-fr.jpg',
     coverArt: 'assets/covers/xenoblade-3-fr.jpg',
-    folder: 'xenoblade-3-fr',
+    folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)',
     parentGame: 'xenoblade-3',
     isDLC: true
   },
@@ -104,7 +104,7 @@ const GAMES = {
     color: '#7209B7',
     bgImage: 'assets/bg/xenosaga-1.jpg',
     coverArt: 'assets/covers/xenosaga-1.jpg',
-    folder: 'xenosaga-1'
+    folder: 'Xenosaga Episode I (2004)'
   },
   'xenosaga-2': {
     id: 'xenosaga-2',
@@ -122,7 +122,7 @@ const GAMES = {
     color: '#9D4EDD',
     bgImage: 'assets/bg/xenosaga-2.jpg',
     coverArt: 'assets/covers/xenosaga-2.jpg',
-    folder: 'xenosaga-2-gamerip'
+    folder: 'Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)'
   },
   'xenosaga-2-movie': {
     id: 'xenosaga-2-movie',
@@ -131,7 +131,7 @@ const GAMES = {
     color: '#9D4EDD',
     bgImage: 'assets/bg/xenosaga-2.jpg',
     coverArt: 'assets/covers/xenosaga-2.jpg',
-    folder: 'xenosaga-2-movie'
+    folder: 'Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)'
   },
   'xenosaga-3': {
     id: 'xenosaga-3',
@@ -140,7 +140,7 @@ const GAMES = {
     color: '#5A189A',
     bgImage: 'assets/bg/xenosaga-3.jpg',
     coverArt: 'assets/covers/xenosaga-3.jpg',
-    folder: 'xenosaga-3'
+    folder: 'Xenosaga Episode III OST'
   },
 
   // ========== XENOSAGA SPIN-OFFS ==========
@@ -151,7 +151,7 @@ const GAMES = {
     color: '#C77DFF',
     bgImage: 'assets/bg/xenosaga-freaks.jpg',
     coverArt: 'assets/covers/xenosaga-freaks.jpg',
-    folder: 'xenosaga-freaks',
+    folder: 'Xenosaga Freaks (PS2) (gamerip) (2004)',
     isSpinOff: true
   },
   'xenosaga-pied-piper': {
@@ -161,7 +161,7 @@ const GAMES = {
     color: '#B5179E',
     bgImage: 'assets/bg/xenosaga-pied-piper.jpg',
     coverArt: 'assets/covers/xenosaga-pied-piper.jpg',
-    folder: 'xenosaga-pied-piper',
+    folder: 'Xenosaga Pied Piper (Mobile) (gamerip) (2004)',
     isSpinOff: true
   },
 
@@ -173,7 +173,7 @@ const GAMES = {
     color: '#8B4513',
     bgImage: 'assets/bg/xenogears.jpg',
     coverArt: 'assets/covers/xenogears.jpg',
-    folder: 'xenogears'
+    folder: 'Xenogears ORIGINAL SOUNDTRACK (1998)'
   },
 };
 
