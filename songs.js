@@ -2,8 +2,8 @@
 // XENO SERIES HEARDLE - SONG DATABASE
 // ============================================
 
-// Base URL for Cloudflare R2 storage (to be configured later)
-const AUDIO_BASE_URL = '';
+// Base URL for Cloudflare R2 storage
+const AUDIO_BASE_URL = 'https://pub-9eda7ad184594d49baf435ccabba2bc1.r2.dev';
 
 // ============================================
 // GAME METADATA
@@ -6244,13 +6244,8 @@ function getAudioUrl(song) {
   // Encode filename to handle spaces, #, and special characters
   const encodedFile = encodeURIComponent(song.file);
 
-  // If AUDIO_BASE_URL is set, use R2 storage
-  if (AUDIO_BASE_URL) {
-    return `${AUDIO_BASE_URL}/${game.folder}/${encodedFile}`;
-  }
-
-  // Otherwise return local path for testing
-  return `music/${game.folder}/${encodedFile}`;
+  // Use R2 storage
+  return `${AUDIO_BASE_URL}/music/${game.folder}/${encodedFile}`;
 }
 
 // Legacy compatibility
