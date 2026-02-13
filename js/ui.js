@@ -83,16 +83,19 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
     // 2. Search section with filters and input
     html += '<div class="search-section">';
 
-    // Game filter chips
-    const modeGames = GAME_MODES[currentMode].games;
-    html += '<div class="game-filters" id="gameFilters">';
-    modeGames.forEach(gameId => {
-        const game = GAMES[gameId];
-        if (game) {
-            html += `<button class="game-filter-chip active" data-game="${gameId}" style="--chip-color: ${game.color}">${escapeHtml(game.shortName)}</button>`;
-        }
-    });
-    html += '</div>';
+    // Game filter chips (hidden in random mode since we know the daily game)
+    const mode = GAME_MODES[currentMode];
+    if (!mode.hideGameFilters) {
+        const modeGames = mode.games;
+        html += '<div class="game-filters" id="gameFilters">';
+        modeGames.forEach(gameId => {
+            const game = GAMES[gameId];
+            if (game) {
+                html += `<button class="game-filter-chip active" data-game="${gameId}" style="--chip-color: ${game.color}">${escapeHtml(game.shortName)}</button>`;
+            }
+        });
+        html += '</div>';
+    }
 
     html += `
         <div class="search-container">
@@ -160,6 +163,12 @@ function showResults(dailySong, guesses, locale, won) {
     let html = '<div class="result-message">';
     html += `<h2>${locale.todaySong} ${dailySong.title}</h2>`;
 
+    // Display game name
+    const gameInfo = GAMES[dailySong.game];
+    if (gameInfo) {
+        html += `<p class="song-credit">${escapeHtml(gameInfo.name)}</p>`;
+    }
+
     // Display composer and artist metadata right after title
     if (dailySong.composer) {
         html += `<p class="song-credit">${locale.composer}: ${escapeHtml(dailySong.composer)}</p>`;
@@ -206,8 +215,15 @@ function showResults(dailySong, guesses, locale, won) {
 
 function updateCountdown(locale) {
     const now = new Date();
-    const tomorrow = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 0, 0));
-    const diff = tomorrow - now;
+    // Next song change is at 23:00 UTC
+    const nextChange = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 0, 0));
+
+    // If we're already past 23:00 UTC today, the next change is tomorrow at 23:00 UTC
+    if (now >= nextChange) {
+        nextChange.setUTCDate(nextChange.getUTCDate() + 1);
+    }
+
+    const diff = nextChange - now;
 
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));

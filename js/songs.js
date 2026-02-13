@@ -232,8 +232,8 @@ const GAME_MODES = {
   },
   'random': {
     id: 'random',
-    name: 'Random Daily',
-    description: 'Random game each day',
+    name: 'Random Challenge',
+    description: 'Random game + random start time',
     color: '#FF6B35',
     bgImage: null,
     games: getGamesWithDLC([
@@ -244,7 +244,8 @@ const GAME_MODES = {
     ]),
     randomStart: true,
     randomGameDaily: true,
-    showDailyGame: true
+    showDailyGame: true,
+    hideGameFilters: true
   }
 };
 

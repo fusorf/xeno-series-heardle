@@ -13,7 +13,7 @@
   "copyResults": "Copier les résultats",
   "copied": "Copié !",
   "comeBackIn": "Revenez dans",
-  "forNextOne": "pour le prochain !",
+  "forNextOne": "pour la prochaine !",
   "composer": "Compositeur",
   "artist": "Artiste",
   "credits": {
@@ -34,8 +34,8 @@
       "description": "Trilogie Xenosaga"
     },
     "random": {
-      "name": "Aléatoire Quotidien",
-      "description": "Surprise quotidienne de n'importe quel jeu Xeno"
+      "name": "Défi Aléatoire",
+      "description": "Jeu aléatoire + début aléatoire"
     }
   }
 }

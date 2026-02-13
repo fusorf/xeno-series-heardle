@@ -34,8 +34,8 @@
       "description": "ゼノサーガ三部作"
     },
     "random": {
-      "name": "ランダム デイリー",
-      "description": "全ゼノゲームから日替わり"
+      "name": "ランダムチャレンジ",
+      "description": "ランダムゲーム + ランダム開始"
     }
   }
 }

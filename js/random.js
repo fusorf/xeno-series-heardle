@@ -51,11 +51,16 @@ class SeededRandom {
 // ============================================
 
 // Get current UTC date as YYYY-MM-DD string
+// Song changes at 23:00 UTC (1 hour before midnight)
 function getUTCDateString() {
   const now = new Date();
-  const year = now.getUTCFullYear();
-  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(now.getUTCDate()).padStart(2, '0');
+
+  // Add 1 hour offset so the day changes at 23:00 UTC instead of 00:00 UTC
+  const offsetDate = new Date(now.getTime() + (1 * 60 * 60 * 1000));
+
+  const year = offsetDate.getUTCFullYear();
+  const month = String(offsetDate.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(offsetDate.getUTCDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
 }
 

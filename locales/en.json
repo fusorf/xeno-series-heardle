@@ -34,8 +34,8 @@
       "description": "Xenosaga trilogy"
     },
     "random": {
-      "name": "Random Daily",
-      "description": "Daily surprise from any Xeno game"
+      "name": "Random Challenge",
+      "description": "Random game + random start time"
     }
   }
 }
