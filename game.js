@@ -12,6 +12,7 @@ let guesses = [];
 let gameOver = false;
 let dailySong = null;
 let selectedSong = null;
+let activeGameFilters = new Set(); // empty = all games (no filter)
 
 // ============================================
 // INITIALIZATION
@@ -106,6 +107,7 @@ function switchMode(modeId) {
 
     // Save mode preference and reset game state
     currentMode = modeId;
+    activeGameFilters.clear();
     setCookie('xenoHeardleMode', modeId, 365);
 
     // Cleanup current players
@@ -269,6 +271,45 @@ function setupEventListeners() {
     if (giveUpButton) {
         giveUpButton.addEventListener('click', giveUp);
     }
+
+    // Game filter chips
+    document.querySelectorAll('.game-filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => toggleGameFilter(chip.dataset.game));
+    });
+}
+
+// ============================================
+// GAME FILTERS
+// ============================================
+
+function toggleGameFilter(gameId) {
+    if (activeGameFilters.has(gameId)) {
+        activeGameFilters.delete(gameId);
+    } else {
+        activeGameFilters.add(gameId);
+    }
+
+    // If all games are now filtered, clear the set (show all)
+    const modeGames = GAME_MODES[currentMode].games;
+    if (activeGameFilters.size === modeGames.length) {
+        activeGameFilters.clear();
+    }
+
+    // Update chip visuals
+    document.querySelectorAll('.game-filter-chip').forEach(chip => {
+        const id = chip.dataset.game;
+        if (activeGameFilters.size === 0) {
+            chip.classList.add('active');
+        } else {
+            chip.classList.toggle('active', activeGameFilters.has(id));
+        }
+    });
+
+    // Re-trigger search with current input
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput && searchInput.value.length > 0) {
+        handleSearchInput({ target: searchInput });
+    }
 }
 
 // ============================================
@@ -287,17 +328,22 @@ function handleSearchInput(e) {
         return;
     }
 
-    // Search in mode-specific songs
-    const modeSongs = getSongsForMode(currentMode);
+    // Search in mode-specific songs, filtered by active game filters
+    let modeSongs = getSongsForMode(currentMode);
+    if (activeGameFilters.size > 0) {
+        modeSongs = modeSongs.filter(song => activeGameFilters.has(song.game));
+    }
     const matches = modeSongs.filter(song =>
         song.title.toLowerCase().includes(query) ||
         song.localizedTitle.toLowerCase().includes(query)
     ).slice(0, 10);
 
     if (matches.length > 0) {
-        autocompleteList.innerHTML = matches.map(song =>
-            `<div class="autocomplete-item" data-title="${song.title}">${escapeHtml(song.title)}</div>`
-        ).join('');
+        autocompleteList.innerHTML = matches.map(song => {
+            const game = GAMES[song.game];
+            const badge = game ? `<span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>` : '';
+            return `<div class="autocomplete-item" data-title="${escapeHtml(song.title)}">${escapeHtml(song.title)}${badge}</div>`;
+        }).join('');
 
         autocompleteList.classList.add('active');
 

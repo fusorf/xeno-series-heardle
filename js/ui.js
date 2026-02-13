@@ -102,6 +102,17 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
         </div>
     `;
 
+    // Game filter chips
+    const modeGames = GAME_MODES[currentMode].games;
+    html += '<div class="game-filters" id="gameFilters">';
+    modeGames.forEach(gameId => {
+        const game = GAMES[gameId];
+        if (game) {
+            html += `<button class="game-filter-chip active" data-game="${gameId}" style="--chip-color: ${game.color}">${escapeHtml(game.shortName)}</button>`;
+        }
+    });
+    html += '</div>';
+
     html += `
         <div class="search-container">
             <span class="search-icon">🔍</span>

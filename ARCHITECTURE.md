@@ -1,185 +1,263 @@
 # Xeno Series Heardle - Architecture Documentation
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 xenoblade-x-heardle/
 ├── index.html              # Main HTML entry point
 ├── style.css               # Global styles and theme system
+├── favicon.ico             # Site favicon
+├── patate.png              # Easter egg image (special dates)
 │
-├── songs.js                # Song database with game metadata
-├── random.js               # Deterministic randomization system
-├── game-new.js             # Main game orchestrator
+├── songs.js                # Song database with game metadata (705 songs)
+├── random.js               # Deterministic randomization system (seeded PRNG)
+├── game.js                 # Main game orchestrator
 │
 ├── js/                     # Modular components
-│   ├── storage.js          # Cookie and state management
-│   ├── theme.js            # Theme application
-│   ├── player.js           # Audio player (YouTube → HTML5)
+│   ├── constants.js        # Game constants (durations, max attempts, default mode)
+│   ├── storage.js          # Cookie-based state management
+│   ├── theme.js            # Dynamic theme application (CSS variables)
+│   ├── player.js           # HTML5 Audio player with progress tracking
 │   └── ui.js               # UI rendering and DOM manipulation
 │
 ├── locales/                # Internationalization
-│   ├── en.json
-│   └── fr.json
+│   ├── en.json             # English
+│   ├── fr.json             # French
+│   └── ja.json             # Japanese
 │
-└── assets/                 # Visual assets (TODO)
-    ├── bg/                 # Background images per game
-    └── covers/             # Album covers per game
+├── tools/                  # Python build scripts
+│   ├── scan_music.py       # Scans local music library → generated_songs.js
+│   ├── update_songs_metadata.py  # Assembles final songs.js with metadata
+│   ├── setup_music_links.py      # Creates symlinks to music library
+│   ├── extract_metadata.py       # MP3 metadata extraction
+│   ├── merge_metadata.py         # Metadata merging utility
+│   ├── mp3_metadata.json         # Extracted metadata cache
+│   ├── metadata_output.txt       # Human-readable metadata
+│   └── README.md                 # Tools documentation
+│
+├── .gitignore              # Ignores generated_songs.js and music/
+├── generated_songs.js      # Temporary build artifact (gitignored)
+├── songs.js.backup         # Backup of song database
+└── ARCHITECTURE.md         # This file
 ```
 
-## 🎮 Game Modes
+### Script Loading Order (index.html)
+```
+constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → game.js
+```
 
-### 1. Full Xeno Series
-- **Games**: Xenoblade 1 DE, 2, 3, X + Smash remixes + Xenosaga 1-2-3 + Xenogears
+## Game Modes
+
+### 1. Full Xeno Series (`full-xeno`)
+- **Games**: Xenoblade 1 DE, FC, 2, Torna, 3, FR, X, X DE + Xenosaga I-II-III + Xenogears
+- **Theme**: Red (#E63946)
+- **Random Start**: No (always 0s)
+- **Song Pool**: ~635 songs
+
+### 2. Xenoblade Heardle (`xenoblade`) - Default
+- **Games**: Xenoblade 1 DE, FC, 2, Torna, 3, FR, X, X DE
 - **Theme**: Red (#E63946)
 - **Random Start**: No
+- **Song Pool**: ~421 songs
 
-### 2. Xenoblade Heardle
-- **Games**: Xenoblade 1 DE, 2, 3, X + Smash remixes
-- **Theme**: Red (#E63946)
-- **Random Start**: No
-
-### 3. Xenosaga Heardle
-- **Games**: Xenosaga 1, 2, 3
+### 3. Xenosaga Heardle (`xenosaga`)
+- **Games**: Xenosaga I, II, III
 - **Theme**: Purple (#7209B7)
 - **Random Start**: No
+- **Song Pool**: ~201 songs
 
-### 4. Random Daily
-- **Games**: ALL games (including Wii originals, spin-offs)
-- **Theme**: Daily game's color (inherited)
-- **Random Start**: YES (100% - random timestamp between 0 and duration-30s)
-- **Special**: Daily game is revealed to players
+### 4. Random Daily (`random`)
+- **Games**: ALL 14 games (including Freaks, Pied Piper)
+- **Theme**: Inherits daily game's color
+- **Random Start**: YES (random timestamp between 0 and duration-16s)
+- **Special**: Daily game name is revealed to players
+- **Song Pool**: 705 songs (full database)
 
-## 🔄 Data Flow
+## Data Flow
 
 ```
 1. User visits page
-   └─> initGame()
-       ├─> Load locale (EN/FR)
+   └─> initGame() [game.js]
+       ├─> Load locale (EN/FR/JA) via fetch
        ├─> Load saved mode preference (cookie)
-       ├─> Render mode selector tabs
+       ├─> Render mode selector tabs [ui.js]
        ├─> Get daily song (deterministic)
-       │   └─> getDailySong(mode) from random.js
+       │   └─> getDailySong(mode) [random.js]
        │       ├─> Standard modes: selectStandardDailySong()
        │       └─> Random mode: selectRandomDailySong()
        │           ├─> Pick game (seed 1)
        │           ├─> Pick song (seed 2)
        │           └─> Pick start time (seed 3)
-       ├─> Apply theme (CSS variables)
+       ├─> Apply theme (CSS variables) [theme.js]
        ├─> Show daily game banner (Random mode only)
-       └─> Load saved state or render new game
+       └─> Load saved state [storage.js] or render new game [ui.js]
 
 2. User plays
    └─> Click play button
-       └─> playAudio() from player.js
-           ├─> Init YouTube player if needed
+       └─> playAudio() [player.js]
+           ├─> Init HTML5 Audio element
+           ├─> Load audio via getAudioUrl() [songs.js]
            ├─> Seek to startTime (0 or random)
-           ├─> Play for DURATIONS[attempt] seconds
-           └─> Update progress bar
+           ├─> Play for DURATIONS[attempt] seconds (1s, 3s, 7s, 14s, 16s)
+           └─> Update progress bar via requestAnimationFrame
 
 3. User guesses
    └─> Search autocomplete (mode-specific songs)
        └─> Submit guess
            ├─> Correct → endGame(won=true)
            └─> Wrong → currentAttempt++
-               ├─> Save state (cookie)
-               └─> Re-render with new duration
+               ├─> Save state (cookie) [storage.js]
+               └─> Re-render with new duration [ui.js]
 
 4. User switches mode
-   └─> switchMode(modeId)
+   └─> switchMode(modeId) [game.js]
        ├─> Save preference (cookie)
-       └─> Reload page (reset state)
+       ├─> Cleanup current player
+       └─> Re-initialize game for new mode
 ```
 
-## 🎨 Theme System
+## Theme System
 
 ### CSS Variables (Dynamic)
 ```css
 --theme-primary: #color    /* Mode/game primary color */
---theme-glow: rgba(...)    /* Auto-calculated glow */
+--theme-glow: rgba(...)    /* Auto-calculated glow from hex→RGB */
 ```
 
 ### Theme Application
 1. **Standard modes**: Use mode's predefined color
 2. **Random mode**: Inherit daily game's color
-3. **Color conversion**: Hex → RGB for glow effects
+3. **Color conversion**: `hexToRgb()` for glow effects
 
-## 🎲 Randomization System
+## Randomization System
 
 ### Deterministic Seeds
 ```javascript
 Seed = hash(date + mode + salt + "xenoheardle")
 ```
 
+Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
+
 ### Random Mode Seeds
-- **Seed 1**: Game selection
-- **Seed 2**: Song selection (within game)
-- **Seed 3**: Start time (0 to duration-30s)
+- **Seed 1**: Game selection (weighted by game pool size)
+- **Seed 2**: Song selection (within selected game)
+- **Seed 3**: Start time (0 to duration-16s)
 
 ### Why Deterministic?
-- ✅ All clients get same song/game daily
-- ✅ No server needed (100% client-side)
-- ✅ Can't predict future days without computing each day
-- ✅ Invalidates automatically if song pool changes
+- All clients get same song/game daily without server
+- Can't predict future days without computing each day
+- Invalidates automatically if song pool changes
 
-## 💾 State Management
+### Day Numbering
+- **Epoch**: 2025-01-01 (Day 0)
+- **Timezone**: UTC
+- **Cycle length**: 20 days (to avoid immediate repeats)
+
+## State Management
 
 ### Cookies
 - **Mode preference**: `xenoHeardleMode` (365 days)
-- **Game state**: `xenoHeardle_{mode}_state` (1 day)
-  - Separate state per mode
-  - Reset daily at 00:00 UTC
+- **Language**: `xenoHeardleLang` (365 days)
+- **Game state**: `xenoHeardle_{mode}_state` (1 day, expires at UTC midnight)
+  - Separate state per mode (independent progress)
 
-### Saved State
+### Saved State Schema
 ```javascript
 {
-  dayNumber: int,
-  currentAttempt: int,
-  guesses: string[],
+  dayNumber: int,        // Current day number since epoch
+  currentAttempt: int,   // 0-4
+  guesses: string[],     // Array of guess strings ("skip" or song title)
   gameOver: bool,
   won: bool
 }
 ```
 
-## 🎵 Audio System
-
-### Current (YouTube)
+### Debug Utilities (browser console)
 ```javascript
-player.js → YouTube IFrame API
-- Embedded invisible player
-- Seek to startTime
-- Play for duration
+clearAllCookies()        // Wipe all saved games
+clearModeCookies(mode)   // Clear specific mode
+showCookies()            // Display all saved states
 ```
 
-### Future (HTML5 + R2)
-```javascript
-player.js → HTML5 <audio>
-- Direct MP3 playback
-- Cloudflare R2 storage
-- Better control & performance
+## Audio System
+
+### Current Implementation (HTML5 Audio)
+```
+player.js → HTML5 <audio> element
+├── Gameplay player: short snippets (1-16s)
+│   ├─ Preloads audio file
+│   ├─ Seeks to startTime (0 or random)
+│   ├─ Plays for DURATIONS[attempt] seconds
+│   └─ Progress bar via requestAnimationFrame
+│
+└── Result player: full song playback
+    ├─ Initialized after game ends
+    ├─ Click-to-seek on progress bar
+    └─ Time display (current / total)
 ```
 
-## 🚀 Migration Path
+### Audio Sources
+- **Local development**: `music/{gameFolder}/{file}` (via symlinks)
+- **Production (TODO)**: Cloudflare R2 via `AUDIO_BASE_URL` constant in songs.js
 
-### Phase 1: ✅ DONE
+## Song Database
+
+### Games (14 total)
+| Game | ID | Songs | Color |
+|------|----|-------|-------|
+| Xenoblade 1 DE | `xenoblade-1` | 91 | #E63946 |
+| Xenoblade 1 FC | `xenoblade-1-fc` | 8 | #FF6B9D |
+| Xenoblade 2 | `xenoblade-2` | 105 | #06D6A0 |
+| Xenoblade 2 Torna | `xenoblade-2-torna` | 11 | #20C997 |
+| Xenoblade 3 | `xenoblade-3` | 128 | #4361EE |
+| Xenoblade 3 FR | `xenoblade-3-fr` | 14 | #7B2FBE |
+| Xenoblade X | `xenoblade-x` | 55 | #00A8E8 |
+| Xenoblade X DE | `xenoblade-x-de` | 9 | #00D4FF |
+| Xenogears | `xenogears` | 44 | #FFD700 |
+| Xenosaga I | `xenosaga-1` | 47 | #9B59B6 |
+| Xenosaga II | `xenosaga-2` | 70 | #7209B7 |
+| Xenosaga III | `xenosaga-3` | 84 | #8E44AD |
+| Xenosaga Freaks | `xenosaga-freaks` | 23 | #A855F7 |
+| Xenosaga Pied Piper | `xenosaga-pied-piper` | 16 | #C084FC |
+| **Total** | | **705** | |
+
+### Song Entry Format
+```javascript
+{
+  title: "Song Name",
+  localizedTitle: "Localized Name",  // or null
+  file: "filename.mp3",
+  duration: 234.5,                    // seconds
+  game: "game-id",
+  composer: "Composer Name",          // or null
+  artist: "Artist Name"              // or null
+}
+```
+
+## Roadmap
+
+### Phase 1: DONE
 - Multi-mode UI
 - Modular architecture
 - Theme system
+- HTML5 Audio player
+- Song database (705 songs with metadata)
+- Internationalization (EN/FR/JA)
 
 ### Phase 2: TODO
-- Fill song databases (all games)
-- Collect background images
-- Collect cover arts
+- Collect background images per game
+- Collect cover art per game
 
 ### Phase 3: TODO
 - Setup Cloudflare R2
 - Upload MP3 files
-- Migrate player.js to HTML5
+- Set `AUDIO_BASE_URL` in songs.js
 
 ### Phase 4: TODO
-- Test all modes
+- Test all modes end-to-end
 - Deploy to production
 
-## 🛠️ Development
+## Development
 
 ### Testing Random Quality
 ```javascript
@@ -188,24 +266,31 @@ previewUpcomingSongs('random', 30);
 testRandomnessQuality('random', 100);
 ```
 
-### Adding New Game
+### Adding a New Game
 1. Add metadata to `GAMES` in songs.js
 2. Add song array `SONGS_GAMENAME`
 3. Add to `SONG_POOLS`
-4. Add to mode's `games` array
-5. Add color scheme
-6. Add background/cover assets
+4. Add to relevant mode's `games` array in `GAME_MODES`
+5. Add color, bgImage, coverArt
+6. Update `scan_music.py` and `update_songs_metadata.py` if needed
 
-### Adding New Mode
+### Adding a New Mode
 1. Add to `GAME_MODES` in songs.js
-2. Update UI tabs in renderModeSelector()
+2. Add locale strings in `locales/*.json`
 3. Add color theme
-4. Test with existing songs
+4. Test with `previewUpcomingSongs()`
 
-## 📝 Notes
+### Adding a New Language
+1. Create `locales/{lang}.json` following `en.json` structure
+2. Add language option in `index.html` language selector
+3. Add detection in `game.js` `initGame()`
+
+## Notes
 
 - **UTC timezone** used for all date calculations
 - **Day #1 epoch**: 2025-01-01
-- **Cycle length**: 20 days (to avoid immediate repeats)
-- **Max song duration**: Should be > 30s (for random start)
-- **Locale files**: Must match structure in en.json/fr.json
+- **Cycle length**: 20 days (avoids immediate repeats)
+- **Max song duration**: Should be > 16s (for random start mode)
+- **Locale files**: Must match structure in en.json
+- **No build step**: Pure vanilla JS, no bundler required
+- **No backend**: 100% client-side application

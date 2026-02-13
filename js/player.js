@@ -8,6 +8,7 @@ let playerReady = false;
 let isPlaying = false;
 let currentTime = 0;
 let animationFrame = null;
+let playbackStartTime = 0; // Actual position where playback started
 
 // DURATIONS is defined in constants.js
 
@@ -85,21 +86,34 @@ async function playAudio(dailySong, currentAttempt) {
     const startTime = dailySong.startTime || 0;
 
     try {
-        // For Random mode with startTime, set it BEFORE playing
         if (startTime > 0) {
+            // Seek to startTime and wait for it to actually complete
             audioElement.currentTime = startTime;
-            // Wait for seek to complete before playing
             await new Promise(resolve => {
                 const onSeeked = () => {
                     audioElement.removeEventListener('seeked', onSeeked);
                     resolve();
                 };
                 audioElement.addEventListener('seeked', onSeeked);
-                // Fallback timeout in case seeked event doesn't fire
-                setTimeout(resolve, 200);
+                // Fallback: if seeked doesn't fire (data not buffered yet),
+                // wait for enough data then retry the seek
+                setTimeout(() => {
+                    audioElement.removeEventListener('seeked', onSeeked);
+                    // Retry seek after buffer has had time to fill
+                    audioElement.currentTime = startTime;
+                    // Give it another chance
+                    const onSeeked2 = () => {
+                        audioElement.removeEventListener('seeked', onSeeked2);
+                        resolve();
+                    };
+                    audioElement.addEventListener('seeked', onSeeked2);
+                    setTimeout(resolve, 500);
+                }, 300);
             });
         }
 
+        // Record the actual start position for progress tracking
+        playbackStartTime = audioElement.currentTime;
         await audioElement.play();
 
         currentTime = 0;
@@ -124,8 +138,7 @@ function pauseAudio(dailySong) {
 
     if (audioElement && playerReady) {
         audioElement.pause();
-        const startTime = dailySong.startTime || 0;
-        audioElement.currentTime = startTime;
+        audioElement.currentTime = playbackStartTime;
     }
 
     if (animationFrame) {
@@ -145,8 +158,8 @@ function updateProgress(dailySong, currentAttempt) {
     if (!isPlaying) return;
 
     if (audioElement && playerReady) {
-        const startTime = dailySong.startTime || 0;
-        currentTime = Math.max(0, audioElement.currentTime - startTime);
+        // Use the actual playback start position to calculate elapsed time
+        currentTime = Math.max(0, audioElement.currentTime - playbackStartTime);
 
         // Check if audio has ended (reached the end of the file)
         if (audioElement.ended || audioElement.currentTime >= dailySong.duration) {
@@ -192,6 +205,7 @@ function destroyPlayer() {
 
     playerReady = false;
     currentTime = 0;
+    playbackStartTime = 0;
 }
 
 // Export player state for use in other modules

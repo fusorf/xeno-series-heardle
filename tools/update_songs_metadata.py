@@ -12,7 +12,7 @@ GAMES_METADATA = """const GAMES = {
   'xenoblade-x': {
     id: 'xenoblade-x',
     name: 'Xenoblade Chronicles X',
-    shortName: 'Xenoblade X',
+    shortName: 'XC X',
     color: '#00A8E8',
     bgImage: 'assets/bg/xenoblade-x.jpg',
     coverArt: 'assets/covers/xenoblade-x.jpg',
@@ -20,7 +20,7 @@ GAMES_METADATA = """const GAMES = {
   },
   'xenoblade-x-de': {
     id: 'xenoblade-x-de',
-    name: 'Xenoblade Chronicles X - Definitive Edition (New Content)',
+    name: 'Xenoblade Chronicles X - Definitive Edition',
     shortName: 'XCX DE',
     color: '#00D4FF',
     bgImage: 'assets/bg/xenoblade-x-de.jpg',
@@ -34,7 +34,7 @@ GAMES_METADATA = """const GAMES = {
   'xenoblade-1': {
     id: 'xenoblade-1',
     name: 'Xenoblade Chronicles Definitive Edition',
-    shortName: 'Xenoblade 1 DE',
+    shortName: 'XC1 DE',
     color: '#E63946',
     bgImage: 'assets/bg/xenoblade-1.jpg',
     coverArt: 'assets/covers/xenoblade-1.jpg',
@@ -43,7 +43,7 @@ GAMES_METADATA = """const GAMES = {
   'xenoblade-1-fc': {
     id: 'xenoblade-1-fc',
     name: 'Xenoblade Chronicles - Future Connected',
-    shortName: 'XC1 Future Connected',
+    shortName: 'XC1 FC',
     color: '#FF6B9D',
     bgImage: 'assets/bg/xenoblade-1-fc.jpg',
     coverArt: 'assets/covers/xenoblade-1-fc.jpg',
@@ -51,21 +51,11 @@ GAMES_METADATA = """const GAMES = {
     parentGame: 'xenoblade-1',
     isDLC: true
   },
-  'xenoblade-1-wii': {
-    id: 'xenoblade-1-wii',
-    name: 'Xenoblade Chronicles (Wii Original)',
-    shortName: 'Xenoblade Wii',
-    color: '#D62828',
-    bgImage: 'assets/bg/xenoblade-1-wii.jpg',
-    coverArt: 'assets/covers/xenoblade-1-wii.jpg',
-    folder: 'xenoblade-1-wii'
-  },
-
   // ========== XENOBLADE 2 ==========
   'xenoblade-2': {
     id: 'xenoblade-2',
     name: 'Xenoblade Chronicles 2',
-    shortName: 'Xenoblade 2',
+    shortName: 'XC2',
     color: '#06D6A0',
     bgImage: 'assets/bg/xenoblade-2.jpg',
     coverArt: 'assets/covers/xenoblade-2.jpg',
@@ -87,7 +77,7 @@ GAMES_METADATA = """const GAMES = {
   'xenoblade-3': {
     id: 'xenoblade-3',
     name: 'Xenoblade Chronicles 3',
-    shortName: 'Xenoblade 3',
+    shortName: 'XC3',
     color: '#FFB700',
     bgImage: 'assets/bg/xenoblade-3.jpg',
     coverArt: 'assets/covers/xenoblade-3.jpg',
@@ -96,7 +86,7 @@ GAMES_METADATA = """const GAMES = {
   'xenoblade-3-fr': {
     id: 'xenoblade-3-fr',
     name: 'Xenoblade Chronicles 3 - Future Redeemed',
-    shortName: 'XC3 Future Redeemed',
+    shortName: 'XC3 FR',
     color: '#FFC300',
     bgImage: 'assets/bg/xenoblade-3-fr.jpg',
     coverArt: 'assets/covers/xenoblade-3-fr.jpg',
@@ -156,7 +146,7 @@ GAMES_METADATA = """const GAMES = {
   'xenosaga-freaks': {
     id: 'xenosaga-freaks',
     name: 'Xenosaga Freaks',
-    shortName: 'Freaks',
+    shortName: 'XS Freaks',
     color: '#C77DFF',
     bgImage: 'assets/bg/xenosaga-freaks.jpg',
     coverArt: 'assets/covers/xenosaga-freaks.jpg',
@@ -166,7 +156,7 @@ GAMES_METADATA = """const GAMES = {
   'xenosaga-pied-piper': {
     id: 'xenosaga-pied-piper',
     name: 'Xenosaga Pied Piper',
-    shortName: 'Pied Piper',
+    shortName: 'XS Pied Piper',
     color: '#B5179E',
     bgImage: 'assets/bg/xenosaga-pied-piper.jpg',
     coverArt: 'assets/covers/xenosaga-pied-piper.jpg',
@@ -184,15 +174,6 @@ GAMES_METADATA = """const GAMES = {
     coverArt: 'assets/covers/xenogears.jpg',
     folder: 'xenogears'
   },
-  'smash-remixes': {
-    id: 'smash-remixes',
-    name: 'Super Smash Bros. Ultimate - Xenoblade',
-    shortName: 'Smash Remixes',
-    color: '#FF006E',
-    bgImage: 'assets/bg/smash.jpg',
-    coverArt: 'assets/covers/smash.jpg',
-    folder: 'smash-remixes'
-  }
 };
 """
 
@@ -226,7 +207,7 @@ MODES_CONFIG = """const GAME_MODES = {
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
-      'xenogears', 'smash-remixes'
+      'xenogears'
     ]),
     randomStart: false
   },
@@ -237,8 +218,7 @@ MODES_CONFIG = """const GAME_MODES = {
     color: '#E63946',
     bgImage: 'assets/bg/xenoblade-all.jpg',
     games: getGamesWithDLC([
-      'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
-      'smash-remixes'
+      'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x'
     ]),
     randomStart: false
   },
@@ -259,10 +239,9 @@ MODES_CONFIG = """const GAME_MODES = {
     bgImage: null,
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
-      'xenoblade-1-wii',  // Wii originals only in random
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
-      'xenosaga-freaks', 'xenosaga-pied-piper',  // Spin-offs only in random
-      'xenogears', 'smash-remixes'
+      'xenosaga-freaks', 'xenosaga-pied-piper',
+      'xenogears'
     ]),
     randomStart: true,
     randomGameDaily: true,
@@ -301,9 +280,7 @@ const AUDIO_BASE_URL = '';
         generated_content = f.read()
 
     # Skip the header in generated file
-    song_arrays_start = generated_content.find("// smash-remixes")
-    if song_arrays_start == -1:
-        song_arrays_start = generated_content.find("const SONGS_")
+    song_arrays_start = generated_content.find("const SONGS_")
 
     song_arrays = generated_content[song_arrays_start:]
 
@@ -319,7 +296,7 @@ const AUDIO_BASE_URL = '';
     output += "const SONG_POOLS = {\n"
 
     pools = [
-        "smash-remixes", "xenoblade-1", "xenoblade-1-fc", "xenoblade-1-wii",
+        "xenoblade-1", "xenoblade-1-fc",
         "xenoblade-2", "xenoblade-2-torna", "xenoblade-3", "xenoblade-3-fr",
         "xenoblade-x", "xenoblade-x-de", "xenogears",
         "xenosaga-1", "xenosaga-3",
@@ -386,7 +363,7 @@ const SONGS = SONGS_XENOBLADE_X;
     print("    - Game metadata with DLC relationships")
     print("    - Helper function for DLC inclusion")
     print("    - 4 game modes configured")
-    print("    - 835 songs organized by game")
+    print("    - Songs organized by game")
     print("    - Song pool mapping complete")
 
 if __name__ == "__main__":

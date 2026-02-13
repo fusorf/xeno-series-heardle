@@ -1,15 +1,19 @@
 # Tools Directory
 
-This directory contains utility scripts for managing the Xeno Series Heardle project.
+Utility scripts for managing the Xeno Series Heardle song database.
 
 ## Scripts Overview
 
 ### 1. `scan_music.py`
-**Purpose:** Scans your local music library and generates song entries.
+**Purpose:** Scans your local music library and generates song entries with full ID3 metadata.
 
 **What it does:**
 - Scans all folders in your music library
-- Extracts metadata (title, duration, file name)
+- Reads ID3 tags directly from MP3 files:
+  - **TIT2** (title) - clean song title, no track number prefixes
+  - **TPE1** (artist) - performer/artist
+  - **TCOM** (composer) - song composer
+  - Duration from audio stream info
 - Handles special cases:
   - Trinity Box: Splits into 6 games (XC1 DE, XC1 FC, XC2, XC2 Torna, XC3, XC3 FR)
   - XCX DE: Splits into base game + DE exclusive tracks
@@ -21,7 +25,9 @@ This directory contains utility scripts for managing the Xeno Series Heardle pro
 python tools/scan_music.py
 ```
 
-**Output:** `generated_songs.js` in project root (159KB)
+**Output:** `generated_songs.js` in project root
+
+**Dependencies:** `pip install mutagen`
 
 ---
 
@@ -30,7 +36,7 @@ python tools/scan_music.py
 
 **What it does:**
 - Reads `generated_songs.js` from project root
-- Adds GAMES metadata (16 games with colors, themes, DLC relationships)
+- Adds GAMES metadata (14 games with colors, themes, DLC relationships)
 - Adds GAME_MODES configuration (4 modes)
 - Adds helper functions (getGamesWithDLC, getSongsForMode, getAudioUrl)
 - Creates SONG_POOLS mapping
@@ -42,7 +48,7 @@ python tools/scan_music.py
 python tools/update_songs_metadata.py
 ```
 
-**Output:** `songs.js` in project root (168KB)
+**Output:** `songs.js` in project root
 
 ---
 
@@ -51,7 +57,7 @@ python tools/update_songs_metadata.py
 
 **What it does:**
 - Creates Windows junction points (no admin rights needed)
-- Links 16 game folders to `music/` directory
+- Links game folders to `music/` directory
 - Saves disk space (no file duplication)
 
 **Usage:**
@@ -67,10 +73,10 @@ python tools/setup_music_links.py
 
 ### Full Workflow (when music library changes):
 ```bash
-# 1. Scan music library
+# 1. Scan music library (reads ID3 metadata from MP3 files)
 python tools/scan_music.py
 
-# 2. Update songs.js with metadata
+# 2. Build final songs.js with game metadata and mode configs
 python tools/update_songs_metadata.py
 
 # 3. Commit changes
@@ -81,13 +87,17 @@ git commit -m "Update song database"
 ### One-time Setup (new machine):
 ```bash
 # 1. Clone repo
-git clone <repo>
+git clone <repo-url>
+cd xenoblade-x-heardle
 
-# 2. Create music symlinks
+# 2. Install Python dependencies
+pip install mutagen
+
+# 3. Create music symlinks
 python tools/setup_music_links.py
 
-# 3. Start local server
-python serve.py
+# 4. Start local server
+python -m http.server 8000
 ```
 
 ---
@@ -95,21 +105,18 @@ python serve.py
 ## File Locations
 
 ### Project Root Files
-- `songs.js` - **COMMITTED** - Final song database with metadata (168KB)
-- `generated_songs.js` - **IGNORED** - Temporary file from scan (159KB)
-- `serve.py` - Local HTTP server for testing
+- `songs.js` - **COMMITTED** - Final song database with metadata
+- `generated_songs.js` - **IGNORED** - Temporary file from scan
 
 ### Tools Directory
-- `scan_music.py` - Music library scanner
+- `scan_music.py` - Music library scanner (reads ID3 metadata)
 - `update_songs_metadata.py` - Metadata assembler
 - `setup_music_links.py` - Symlink creator
 - `README.md` - This file
 
 ### DO NOT commit:
-- `generated_songs.js` (temporary)
+- `generated_songs.js` (temporary build artifact)
 - `music/` directory (symlinks to local library)
-- `tools/generated_songs.js` (should not exist)
-- `tools/songs.js` (should not exist)
 
 ---
 
@@ -123,28 +130,28 @@ LIBRARY_PATH = r"C:\Users\Valentin\Desktop\Xeno Series full soundrack"
 
 ### Game Folder Mappings
 Defined in both `scan_music.py` and `setup_music_links.py`:
-- Trinity Box → 6 games
-- XCX DE → 2 games
-- Xenosaga II → 2 soundtracks
+- Trinity Box → 6 games (XC1 DE, FC, XC2, Torna, XC3, FR)
+- XCX DE → 2 games (base + DE content)
+- Xenosaga II → 2 soundtracks (gamerip + movie)
 - Individual games → 1:1 mapping
 
 ---
 
-## Total Song Count: 835
+## Total Song Count: 705
 
-- Xenoblade 1 DE: 91 songs
-- Xenoblade 1 FC: 8 songs
-- Xenoblade 1 Wii: 95 songs
-- Xenoblade 2: 105 songs
-- Xenoblade 2 Torna: 11 songs
-- Xenoblade 3: 128 songs
-- Xenoblade 3 FR: 14 songs
-- Xenoblade X: 55 songs
-- Xenoblade X DE: 9 songs
-- Xenogears: 44 songs
-- Xenosaga I: 47 songs
-- Xenosaga II: 70 songs (30 gamerip + 40 movie)
-- Xenosaga III: 84 songs
-- Xenosaga Freaks: 23 songs
-- Xenosaga Pied Piper: 16 songs
-- Smash Remixes: 35 songs
+| Game | Songs |
+|------|-------|
+| Xenoblade 1 DE | 91 |
+| Xenoblade 1 FC | 8 |
+| Xenoblade 2 | 105 |
+| Xenoblade 2 Torna | 11 |
+| Xenoblade 3 | 128 |
+| Xenoblade 3 FR | 14 |
+| Xenoblade X | 55 |
+| Xenoblade X DE | 9 |
+| Xenogears | 44 |
+| Xenosaga I | 47 |
+| Xenosaga II | 70 (30 gamerip + 40 movie) |
+| Xenosaga III | 84 |
+| Xenosaga Freaks | 23 |
+| Xenosaga Pied Piper | 16 |

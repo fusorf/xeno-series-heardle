@@ -13,7 +13,7 @@ const GAMES = {
   'xenoblade-x': {
     id: 'xenoblade-x',
     name: 'Xenoblade Chronicles X',
-    shortName: 'Xenoblade X',
+    shortName: 'XC X',
     color: '#00A8E8',
     bgImage: 'assets/bg/xenoblade-x.jpg',
     coverArt: 'assets/covers/xenoblade-x.jpg',
@@ -21,7 +21,7 @@ const GAMES = {
   },
   'xenoblade-x-de': {
     id: 'xenoblade-x-de',
-    name: 'Xenoblade Chronicles X - Definitive Edition (New Content)',
+    name: 'Xenoblade Chronicles X - Definitive Edition',
     shortName: 'XCX DE',
     color: '#00D4FF',
     bgImage: 'assets/bg/xenoblade-x-de.jpg',
@@ -35,7 +35,7 @@ const GAMES = {
   'xenoblade-1': {
     id: 'xenoblade-1',
     name: 'Xenoblade Chronicles Definitive Edition',
-    shortName: 'Xenoblade 1 DE',
+    shortName: 'XC1 DE',
     color: '#E63946',
     bgImage: 'assets/bg/xenoblade-1.jpg',
     coverArt: 'assets/covers/xenoblade-1.jpg',
@@ -44,7 +44,7 @@ const GAMES = {
   'xenoblade-1-fc': {
     id: 'xenoblade-1-fc',
     name: 'Xenoblade Chronicles - Future Connected',
-    shortName: 'XC1 Future Connected',
+    shortName: 'XC1 FC',
     color: '#FF6B9D',
     bgImage: 'assets/bg/xenoblade-1-fc.jpg',
     coverArt: 'assets/covers/xenoblade-1-fc.jpg',
@@ -52,21 +52,11 @@ const GAMES = {
     parentGame: 'xenoblade-1',
     isDLC: true
   },
-  'xenoblade-1-wii': {
-    id: 'xenoblade-1-wii',
-    name: 'Xenoblade Chronicles (Wii Original)',
-    shortName: 'Xenoblade Wii',
-    color: '#D62828',
-    bgImage: 'assets/bg/xenoblade-1-wii.jpg',
-    coverArt: 'assets/covers/xenoblade-1-wii.jpg',
-    folder: 'xenoblade-1-wii'
-  },
-
   // ========== XENOBLADE 2 ==========
   'xenoblade-2': {
     id: 'xenoblade-2',
     name: 'Xenoblade Chronicles 2',
-    shortName: 'Xenoblade 2',
+    shortName: 'XC2',
     color: '#06D6A0',
     bgImage: 'assets/bg/xenoblade-2.jpg',
     coverArt: 'assets/covers/xenoblade-2.jpg',
@@ -88,7 +78,7 @@ const GAMES = {
   'xenoblade-3': {
     id: 'xenoblade-3',
     name: 'Xenoblade Chronicles 3',
-    shortName: 'Xenoblade 3',
+    shortName: 'XC3',
     color: '#FFB700',
     bgImage: 'assets/bg/xenoblade-3.jpg',
     coverArt: 'assets/covers/xenoblade-3.jpg',
@@ -97,7 +87,7 @@ const GAMES = {
   'xenoblade-3-fr': {
     id: 'xenoblade-3-fr',
     name: 'Xenoblade Chronicles 3 - Future Redeemed',
-    shortName: 'XC3 Future Redeemed',
+    shortName: 'XC3 FR',
     color: '#FFC300',
     bgImage: 'assets/bg/xenoblade-3-fr.jpg',
     coverArt: 'assets/covers/xenoblade-3-fr.jpg',
@@ -157,7 +147,7 @@ const GAMES = {
   'xenosaga-freaks': {
     id: 'xenosaga-freaks',
     name: 'Xenosaga Freaks',
-    shortName: 'Freaks',
+    shortName: 'XS Freaks',
     color: '#C77DFF',
     bgImage: 'assets/bg/xenosaga-freaks.jpg',
     coverArt: 'assets/covers/xenosaga-freaks.jpg',
@@ -167,7 +157,7 @@ const GAMES = {
   'xenosaga-pied-piper': {
     id: 'xenosaga-pied-piper',
     name: 'Xenosaga Pied Piper',
-    shortName: 'Pied Piper',
+    shortName: 'XS Pied Piper',
     color: '#B5179E',
     bgImage: 'assets/bg/xenosaga-pied-piper.jpg',
     coverArt: 'assets/covers/xenosaga-pied-piper.jpg',
@@ -185,15 +175,6 @@ const GAMES = {
     coverArt: 'assets/covers/xenogears.jpg',
     folder: 'xenogears'
   },
-  'smash-remixes': {
-    id: 'smash-remixes',
-    name: 'Super Smash Bros. Ultimate - Xenoblade',
-    shortName: 'Smash Remixes',
-    color: '#FF006E',
-    bgImage: 'assets/bg/smash.jpg',
-    coverArt: 'assets/covers/smash.jpg',
-    folder: 'smash-remixes'
-  }
 };
 
 
@@ -225,7 +206,7 @@ const GAME_MODES = {
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
-      'xenogears', 'smash-remixes'
+      'xenogears'
     ]),
     randomStart: false
   },
@@ -236,8 +217,7 @@ const GAME_MODES = {
     color: '#E63946',
     bgImage: 'assets/bg/xenoblade-all.jpg',
     games: getGamesWithDLC([
-      'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
-      'smash-remixes'
+      'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x'
     ]),
     randomStart: false
   },
@@ -258,10 +238,9 @@ const GAME_MODES = {
     bgImage: null,
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
-      'xenoblade-1-wii',  // Wii originals only in random
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
-      'xenosaga-freaks', 'xenosaga-pied-piper',  // Spin-offs only in random
-      'xenogears', 'smash-remixes'
+      'xenosaga-freaks', 'xenosaga-pied-piper',
+      'xenogears'
     ]),
     randomStart: true,
     randomGameDaily: true,
@@ -273,326 +252,6 @@ const GAME_MODES = {
 // SONG POOLS BY GAME
 // ============================================
 
-// smash-remixes
-const SONGS_SMASH_REMIXES = [
-  {
-    "title": "Engage the Enemy",
-    "localizedTitle": "Engage the Enemy",
-    "file": "1-01. Engage the Enemy.mp3",
-    "duration": 243,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Time to Fight! - Xenoblade Chronicles",
-    "localizedTitle": "Time to Fight! - Xenoblade Chronicles",
-    "file": "1-02. Time to Fight! - Xenoblade Chronicles.mp3",
-    "duration": 266,
-    "game": "smash-remixes",
-    "composer": "Yoko Shimomura",
-    "artist": "Yoko Shimomura"
-  },
-  {
-    "title": "Gaur Plain",
-    "localizedTitle": "Gaur Plain",
-    "file": "1-03. Gaur Plain.mp3",
-    "duration": 223,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Gaur Plain (Night)",
-    "localizedTitle": "Gaur Plain (Night)",
-    "file": "1-04. Gaur Plain (Night).mp3",
-    "duration": 218,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Xenoblade Chronicles Medley",
-    "localizedTitle": "Xenoblade Chronicles Medley",
-    "file": "1-05. Xenoblade Chronicles Medley.mp3",
-    "duration": 253,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "An Obstacle in Our Path - Xenoblade Chronicles",
-    "localizedTitle": "An Obstacle in Our Path - Xenoblade Chronicles",
-    "file": "1-06. An Obstacle in Our Path - Xenoblade Chronicles.mp3",
-    "duration": 221,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "You Will Know Our Names",
-    "localizedTitle": "You Will Know Our Names",
-    "file": "1-07. You Will Know Our Names.mp3",
-    "duration": 266,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Mechanical Rhythm",
-    "localizedTitle": "Mechanical Rhythm",
-    "file": "1-08. Mechanical Rhythm.mp3",
-    "duration": 332,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Xenoblade Chronicles 2 Medley",
-    "localizedTitle": "Xenoblade Chronicles 2 Medley",
-    "file": "1-09. Xenoblade Chronicles 2 Medley.mp3",
-    "duration": 347,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO), Kenji Hiramatsu",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Argentum",
-    "localizedTitle": "Argentum",
-    "file": "1-10. Argentum.mp3",
-    "duration": 219,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "A Ship in a Stormy Sea",
-    "localizedTitle": "A Ship in a Stormy Sea",
-    "file": "1-11. A Ship in a Stormy Sea.mp3",
-    "duration": 212,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Exploration",
-    "localizedTitle": "Exploration",
-    "file": "1-12. Exploration.mp3",
-    "duration": 169,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Crossing Swords",
-    "localizedTitle": "Crossing Swords",
-    "file": "1-13. Crossing Swords.mp3",
-    "duration": 217,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Incoming!",
-    "localizedTitle": "Incoming!",
-    "file": "1-14. Incoming!.mp3",
-    "duration": 245,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Gormott",
-    "localizedTitle": "Gormott",
-    "file": "1-15. Gormott.mp3",
-    "duration": 316,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Battle!! - Xenoblade Chronicles 2",
-    "localizedTitle": "Battle!! - Xenoblade Chronicles 2",
-    "file": "1-16. Battle!! - Xenoblade Chronicles 2.mp3",
-    "duration": 215,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Tiger! Tiger!",
-    "localizedTitle": "Tiger! Tiger!",
-    "file": "1-17. Tiger! Tiger!.mp3",
-    "duration": 300,
-    "game": "smash-remixes",
-    "composer": "Manami Kiyota",
-    "artist": "Yuzo Koshiro"
-  },
-  {
-    "title": "Death Match with Torna",
-    "localizedTitle": "Death Match with Torna",
-    "file": "1-18. Death Match with Torna.mp3",
-    "duration": 203,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Those Who Stand Against Our Path - Xenoblade Chronicles 2",
-    "localizedTitle": "Those Who Stand Against Our Path - Xenoblade Chronicles 2",
-    "file": "1-19. Those Who Stand Against Our Path - Xenoblade Chronicles 2.mp3",
-    "duration": 219,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Counterattack",
-    "localizedTitle": "Counterattack",
-    "file": "1-20. Counterattack.mp3",
-    "duration": 297,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Nobuko Toda"
-  },
-  {
-    "title": "You Will Recall Our Names",
-    "localizedTitle": "You Will Recall Our Names",
-    "file": "1-21. You Will Recall Our Names.mp3",
-    "duration": 217,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Driver Vs",
-    "localizedTitle": "Driver Vs",
-    "file": "1-22. Driver Vs.mp3",
-    "duration": 169,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Mor Ardain - Roaming the Wastes -",
-    "localizedTitle": "Mor Ardain - Roaming the Wastes -",
-    "file": "1-23. Mor Ardain - Roaming the Wastes -.mp3",
-    "duration": 185,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Bringer of Chaos! Ultimate",
-    "localizedTitle": "Bringer of Chaos! Ultimate",
-    "file": "1-24. Bringer of Chaos! Ultimate.mp3",
-    "duration": 205,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Still, Move Forward!",
-    "localizedTitle": "Still, Move Forward!",
-    "file": "1-25. Still, Move Forward!.mp3",
-    "duration": 216,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Praetor Amalthus - The Acting God -",
-    "localizedTitle": "Praetor Amalthus - The Acting God -",
-    "file": "1-26. Praetor Amalthus - The Acting God -.mp3",
-    "duration": 179,
-    "game": "smash-remixes",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
-  },
-  {
-    "title": "Battle!! - Torna",
-    "localizedTitle": "Battle!! - Torna",
-    "file": "1-27. Battle!! - Torna.mp3",
-    "duration": 463,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Xenoblade Victory Theme (3DS - Wii U)",
-    "localizedTitle": "Xenoblade Victory Theme (3DS - Wii U)",
-    "file": "2-01. Xenoblade Victory Theme (3DS - Wii U).mp3",
-    "duration": 8,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Xenoblade Victory Theme (Ultimate)",
-    "localizedTitle": "Xenoblade Victory Theme (Ultimate)",
-    "file": "2-02. Xenoblade Victory Theme (Ultimate).mp3",
-    "duration": 7,
-    "game": "smash-remixes",
-    "composer": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)",
-    "artist": "ACE+ (Tomori Kudo, CHiCO, Kenji Hiramatsu)"
-  },
-  {
-    "title": "Pyra - Mythra Victory Theme",
-    "localizedTitle": "Pyra - Mythra Victory Theme",
-    "file": "2-03. Pyra - Mythra Victory Theme.mp3",
-    "duration": 7,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Kingdom of Uraya [Original]",
-    "localizedTitle": "Kingdom of Uraya [Original]",
-    "file": "2-04. Kingdom of Uraya [Original].mp3",
-    "duration": 202,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-  {
-    "title": "Tantal [Original]",
-    "localizedTitle": "Tantal [Original]",
-    "file": "2-05. Tantal [Original].mp3",
-    "duration": 204,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Leftherian Archipelago [Original]",
-    "localizedTitle": "Leftherian Archipelago [Original]",
-    "file": "2-06. Leftherian Archipelago [Original].mp3",
-    "duration": 241,
-    "game": "smash-remixes",
-    "composer": "ACE (TOMOri Kudo / CHiCO)",
-    "artist": "ACE (TOMOri Kudo / CHiCO)"
-  },
-  {
-    "title": "Tiger! Tiger! [Original]",
-    "localizedTitle": "Tiger! Tiger! [Original]",
-    "file": "2-07. Tiger! Tiger! [Original].mp3",
-    "duration": 144,
-    "game": "smash-remixes",
-    "composer": "Manami Kiyota",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": "Counterattack [Original]",
-    "localizedTitle": "Counterattack [Original]",
-    "file": "2-08. Counterattack [Original].mp3",
-    "duration": 273,
-    "game": "smash-remixes",
-    "composer": "Kenji Hiramatsu",
-    "artist": "Kenji Hiramatsu"
-  },
-];
-
-// xenoblade-1
 const SONGS_XENOBLADE_1 = [
   {
     "title": "Main Theme",
@@ -635,8 +294,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Tsutomu Narita"
   },
   {
-    "title": "Colony 9 - Night (Definitive Edition ver.)",
-    "localizedTitle": "Colony 9 - Night (Definitive Edition ver.)",
+    "title": "Colony 9/Night (Definitive Edition ver.)",
+    "localizedTitle": "Colony 9/Night (Definitive Edition ver.)",
     "file": "1-06. Colony 9 - Night (Definitive Edition ver.).mp3",
     "duration": 209,
     "game": "xenoblade-1",
@@ -667,8 +326,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Tsutomu Narita"
   },
   {
-    "title": "Hometown - Night (Definitive Edition ver.)",
-    "localizedTitle": "Hometown - Night (Definitive Edition ver.)",
+    "title": "Hometown/Night (Definitive Edition ver.)",
+    "localizedTitle": "Hometown/Night (Definitive Edition ver.)",
     "file": "1-10. Hometown - Night (Definitive Edition ver.).mp3",
     "duration": 205,
     "game": "xenoblade-1",
@@ -803,8 +462,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Gaur Plain - Night (Definitive Edition ver.)",
-    "localizedTitle": "Gaur Plain - Night (Definitive Edition ver.)",
+    "title": "Gaur Plain/Night (Definitive Edition ver.)",
+    "localizedTitle": "Gaur Plain/Night (Definitive Edition ver.)",
     "file": "2-07. Gaur Plain - Night (Definitive Edition ver.).mp3",
     "duration": 198,
     "game": "xenoblade-1",
@@ -883,16 +542,16 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Satorl Marsh - Night (Definitive Edition ver.)",
-    "localizedTitle": "Satorl Marsh - Night (Definitive Edition ver.)",
+    "title": "Satorl Marsh/Night (Definitive Edition ver.)",
+    "localizedTitle": "Satorl Marsh/Night (Definitive Edition ver.)",
     "file": "2-17. Satorl Marsh - Night (Definitive Edition ver.).mp3",
     "duration": 211,
     "game": "xenoblade-1",
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Bionis' Interior - Carcass (Definitive Edition ver.)",
-    "localizedTitle": "Bionis' Interior - Carcass (Definitive Edition ver.)",
+    "title": "Bionis' Interior/Carcass (Definitive Edition ver.)",
+    "localizedTitle": "Bionis' Interior/Carcass (Definitive Edition ver.)",
     "file": "2-18. Bionis' Interior - Carcass (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
@@ -907,8 +566,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Forest of the Nopon - Night (Definitive Edition ver.)",
-    "localizedTitle": "Forest of the Nopon - Night (Definitive Edition ver.)",
+    "title": "Forest of the Nopon/Night (Definitive Edition ver.)",
+    "localizedTitle": "Forest of the Nopon/Night (Definitive Edition ver.)",
     "file": "2-20. Forest of the Nopon - Night (Definitive Edition ver.).mp3",
     "duration": 219,
     "game": "xenoblade-1",
@@ -923,8 +582,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Frontier Village - Night (Definitive Edition ver.)",
-    "localizedTitle": "Frontier Village - Night (Definitive Edition ver.)",
+    "title": "Frontier Village/Night (Definitive Edition ver.)",
+    "localizedTitle": "Frontier Village/Night (Definitive Edition ver.)",
     "file": "2-22. Frontier Village - Night (Definitive Edition ver.).mp3",
     "duration": 200,
     "game": "xenoblade-1",
@@ -947,8 +606,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Eryth Sea - Night (Definitive Edition ver.)",
-    "localizedTitle": "Eryth Sea - Night (Definitive Edition ver.)",
+    "title": "Eryth Sea/Night (Definitive Edition ver.)",
+    "localizedTitle": "Eryth Sea/Night (Definitive Edition ver.)",
     "file": "3-02. Eryth Sea - Night (Definitive Edition ver.).mp3",
     "duration": 205,
     "game": "xenoblade-1",
@@ -963,8 +622,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Alcamoth, Imperial Capital - Night (Definitive Edition ver.)",
-    "localizedTitle": "Alcamoth, Imperial Capital - Night (Definitive Edition ver.)",
+    "title": "Alcamoth, Imperial Capital/Night (Definitive Edition ver.)",
+    "localizedTitle": "Alcamoth, Imperial Capital/Night (Definitive Edition ver.)",
     "file": "3-04. Alcamoth, Imperial Capital - Night (Definitive Edition ver.).mp3",
     "duration": 198,
     "game": "xenoblade-1",
@@ -1035,8 +694,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Valak Mountain - Night (Definitive Edition ver.)",
-    "localizedTitle": "Valak Mountain - Night (Definitive Edition ver.)",
+    "title": "Valak Mountain/Night (Definitive Edition ver.)",
+    "localizedTitle": "Valak Mountain/Night (Definitive Edition ver.)",
     "file": "3-13. Valak Mountain - Night (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
@@ -1051,8 +710,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Sword Valley - Night (Definitive Edition ver.)",
-    "localizedTitle": "Sword Valley - Night (Definitive Edition ver.)",
+    "title": "Sword Valley/Night (Definitive Edition ver.)",
+    "localizedTitle": "Sword Valley/Night (Definitive Edition ver.)",
     "file": "3-15. Sword Valley - Night (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
@@ -1099,8 +758,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "The Fallen Land - Night (Definitive Edition ver.)",
-    "localizedTitle": "The Fallen Land - Night (Definitive Edition ver.)",
+    "title": "The Fallen Land/Night (Definitive Edition ver.)",
+    "localizedTitle": "The Fallen Land/Night (Definitive Edition ver.)",
     "file": "4-02. The Fallen Land - Night (Definitive Edition ver.).mp3",
     "duration": 240,
     "game": "xenoblade-1",
@@ -1203,8 +862,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Agniratha, Mechonis Capital - Night (Definitive Edition ver.)",
-    "localizedTitle": "Agniratha, Mechonis Capital - Night (Definitive Edition ver.)",
+    "title": "Agniratha, Mechonis Capital/Night (Definitive Edition ver.)",
+    "localizedTitle": "Agniratha, Mechonis Capital/Night (Definitive Edition ver.)",
     "file": "4-15. Agniratha, Mechonis Capital - Night (Definitive Edition ver.).mp3",
     "duration": 176,
     "game": "xenoblade-1",
@@ -1251,8 +910,8 @@ const SONGS_XENOBLADE_1 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Bionis' Interior - Pulse (Definitive Edition ver.)",
-    "localizedTitle": "Bionis' Interior - Pulse (Definitive Edition ver.)",
+    "title": "Bionis' Interior/Pulse (Definitive Edition ver.)",
+    "localizedTitle": "Bionis' Interior/Pulse (Definitive Edition ver.)",
     "file": "5-01. Bionis' Interior - Pulse (Definitive Edition ver.).mp3",
     "duration": 177,
     "game": "xenoblade-1",
@@ -1335,8 +994,8 @@ const SONGS_XENOBLADE_1_FC = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Bionis' Shoulder - Night",
-    "localizedTitle": "Bionis' Shoulder - Night",
+    "title": "Bionis' Shoulder/Night",
+    "localizedTitle": "Bionis' Shoulder/Night",
     "file": "5-11. Bionis' Shoulder - Night.mp3",
     "duration": 258,
     "game": "xenoblade-1-fc",
@@ -1367,8 +1026,8 @@ const SONGS_XENOBLADE_1_FC = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Gran Dell - Night",
-    "localizedTitle": "Gran Dell - Night",
+    "title": "Gran Dell/Night",
+    "localizedTitle": "Gran Dell/Night",
     "file": "5-15. Gran Dell - Night.mp3",
     "duration": 232,
     "game": "xenoblade-1-fc",
@@ -1389,772 +1048,6 @@ const SONGS_XENOBLADE_1_FC = [
     "duration": 339,
     "game": "xenoblade-1-fc",
     "artist": "Yasunori Mitsuda"
-  },
-];
-
-// xenoblade-1-wii
-const SONGS_XENOBLADE_1_WII = [
-  {
-    "title": ". Main Theme",
-    "localizedTitle": ". Main Theme",
-    "file": "01. Main Theme.mp3",
-    "duration": 220,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura"
-  },
-  {
-    "title": ". Prologue A",
-    "localizedTitle": ". Prologue A",
-    "file": "02. Prologue A.mp3",
-    "duration": 201,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura, Tsutomu Narita"
-  },
-  {
-    "title": ". One Who Gets In Our Way",
-    "localizedTitle": ". One Who Gets In Our Way",
-    "file": "03. One Who Gets In Our Way.mp3",
-    "duration": 353,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Prologue B",
-    "localizedTitle": ". Prologue B",
-    "file": "04. Prologue B.mp3",
-    "duration": 200,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura, Tsutomu Narita"
-  },
-  {
-    "title": ". Fight!",
-    "localizedTitle": ". Fight!",
-    "file": "05. Fight!.mp3",
-    "duration": 266,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura"
-  },
-  {
-    "title": ". Colony 9",
-    "localizedTitle": ". Colony 9",
-    "file": "06. Colony 9.mp3",
-    "duration": 298,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura"
-  },
-  {
-    "title": ". Colony 9 (Night)",
-    "localizedTitle": ". Colony 9 (Night)",
-    "file": "07. Colony 9 (Night).mp3",
-    "duration": 375,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura. ACE+"
-  },
-  {
-    "title": ". Daily Life",
-    "localizedTitle": ". Daily Life",
-    "file": "08. Daily Life.mp3",
-    "duration": 263,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Hometown",
-    "localizedTitle": ". Hometown",
-    "file": "09. Hometown.mp3",
-    "duration": 344,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura"
-  },
-  {
-    "title": ". Collectopaedia Category Complete!",
-    "localizedTitle": ". Collectopaedia Category Complete!",
-    "file": "10. Collectopaedia Category Complete!.mp3",
-    "duration": 2,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+, Manami Kiyota, Tsutomu Narita, and Yoko Shimomura"
-  },
-  {
-    "title": ". Hometown (Night)",
-    "localizedTitle": ". Hometown (Night)",
-    "file": "11. Hometown (Night).mp3",
-    "duration": 395,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura, ACE+"
-  },
-  {
-    "title": ". Sorrow",
-    "localizedTitle": ". Sorrow",
-    "file": "12. Sorrow.mp3",
-    "duration": 306,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". A Friendly Sentiment",
-    "localizedTitle": ". A Friendly Sentiment",
-    "file": "13. A Friendly Sentiment.mp3",
-    "duration": 316,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Monado Reacts",
-    "localizedTitle": ". Monado Reacts",
-    "file": "14. Monado Reacts.mp3",
-    "duration": 35,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Landmark Discovered!",
-    "localizedTitle": ". Landmark Discovered!",
-    "file": "15. Landmark Discovered!.mp3",
-    "duration": 2,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+, Manami Kiyota, Tsutomu Narita, and Yoko Shimomura"
-  },
-  {
-    "title": ". Tephra Cave",
-    "localizedTitle": ". Tephra Cave",
-    "file": "16. Tephra Cave.mp3",
-    "duration": 325,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Crisis",
-    "localizedTitle": ". Crisis",
-    "file": "17. Crisis.mp3",
-    "duration": 447,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Premonition",
-    "localizedTitle": ". Premonition",
-    "file": "18. Premonition.mp3",
-    "duration": 330,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Memories",
-    "localizedTitle": ". Memories",
-    "file": "19. Memories.mp3",
-    "duration": 371,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Impatience",
-    "localizedTitle": ". Impatience",
-    "file": "20. Impatience.mp3",
-    "duration": 144,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Anxiety",
-    "localizedTitle": ". Anxiety",
-    "file": "21. Anxiety.mp3",
-    "duration": 398,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Vision Reacts",
-    "localizedTitle": ". Vision Reacts",
-    "file": "22. Vision Reacts.mp3",
-    "duration": 288,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Grandeur",
-    "localizedTitle": ". Grandeur",
-    "file": "23. Grandeur.mp3",
-    "duration": 441,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Conspiracy",
-    "localizedTitle": ". Conspiracy",
-    "file": "24. Conspiracy.mp3",
-    "duration": 314,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Gaur Plains",
-    "localizedTitle": ". Gaur Plains",
-    "file": "25. Gaur Plains.mp3",
-    "duration": 482,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Secret Area Discovered!",
-    "localizedTitle": ". Secret Area Discovered!",
-    "file": "26. Secret Area Discovered!.mp3",
-    "duration": 4,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+, Manami Kiyota, Tsutomu Narita, and Yoko Shimomura"
-  },
-  {
-    "title": ". Gaur Plains (Night)",
-    "localizedTitle": ". Gaur Plains (Night)",
-    "file": "27. Gaur Plains (Night).mp3",
-    "duration": 368,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Refugee Camp",
-    "localizedTitle": ". Refugee Camp",
-    "file": "28. Refugee Camp.mp3",
-    "duration": 332,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Regret",
-    "localizedTitle": ". Regret",
-    "file": "29. Regret.mp3",
-    "duration": 315,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Tension",
-    "localizedTitle": ". Tension",
-    "file": "30. Tension.mp3",
-    "duration": 348,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Creeping Shadows",
-    "localizedTitle": ". Creeping Shadows",
-    "file": "31. Creeping Shadows.mp3",
-    "duration": 370,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Looks",
-    "localizedTitle": ". Looks",
-    "file": "32. Looks.mp3",
-    "duration": 328,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Colony 6 ~Central Mine~",
-    "localizedTitle": ". Colony 6 ~Central Mine~",
-    "file": "33. Colony 6 ~Central Mine~.mp3",
-    "duration": 287,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Searching Glance",
-    "localizedTitle": ". Searching Glance",
-    "file": "34. Searching Glance.mp3",
-    "duration": 284,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Anger, Darkness of the Heart",
-    "localizedTitle": ". Anger, Darkness of the Heart",
-    "file": "35. Anger, Darkness of the Heart.mp3",
-    "duration": 384,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Unfinished Battle",
-    "localizedTitle": ". Unfinished Battle",
-    "file": "36. Unfinished Battle.mp3",
-    "duration": 185,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura"
-  },
-  {
-    "title": ". Colony 6 ~Silence~",
-    "localizedTitle": ". Colony 6 ~Silence~",
-    "file": "37. Colony 6 ~Silence~.mp3",
-    "duration": 279,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota, ACE+"
-  },
-  {
-    "title": ". Satorl Marsh",
-    "localizedTitle": ". Satorl Marsh",
-    "file": "38. Satorl Marsh.mp3",
-    "duration": 280,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Satorl Marsh (Night)",
-    "localizedTitle": ". Satorl Marsh (Night)",
-    "file": "39. Satorl Marsh (Night).mp3",
-    "duration": 295,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Inside the Giant ~Carcass~",
-    "localizedTitle": ". Inside the Giant ~Carcass~",
-    "file": "40. Inside the Giant ~Carcass~.mp3",
-    "duration": 359,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Location Discovered!",
-    "localizedTitle": ". Location Discovered!",
-    "file": "41. Location Discovered!.mp3",
-    "duration": 2,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+, Manami Kiyota, Tsutomu Narita, and Yoko Shimomura"
-  },
-  {
-    "title": ". Forest of the Nopon",
-    "localizedTitle": ". Forest of the Nopon",
-    "file": "42. Forest of the Nopon.mp3",
-    "duration": 253,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Forest of the Nopon (Night)",
-    "localizedTitle": ". Forest of the Nopon (Night)",
-    "file": "43. Forest of the Nopon (Night).mp3",
-    "duration": 358,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Frontier Village",
-    "localizedTitle": ". Frontier Village",
-    "file": "44. Frontier Village.mp3",
-    "duration": 332,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Frontier Village (Night)",
-    "localizedTitle": ". Frontier Village (Night)",
-    "file": "45. Frontier Village (Night).mp3",
-    "duration": 370,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Riki, the Legendary Hero",
-    "localizedTitle": ". Riki, the Legendary Hero",
-    "file": "46. Riki, the Legendary Hero.mp3",
-    "duration": 303,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Eryth Sea",
-    "localizedTitle": ". Eryth Sea",
-    "file": "47. Eryth Sea.mp3",
-    "duration": 324,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Eryth Sea (Night)",
-    "localizedTitle": ". Eryth Sea (Night)",
-    "file": "48. Eryth Sea (Night).mp3",
-    "duration": 324,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Colony 6 ~Restoration~",
-    "localizedTitle": ". Colony 6 ~Restoration~",
-    "file": "49. Colony 6 ~Restoration~.mp3",
-    "duration": 254,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Alcamoth, Imperial Capital",
-    "localizedTitle": ". Alcamoth, Imperial Capital",
-    "file": "50. Alcamoth, Imperial Capital.mp3",
-    "duration": 298,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Alcamoth, Imperial Capital (Night)",
-    "localizedTitle": ". Alcamoth, Imperial Capital (Night)",
-    "file": "51. Alcamoth, Imperial Capital (Night).mp3",
-    "duration": 291,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota, ACE+"
-  },
-  {
-    "title": ". Where the Ancestors Sleep [High Entia Tomb]",
-    "localizedTitle": ". Where the Ancestors Sleep [High Entia Tomb]",
-    "file": "52. Where the Ancestors Sleep [High Entia Tomb].mp3",
-    "duration": 341,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". To One's Own Future",
-    "localizedTitle": ". To One's Own Future",
-    "file": "53. To One's Own Future.mp3",
-    "duration": 410,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Prison Island",
-    "localizedTitle": ". Prison Island",
-    "file": "54. Prison Island.mp3",
-    "duration": 340,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". You Will Know Our Names",
-    "localizedTitle": ". You Will Know Our Names",
-    "file": "55. You Will Know Our Names.mp3",
-    "duration": 266,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Snowy Valak Mountain",
-    "localizedTitle": ". Snowy Valak Mountain",
-    "file": "56. Snowy Valak Mountain.mp3",
-    "duration": 459,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Snowy Valak Mountain (Night)",
-    "localizedTitle": ". Snowy Valak Mountain (Night)",
-    "file": "57. Snowy Valak Mountain (Night).mp3",
-    "duration": 326,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Collectopaedia Area Complete!",
-    "localizedTitle": ". Collectopaedia Area Complete!",
-    "file": "58. Collectopaedia Area Complete!.mp3",
-    "duration": 2,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+, Manami Kiyota, Tsutomu Narita, and Yoko Shimomura"
-  },
-  {
-    "title": ". Sword Valley",
-    "localizedTitle": ". Sword Valley",
-    "file": "59. Sword Valley.mp3",
-    "duration": 260,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Sword Valley (Night)",
-    "localizedTitle": ". Sword Valley (Night)",
-    "file": "60. Sword Valley (Night).mp3",
-    "duration": 24,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". A Gigantic Shadow",
-    "localizedTitle": ". A Gigantic Shadow",
-    "file": "61. A Gigantic Shadow.mp3",
-    "duration": 349,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Colony 6 ~Hope~",
-    "localizedTitle": ". Colony 6 ~Hope~",
-    "file": "62. Colony 6 ~Hope~.mp3",
-    "duration": 255,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota, ACE+"
-  },
-  {
-    "title": ". Fort Galahad",
-    "localizedTitle": ". Fort Galahad",
-    "file": "63. Fort Galahad.mp3",
-    "duration": 299,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Irregular Bound",
-    "localizedTitle": ". Irregular Bound",
-    "file": "64. Irregular Bound.mp3",
-    "duration": 265,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Hectic Pursuit of the Enemy",
-    "localizedTitle": ". Hectic Pursuit of the Enemy",
-    "file": "65. Hectic Pursuit of the Enemy.mp3",
-    "duration": 260,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". The Spiritual World",
-    "localizedTitle": ". The Spiritual World",
-    "file": "66. The Spiritual World.mp3",
-    "duration": 329,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". On the Fallen Arm...",
-    "localizedTitle": ". On the Fallen Arm...",
-    "file": "67. On the Fallen Arm....mp3",
-    "duration": 356,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". On the Fallen Arm... (Night)",
-    "localizedTitle": ". On the Fallen Arm... (Night)",
-    "file": "68. On the Fallen Arm... (Night).mp3",
-    "duration": 397,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Shulk and Fiora",
-    "localizedTitle": ". Shulk and Fiora",
-    "file": "69. Shulk and Fiora.mp3",
-    "duration": 374,
-    "game": "xenoblade-1-wii",
-    "artist": "Yoko Shimomura, ACE+"
-  },
-  {
-    "title": ". Reminiscence",
-    "localizedTitle": ". Reminiscence",
-    "file": "70. Reminiscence.mp3",
-    "duration": 373,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Riki's Tenderness",
-    "localizedTitle": ". Riki's Tenderness",
-    "file": "71. Riki's Tenderness.mp3",
-    "duration": 290,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Mechanical Rhythm",
-    "localizedTitle": ". Mechanical Rhythm",
-    "file": "72. Mechanical Rhythm.mp3",
-    "duration": 333,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Hidden Machina Village",
-    "localizedTitle": ". Hidden Machina Village",
-    "file": "73. Hidden Machina Village.mp3",
-    "duration": 284,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Egil",
-    "localizedTitle": ". Egil",
-    "file": "74. Egil.mp3",
-    "duration": 354,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Mechonis Field",
-    "localizedTitle": ". Mechonis Field",
-    "file": "75. Mechonis Field.mp3",
-    "duration": 381,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". The Night Before the Decisive Battle",
-    "localizedTitle": ". The Night Before the Decisive Battle",
-    "file": "76. The Night Before the Decisive Battle.mp3",
-    "duration": 417,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Central Factory",
-    "localizedTitle": ". Central Factory",
-    "file": "77. Central Factory.mp3",
-    "duration": 545,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Agniratha, Mechonis Capital",
-    "localizedTitle": ". Agniratha, Mechonis Capital",
-    "file": "78. Agniratha, Mechonis Capital.mp3",
-    "duration": 405,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Agniratha, Mechonis Capital (Night)",
-    "localizedTitle": ". Agniratha, Mechonis Capital (Night)",
-    "file": "79. Agniratha, Mechonis Capital (Night).mp3",
-    "duration": 345,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Mystery",
-    "localizedTitle": ". Mystery",
-    "file": "80. Mystery.mp3",
-    "duration": 134,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". The Awakening of the Giant",
-    "localizedTitle": ". The Awakening of the Giant",
-    "file": "81. The Awakening of the Giant.mp3",
-    "duration": 231,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Tragic Decision",
-    "localizedTitle": ". Tragic Decision",
-    "file": "82. Tragic Decision.mp3",
-    "duration": 367,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". The Feelings Within...",
-    "localizedTitle": ". The Feelings Within...",
-    "file": "83. The Feelings Within....mp3",
-    "duration": 412,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Reminiscence - Music Box",
-    "localizedTitle": ". Reminiscence - Music Box",
-    "file": "84. Reminiscence - Music Box.mp3",
-    "duration": 365,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Colony 6 ~Future~",
-    "localizedTitle": ". Colony 6 ~Future~",
-    "file": "85. Colony 6 ~Future~.mp3",
-    "duration": 251,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota, ACE+"
-  },
-  {
-    "title": ". Inside the Giant ~Pulse~",
-    "localizedTitle": ". Inside the Giant ~Pulse~",
-    "file": "86. Inside the Giant ~Pulse~.mp3",
-    "duration": 302,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". To the Last Battle",
-    "localizedTitle": ". To the Last Battle",
-    "file": "87. To the Last Battle.mp3",
-    "duration": 423,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Engage the Enemy",
-    "localizedTitle": ". Engage the Enemy",
-    "file": "88. Engage the Enemy.mp3",
-    "duration": 229,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". The End of Memories...",
-    "localizedTitle": ". The End of Memories...",
-    "file": "89. The End of Memories....mp3",
-    "duration": 353,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". Into the World of Zanza",
-    "localizedTitle": ". Into the World of Zanza",
-    "file": "90. Into the World of Zanza.mp3",
-    "duration": 282,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Zanza",
-    "localizedTitle": ". Zanza",
-    "file": "91. Zanza.mp3",
-    "duration": 300,
-    "game": "xenoblade-1-wii",
-    "artist": "Manami Kiyota"
-  },
-  {
-    "title": ". The God-Slaying Sword",
-    "localizedTitle": ". The God-Slaying Sword",
-    "file": "92. The God-Slaying Sword.mp3",
-    "duration": 361,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". A Farewell, and...",
-    "localizedTitle": ". A Farewell, and...",
-    "file": "93. A Farewell, and....mp3",
-    "duration": 415,
-    "game": "xenoblade-1-wii",
-    "artist": "ACE+"
-  },
-  {
-    "title": ". Beyond the Sky",
-    "localizedTitle": ". Beyond the Sky",
-    "file": "94. Beyond the Sky.mp3",
-    "duration": 270,
-    "game": "xenoblade-1-wii",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Sarah Àlainn"
-  },
-  {
-    "title": ". Epilogue",
-    "localizedTitle": ". Epilogue",
-    "file": "95. Epilogue.mp3",
-    "duration": 252,
-    "game": "xenoblade-1-wii",
-    "composer": "Yoko Shimomura",
-    "artist": "Yoko Shimomura, Tsutomu Narita"
   },
 ];
 
@@ -2353,8 +1246,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Argentum - Night",
-    "localizedTitle": "Argentum - Night",
+    "title": "Argentum/Night",
+    "localizedTitle": "Argentum/Night",
     "file": "6-04. Argentum - Night.mp3",
     "duration": 177,
     "game": "xenoblade-2",
@@ -2449,8 +1342,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Gormott - Night",
-    "localizedTitle": "Gormott - Night",
+    "title": "Gormott/Night",
+    "localizedTitle": "Gormott/Night",
     "file": "6-16. Gormott - Night.mp3",
     "duration": 201,
     "game": "xenoblade-2",
@@ -2473,8 +1366,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Torigoth - Night",
-    "localizedTitle": "Torigoth - Night",
+    "title": "Torigoth/Night",
+    "localizedTitle": "Torigoth/Night",
     "file": "6-19. Torigoth - Night.mp3",
     "duration": 159,
     "game": "xenoblade-2",
@@ -2601,8 +1494,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Garfont Mercenaries - Night",
-    "localizedTitle": "Garfont Mercenaries - Night",
+    "title": "Garfont Mercenaries/Night",
+    "localizedTitle": "Garfont Mercenaries/Night",
     "file": "7-10. Garfont Mercenaries - Night.mp3",
     "duration": 128,
     "game": "xenoblade-2",
@@ -2625,8 +1518,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Kingdom of Uraya - Night",
-    "localizedTitle": "Kingdom of Uraya - Night",
+    "title": "Kingdom of Uraya/Night",
+    "localizedTitle": "Kingdom of Uraya/Night",
     "file": "7-13. Kingdom of Uraya - Night.mp3",
     "duration": 149,
     "game": "xenoblade-2",
@@ -2649,8 +1542,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Fonsa Myma - Night",
-    "localizedTitle": "Fonsa Myma - Night",
+    "title": "Fonsa Myma/Night",
+    "localizedTitle": "Fonsa Myma/Night",
     "file": "7-16. Fonsa Myma - Night.mp3",
     "duration": 175,
     "game": "xenoblade-2",
@@ -2737,8 +1630,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Alba Cavanich - Night",
-    "localizedTitle": "Alba Cavanich - Night",
+    "title": "Alba Cavanich/Night",
+    "localizedTitle": "Alba Cavanich/Night",
     "file": "8-08. Alba Cavanich - Night.mp3",
     "duration": 197,
     "game": "xenoblade-2",
@@ -2761,8 +1654,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Mor Ardain - Night",
-    "localizedTitle": "Mor Ardain - Night",
+    "title": "Mor Ardain/Night",
+    "localizedTitle": "Mor Ardain/Night",
     "file": "8-11. Mor Ardain - Night.mp3",
     "duration": 195,
     "game": "xenoblade-2",
@@ -2809,8 +1702,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Leftherian Archipelago - Night",
-    "localizedTitle": "Leftherian Archipelago - Night",
+    "title": "Leftherian Archipelago/Night",
+    "localizedTitle": "Leftherian Archipelago/Night",
     "file": "8-17. Leftherian Archipelago - Night.mp3",
     "duration": 264,
     "game": "xenoblade-2",
@@ -2825,8 +1718,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Gramps - Night",
-    "localizedTitle": "Gramps - Night",
+    "title": "Gramps/Night",
+    "localizedTitle": "Gramps/Night",
     "file": "8-19. Gramps - Night.mp3",
     "duration": 182,
     "game": "xenoblade-2",
@@ -2897,8 +1790,8 @@ const SONGS_XENOBLADE_2 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Tantal - Night",
-    "localizedTitle": "Tantal - Night",
+    "title": "Tantal/Night",
+    "localizedTitle": "Tantal/Night",
     "file": "9-08. Tantal - Night.mp3",
     "duration": 182,
     "game": "xenoblade-2",
@@ -3021,16 +1914,16 @@ const SONGS_XENOBLADE_2_TORNA = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Battle!! - Torna",
-    "localizedTitle": "Battle!! - Torna",
+    "title": "Battle!!/Torna",
+    "localizedTitle": "Battle!!/Torna",
     "file": "11-03. Battle!! - Torna.mp3",
     "duration": 406,
     "game": "xenoblade-2-torna",
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Four-limbed Titan - Gormott",
-    "localizedTitle": "Four-limbed Titan - Gormott",
+    "title": "Four-limbed Titan/Gormott",
+    "localizedTitle": "Four-limbed Titan/Gormott",
     "file": "11-04. Four-limbed Titan - Gormott.mp3",
     "duration": 303,
     "game": "xenoblade-2-torna",
@@ -3045,8 +1938,8 @@ const SONGS_XENOBLADE_2_TORNA = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Kingdom of Torna - Night",
-    "localizedTitle": "Kingdom of Torna - Night",
+    "title": "Kingdom of Torna/Night",
+    "localizedTitle": "Kingdom of Torna/Night",
     "file": "11-06. Kingdom of Torna - Night.mp3",
     "duration": 237,
     "game": "xenoblade-2-torna",
@@ -3061,8 +1954,8 @@ const SONGS_XENOBLADE_2_TORNA = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Auresco, Royal Capital - Night",
-    "localizedTitle": "Auresco, Royal Capital - Night",
+    "title": "Auresco, Royal Capital/Night",
+    "localizedTitle": "Auresco, Royal Capital/Night",
     "file": "11-08. Auresco, Royal Capital - Night.mp3",
     "duration": 193,
     "game": "xenoblade-2-torna",
@@ -3169,8 +2062,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Yzana Plains - Night",
-    "localizedTitle": "Yzana Plains - Night",
+    "title": "Yzana Plains/Night",
+    "localizedTitle": "Yzana Plains/Night",
     "file": "12-10. Yzana Plains - Night.mp3",
     "duration": 249,
     "game": "xenoblade-3",
@@ -3217,8 +2110,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Alfeto Valley - Night",
-    "localizedTitle": "Alfeto Valley - Night",
+    "title": "Alfeto Valley/Night",
+    "localizedTitle": "Alfeto Valley/Night",
     "file": "13-02. Alfeto Valley - Night.mp3",
     "duration": 221,
     "game": "xenoblade-3",
@@ -3361,8 +2254,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Millick Meadows - Night",
-    "localizedTitle": "Millick Meadows - Night",
+    "title": "Millick Meadows/Night",
+    "localizedTitle": "Millick Meadows/Night",
     "file": "14-02. Millick Meadows - Night.mp3",
     "duration": 196,
     "game": "xenoblade-3",
@@ -3385,8 +2278,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Eagus Wilderness - Night",
-    "localizedTitle": "Eagus Wilderness - Night",
+    "title": "Eagus Wilderness/Night",
+    "localizedTitle": "Eagus Wilderness/Night",
     "file": "14-05. Eagus Wilderness - Night.mp3",
     "duration": 249,
     "game": "xenoblade-3",
@@ -3449,8 +2342,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Keves Colony - Night",
-    "localizedTitle": "Keves Colony - Night",
+    "title": "Keves Colony/Night",
+    "localizedTitle": "Keves Colony/Night",
     "file": "14-13. Keves Colony - Night.mp3",
     "duration": 178,
     "game": "xenoblade-3",
@@ -3473,8 +2366,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Ribbi Flats - Night",
-    "localizedTitle": "Ribbi Flats - Night",
+    "title": "Ribbi Flats/Night",
+    "localizedTitle": "Ribbi Flats/Night",
     "file": "14-16. Ribbi Flats - Night.mp3",
     "duration": 200,
     "game": "xenoblade-3",
@@ -3497,8 +2390,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Dannagh Desert - Night",
-    "localizedTitle": "Dannagh Desert - Night",
+    "title": "Dannagh Desert/Night",
+    "localizedTitle": "Dannagh Desert/Night",
     "file": "15-02. Dannagh Desert - Night.mp3",
     "duration": 251,
     "game": "xenoblade-3",
@@ -3513,8 +2406,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Rae-Bel Tableland - Night",
-    "localizedTitle": "Rae-Bel Tableland - Night",
+    "title": "Rae-Bel Tableland/Night",
+    "localizedTitle": "Rae-Bel Tableland/Night",
     "file": "15-04. Rae-Bel Tableland - Night.mp3",
     "duration": 265,
     "game": "xenoblade-3",
@@ -3569,8 +2462,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Great Cotte Falls - Night",
-    "localizedTitle": "Great Cotte Falls - Night",
+    "title": "Great Cotte Falls/Night",
+    "localizedTitle": "Great Cotte Falls/Night",
     "file": "15-11. Great Cotte Falls - Night.mp3",
     "duration": 223,
     "game": "xenoblade-3",
@@ -3593,8 +2486,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Maktha Wildwood - Night",
-    "localizedTitle": "Maktha Wildwood - Night",
+    "title": "Maktha Wildwood/Night",
+    "localizedTitle": "Maktha Wildwood/Night",
     "file": "15-14. Maktha Wildwood - Night.mp3",
     "duration": 276,
     "game": "xenoblade-3",
@@ -3617,8 +2510,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Agnus Colony - Night",
-    "localizedTitle": "Agnus Colony - Night",
+    "title": "Agnus Colony/Night",
+    "localizedTitle": "Agnus Colony/Night",
     "file": "16-02. Agnus Colony - Night.mp3",
     "duration": 194,
     "game": "xenoblade-3",
@@ -3681,8 +2574,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Syra Hovering Reefs - Night",
-    "localizedTitle": "Syra Hovering Reefs - Night",
+    "title": "Syra Hovering Reefs/Night",
+    "localizedTitle": "Syra Hovering Reefs/Night",
     "file": "16-10. Syra Hovering Reefs - Night.mp3",
     "duration": 220,
     "game": "xenoblade-3",
@@ -3721,8 +2614,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Great Sword's Base - Night",
-    "localizedTitle": "Great Sword's Base - Night",
+    "title": "Great Sword's Base/Night",
+    "localizedTitle": "Great Sword's Base/Night",
     "file": "16-15. Great Sword's Base - Night.mp3",
     "duration": 233,
     "game": "xenoblade-3",
@@ -3737,8 +2630,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "City - Night",
-    "localizedTitle": "City - Night",
+    "title": "City/Night",
+    "localizedTitle": "City/Night",
     "file": "17-02. City - Night.mp3",
     "duration": 225,
     "game": "xenoblade-3",
@@ -3761,8 +2654,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Erythia Sea - Night",
-    "localizedTitle": "Erythia Sea - Night",
+    "title": "Erythia Sea/Night",
+    "localizedTitle": "Erythia Sea/Night",
     "file": "17-05. Erythia Sea - Night.mp3",
     "duration": 177,
     "game": "xenoblade-3",
@@ -3793,8 +2686,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Moebius Battle - M",
-    "localizedTitle": "Moebius Battle - M",
+    "title": "Moebius Battle/M",
+    "localizedTitle": "Moebius Battle/M",
     "file": "17-09. Moebius Battle - M.mp3",
     "duration": 511,
     "game": "xenoblade-3",
@@ -3849,8 +2742,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Agnus Castle - Night",
-    "localizedTitle": "Agnus Castle - Night",
+    "title": "Agnus Castle/Night",
+    "localizedTitle": "Agnus Castle/Night",
     "file": "18-02. Agnus Castle - Night.mp3",
     "duration": 186,
     "game": "xenoblade-3",
@@ -3865,8 +2758,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Captocorn Peak - Night",
-    "localizedTitle": "Captocorn Peak - Night",
+    "title": "Captocorn Peak/Night",
+    "localizedTitle": "Captocorn Peak/Night",
     "file": "18-04. Captocorn Peak - Night.mp3",
     "duration": 226,
     "game": "xenoblade-3",
@@ -3937,8 +2830,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Kenji Hiramatsu"
   },
   {
-    "title": "Fort O'Virbus - Night",
-    "localizedTitle": "Fort O'Virbus - Night",
+    "title": "Fort O'Virbus/Night",
+    "localizedTitle": "Fort O'Virbus/Night",
     "file": "18-13. Fort O'Virbus - Night.mp3",
     "duration": 224,
     "game": "xenoblade-3",
@@ -3953,8 +2846,8 @@ const SONGS_XENOBLADE_3 = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Elaice Highway - Night",
-    "localizedTitle": "Elaice Highway - Night",
+    "title": "Elaice Highway/Night",
+    "localizedTitle": "Elaice Highway/Night",
     "file": "18-15. Elaice Highway - Night.mp3",
     "duration": 258,
     "game": "xenoblade-3",
@@ -4149,8 +3042,8 @@ const SONGS_XENOBLADE_3_FR = [
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
-    "title": "Cent-Omnia Region - Night",
-    "localizedTitle": "Cent-Omnia Region - Night",
+    "title": "Cent-Omnia Region/Night",
+    "localizedTitle": "Cent-Omnia Region/Night",
     "file": "20-04. Cent-Omnia Region - Night.mp3",
     "duration": 276,
     "game": "xenoblade-3-fr",
@@ -4165,8 +3058,8 @@ const SONGS_XENOBLADE_3_FR = [
     "artist": "Manami Kiyota"
   },
   {
-    "title": "Yesterdale - Colony 9 - Night",
-    "localizedTitle": "Yesterdale - Colony 9 - Night",
+    "title": "Yesterdale - Colony 9/Night",
+    "localizedTitle": "Yesterdale - Colony 9/Night",
     "file": "20-06. Yesterdale - Colony 9 - Night.mp3",
     "duration": 237,
     "game": "xenoblade-3-fr",
@@ -4181,8 +3074,8 @@ const SONGS_XENOBLADE_3_FR = [
     "artist": "Mariam Abounnasr"
   },
   {
-    "title": "Black Mountains - Valak Mountain - Night",
-    "localizedTitle": "Black Mountains - Valak Mountain - Night",
+    "title": "Black Mountains - Valak Mountain/Night",
+    "localizedTitle": "Black Mountains - Valak Mountain/Night",
     "file": "20-08. Black Mountains - Valak Mountain - Night.mp3",
     "duration": 242,
     "game": "xenoblade-3-fr",
@@ -4197,8 +3090,8 @@ const SONGS_XENOBLADE_3_FR = [
     "artist": "Mariam Abounnasr"
   },
   {
-    "title": "Black Mountains - Prison Island - Night",
-    "localizedTitle": "Black Mountains - Prison Island - Night",
+    "title": "Black Mountains - Prison Island/Night",
+    "localizedTitle": "Black Mountains - Prison Island/Night",
     "file": "20-10. Black Mountains - Prison Island - Night.mp3",
     "duration": 244,
     "game": "xenoblade-3-fr",
@@ -4331,8 +3224,8 @@ const SONGS_XENOBLADE_X = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "no11=REARR.X",
-    "localizedTitle": "no11=REARR.X",
+    "title": "no11=RE:ARR.X",
+    "localizedTitle": "no11=RE:ARR.X",
     "file": "1-11. no11=REARR.X.mp3",
     "duration": 370,
     "game": "xenoblade-x",
@@ -4439,8 +3332,8 @@ const SONGS_XENOBLADE_X = [
     "artist": "Aimee Blackschleger"
   },
   {
-    "title": "z2f0i1e2l0d914",
-    "localizedTitle": "z2f0i1e2l0d914",
+    "title": "z?2f0i1e2l0d914",
+    "localizedTitle": "z?2f0i1e2l0d914",
     "file": "2-08. z2f0i1e2l0d914.mp3",
     "duration": 156,
     "game": "xenoblade-x",
@@ -4619,8 +3512,8 @@ const SONGS_XENOBLADE_X = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "In the forest X→Z ver.",
-    "localizedTitle": "In the forest X→Z ver.",
+    "title": "In the forest <X→Z ver.>",
+    "localizedTitle": "In the forest <X→Z ver.>",
     "file": "3-10. In the forest X→Z ver..mp3",
     "duration": 288,
     "game": "xenoblade-x",
@@ -4628,8 +3521,8 @@ const SONGS_XENOBLADE_X = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "ri9",
-    "localizedTitle": "ri9",
+    "title": "46-:ri9",
+    "localizedTitle": "46-:ri9",
     "file": "3-11. 46-ri9.mp3",
     "duration": 312,
     "game": "xenoblade-x",
@@ -4637,8 +3530,8 @@ const SONGS_XENOBLADE_X = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "rip",
-    "localizedTitle": "rip",
+    "title": "96-:rip",
+    "localizedTitle": "96-:rip",
     "file": "3-12. 96-rip.mp3",
     "duration": 354,
     "game": "xenoblade-x",
@@ -4740,8 +3633,8 @@ const SONGS_XENOBLADE_X = [
 // xenoblade-x-de
 const SONGS_XENOBLADE_X_DE = [
   {
-    "title": "Don't worry 2XDv",
-    "localizedTitle": "Don't worry 2XDv",
+    "title": "Don't worry <2XDv>",
+    "localizedTitle": "Don't worry <2XDv>",
     "file": "5-01. Don't worry 2XDv.mp3",
     "duration": 235,
     "game": "xenoblade-x-de",
@@ -4749,8 +3642,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "Don't worry 2XDv (Instrumental ver.)",
-    "localizedTitle": "Don't worry 2XDv (Instrumental ver.)",
+    "title": "Don't worry <2XDv> (Instrumental ver.)",
+    "localizedTitle": "Don't worry <2XDv> (Instrumental ver.)",
     "file": "5-02. Don't worry 2XDv (Instrumental ver.).mp3",
     "duration": 235,
     "game": "xenoblade-x-de",
@@ -4758,8 +3651,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "S-FIELD",
-    "localizedTitle": "S-FIELD",
+    "title": "2S-FIELD",
+    "localizedTitle": "Volitaris Field",
     "file": "5-03. 2S-FIELD.mp3",
     "duration": 165,
     "game": "xenoblade-x-de",
@@ -4767,8 +3660,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Misaki Umase"
   },
   {
-    "title": "D-BATTLE",
-    "localizedTitle": "D-BATTLE",
+    "title": "2D-BATTLE",
+    "localizedTitle": "Volitaris Battle",
     "file": "5-04. 2D-BATTLE.mp3",
     "duration": 170,
     "game": "xenoblade-x-de",
@@ -4776,8 +3669,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Misaki Umase"
   },
   {
-    "title": "DXLB (Instrumental ver.)",
-    "localizedTitle": "DXLB (Instrumental ver.)",
+    "title": "2DXLB (Instrumental ver.)",
+    "localizedTitle": "2DXLB (Instrumental ver.)",
     "file": "5-05. 2DXLB (Instrumental ver.).mp3",
     "duration": 192,
     "game": "xenoblade-x-de",
@@ -4785,8 +3678,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "DXLB",
-    "localizedTitle": "DXLB",
+    "title": "2DXLB",
+    "localizedTitle": "2DXLB",
     "file": "5-06. 2DXLB.mp3",
     "duration": 188,
     "game": "xenoblade-x-de",
@@ -4794,8 +3687,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Laco"
   },
   {
-    "title": "The key we've lost 2XDv",
-    "localizedTitle": "The key we've lost 2XDv",
+    "title": "The key we've lost <2XDv>",
+    "localizedTitle": "The key we've lost <2XDv>",
     "file": "5-07. The key we've lost 2XDv.mp3",
     "duration": 200,
     "game": "xenoblade-x-de",
@@ -4803,8 +3696,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Laco"
   },
   {
-    "title": "N-ERA",
-    "localizedTitle": "N-ERA",
+    "title": "2N-ERA",
+    "localizedTitle": "2N-ERA",
     "file": "5-08. 2N-ERA.mp3",
     "duration": 381,
     "game": "xenoblade-x-de",
@@ -4812,8 +3705,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Misaki Umase"
   },
   {
-    "title": "D-TRAVELOGUE",
-    "localizedTitle": "D-TRAVELOGUE",
+    "title": "2D-TRAVELOGUE",
+    "localizedTitle": "2D-TRAVELOGUE",
     "file": "5-09. 2D-TRAVELOGUE.mp3",
     "duration": 447,
     "game": "xenoblade-x-de",
@@ -5181,8 +4074,8 @@ const SONGS_XENOGEARS = [
 // xenosaga-1
 const SONGS_XENOSAGA_1 = [
   {
-    "title": "01 Shion ~Memories of the Past~",
-    "localizedTitle": "01 Shion ~Memories of the Past~",
+    "title": "Shion ~Memories of the Past~",
+    "localizedTitle": "Shion ~Memories of the Past~",
     "file": "1-01 Shion ~Memories of the Past~.mp3",
     "duration": 75,
     "game": "xenosaga-1",
@@ -5190,8 +4083,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "02 Prologue",
-    "localizedTitle": "02 Prologue",
+    "title": "Prologue",
+    "localizedTitle": "Prologue",
     "file": "1-02 Prologue.mp3",
     "duration": 274,
     "game": "xenosaga-1",
@@ -5199,8 +4092,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "03 Gnosis",
-    "localizedTitle": "03 Gnosis",
+    "title": "Gnosis",
+    "localizedTitle": "Gnosis",
     "file": "1-03 Gnosis.mp3",
     "duration": 265,
     "game": "xenosaga-1",
@@ -5208,8 +4101,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "04 U-TIC Organization",
-    "localizedTitle": "04 U-TIC Organization",
+    "title": "U-TIC Organization",
+    "localizedTitle": "U-TIC Organization",
     "file": "1-04 U-TIC Organization.mp3",
     "duration": 168,
     "game": "xenosaga-1",
@@ -5217,8 +4110,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "05 The Girl Who Closed Her Heart",
-    "localizedTitle": "05 The Girl Who Closed Her Heart",
+    "title": "The Girl Who Closed Her Heart",
+    "localizedTitle": "The Girl Who Closed Her Heart",
     "file": "1-05 The Girl Who Closed Her Heart.mp3",
     "duration": 134,
     "game": "xenosaga-1",
@@ -5226,8 +4119,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "06 Ormus",
-    "localizedTitle": "06 Ormus",
+    "title": "Ormus",
+    "localizedTitle": "Ormus",
     "file": "1-06 Ormus.mp3",
     "duration": 149,
     "game": "xenosaga-1",
@@ -5235,8 +4128,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "07 Nephilim",
-    "localizedTitle": "07 Nephilim",
+    "title": "Nephilim",
+    "localizedTitle": "Nephilim",
     "file": "1-07 Nephilim.mp3",
     "duration": 153,
     "game": "xenosaga-1",
@@ -5244,8 +4137,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "08 Warmth _New Recording_",
-    "localizedTitle": "08 Warmth _New Recording_",
+    "title": "Warmth <New Recording>",
+    "localizedTitle": "Warmth <New Recording>",
     "file": "1-08 Warmth _New Recording_.mp3",
     "duration": 121,
     "game": "xenosaga-1",
@@ -5253,8 +4146,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "09 The Resurrection",
-    "localizedTitle": "09 The Resurrection",
+    "title": "The Resurrection",
+    "localizedTitle": "The Resurrection",
     "file": "1-09 The Resurrection.mp3",
     "duration": 113,
     "game": "xenosaga-1",
@@ -5262,8 +4155,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "10 The Beach of Nothingness _New Recording_",
-    "localizedTitle": "10 The Beach of Nothingness _New Recording_",
+    "title": "The Beach of Nothingness <New Recording>",
+    "localizedTitle": "The Beach of Nothingness <New Recording>",
     "file": "1-10 The Beach of Nothingness _New Recording_.mp3",
     "duration": 155,
     "game": "xenosaga-1",
@@ -5271,8 +4164,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "11 Green Sleeves _New Recording_",
-    "localizedTitle": "11 Green Sleeves _New Recording_",
+    "title": "Green Sleeves <New Recording>",
+    "localizedTitle": "Green Sleeves <New Recording>",
     "file": "1-11 Green Sleeves _New Recording_.mp3",
     "duration": 146,
     "game": "xenosaga-1",
@@ -5280,8 +4173,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "12 KOS-MOS",
-    "localizedTitle": "12 KOS-MOS",
+    "title": "KOS-MOS",
+    "localizedTitle": "KOS-MOS",
     "file": "1-12 KOS-MOS.mp3",
     "duration": 147,
     "game": "xenosaga-1",
@@ -5289,8 +4182,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "13 The Miracle",
-    "localizedTitle": "13 The Miracle",
+    "title": "The Miracle",
+    "localizedTitle": "The Miracle",
     "file": "1-13 The Miracle.mp3",
     "duration": 112,
     "game": "xenosaga-1",
@@ -5298,8 +4191,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "14 Zarathustra",
-    "localizedTitle": "14 Zarathustra",
+    "title": "Zarathustra",
+    "localizedTitle": "Zarathustra",
     "file": "1-14 Zarathustra.mp3",
     "duration": 185,
     "game": "xenosaga-1",
@@ -5307,8 +4200,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "15 Ω",
-    "localizedTitle": "15 Ω",
+    "title": "Ω",
+    "localizedTitle": "Ω",
     "file": "1-15 Ω.mp3",
     "duration": 248,
     "game": "xenosaga-1",
@@ -5316,8 +4209,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "16 Escape",
-    "localizedTitle": "16 Escape",
+    "title": "Escape",
+    "localizedTitle": "Escape",
     "file": "1-16 Escape.mp3",
     "duration": 152,
     "game": "xenosaga-1",
@@ -5325,8 +4218,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "17 Pain",
-    "localizedTitle": "17 Pain",
+    "title": "Pain",
+    "localizedTitle": "Pain",
     "file": "1-17 Pain.mp3",
     "duration": 338,
     "game": "xenosaga-1",
@@ -5334,8 +4227,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "18 Kokoro",
-    "localizedTitle": "18 Kokoro",
+    "title": "Kokoro",
+    "localizedTitle": "Kokoro",
     "file": "1-18 Kokoro.mp3",
     "duration": 337,
     "game": "xenosaga-1",
@@ -5343,8 +4236,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "19 Shion ~Emotion~",
-    "localizedTitle": "19 Shion ~Emotion~",
+    "title": "Shion ~Emotion~",
+    "localizedTitle": "Shion ~Emotion~",
     "file": "1-19 Shion ~Emotion~.mp3",
     "duration": 84,
     "game": "xenosaga-1",
@@ -5352,8 +4245,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "20 World to be Born",
-    "localizedTitle": "20 World to be Born",
+    "title": "World to be Born",
+    "localizedTitle": "World to be Born",
     "file": "1-20 World to be Born.mp3",
     "duration": 199,
     "game": "xenosaga-1",
@@ -5361,8 +4254,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "21 Pain -piano version- _New Recording_",
-    "localizedTitle": "21 Pain -piano version- _New Recording_",
+    "title": "Pain -piano version- <New Recording>",
+    "localizedTitle": "Pain -piano version- <New Recording>",
     "file": "1-21 Pain -piano version- _New Recording_.mp3",
     "duration": 165,
     "game": "xenosaga-1",
@@ -5370,8 +4263,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "01 Opening",
-    "localizedTitle": "01 Opening",
+    "title": "Opening",
+    "localizedTitle": "Opening",
     "file": "2-01 Opening.mp3",
     "duration": 242,
     "game": "xenosaga-1",
@@ -5379,8 +4272,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "02 Battle",
-    "localizedTitle": "02 Battle",
+    "title": "Battle",
+    "localizedTitle": "Battle",
     "file": "2-02 Battle.mp3",
     "duration": 179,
     "game": "xenosaga-1",
@@ -5388,8 +4281,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "03 Battle's End",
-    "localizedTitle": "03 Battle's End",
+    "title": "Battle's End",
+    "localizedTitle": "Battle's End",
     "file": "2-03 Battle's End.mp3",
     "duration": 42,
     "game": "xenosaga-1",
@@ -5397,8 +4290,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "04 Startup Test",
-    "localizedTitle": "04 Startup Test",
+    "title": "Startup Test",
+    "localizedTitle": "Startup Test",
     "file": "2-04 Startup Test.mp3",
     "duration": 142,
     "game": "xenosaga-1",
@@ -5406,8 +4299,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "05 Reminiscence",
-    "localizedTitle": "05 Reminiscence",
+    "title": "Reminiscence",
+    "localizedTitle": "Reminiscence",
     "file": "2-05 Reminiscence.mp3",
     "duration": 198,
     "game": "xenosaga-1",
@@ -5415,8 +4308,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "06 Awakening",
-    "localizedTitle": "06 Awakening",
+    "title": "Awakening",
+    "localizedTitle": "Awakening",
     "file": "2-06 Awakening.mp3",
     "duration": 140,
     "game": "xenosaga-1",
@@ -5424,8 +4317,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "07 Shion's Crisis",
-    "localizedTitle": "07 Shion's Crisis",
+    "title": "Shion's Crisis",
+    "localizedTitle": "Shion's Crisis",
     "file": "2-07 Shion's Crisis.mp3",
     "duration": 113,
     "game": "xenosaga-1",
@@ -5433,8 +4326,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "08 Battling KOS-MOS",
-    "localizedTitle": "08 Battling KOS-MOS",
+    "title": "Battling KOS-MOS",
+    "localizedTitle": "Battling KOS-MOS",
     "file": "2-08 Battling KOS-MOS.mp3",
     "duration": 199,
     "game": "xenosaga-1",
@@ -5442,8 +4335,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "09 Sorrow",
-    "localizedTitle": "09 Sorrow",
+    "title": "Sorrow",
+    "localizedTitle": "Sorrow",
     "file": "2-09 Sorrow.mp3",
     "duration": 234,
     "game": "xenosaga-1",
@@ -5451,8 +4344,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "10 Life or Death",
-    "localizedTitle": "10 Life or Death",
+    "title": "Life or Death",
+    "localizedTitle": "Life or Death",
     "file": "2-10 Life or Death.mp3",
     "duration": 195,
     "game": "xenosaga-1",
@@ -5460,8 +4353,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "11 Game Over",
-    "localizedTitle": "11 Game Over",
+    "title": "Game Over",
+    "localizedTitle": "Game Over",
     "file": "2-11 Game Over.mp3",
     "duration": 41,
     "game": "xenosaga-1",
@@ -5469,8 +4362,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "12 Margulis",
-    "localizedTitle": "12 Margulis",
+    "title": "Margulis",
+    "localizedTitle": "Margulis",
     "file": "2-12 Margulis.mp3",
     "duration": 269,
     "game": "xenosaga-1",
@@ -5478,8 +4371,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "13 Pursued Spaceship",
-    "localizedTitle": "13 Pursued Spaceship",
+    "title": "Pursued Spaceship",
+    "localizedTitle": "Pursued Spaceship",
     "file": "2-13 Pursued Spaceship.mp3",
     "duration": 222,
     "game": "xenosaga-1",
@@ -5487,8 +4380,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "14 Relief",
-    "localizedTitle": "14 Relief",
+    "title": "Relief",
+    "localizedTitle": "Relief",
     "file": "2-14 Relief.mp3",
     "duration": 167,
     "game": "xenosaga-1",
@@ -5496,8 +4389,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "15 Everyday",
-    "localizedTitle": "15 Everyday",
+    "title": "Everyday",
+    "localizedTitle": "Everyday",
     "file": "2-15 Everyday.mp3",
     "duration": 114,
     "game": "xenosaga-1",
@@ -5505,8 +4398,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "16 U.M.N. MODE",
-    "localizedTitle": "16 U.M.N. MODE",
+    "title": "U.M.N. MODE",
+    "localizedTitle": "U.M.N. MODE",
     "file": "2-16 U.M.N. MODE.mp3",
     "duration": 159,
     "game": "xenosaga-1",
@@ -5514,8 +4407,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "17 Durandal",
-    "localizedTitle": "17 Durandal",
+    "title": "Durandal",
+    "localizedTitle": "Durandal",
     "file": "2-17 Durandal.mp3",
     "duration": 153,
     "game": "xenosaga-1",
@@ -5523,8 +4416,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "18 Invading the Enemy Ship",
-    "localizedTitle": "18 Invading the Enemy Ship",
+    "title": "Invading the Enemy Ship",
+    "localizedTitle": "Invading the Enemy Ship",
     "file": "2-18 Invading the Enemy Ship.mp3",
     "duration": 40,
     "game": "xenosaga-1",
@@ -5532,8 +4425,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "19 Kookai Foundation",
-    "localizedTitle": "19 Kookai Foundation",
+    "title": "Kookai Foundation",
+    "localizedTitle": "Kookai Foundation",
     "file": "2-19 Kookai Foundation.mp3",
     "duration": 117,
     "game": "xenosaga-1",
@@ -5541,8 +4434,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "20 Anxiety",
-    "localizedTitle": "20 Anxiety",
+    "title": "Anxiety",
+    "localizedTitle": "Anxiety",
     "file": "2-20 Anxiety.mp3",
     "duration": 247,
     "game": "xenosaga-1",
@@ -5550,8 +4443,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "21 Panic",
-    "localizedTitle": "21 Panic",
+    "title": "Panic",
+    "localizedTitle": "Panic",
     "file": "2-21 Panic.mp3",
     "duration": 146,
     "game": "xenosaga-1",
@@ -5559,8 +4452,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "22 Song of Nephilim",
-    "localizedTitle": "22 Song of Nephilim",
+    "title": "Song of Nephilim",
+    "localizedTitle": "Song of Nephilim",
     "file": "2-22 Song of Nephilim.mp3",
     "duration": 66,
     "game": "xenosaga-1",
@@ -5568,8 +4461,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "23 Inner Space",
-    "localizedTitle": "23 Inner Space",
+    "title": "Inner Space",
+    "localizedTitle": "Inner Space",
     "file": "2-23 Inner Space.mp3",
     "duration": 107,
     "game": "xenosaga-1",
@@ -5577,8 +4470,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "24 Albedo",
-    "localizedTitle": "24 Albedo",
+    "title": "Albedo",
+    "localizedTitle": "Albedo",
     "file": "2-24 Albedo.mp3",
     "duration": 230,
     "game": "xenosaga-1",
@@ -5586,8 +4479,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "25 Proto Merkabah",
-    "localizedTitle": "25 Proto Merkabah",
+    "title": "Proto Merkabah",
+    "localizedTitle": "Proto Merkabah",
     "file": "2-25 Proto Merkabah.mp3",
     "duration": 330,
     "game": "xenosaga-1",
@@ -5595,8 +4488,8 @@ const SONGS_XENOSAGA_1 = [
     "artist": "Yasunori Mitsuda"
   },
   {
-    "title": "26 Last Battle",
-    "localizedTitle": "26 Last Battle",
+    "title": "Last Battle",
+    "localizedTitle": "Last Battle",
     "file": "2-26 Last Battle.mp3",
     "duration": 304,
     "game": "xenosaga-1",
@@ -6206,8 +5099,8 @@ const SONGS_XENOSAGA_2_MOVIE = [
 // xenosaga-3
 const SONGS_XENOSAGA_3 = [
   {
-    "title": ". I love you, sincerely (title screen ver.)",
-    "localizedTitle": ". I love you, sincerely (title screen ver.)",
+    "title": "I love you, sincerely (title screen ver.)",
+    "localizedTitle": "I love you, sincerely (title screen ver.)",
     "file": "01. I love you, sincerely (title screen ver.).mp3",
     "duration": 190,
     "game": "xenosaga-3",
@@ -6215,8 +5108,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". The Body of the Saint",
-    "localizedTitle": ". The Body of the Saint",
+    "title": "The Body of the Saint",
+    "localizedTitle": "The Body of the Saint",
     "file": "02. The Body of the Saint.mp3",
     "duration": 79,
     "game": "xenosaga-3",
@@ -6224,8 +5117,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". S-Line Division Infiltration",
-    "localizedTitle": ". S-Line Division Infiltration",
+    "title": "S-Line Division Infiltration",
+    "localizedTitle": "S-Line Division Infiltration",
     "file": "03. S-Line Division Infiltration.mp3",
     "duration": 171,
     "game": "xenosaga-3",
@@ -6233,8 +5126,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Rolling Down the U.M.N. #2",
-    "localizedTitle": ". Rolling Down the U.M.N. #2",
+    "title": "Rolling Down the U.M.N. #2",
+    "localizedTitle": "Rolling Down the U.M.N. #2",
     "file": "04. Rolling Down the U.M.N. #2.mp3",
     "duration": 210,
     "game": "xenosaga-3",
@@ -6242,8 +5135,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Fallout (original ver.)",
-    "localizedTitle": ". Fallout (original ver.)",
+    "title": "Fallout (original ver.)",
+    "localizedTitle": "Fallout (original ver.)",
     "file": "05. Fallout (original ver.).mp3",
     "duration": 179,
     "game": "xenosaga-3",
@@ -6251,8 +5144,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Rolling Down the U.M.N. #3",
-    "localizedTitle": ". Rolling Down the U.M.N. #3",
+    "title": "Rolling Down the U.M.N. #3",
+    "localizedTitle": "Rolling Down the U.M.N. #3",
     "file": "06. Rolling Down the U.M.N. #3.mp3",
     "duration": 104,
     "game": "xenosaga-3",
@@ -6260,8 +5153,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Discovered!",
-    "localizedTitle": ". Discovered!",
+    "title": "Discovered!",
+    "localizedTitle": "Discovered!",
     "file": "07. Discovered!.mp3",
     "duration": 131,
     "game": "xenosaga-3",
@@ -6269,8 +5162,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Battleland #2",
-    "localizedTitle": ". Battleland #2",
+    "title": "Battleland #2",
+    "localizedTitle": "Battleland #2",
     "file": "08. Battleland #2.mp3",
     "duration": 138,
     "game": "xenosaga-3",
@@ -6278,8 +5171,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Beach",
-    "localizedTitle": ". Beach",
+    "title": "Beach",
+    "localizedTitle": "Beach",
     "file": "09. Beach.mp3",
     "duration": 151,
     "game": "xenosaga-3",
@@ -6287,8 +5180,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Shion's Flashback",
-    "localizedTitle": ". Shion's Flashback",
+    "title": "Shion's Flashback",
+    "localizedTitle": "Shion's Flashback",
     "file": "10. Shion's Flashback.mp3",
     "duration": 147,
     "game": "xenosaga-3",
@@ -6296,8 +5189,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Margulis & Pellegri",
-    "localizedTitle": ". Margulis & Pellegri",
+    "title": "Margulis & Pellegri",
+    "localizedTitle": "Margulis & Pellegri",
     "file": "11. Margulis & Pellegri.mp3",
     "duration": 177,
     "game": "xenosaga-3",
@@ -6305,8 +5198,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Floating Landmass Appears",
-    "localizedTitle": ". Floating Landmass Appears",
+    "title": "Floating Landmass Appears",
+    "localizedTitle": "Floating Landmass Appears",
     "file": "12. Floating Landmass Appears.mp3",
     "duration": 10,
     "game": "xenosaga-3",
@@ -6314,8 +5207,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Survive ~ E.S. Battle (extended)",
-    "localizedTitle": ". Survive ~ E.S. Battle (extended)",
+    "title": "Survive ~ E.S. Battle (extended)",
+    "localizedTitle": "Survive ~ E.S. Battle (extended)",
     "file": "13. Survive ~ E.S. Battle (extended).mp3",
     "duration": 344,
     "game": "xenosaga-3",
@@ -6323,8 +5216,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". The Battle of Your Soul (variation)",
-    "localizedTitle": ". The Battle of Your Soul (variation)",
+    "title": "The Battle of Your Soul (variation)",
+    "localizedTitle": "The Battle of Your Soul (variation)",
     "file": "14. The Battle of Your Soul (variation).mp3",
     "duration": 207,
     "game": "xenosaga-3",
@@ -6332,8 +5225,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass",
-    "localizedTitle": ". Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass",
+    "title": "Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass",
+    "localizedTitle": "Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass",
     "file": "15. Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass.mp3",
     "duration": 131,
     "game": "xenosaga-3",
@@ -6341,8 +5234,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Yuriev & Sellers",
-    "localizedTitle": ". Yuriev & Sellers",
+    "title": "Yuriev & Sellers",
+    "localizedTitle": "Yuriev & Sellers",
     "file": "16. Yuriev & Sellers.mp3",
     "duration": 256,
     "game": "xenosaga-3",
@@ -6350,8 +5243,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Fifth Jerusalem",
-    "localizedTitle": ". Fifth Jerusalem",
+    "title": "Fifth Jerusalem",
+    "localizedTitle": "Fifth Jerusalem",
     "file": "17. Fifth Jerusalem.mp3",
     "duration": 196,
     "game": "xenosaga-3",
@@ -6359,8 +5252,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Mobius Hotel",
-    "localizedTitle": ". Mobius Hotel",
+    "title": "Mobius Hotel",
+    "localizedTitle": "Mobius Hotel",
     "file": "18. Mobius Hotel.mp3",
     "duration": 131,
     "game": "xenosaga-3",
@@ -6368,8 +5261,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Jingle",
-    "localizedTitle": ". Jingle",
+    "title": "Jingle",
+    "localizedTitle": "Jingle",
     "file": "19. Jingle.mp3",
     "duration": 12,
     "game": "xenosaga-3",
@@ -6377,8 +5270,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". CAT Facility",
-    "localizedTitle": ". CAT Facility",
+    "title": "CAT Facility",
+    "localizedTitle": "CAT Facility",
     "file": "20. CAT Facility.mp3",
     "duration": 111,
     "game": "xenosaga-3",
@@ -6386,8 +5279,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". T-elos (variation)",
-    "localizedTitle": ". T-elos (variation)",
+    "title": "T-elos (variation)",
+    "localizedTitle": "T-elos (variation)",
     "file": "21. T-elos (variation).mp3",
     "duration": 144,
     "game": "xenosaga-3",
@@ -6395,8 +5288,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Juli's Briefing",
-    "localizedTitle": ". Juli's Briefing",
+    "title": "Juli's Briefing",
+    "localizedTitle": "Juli's Briefing",
     "file": "22. Juli's Briefing.mp3",
     "duration": 131,
     "game": "xenosaga-3",
@@ -6404,8 +5297,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Maybe Tomorrow (strings ver.)",
-    "localizedTitle": ". Maybe Tomorrow (strings ver.)",
+    "title": "Maybe Tomorrow (strings ver.)",
+    "localizedTitle": "Maybe Tomorrow (strings ver.)",
     "file": "23. Maybe Tomorrow (strings ver.).mp3",
     "duration": 55,
     "game": "xenosaga-3",
@@ -6413,8 +5306,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Cardinal Heinlein",
-    "localizedTitle": ". Cardinal Heinlein",
+    "title": "Cardinal Heinlein",
+    "localizedTitle": "Cardinal Heinlein",
     "file": "24. Cardinal Heinlein.mp3",
     "duration": 100,
     "game": "xenosaga-3",
@@ -6422,8 +5315,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". I love you, sincerely (piano ver.)",
-    "localizedTitle": ". I love you, sincerely (piano ver.)",
+    "title": "I love you, sincerely (piano ver.)",
+    "localizedTitle": "I love you, sincerely (piano ver.)",
     "file": "25. I love you, sincerely (piano ver.).mp3",
     "duration": 301,
     "game": "xenosaga-3",
@@ -6431,8 +5324,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Elsa - Start of CAT Infiltration",
-    "localizedTitle": ". Elsa - Start of CAT Infiltration",
+    "title": "Elsa - Start of CAT Infiltration",
+    "localizedTitle": "Elsa - Start of CAT Infiltration",
     "file": "26. Elsa - Start of CAT Infiltration.mp3",
     "duration": 224,
     "game": "xenosaga-3",
@@ -6440,8 +5333,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Creeping Into (extended)",
-    "localizedTitle": ". Creeping Into (extended)",
+    "title": "Creeping Into (extended)",
+    "localizedTitle": "Creeping Into (extended)",
     "file": "27. Creeping Into (extended).mp3",
     "duration": 276,
     "game": "xenosaga-3",
@@ -6449,8 +5342,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Minor Boss Battle",
-    "localizedTitle": ". Minor Boss Battle",
+    "title": "Minor Boss Battle",
+    "localizedTitle": "Minor Boss Battle",
     "file": "28. Minor Boss Battle.mp3",
     "duration": 144,
     "game": "xenosaga-3",
@@ -6458,8 +5351,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". A New World (piano ver.)",
-    "localizedTitle": ". A New World (piano ver.)",
+    "title": "A New World (piano ver.)",
+    "localizedTitle": "A New World (piano ver.)",
     "file": "01. A New World (piano ver.).mp3",
     "duration": 112,
     "game": "xenosaga-3",
@@ -6467,8 +5360,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". In a Limestone Cave",
-    "localizedTitle": ". In a Limestone Cave",
+    "title": "In a Limestone Cave",
+    "localizedTitle": "In a Limestone Cave",
     "file": "02. In a Limestone Cave.mp3",
     "duration": 245,
     "game": "xenosaga-3",
@@ -6476,8 +5369,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Ancient Temple",
-    "localizedTitle": ". Ancient Temple",
+    "title": "Ancient Temple",
+    "localizedTitle": "Ancient Temple",
     "file": "03. Ancient Temple.mp3",
     "duration": 192,
     "game": "xenosaga-3",
@@ -6485,8 +5378,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". T-elos's Challenge",
-    "localizedTitle": ". T-elos's Challenge",
+    "title": "T-elos's Challenge",
+    "localizedTitle": "T-elos's Challenge",
     "file": "04. T-elos's Challenge.mp3",
     "duration": 114,
     "game": "xenosaga-3",
@@ -6494,8 +5387,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". T-elos #2 (variation)",
-    "localizedTitle": ". T-elos #2 (variation)",
+    "title": "T-elos #2 (variation)",
+    "localizedTitle": "T-elos #2 (variation)",
     "file": "05. T-elos #2 (variation).mp3",
     "duration": 156,
     "game": "xenosaga-3",
@@ -6503,8 +5396,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". A New World (variation)",
-    "localizedTitle": ". A New World (variation)",
+    "title": "A New World (variation)",
+    "localizedTitle": "A New World (variation)",
     "file": "06. A New World (variation).mp3",
     "duration": 50,
     "game": "xenosaga-3",
@@ -6512,8 +5405,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Old Miltia Forest",
-    "localizedTitle": ". Old Miltia Forest",
+    "title": "Old Miltia Forest",
+    "localizedTitle": "Old Miltia Forest",
     "file": "07. Old Miltia Forest.mp3",
     "duration": 87,
     "game": "xenosaga-3",
@@ -6521,8 +5414,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Old Miltia Forest #2",
-    "localizedTitle": ". Old Miltia Forest #2",
+    "title": "Old Miltia Forest #2",
+    "localizedTitle": "Old Miltia Forest #2",
     "file": "08. Old Miltia Forest #2.mp3",
     "duration": 87,
     "game": "xenosaga-3",
@@ -6530,8 +5423,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Rescue of Virgil",
-    "localizedTitle": ". Rescue of Virgil",
+    "title": "Rescue of Virgil",
+    "localizedTitle": "Rescue of Virgil",
     "file": "09. Rescue of Virgil.mp3",
     "duration": 134,
     "game": "xenosaga-3",
@@ -6539,8 +5432,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Sneaking Around in Miltia",
-    "localizedTitle": ". Sneaking Around in Miltia",
+    "title": "Sneaking Around in Miltia",
+    "localizedTitle": "Sneaking Around in Miltia",
     "file": "10. Sneaking Around in Miltia.mp3",
     "duration": 252,
     "game": "xenosaga-3",
@@ -6548,8 +5441,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Acute Neurosis Treatment Facility",
-    "localizedTitle": ". Acute Neurosis Treatment Facility",
+    "title": "Acute Neurosis Treatment Facility",
+    "localizedTitle": "Acute Neurosis Treatment Facility",
     "file": "11. Acute Neurosis Treatment Facility.mp3",
     "duration": 191,
     "game": "xenosaga-3",
@@ -6557,8 +5450,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". On Our Ways (extended)",
-    "localizedTitle": ". On Our Ways (extended)",
+    "title": "On Our Ways (extended)",
+    "localizedTitle": "On Our Ways (extended)",
     "file": "12. On Our Ways (extended).mp3",
     "duration": 233,
     "game": "xenosaga-3",
@@ -6566,8 +5459,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Joachim",
-    "localizedTitle": ". Joachim",
+    "title": "Joachim",
+    "localizedTitle": "Joachim",
     "file": "13. Joachim.mp3",
     "duration": 256,
     "game": "xenosaga-3",
@@ -6575,8 +5468,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". She's Coming Back (variation)",
-    "localizedTitle": ". She's Coming Back (variation)",
+    "title": "She's Coming Back (variation)",
+    "localizedTitle": "She's Coming Back (variation)",
     "file": "14. She's Coming Back (variation).mp3",
     "duration": 143,
     "game": "xenosaga-3",
@@ -6584,8 +5477,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Creeping Into #2",
-    "localizedTitle": ". Creeping Into #2",
+    "title": "Creeping Into #2",
+    "localizedTitle": "Creeping Into #2",
     "file": "15. Creeping Into #2.mp3",
     "duration": 143,
     "game": "xenosaga-3",
@@ -6593,8 +5486,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Acute Neurosis Treatment Facility - Under Attack",
-    "localizedTitle": ". Acute Neurosis Treatment Facility - Under Attack",
+    "title": "Acute Neurosis Treatment Facility - Under Attack",
+    "localizedTitle": "Acute Neurosis Treatment Facility - Under Attack",
     "file": "16. Acute Neurosis Treatment Facility - Under Attack.mp3",
     "duration": 169,
     "game": "xenosaga-3",
@@ -6602,8 +5495,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Joachim's Decision",
-    "localizedTitle": ". Joachim's Decision",
+    "title": "Joachim's Decision",
+    "localizedTitle": "Joachim's Decision",
     "file": "17. Joachim's Decision.mp3",
     "duration": 130,
     "game": "xenosaga-3",
@@ -6611,8 +5504,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Outrageous (extended)",
-    "localizedTitle": ". Outrageous (extended)",
+    "title": "Outrageous (extended)",
+    "localizedTitle": "Outrageous (extended)",
     "file": "18. Outrageous (extended).mp3",
     "duration": 320,
     "game": "xenosaga-3",
@@ -6620,8 +5513,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Jin",
-    "localizedTitle": ". Jin",
+    "title": "Jin",
+    "localizedTitle": "Jin",
     "file": "19. Jin.mp3",
     "duration": 69,
     "game": "xenosaga-3",
@@ -6629,8 +5522,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". The Harsh Truth (piano ver.)",
-    "localizedTitle": ". The Harsh Truth (piano ver.)",
+    "title": "The Harsh Truth (piano ver.)",
+    "localizedTitle": "The Harsh Truth (piano ver.)",
     "file": "20. The Harsh Truth (piano ver.).mp3",
     "duration": 57,
     "game": "xenosaga-3",
@@ -6638,8 +5531,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Labyrinthos - Search for Shion",
-    "localizedTitle": ". Labyrinthos - Search for Shion",
+    "title": "Labyrinthos - Search for Shion",
+    "localizedTitle": "Labyrinthos - Search for Shion",
     "file": "21. Labyrinthos - Search for Shion.mp3",
     "duration": 152,
     "game": "xenosaga-3",
@@ -6647,8 +5540,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Assault #2",
-    "localizedTitle": ". Assault #2",
+    "title": "Assault #2",
+    "localizedTitle": "Assault #2",
     "file": "22. Assault #2.mp3",
     "duration": 196,
     "game": "xenosaga-3",
@@ -6656,8 +5549,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Testament (no vocals)",
-    "localizedTitle": ". Testament (no vocals)",
+    "title": "Testament (no vocals)",
+    "localizedTitle": "Testament (no vocals)",
     "file": "23. Testament (no vocals).mp3",
     "duration": 203,
     "game": "xenosaga-3",
@@ -6665,8 +5558,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Virgil's Lament",
-    "localizedTitle": ". Virgil's Lament",
+    "title": "Virgil's Lament",
+    "localizedTitle": "Virgil's Lament",
     "file": "24. Virgil's Lament.mp3",
     "duration": 148,
     "game": "xenosaga-3",
@@ -6674,8 +5567,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Song of Nephilim",
-    "localizedTitle": ". Song of Nephilim",
+    "title": "Song of Nephilim",
+    "localizedTitle": "Song of Nephilim",
     "file": "25. Song of Nephilim.mp3",
     "duration": 157,
     "game": "xenosaga-3",
@@ -6683,8 +5576,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". A Dark Omen #2 ~ Merkabah",
-    "localizedTitle": ". A Dark Omen #2 ~ Merkabah",
+    "title": "A Dark Omen #2 ~ Merkabah",
+    "localizedTitle": "A Dark Omen #2 ~ Merkabah",
     "file": "26. A Dark Omen #2 ~ Merkabah.mp3",
     "duration": 170,
     "game": "xenosaga-3",
@@ -6692,8 +5585,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Survive #2 ~ Invasion of the Durandal",
-    "localizedTitle": ". Survive #2 ~ Invasion of the Durandal",
+    "title": "Survive #2 ~ Invasion of the Durandal",
+    "localizedTitle": "Survive #2 ~ Invasion of the Durandal",
     "file": "27. Survive #2 ~ Invasion of the Durandal.mp3",
     "duration": 201,
     "game": "xenosaga-3",
@@ -6701,8 +5594,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Godsibb (extended)",
-    "localizedTitle": ". Godsibb (extended)",
+    "title": "Godsibb (extended)",
+    "localizedTitle": "Godsibb (extended)",
     "file": "28. Godsibb (extended).mp3",
     "duration": 307,
     "game": "xenosaga-3",
@@ -6710,8 +5603,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". When the Grief Lets You Go (extended)",
-    "localizedTitle": ". When the Grief Lets You Go (extended)",
+    "title": "When the Grief Lets You Go (extended)",
+    "localizedTitle": "When the Grief Lets You Go (extended)",
     "file": "01. When the Grief Lets You Go (extended).mp3",
     "duration": 122,
     "game": "xenosaga-3",
@@ -6719,8 +5612,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". chaos & Canaan",
-    "localizedTitle": ". chaos & Canaan",
+    "title": "chaos & Canaan",
+    "localizedTitle": "chaos & Canaan",
     "file": "02. chaos & Canaan.mp3",
     "duration": 89,
     "game": "xenosaga-3",
@@ -6728,8 +5621,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Abel's Ark",
-    "localizedTitle": ". Abel's Ark",
+    "title": "Abel's Ark",
+    "localizedTitle": "Abel's Ark",
     "file": "03. Abel's Ark.mp3",
     "duration": 175,
     "game": "xenosaga-3",
@@ -6737,8 +5630,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Battleland (variation)",
-    "localizedTitle": ". Battleland (variation)",
+    "title": "Battleland (variation)",
+    "localizedTitle": "Battleland (variation)",
     "file": "04. Battleland (variation).mp3",
     "duration": 211,
     "game": "xenosaga-3",
@@ -6746,8 +5639,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Battle vs. Yuriev",
-    "localizedTitle": ". Battle vs. Yuriev",
+    "title": "Battle vs. Yuriev",
+    "localizedTitle": "Battle vs. Yuriev",
     "file": "05. Battle vs. Yuriev.mp3",
     "duration": 251,
     "game": "xenosaga-3",
@@ -6755,8 +5648,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Godsibb (no vocal)",
-    "localizedTitle": ". Godsibb (no vocal)",
+    "title": "Godsibb (no vocal)",
+    "localizedTitle": "Godsibb (no vocal)",
     "file": "06. Godsibb (no vocal).mp3",
     "duration": 173,
     "game": "xenosaga-3",
@@ -6764,8 +5657,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Destruction of the Star System",
-    "localizedTitle": ". Destruction of the Star System",
+    "title": "Destruction of the Star System",
+    "localizedTitle": "Destruction of the Star System",
     "file": "07. Destruction of the Star System.mp3",
     "duration": 85,
     "game": "xenosaga-3",
@@ -6773,8 +5666,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". To the Last Place (extended)",
-    "localizedTitle": ". To the Last Place (extended)",
+    "title": "To the Last Place (extended)",
+    "localizedTitle": "To the Last Place (extended)",
     "file": "08. To the Last Place (extended).mp3",
     "duration": 206,
     "game": "xenosaga-3",
@@ -6782,8 +5675,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". A Memory of a Tragedy (extended)",
-    "localizedTitle": ". A Memory of a Tragedy (extended)",
+    "title": "A Memory of a Tragedy (extended)",
+    "localizedTitle": "A Memory of a Tragedy (extended)",
     "file": "09. A Memory of a Tragedy (extended).mp3",
     "duration": 191,
     "game": "xenosaga-3",
@@ -6791,8 +5684,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Richard & Hermann's Appearance",
-    "localizedTitle": ". Richard & Hermann's Appearance",
+    "title": "Richard & Hermann's Appearance",
+    "localizedTitle": "Richard & Hermann's Appearance",
     "file": "10. Richard & Hermann's Appearance.mp3",
     "duration": 110,
     "game": "xenosaga-3",
@@ -6800,8 +5693,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Forgotten Sanctuary",
-    "localizedTitle": ". Forgotten Sanctuary",
+    "title": "Forgotten Sanctuary",
+    "localizedTitle": "Forgotten Sanctuary",
     "file": "11. Forgotten Sanctuary.mp3",
     "duration": 144,
     "game": "xenosaga-3",
@@ -6809,8 +5702,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Voyager",
-    "localizedTitle": ". Voyager",
+    "title": "Voyager",
+    "localizedTitle": "Voyager",
     "file": "12. Voyager.mp3",
     "duration": 123,
     "game": "xenosaga-3",
@@ -6818,8 +5711,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Testament (extended)",
-    "localizedTitle": ". Testament (extended)",
+    "title": "Testament (extended)",
+    "localizedTitle": "Testament (extended)",
     "file": "13. Testament (extended).mp3",
     "duration": 213,
     "game": "xenosaga-3",
@@ -6827,8 +5720,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab",
-    "localizedTitle": ". Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab",
+    "title": "Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab",
+    "localizedTitle": "Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab",
     "file": "14. Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab.mp3",
     "duration": 148,
     "game": "xenosaga-3",
@@ -6836,8 +5729,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Zarathustra Dungeon (extended)",
-    "localizedTitle": ". Zarathustra Dungeon (extended)",
+    "title": "Zarathustra Dungeon (extended)",
+    "localizedTitle": "Zarathustra Dungeon (extended)",
     "file": "15. Zarathustra Dungeon (extended).mp3",
     "duration": 242,
     "game": "xenosaga-3",
@@ -6845,8 +5738,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". T-elos' Final Appearance",
-    "localizedTitle": ". T-elos' Final Appearance",
+    "title": "T-elos' Final Appearance",
+    "localizedTitle": "T-elos' Final Appearance",
     "file": "16. T-elos' Final Appearance.mp3",
     "duration": 209,
     "game": "xenosaga-3",
@@ -6854,8 +5747,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Hepatica (KOS-MOS)",
-    "localizedTitle": ". Hepatica (KOS-MOS)",
+    "title": "Hepatica (KOS-MOS)",
+    "localizedTitle": "Hepatica (KOS-MOS)",
     "file": "17. Hepatica (KOS-MOS).mp3",
     "duration": 265,
     "game": "xenosaga-3",
@@ -6863,8 +5756,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". The Harsh Truth ~ Battle vs. Shion & Kevin (piano + strings ver.)",
-    "localizedTitle": ". The Harsh Truth ~ Battle vs. Shion & Kevin (piano + strings ver.)",
+    "title": "The Harsh Truth ~ Battle vs. Shion & Kevin (piano + strings ver.)",
+    "localizedTitle": "The Harsh Truth ~ Battle vs. Shion & Kevin (piano + strings ver.)",
     "file": "18. The Harsh Truth ~ Battle vs. Shion & Kevin (piano + strings ver.).mp3",
     "duration": 127,
     "game": "xenosaga-3",
@@ -6872,8 +5765,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Wilhelm",
-    "localizedTitle": ". Wilhelm",
+    "title": "Wilhelm",
+    "localizedTitle": "Wilhelm",
     "file": "19. Wilhelm.mp3",
     "duration": 168,
     "game": "xenosaga-3",
@@ -6881,8 +5774,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Nephilim & Abel",
-    "localizedTitle": ". Nephilim & Abel",
+    "title": "Nephilim & Abel",
+    "localizedTitle": "Nephilim & Abel",
     "file": "20. Nephilim & Abel.mp3",
     "duration": 98,
     "game": "xenosaga-3",
@@ -6890,8 +5783,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Promised Pain (extended)",
-    "localizedTitle": ". Promised Pain (extended)",
+    "title": "Promised Pain (extended)",
+    "localizedTitle": "Promised Pain (extended)",
     "file": "21. Promised Pain (extended).mp3",
     "duration": 314,
     "game": "xenosaga-3",
@@ -6899,8 +5792,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Maybe Tomorrow (piano ver.)",
-    "localizedTitle": ". Maybe Tomorrow (piano ver.)",
+    "title": "Maybe Tomorrow (piano ver.)",
+    "localizedTitle": "Maybe Tomorrow (piano ver.)",
     "file": "22. Maybe Tomorrow (piano ver.).mp3",
     "duration": 73,
     "game": "xenosaga-3",
@@ -6908,8 +5801,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Hepatica (piano ver.)",
-    "localizedTitle": ". Hepatica (piano ver.)",
+    "title": "Hepatica (piano ver.)",
+    "localizedTitle": "Hepatica (piano ver.)",
     "file": "23. Hepatica (piano ver.).mp3",
     "duration": 171,
     "game": "xenosaga-3",
@@ -6917,8 +5810,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Chase (intro)",
-    "localizedTitle": ". Chase (intro)",
+    "title": "Chase (intro)",
+    "localizedTitle": "Chase (intro)",
     "file": "24. Chase (intro).mp3",
     "duration": 46,
     "game": "xenosaga-3",
@@ -6926,8 +5819,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". Battle vs. Erde Kaiser Σ",
-    "localizedTitle": ". Battle vs. Erde Kaiser Σ",
+    "title": "Battle vs. Erde Kaiser Σ",
+    "localizedTitle": "Battle vs. Erde Kaiser Σ",
     "file": "25. Battle vs. Erde Kaiser Σ.mp3",
     "duration": 188,
     "game": "xenosaga-3",
@@ -6935,8 +5828,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". HaKox Theme A",
-    "localizedTitle": ". HaKox Theme A",
+    "title": "HaKox Theme A",
+    "localizedTitle": "HaKox Theme A",
     "file": "26. HaKox Theme A.mp3",
     "duration": 144,
     "game": "xenosaga-3",
@@ -6944,8 +5837,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". HaKox Theme B",
-    "localizedTitle": ". HaKox Theme B",
+    "title": "HaKox Theme B",
+    "localizedTitle": "HaKox Theme B",
     "file": "27. HaKox Theme B.mp3",
     "duration": 197,
     "game": "xenosaga-3",
@@ -6953,8 +5846,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": ". She's Coming Back (short ver.)",
-    "localizedTitle": ". She's Coming Back (short ver.)",
+    "title": "She's Coming Back (short ver.)",
+    "localizedTitle": "She's Coming Back (short ver.)",
     "file": "28. She's Coming Back (short ver.).mp3",
     "duration": 31,
     "game": "xenosaga-3",
@@ -6966,8 +5859,8 @@ const SONGS_XENOSAGA_3 = [
 // xenosaga-freaks
 const SONGS_XENOSAGA_FREAKS = [
   {
-    "title": ". Elsa",
-    "localizedTitle": ". Elsa",
+    "title": "Elsa",
+    "localizedTitle": "Elsa",
     "file": "01. Elsa.mp3",
     "duration": 188,
     "game": "xenosaga-freaks",
@@ -6975,8 +5868,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Elsa 2",
-    "localizedTitle": ". Elsa 2",
+    "title": "Elsa 2",
+    "localizedTitle": "Elsa 2",
     "file": "02. Elsa 2.mp3",
     "duration": 287,
     "game": "xenosaga-freaks",
@@ -6984,8 +5877,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Subconcious Domain (Sakura's World)",
-    "localizedTitle": ". Subconcious Domain (Sakura's World)",
+    "title": "Subconcious Domain (Sakura's World)",
+    "localizedTitle": "Subconcious Domain (Sakura's World)",
     "file": "03. Subconcious Domain (Sakura's World).mp3",
     "duration": 146,
     "game": "xenosaga-freaks",
@@ -6993,8 +5886,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Nyaa 1",
-    "localizedTitle": ". Nyaa 1",
+    "title": "Nyaa 1",
+    "localizedTitle": "Nyaa 1",
     "file": "04. Nyaa 1.mp3",
     "duration": 204,
     "game": "xenosaga-freaks",
@@ -7002,8 +5895,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Durandal 1",
-    "localizedTitle": ". Durandal 1",
+    "title": "Durandal 1",
+    "localizedTitle": "Durandal 1",
     "file": "05. Durandal 1.mp3",
     "duration": 164,
     "game": "xenosaga-freaks",
@@ -7011,8 +5904,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Durandal 2",
-    "localizedTitle": ". Durandal 2",
+    "title": "Durandal 2",
+    "localizedTitle": "Durandal 2",
     "file": "06. Durandal 2.mp3",
     "duration": 240,
     "game": "xenosaga-freaks",
@@ -7020,8 +5913,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Encylopedia",
-    "localizedTitle": ". Encylopedia",
+    "title": "Encylopedia",
+    "localizedTitle": "Encylopedia",
     "file": "07. Encylopedia.mp3",
     "duration": 184,
     "game": "xenosaga-freaks",
@@ -7029,8 +5922,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Unknown",
-    "localizedTitle": ". Unknown",
+    "title": "Unknown",
+    "localizedTitle": "Unknown",
     "file": "08. Unknown.mp3",
     "duration": 186,
     "game": "xenosaga-freaks",
@@ -7038,8 +5931,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Nyaa 2",
-    "localizedTitle": ". Nyaa 2",
+    "title": "Nyaa 2",
+    "localizedTitle": "Nyaa 2",
     "file": "09. Nyaa 2.mp3",
     "duration": 146,
     "game": "xenosaga-freaks",
@@ -7047,8 +5940,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Credits",
-    "localizedTitle": ". Credits",
+    "title": "Credits",
+    "localizedTitle": "Credits",
     "file": "10. Credits.mp3",
     "duration": 205,
     "game": "xenosaga-freaks",
@@ -7056,8 +5949,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Options",
-    "localizedTitle": ". Options",
+    "title": "Options",
+    "localizedTitle": "Options",
     "file": "11. Options.mp3",
     "duration": 235,
     "game": "xenosaga-freaks",
@@ -7065,8 +5958,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": ". Xeno-Pittan - Opening",
-    "localizedTitle": ". Xeno-Pittan - Opening",
+    "title": "Xeno-Pittan - Opening",
+    "localizedTitle": "Xeno-Pittan - Opening",
     "file": "12. Xeno-Pittan - Opening.mp3",
     "duration": 29,
     "game": "xenosaga-freaks",
@@ -7074,8 +5967,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": ". Xeno-Pittan - Top Menu",
-    "localizedTitle": ". Xeno-Pittan - Top Menu",
+    "title": "Xeno-Pittan - Top Menu",
+    "localizedTitle": "Xeno-Pittan - Top Menu",
     "file": "13. Xeno-Pittan - Top Menu.mp3",
     "duration": 51,
     "game": "xenosaga-freaks",
@@ -7083,24 +5976,24 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": ". Xeno-Pittan - Stage Select",
-    "localizedTitle": ". Xeno-Pittan - Stage Select",
+    "title": "Xeno-Pittan - Stage Select",
+    "localizedTitle": "Xeno-Pittan - Stage Select",
     "file": "14. Xeno-Pittan - Stage Select.mp3",
     "duration": 114,
     "game": "xenosaga-freaks",
     "artist": "Namco Sound Team"
   },
   {
-    "title": ". Xeno-Pittan - Stage 01",
-    "localizedTitle": ". Xeno-Pittan - Stage 01",
+    "title": "Xeno-Pittan - Stage 01",
+    "localizedTitle": "Xeno-Pittan - Stage 01",
     "file": "15. Xeno-Pittan - Stage 01.mp3",
     "duration": 341,
     "game": "xenosaga-freaks",
     "artist": "Namco Sound Team"
   },
   {
-    "title": ". Xeno-Pittan - estrellita",
-    "localizedTitle": ". Xeno-Pittan - estrellita",
+    "title": "Xeno-Pittan - estrellita",
+    "localizedTitle": "Xeno-Pittan - estrellita",
     "file": "16. Xeno-Pittan - estrellita.mp3",
     "duration": 296,
     "game": "xenosaga-freaks",
@@ -7108,8 +6001,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Ai Maeda"
   },
   {
-    "title": ". Xeno-Pittan - [ai]",
-    "localizedTitle": ". Xeno-Pittan - [ai]",
+    "title": "Xeno-Pittan - [ai]",
+    "localizedTitle": "Xeno-Pittan - [ai]",
     "file": "17. Xeno-Pittan - [ai].mp3",
     "duration": 615,
     "game": "xenosaga-freaks",
@@ -7117,8 +6010,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Mariko Suzuki"
   },
   {
-    "title": ". Xeno-Pittan - paradox",
-    "localizedTitle": ". Xeno-Pittan - paradox",
+    "title": "Xeno-Pittan - paradox",
+    "localizedTitle": "Xeno-Pittan - paradox",
     "file": "18. Xeno-Pittan - paradox.mp3",
     "duration": 577,
     "game": "xenosaga-freaks",
@@ -7126,8 +6019,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Rumi Shishido"
   },
   {
-    "title": ". Xeno-Pittan - Our Xenopittan",
-    "localizedTitle": ". Xeno-Pittan - Our Xenopittan",
+    "title": "Xeno-Pittan - Our Xenopittan",
+    "localizedTitle": "Xeno-Pittan - Our Xenopittan",
     "file": "19. Xeno-Pittan - Our Xenopittan.mp3",
     "duration": 237,
     "game": "xenosaga-freaks",
@@ -7135,8 +6028,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Ai Maeda, Mariko Suzuki, & Rumi Shishido"
   },
   {
-    "title": ". Xeno-Pittan - Stage Clear",
-    "localizedTitle": ". Xeno-Pittan - Stage Clear",
+    "title": "Xeno-Pittan - Stage Clear",
+    "localizedTitle": "Xeno-Pittan - Stage Clear",
     "file": "20. Xeno-Pittan - Stage Clear.mp3",
     "duration": 6,
     "game": "xenosaga-freaks",
@@ -7144,8 +6037,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": ". Xeno-Pittan - Time Up",
-    "localizedTitle": ". Xeno-Pittan - Time Up",
+    "title": "Xeno-Pittan - Time Up",
+    "localizedTitle": "Xeno-Pittan - Time Up",
     "file": "21. Xeno-Pittan - Time Up.mp3",
     "duration": 4,
     "game": "xenosaga-freaks",
@@ -7153,8 +6046,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": ". Xeno-Pittan - Continue",
-    "localizedTitle": ". Xeno-Pittan - Continue",
+    "title": "Xeno-Pittan - Continue",
+    "localizedTitle": "Xeno-Pittan - Continue",
     "file": "22. Xeno-Pittan - Continue.mp3",
     "duration": 13,
     "game": "xenosaga-freaks",
@@ -7162,8 +6055,8 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": ". Xeno-Pittan - Personality Test",
-    "localizedTitle": ". Xeno-Pittan - Personality Test",
+    "title": "Xeno-Pittan - Personality Test",
+    "localizedTitle": "Xeno-Pittan - Personality Test",
     "file": "23. Xeno-Pittan - Personality Test.mp3",
     "duration": 41,
     "game": "xenosaga-freaks",
@@ -7175,128 +6068,128 @@ const SONGS_XENOSAGA_FREAKS = [
 // xenosaga-pied-piper
 const SONGS_XENOSAGA_PIED_PIPER = [
   {
-    "title": ". Sharon's Theme",
-    "localizedTitle": ". Sharon's Theme",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 01 - Sharon's Theme (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 01 - Sharon's Theme (Unofficial name)",
     "file": "01. Sharon's Theme.mp3",
     "duration": 53,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Creeping Suspicion",
-    "localizedTitle": ". Creeping Suspicion",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 02 - Creeping Suspicion(Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 02 - Creeping Suspicion(Unofficial name)",
     "file": "02. Creeping Suspicion.mp3",
     "duration": 24,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". U.M.N. Operation",
-    "localizedTitle": ". U.M.N. Operation",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 03 - U.M.N. Operation (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 03 - U.M.N. Operation (Unofficial name)",
     "file": "03. U.M.N. Operation.mp3",
     "duration": 27,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". At Ease",
-    "localizedTitle": ". At Ease",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 04 - At Ease (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 04 - At Ease (Unofficial name)",
     "file": "04. At Ease.mp3",
     "duration": 28,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Mission Briefing",
-    "localizedTitle": ". Mission Briefing",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 05 - Mission Briefing (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 05 - Mission Briefing (Unofficial name)",
     "file": "05. Mission Briefing.mp3",
     "duration": 36,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". High Alert",
-    "localizedTitle": ". High Alert",
+    "title": "Xenosaga Pied Piper OST - 06 [ver. SH900i] - High Alert (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST - 06 [ver. SH900i] - High Alert (Unofficial name)",
     "file": "06. High Alert.mp3",
     "duration": 25,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Aggravated Assault",
-    "localizedTitle": ". Aggravated Assault",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 07 - Aggravated Assault (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 07 - Aggravated Assault (Unofficial name)",
     "file": "07. Aggravated Assault.mp3",
     "duration": 19,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". All Clear",
-    "localizedTitle": ". All Clear",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 08 - All Clear (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 08 - All Clear (Unofficial name)",
     "file": "08. All Clear.mp3",
     "duration": 3,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Operation Update",
-    "localizedTitle": ". Operation Update",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 09 - Operation Update (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 09 - Operation Update (Unofficial name)",
     "file": "09. Operation Update.mp3",
     "duration": 30,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". U.M.N. Menace",
-    "localizedTitle": ". U.M.N. Menace",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 10 - U.M.N. Menace (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 10 - U.M.N. Menace (Unofficial name)",
     "file": "10. U.M.N. Menace.mp3",
     "duration": 32,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Revelations",
-    "localizedTitle": ". Revelations",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 11 - Revelations (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 11 - Revelations (Unofficial name)",
     "file": "11. Revelations.mp3",
     "duration": 24,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". End of Watch Call",
-    "localizedTitle": ". End of Watch Call",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 12 - End of Watch Call (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 12 - End of Watch Call (Unofficial name)",
     "file": "12. End of Watch Call.mp3",
     "duration": 36,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Pulse",
-    "localizedTitle": ". Pulse",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 13 - Pulse (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 13 - Pulse (Unofficial name)",
     "file": "13. Pulse.mp3",
     "duration": 6,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". The Zohar's Awakening",
-    "localizedTitle": ". The Zohar's Awakening",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 14 - The Zohar's Awakening (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 14 - The Zohar's Awakening (Unofficial name)",
     "file": "14. The Zohar's Awakening.mp3",
     "duration": 61,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Mantle of Shadow",
-    "localizedTitle": ". Mantle of Shadow",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 15 - Mantle of Shadow (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 15 - Mantle of Shadow (Unofficial name)",
     "file": "15. Mantle of Shadow.mp3",
     "duration": 28,
     "game": "xenosaga-pied-piper",
     "artist": "Watte Tv"
   },
   {
-    "title": ". Final Report",
-    "localizedTitle": ". Final Report",
+    "title": "Xenosaga Pied Piper OST [ver. SH900i] - 16 - Final Report (Unofficial name)",
+    "localizedTitle": "Xenosaga Pied Piper OST [ver. SH900i] - 16 - Final Report (Unofficial name)",
     "file": "16. Final Report.mp3",
     "duration": 57,
     "game": "xenosaga-pied-piper",
@@ -7309,10 +6202,8 @@ const SONGS_XENOSAGA_PIED_PIPER = [
 // SONG POOL MAPPING
 // ============================================
 const SONG_POOLS = {
-  'smash-remixes': SONGS_SMASH_REMIXES,
   'xenoblade-1': SONGS_XENOBLADE_1,
   'xenoblade-1-fc': SONGS_XENOBLADE_1_FC,
-  'xenoblade-1-wii': SONGS_XENOBLADE_1_WII,
   'xenoblade-2': SONGS_XENOBLADE_2,
   'xenoblade-2-torna': SONGS_XENOBLADE_2_TORNA,
   'xenoblade-3': SONGS_XENOBLADE_3,

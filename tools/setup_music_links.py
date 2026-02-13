@@ -34,15 +34,13 @@ FOLDER_MAPPING = {
     ],
 
     # Individual games
-    "Xenoblade Chronicles (Wii) (gamerip) (2010)": [("xenoblade-1-wii", "XC Wii")],
     "Xenogears ORIGINAL SOUNDTRACK (1998)": [("xenogears", "Xenogears")],
     "Xenosaga Episode I (2004)": [("xenosaga-1", "Xenosaga I")],
     "Xenosaga Episode III OST": [("xenosaga-3", "Xenosaga III")],
     "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)": [("xenosaga-2-gamerip", "Xenosaga II Gamerip")],
     "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)": [("xenosaga-2-movie", "Xenosaga II Movie")],
     "Xenosaga Freaks (PS2) (gamerip) (2004)": [("xenosaga-freaks", "Freaks")],
-    "Xenosaga Pied Piper (Mobile) (gamerip) (2004)": [("xenosaga-pied-piper", "Pied Piper")],
-    "Super Smash Bros. Ultimate Vol. 20 - Xenoblade Chronicles (Switch) (gamerip) (2018)": [("smash-remixes", "Smash")]
+    "Xenosaga Pied Piper (Mobile) (gamerip) (2004)": [("xenosaga-pied-piper", "Pied Piper")]
 }
 
 def create_symlink_windows(source, target):

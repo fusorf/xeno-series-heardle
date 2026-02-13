@@ -543,6 +543,43 @@ h1::before {
     filter: drop-shadow(0 0 8px var(--glow-blue));
 }
 
+/* ===== GAME FILTER CHIPS ===== */
+
+.game-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.game-filter-chip {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 2px solid var(--chip-color);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.game-filter-chip.active {
+    background: var(--chip-color);
+    color: #fff;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--chip-color) 50%, transparent);
+}
+
+.game-filter-chip:not(.active):hover {
+    background: color-mix(in srgb, var(--chip-color) 20%, transparent);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== SEARCH ===== */
+
 .search-container {
     position: relative;
     margin-bottom: 20px;
@@ -641,6 +678,21 @@ h1::before {
     transition: all 0.2s ease;
     position: relative;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.autocomplete-game-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--badge-color) 25%, transparent);
+    color: var(--badge-color);
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .autocomplete-item::before {
@@ -959,6 +1011,16 @@ button:active::before {
 
     .audio-player {
         padding: 20px;
+    }
+
+    .game-filters {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 6px;
+    }
+
+    .game-filter-chip {
+        padding: 6px 8px;
+        font-size: 0.75rem;
     }
 
     .play-button {
