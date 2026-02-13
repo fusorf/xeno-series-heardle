@@ -61,6 +61,9 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
 function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
     const container = document.getElementById('gameContainer');
 
+    // Remove results-screen class if it exists
+    container.classList.remove('results-screen');
+
     let html = '';
 
     // 1. Audio player first
@@ -150,6 +153,9 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
 
 function showResults(dailySong, guesses, locale, won) {
     const container = document.getElementById('gameContainer');
+
+    // Add class to disable grid layout on results screen
+    container.classList.add('results-screen');
 
     let html = '<div class="result-message">';
     html += `<h2>${locale.todaySong} ${dailySong.title}</h2>`;
