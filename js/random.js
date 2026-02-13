@@ -162,7 +162,6 @@ function getDailySong(modeId = 'full-xeno') {
   const mode = GAME_MODES[modeId];
 
   if (!mode) {
-    console.error(`Invalid mode: ${modeId}`);
     return null;
   }
 
@@ -173,67 +172,4 @@ function getDailySong(modeId = 'full-xeno') {
 
   // Standard modes
   return selectStandardDailySong(modeId, dateString);
-}
-
-// ============================================
-// TESTING & DEBUGGING UTILITIES
-// ============================================
-
-// Test randomness quality (optional, for debugging)
-function testRandomnessQuality(modeId, days = 100) {
-  const songCounts = {};
-  const today = new Date();
-
-  for (let i = 0; i < days; i++) {
-    const testDate = new Date(today);
-    testDate.setUTCDate(today.getUTCDate() + i);
-    const dateString = testDate.toISOString().split('T')[0];
-
-    const dailySong = modeId === 'random'
-      ? selectRandomDailySong(dateString)
-      : selectStandardDailySong(modeId, dateString);
-
-    if (dailySong) {
-      const key = dailySong.title;
-      songCounts[key] = (songCounts[key] || 0) + 1;
-    }
-  }
-
-  console.log(`Random distribution over ${days} days for mode ${modeId}:`);
-  console.log(songCounts);
-
-  // Calculate standard deviation to check fairness
-  const counts = Object.values(songCounts);
-  const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
-  const variance = counts.reduce((sum, count) => sum + Math.pow(count - mean, 2), 0) / counts.length;
-  const stdDev = Math.sqrt(variance);
-
-  console.log(`Mean: ${mean.toFixed(2)}, StdDev: ${stdDev.toFixed(2)}`);
-  console.log(`Coefficient of Variation: ${(stdDev / mean * 100).toFixed(2)}%`);
-}
-
-// Preview upcoming songs (for debugging)
-function previewUpcomingSongs(modeId, days = 7) {
-  const today = new Date();
-  const upcoming = [];
-
-  for (let i = 0; i < days; i++) {
-    const testDate = new Date(today);
-    testDate.setUTCDate(today.getUTCDate() + i);
-    const dateString = testDate.toISOString().split('T')[0];
-
-    const dailySong = modeId === 'random'
-      ? selectRandomDailySong(dateString)
-      : selectStandardDailySong(modeId, dateString);
-
-    upcoming.push({
-      date: dateString,
-      song: dailySong?.title || 'N/A',
-      game: dailySong?.dailyGame?.shortName || GAMES[dailySong?.game]?.shortName || 'N/A',
-      startTime: dailySong?.startTime || 0
-    });
-  }
-
-  console.table(upcoming);
-  return upcoming;
 }
