@@ -249,7 +249,7 @@ h1::before {
 .guess-boxes {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 30px;
     position: relative;
 }
@@ -278,8 +278,8 @@ h1::before {
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
-    padding: 18px;
-    min-height: 60px;
+    padding: 12px;
+    min-height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -287,7 +287,7 @@ h1::before {
     font-weight: 600;
     position: relative;
     transition: all 0.3s ease;
-    box-shadow: 
+    box-shadow:
         0 0 15px rgba(0, 212, 255, 0.1),
         inset 0 0 15px rgba(0, 212, 255, 0.05);
 }
@@ -576,6 +576,12 @@ h1::before {
 .game-filter-chip:not(.active):hover {
     background: color-mix(in srgb, var(--chip-color) 20%, transparent);
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== SEARCH SECTION ===== */
+
+.search-section {
+    margin-bottom: 30px;
 }
 
 /* ===== SEARCH ===== */
@@ -998,6 +1004,36 @@ button:active::before {
     }
 }
 
+/* Credits (bottom of page) */
+.credits-box {
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto 20px;
+    padding: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    text-align: center;
+    z-index: 1;
+    line-height: 1.8;
+    position: relative;
+}
+
+.credit-line {
+    margin: 2px 0;
+}
+
+.credits-box a {
+    color: var(--theme-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.credits-box a:hover {
+    color: var(--theme-accent);
+    text-shadow: 0 0 8px var(--theme-glow);
+}
+
 /* Responsive design */
 @media (max-width: 600px) {
     h1 {
@@ -1005,8 +1041,12 @@ button:active::before {
         letter-spacing: 2px;
     }
 
+    body {
+        padding-bottom: 180px; /* Space for sticky search section */
+    }
+
     .guess-box {
-        padding: 15px;
+        padding: 10px;
         font-size: 0.9rem;
     }
 
@@ -1037,6 +1077,62 @@ button:active::before {
     .search-input {
         font-size: 1rem;
         padding: 15px 15px 15px 50px;
+    }
+
+    /* Sticky search section at bottom on mobile */
+    .search-section {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, rgba(5, 18, 17, 0.98), rgba(10, 36, 35, 0.98));
+        backdrop-filter: blur(10px);
+        padding: 15px;
+        margin-bottom: 0;
+        z-index: 9000;
+        border-top: 2px solid var(--panel-border);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .search-container {
+        margin-bottom: 12px;
+    }
+
+    .game-filters {
+        margin-bottom: 12px;
+        order: -1; /* Move filters above search */
+    }
+
+    .button-container {
+        margin-bottom: 0;
+    }
+
+    /* Autocomplete dropdown appears ABOVE search on mobile */
+    .autocomplete-list {
+        position: fixed;
+        top: auto;
+        bottom: 100%;
+        left: 15px;
+        right: 15px;
+        border-radius: 12px 12px 0 0;
+        border: 2px solid var(--panel-border);
+        border-bottom: none;
+        max-height: 250px;
+    }
+
+    .autocomplete-list.active {
+        animation: dropUp 0.3s ease-out;
+    }
+
+    @keyframes dropUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 
@@ -1097,7 +1193,7 @@ button:active::before {
 
 .mode-tab {
     min-width: 0;
-    padding: 15px 20px;
+    padding: 10px 16px;
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
@@ -1331,16 +1427,16 @@ button:active::before {
     }
 
     .mode-tab {
-        padding: 12px 15px;
-        font-size: 0.8rem;
+        padding: 8px 12px;
+        font-size: 0.75rem;
     }
 
     .mode-tab-name {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .mode-tab-desc {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
     }
 
     .daily-game-banner {
@@ -1357,14 +1453,23 @@ button:active::before {
     }
 
     .language-selector {
-        bottom: 10px;
-        left: 10px;
+        top: 10px;
+        right: 10px;
+        bottom: auto;
+        left: auto;
     }
 
     .lang-toggle {
         width: 42px;
         height: 42px;
         font-size: 1.3rem;
+    }
+
+    .lang-menu {
+        bottom: auto;
+        top: 50px;
+        left: auto;
+        right: 0;
     }
 
     .lang-option {
@@ -1375,37 +1480,7 @@ button:active::before {
 
     .credits-box {
         font-size: 0.75rem;
-        margin: 30px auto 15px;
+        margin: 30px auto 150px;
         padding: 15px;
     }
-}
-
-/* Credits (bottom of page) */
-.credits-box {
-    max-width: 700px;
-    width: 100%;
-    margin: 40px auto 20px;
-    padding: 20px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.85rem;
-    color: #aaaaaa;
-    text-align: center;
-    z-index: 1;
-    line-height: 1.8;
-    position: relative;
-}
-
-.credit-line {
-    margin: 2px 0;
-}
-
-.credits-box a {
-    color: var(--theme-primary);
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.credits-box a:hover {
-    color: var(--theme-accent);
-    text-shadow: 0 0 8px var(--theme-glow);
 }

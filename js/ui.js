@@ -61,34 +61,9 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
 function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
     const container = document.getElementById('gameContainer');
 
-    let html = '<div class="guess-boxes">';
+    let html = '';
 
-    if (checkSpecialDate()) {
-        html += '<img src="images/patate.png" class="special-img" alt="Special" />';
-    }
-
-    for (let i = 0; i < MAX_ATTEMPTS; i++) {
-        let className = 'guess-box';
-        let content = '';
-
-        if (guesses[i]) {
-            if (guesses[i] === 'skip') {
-                className += ' skipped';
-                content = locale.skipped;
-            } else if (guesses[i].toLowerCase() === dailySong.title.toLowerCase()) {
-                className += ' correct';
-                content = guesses[i];
-            } else {
-                className += ' wrong';
-                content = guesses[i];
-            }
-        }
-
-        html += `<div class="${className}">${content}</div>`;
-    }
-    html += '</div>';
-
-    // DURATIONS is defined in constants.js
+    // 1. Audio player first
     html += `
         <div class="audio-player">
             <div class="progress-bar">
@@ -101,6 +76,9 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
             <div class="play-button" id="playButton"></div>
         </div>
     `;
+
+    // 2. Search section with filters and input
+    html += '<div class="search-section">';
 
     // Game filter chips
     const modeGames = GAME_MODES[currentMode].games;
@@ -136,6 +114,36 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
         </div>
         `;
     }
+
+    html += '</div>'; // Close search-section
+
+    // 3. Guess boxes last
+    html += '<div class="guess-boxes">';
+
+    if (checkSpecialDate()) {
+        html += '<img src="images/patate.png" class="special-img" alt="Special" />';
+    }
+
+    for (let i = 0; i < MAX_ATTEMPTS; i++) {
+        let className = 'guess-box';
+        let content = '';
+
+        if (guesses[i]) {
+            if (guesses[i] === 'skip') {
+                className += ' skipped';
+                content = locale.skipped;
+            } else if (guesses[i].toLowerCase() === dailySong.title.toLowerCase()) {
+                className += ' correct';
+                content = guesses[i];
+            } else {
+                className += ' wrong';
+                content = guesses[i];
+            }
+        }
+
+        html += `<div class="${className}">${content}</div>`;
+    }
+    html += '</div>';
 
     container.innerHTML = html;
 }
