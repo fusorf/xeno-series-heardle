@@ -16,6 +16,19 @@
   "forNextOne": "for the next one!",
   "composer": "Composer",
   "artist": "Artist",
+  "history": "History",
+  "stats": {
+    "title": "Statistics",
+    "played": "Played",
+    "winRate": "Win Rate",
+    "currentStreak": "Current Streak",
+    "maxStreak": "Max Streak",
+    "guessDistribution": "Guess Distribution",
+    "oneShots": "One Shots",
+    "oneShotStreak": "One Shot Streak",
+    "maxOneShotStreak": "Best One Shot Streak",
+    "noHistory": "No games played yet"
+  },
   "credits": {
     "madeBy": "Made by",
     "specialThanks": "Special thanks to"

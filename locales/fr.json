@@ -16,6 +16,19 @@
   "forNextOne": "pour la prochaine !",
   "composer": "Compositeur",
   "artist": "Artiste",
+  "history": "Historique",
+  "stats": {
+    "title": "Statistiques",
+    "played": "Parties",
+    "winRate": "Taux de réussite",
+    "currentStreak": "Série actuelle",
+    "maxStreak": "Meilleure série",
+    "guessDistribution": "Distribution",
+    "oneShots": "One Shots",
+    "oneShotStreak": "Série One Shot",
+    "maxOneShotStreak": "Meilleure série One Shot",
+    "noHistory": "Aucune partie jouée"
+  },
   "credits": {
     "madeBy": "Créé par",
     "specialThanks": "Merci spécial à"

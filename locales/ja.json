@@ -16,6 +16,19 @@
   "forNextOne": "お待ちください！",
   "composer": "作曲",
   "artist": "歌手",
+  "history": "履歴",
+  "stats": {
+    "title": "統計",
+    "played": "プレイ回数",
+    "winRate": "勝率",
+    "currentStreak": "連勝",
+    "maxStreak": "最高連勝",
+    "guessDistribution": "推測分布",
+    "oneShots": "ワンショット",
+    "oneShotStreak": "ワンショット連続",
+    "maxOneShotStreak": "最高ワンショット連続",
+    "noHistory": "まだプレイしていません"
+  },
   "credits": {
     "madeBy": "制作",
     "specialThanks": "協力"
@@ -26,11 +39,11 @@
       "description": "全ゼノゲーム + DLC"
     },
     "xenoblade": {
-      "name": "ゼノブレイドHeardle",
-      "description": "ゼノブレイドシリーズ + DLC"
+      "name": "ゼノブレイド Heardle",
+      "description": "ゼノブレイド + DLC"
     },
     "xenosaga": {
-      "name": "ゼノサーガHeardle",
+      "name": "ゼノサーガ Heardle",
       "description": "ゼノサーガ三部作"
     },
     "random": {

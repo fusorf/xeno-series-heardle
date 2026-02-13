@@ -44,7 +44,7 @@ function initPlayer(dailySong) {
             console.error('Attempted to load:', audioUrl);
             playerReady = false;
             resolve();
-        });
+        }, { once: true });
 
         // Start loading
         audioElement.load();

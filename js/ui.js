@@ -274,3 +274,113 @@ function addVisualEffect() {
         container.appendChild(element);
     }
 }
+
+// ============================================
+// HISTORY MODAL
+// ============================================
+
+function showHistoryModal() {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('historyModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'historyModal';
+        modal.className = 'history-modal';
+        document.body.appendChild(modal);
+
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeHistoryModal();
+            }
+        });
+    }
+
+    // Build content
+    let html = '<div class="history-content">';
+    html += '<button class="history-close" onclick="closeHistoryModal()">×</button>';
+    html += `<h2 class="history-title">${locale.stats.title}</h2>`;
+
+    // Get stats for each mode
+    Object.values(GAME_MODES).forEach(mode => {
+        const stats = getStats(mode.id);
+
+        if (stats.totalPlayed === 0) return; // Skip modes with no history
+
+        // Use localized mode name
+        let modeName = mode.name;
+        if (locale && locale.modes && locale.modes[mode.id]) {
+            modeName = locale.modes[mode.id].name;
+        }
+
+        html += '<div class="mode-stats">';
+        html += `<div class="mode-name">${escapeHtml(modeName)}</div>`;
+
+        // Main stats grid
+        html += '<div class="stats-grid">';
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.totalPlayed}</div>
+            <div class="stat-label">${locale.stats.played}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.winRate}%</div>
+            <div class="stat-label">${locale.stats.winRate}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.currentStreak}</div>
+            <div class="stat-label">${locale.stats.currentStreak}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.maxStreak}</div>
+            <div class="stat-label">${locale.stats.maxStreak}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.oneShots}</div>
+            <div class="stat-label">${locale.stats.oneShots}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.oneShotStreak}</div>
+            <div class="stat-label">${locale.stats.oneShotStreak}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.maxOneShotStreak}</div>
+            <div class="stat-label">${locale.stats.maxOneShotStreak}</div>
+        </div>`;
+        html += '</div>';
+
+        // Guess distribution
+        html += '<div class="guess-distribution">';
+        html += `<div class="distribution-title">${locale.stats.guessDistribution}</div>`;
+        const maxGuesses = Math.max(...stats.guessDistribution, 1);
+        for (let i = 0; i < 5; i++) {
+            const count = stats.guessDistribution[i];
+            const percentage = count > 0 ? (count / maxGuesses) * 100 : 0;
+            html += '<div class="distribution-bar">';
+            html += `<div class="bar-label">${i + 1}</div>`;
+            html += '<div class="bar-container">';
+            html += `<div class="bar-fill" style="width: ${percentage}%">${count}</div>`;
+            html += '</div>';
+            html += '</div>';
+        }
+        html += '</div>';
+
+        html += '</div>';
+    });
+
+    // If no history at all
+    if (html === '<div class="history-content"><button class="history-close" onclick="closeHistoryModal()">×</button>' + `<h2 class="history-title">${locale.stats.title}</h2>`) {
+        html += `<div class="no-history">${locale.stats.noHistory}</div>`;
+    }
+
+    html += '</div>';
+
+    modal.innerHTML = html;
+    modal.classList.add('active');
+}
+
+function closeHistoryModal() {
+    const modal = document.getElementById('historyModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}

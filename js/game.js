@@ -257,6 +257,14 @@ function updateCredits() {
 // EVENT LISTENERS
 // ============================================
 
+// Store handler references to avoid duplicates
+let playButtonHandler = null;
+let skipButtonHandler = null;
+let submitButtonHandler = null;
+let searchInputHandler = null;
+let searchKeydownHandler = null;
+let giveUpButtonHandler = null;
+
 function setupEventListeners() {
     const playButton = document.getElementById('playButton');
     const skipButton = document.getElementById('skipButton');
@@ -264,22 +272,50 @@ function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
     const giveUpButton = document.getElementById('giveUpButton');
 
-    playButton.addEventListener('click', () => togglePlay(dailySong, currentAttempt));
+    // Remove old listeners if they exist
+    if (playButtonHandler) playButton.removeEventListener('click', playButtonHandler);
+    if (skipButtonHandler && skipButton) skipButton.removeEventListener('click', skipButtonHandler);
+    if (submitButtonHandler) submitButton.removeEventListener('click', submitButtonHandler);
+    if (searchInputHandler) searchInput.removeEventListener('input', searchInputHandler);
+    if (searchKeydownHandler) searchInput.removeEventListener('keydown', searchKeydownHandler);
+    if (giveUpButtonHandler && giveUpButton) giveUpButton.removeEventListener('click', giveUpButtonHandler);
+
+    // Create new handlers
+    playButtonHandler = () => togglePlay(dailySong, currentAttempt);
+    skipButtonHandler = skipAttempt;
+    submitButtonHandler = submitGuess;
+    searchInputHandler = handleSearchInput;
+    searchKeydownHandler = handleSearchKeydown;
+    giveUpButtonHandler = giveUp;
+
+    // Add new listeners
+    playButton.addEventListener('click', playButtonHandler);
     if (skipButton) {
-        skipButton.addEventListener('click', skipAttempt);
+        skipButton.addEventListener('click', skipButtonHandler);
     }
-    submitButton.addEventListener('click', submitGuess);
-    searchInput.addEventListener('input', handleSearchInput);
-    searchInput.addEventListener('keydown', handleSearchKeydown);
+    submitButton.addEventListener('click', submitButtonHandler);
+    searchInput.addEventListener('input', searchInputHandler);
+    searchInput.addEventListener('keydown', searchKeydownHandler);
 
     if (giveUpButton) {
-        giveUpButton.addEventListener('click', giveUp);
+        giveUpButton.addEventListener('click', giveUpButtonHandler);
     }
 
-    // Game filter chips
-    document.querySelectorAll('.game-filter-chip').forEach(chip => {
-        chip.addEventListener('click', () => toggleGameFilter(chip.dataset.game));
-    });
+    // Game filter chips - use event delegation to avoid multiple listeners
+    const gameContainer = document.getElementById('gameContainer');
+    if (gameContainer) {
+        // Remove old delegation handler if exists
+        if (gameContainer._filterHandler) {
+            gameContainer.removeEventListener('click', gameContainer._filterHandler);
+        }
+        // Add new delegation handler
+        gameContainer._filterHandler = (e) => {
+            if (e.target.classList.contains('game-filter-chip')) {
+                toggleGameFilter(e.target.dataset.game);
+            }
+        };
+        gameContainer.addEventListener('click', gameContainer._filterHandler);
+    }
 }
 
 // ============================================
@@ -364,9 +400,15 @@ function handleSearchInput(e) {
 
         autocompleteList.classList.add('active');
 
-        autocompleteList.querySelectorAll('.autocomplete-item').forEach(item => {
-            item.addEventListener('click', () => selectSongFromList(item.dataset.title));
-        });
+        // Use event delegation instead of adding listeners to each item
+        if (!autocompleteList._delegationSetup) {
+            autocompleteList.addEventListener('click', (e) => {
+                if (e.target.classList.contains('autocomplete-item')) {
+                    selectSongFromList(e.target.dataset.title);
+                }
+            });
+            autocompleteList._delegationSetup = true;
+        }
     } else {
         autocompleteList.classList.remove('active');
     }
@@ -467,6 +509,8 @@ function giveUp() {
 function endGame(won) {
     gameOver = true;
 
+    const finalAttempt = won ? guesses.filter(g => g !== 'skip').length : MAX_ATTEMPTS;
+
     saveGameState(currentMode, {
         dayNumber: dailySong.dayNumber,
         currentAttempt,
@@ -474,6 +518,9 @@ function endGame(won) {
         gameOver: true,
         won
     });
+
+    // Save to history
+    saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
 
     showResults(dailySong, guesses, locale, won);
     updateCountdown(locale);
@@ -525,12 +572,9 @@ function copyResults() {
         }
     });
 
-    // If only one mode completed, use simple format
+    // Always use header with day number
     let text;
-    if (results.length === 1) {
-        text = results[0] + ' 🎧';
-    } else if (results.length > 1) {
-        // Multiple modes completed - create summary
+    if (results.length >= 1) {
         text = `Xeno Series Heardle - Day #${today} 🎧\n\n${results.join('\n\n')}`;
     } else {
         // Fallback to current mode only (shouldn't happen on results screen)
