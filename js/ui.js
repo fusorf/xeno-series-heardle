@@ -64,7 +64,7 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
     let html = '<div class="guess-boxes">';
 
     if (checkSpecialDate()) {
-        html += '<img src="patate.png" class="special-img" alt="Special" />';
+        html += '<img src="images/patate.png" class="special-img" alt="Special" />';
     }
 
     for (let i = 0; i < MAX_ATTEMPTS; i++) {

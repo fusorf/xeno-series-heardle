@@ -3,41 +3,111 @@
 ## Project Structure
 
 ```
-xenoblade-x-heardle/
+xeno-series-heardle/
 ├── index.html              # Main HTML entry point
 ├── style.css               # Global styles and theme system
 ├── favicon.ico             # Site favicon
-├── patate.png              # Easter egg image (special dates)
 │
-├── songs.js                # Song database with game metadata (705 songs)
-├── random.js               # Deterministic randomization system (seeded PRNG)
-├── game.js                 # Main game orchestrator
-│
-├── js/                     # Modular components
+├── js/                     # All JavaScript files
 │   ├── constants.js        # Game constants (durations, max attempts, default mode)
+│   ├── songs.js            # Song database with game metadata (705 songs)
+│   ├── random.js           # Deterministic randomization system (seeded PRNG)
+│   ├── game.js             # Main game orchestrator
 │   ├── storage.js          # Cookie-based state management
 │   ├── theme.js            # Dynamic theme application (CSS variables)
 │   ├── player.js           # HTML5 Audio player with progress tracking
 │   └── ui.js               # UI rendering and DOM manipulation
+│
+├── images/                 # All image assets
+│   ├── patate.png          # Easter egg image (special dates)
+│   │
+│   ├── xenoblade-x/        # Xenoblade Chronicles X
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-x-de/     # Xenoblade X Definitive Edition
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-1/        # Xenoblade Chronicles 1 DE
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-1-fc/     # Future Connected
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-2/        # Xenoblade Chronicles 2
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-2-torna/  # Torna: The Golden Country
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-3/        # Xenoblade Chronicles 3
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenoblade-3-fr/     # Future Redeemed
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-1/         # Xenosaga Episode I
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-2/         # Xenosaga Episode II
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-2-gamerip/ # Xenosaga II Gamerip
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-2-movie/   # Xenosaga II Movie
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-3/         # Xenosaga Episode III
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-freaks/    # Xenosaga Freaks
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   ├── xenosaga-pied-piper/ # Xenosaga Pied Piper
+│   │   ├── logo.png
+│   │   ├── background.png
+│   │   └── cover.png
+│   │
+│   └── xenogears/          # Xenogears
+│       ├── logo.png
+│       ├── background.png
+│       └── cover.png
 │
 ├── locales/                # Internationalization
 │   ├── en.json             # English
 │   ├── fr.json             # French
 │   └── ja.json             # Japanese
 │
-├── tools/                  # Python build scripts
-│   ├── scan_music.py       # Scans local music library → generated_songs.js
-│   ├── update_songs_metadata.py  # Assembles final songs.js with metadata
-│   ├── setup_music_links.py      # Creates symlinks to music library
-│   ├── extract_metadata.py       # MP3 metadata extraction
-│   ├── merge_metadata.py         # Metadata merging utility
-│   ├── mp3_metadata.json         # Extracted metadata cache
-│   ├── metadata_output.txt       # Human-readable metadata
-│   └── README.md                 # Tools documentation
-│
-├── .gitignore              # Ignores generated_songs.js and music/
-├── generated_songs.js      # Temporary build artifact (gitignored)
-├── songs.js.backup         # Backup of song database
+├── .gitignore              # Git ignore rules
+├── README.md               # Project description
 └── ARCHITECTURE.md         # This file
 ```
 
@@ -197,12 +267,11 @@ player.js → HTML5 <audio> element
 ```
 
 ### Audio Sources
-- **Local development**: `music/{gameFolder}/{file}` (via symlinks)
-- **Production (TODO)**: Cloudflare R2 via `AUDIO_BASE_URL` constant in songs.js
+- **Production**: Cloudflare R2 via `AUDIO_BASE_URL` constant in songs.js
 
 ## Song Database
 
-### Games (14 total)
+### Games (16 total including variants)
 | Game | ID | Songs | Color |
 |------|----|-------|-------|
 | Xenoblade 1 DE | `xenoblade-1` | 91 | #E63946 |
@@ -216,6 +285,8 @@ player.js → HTML5 <audio> element
 | Xenogears | `xenogears` | 44 | #FFD700 |
 | Xenosaga I | `xenosaga-1` | 47 | #9B59B6 |
 | Xenosaga II | `xenosaga-2` | 70 | #7209B7 |
+| Xenosaga II Gamerip | `xenosaga-2-gamerip` | - | #9D4EDD |
+| Xenosaga II Movie | `xenosaga-2-movie` | - | #9D4EDD |
 | Xenosaga III | `xenosaga-3` | 84 | #8E44AD |
 | Xenosaga Freaks | `xenosaga-freaks` | 23 | #A855F7 |
 | Xenosaga Pied Piper | `xenosaga-pied-piper` | 16 | #C084FC |
@@ -234,28 +305,14 @@ player.js → HTML5 <audio> element
 }
 ```
 
-## Roadmap
+## Image Assets
 
-### Phase 1: DONE
-- Multi-mode UI
-- Modular architecture
-- Theme system
-- HTML5 Audio player
-- Song database (705 songs with metadata)
-- Internationalization (EN/FR/JA)
+Each game has three image types in `images/{game-id}/`:
+- **logo.png** - Game logo for branding
+- **background.png** - Background image for theming
+- **cover.png** - Album cover art
 
-### Phase 2: TODO
-- Collect background images per game
-- Collect cover art per game
-
-### Phase 3: TODO
-- Setup Cloudflare R2
-- Upload MP3 files
-- Set `AUDIO_BASE_URL` in songs.js
-
-### Phase 4: TODO
-- Test all modes end-to-end
-- Deploy to production
+All placeholders are currently 1x1 transparent PNGs to be replaced with actual assets.
 
 ## Development
 
@@ -266,24 +323,12 @@ previewUpcomingSongs('random', 30);
 testRandomnessQuality('random', 100);
 ```
 
-### Adding a New Game
-1. Add metadata to `GAMES` in songs.js
-2. Add song array `SONGS_GAMENAME`
-3. Add to `SONG_POOLS`
-4. Add to relevant mode's `games` array in `GAME_MODES`
-5. Add color, bgImage, coverArt
-6. Update `scan_music.py` and `update_songs_metadata.py` if needed
-
-### Adding a New Mode
-1. Add to `GAME_MODES` in songs.js
-2. Add locale strings in `locales/*.json`
-3. Add color theme
-4. Test with `previewUpcomingSongs()`
-
-### Adding a New Language
-1. Create `locales/{lang}.json` following `en.json` structure
-2. Add language option in `index.html` language selector
-3. Add detection in `game.js` `initGame()`
+### Debug Utilities
+```javascript
+clearAllCookies()        // Wipe all saved games
+clearModeCookies(mode)   // Clear specific mode
+showCookies()            // Display all saved states
+```
 
 ## Notes
 
@@ -294,3 +339,4 @@ testRandomnessQuality('random', 100);
 - **Locale files**: Must match structure in en.json
 - **No build step**: Pure vanilla JS, no bundler required
 - **No backend**: 100% client-side application
+- **All music hosted on Cloudflare R2**
