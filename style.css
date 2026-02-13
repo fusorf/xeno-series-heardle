@@ -1228,7 +1228,7 @@ button:active::before {
 
 .mode-tab {
     min-width: 0;
-    padding: 10px 16px;
+    padding: 8px 12px;
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
@@ -1245,6 +1245,10 @@ button:active::before {
     box-shadow:
         0 0 15px rgba(0, 212, 255, 0.1),
         inset 0 0 15px rgba(0, 212, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .mode-tab::before {
@@ -1298,17 +1302,19 @@ button:active::before {
 
 .mode-tab-name {
     display: block;
-    font-size: 1rem;
-    margin-bottom: 3px;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 .mode-tab-desc {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 400;
     opacity: 0.8;
     font-family: 'Rajdhani', sans-serif;
     letter-spacing: 0.5px;
+    margin-top: 4px;
+    line-height: 1.2;
 }
 
 /* Daily Game Banner (for Random mode) */
@@ -1462,16 +1468,18 @@ button:active::before {
     }
 
     .mode-tab {
-        padding: 8px 12px;
-        font-size: 0.75rem;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        min-height: 52px;
     }
 
     .mode-tab-name {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .mode-tab-desc {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
+        margin-top: 3px;
     }
 
     .daily-game-banner {

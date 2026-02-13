@@ -90,10 +90,12 @@ async function initGame() {
             window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
         } else {
             renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+            initializeGameFilters();
             setupEventListeners();
         }
     } else {
         renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+        initializeGameFilters();
         setupEventListeners();
     }
 }
@@ -107,7 +109,6 @@ function switchMode(modeId) {
 
     // Save mode preference and reset game state
     currentMode = modeId;
-    activeGameFilters.clear();
     setCookie('xenoHeardleMode', modeId, 365);
 
     // Cleanup current players
@@ -147,6 +148,7 @@ function switchMode(modeId) {
             window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
         } else {
             renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+            initializeGameFilters();
             setupEventListeners();
         }
     } else {
@@ -155,6 +157,7 @@ function switchMode(modeId) {
         guesses = [];
         gameOver = false;
         renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+        initializeGameFilters();
         setupEventListeners();
     }
 }
@@ -181,6 +184,7 @@ async function switchLanguage(langCode) {
         updateCountdown(locale);
     } else {
         renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+        initializeGameFilters();
         setupEventListeners();
     }
 
@@ -281,6 +285,19 @@ function setupEventListeners() {
 // ============================================
 // GAME FILTERS
 // ============================================
+
+function initializeGameFilters() {
+    const mode = GAME_MODES[currentMode];
+
+    // In Random mode with hidden filters, auto-filter to daily game only
+    if (mode.hideGameFilters && dailySong && dailySong.game) {
+        activeGameFilters.clear();
+        activeGameFilters.add(dailySong.game);
+    } else {
+        // In other modes, start with all games (no filter)
+        activeGameFilters.clear();
+    }
+}
 
 function toggleGameFilter(gameId) {
     if (activeGameFilters.has(gameId)) {
@@ -468,31 +485,57 @@ function endGame(won) {
 // ============================================
 
 function copyResults() {
-    const emoji = [];
-    let foundCorrect = false;
+    const results = [];
+    const today = getDailySong(currentMode).dayNumber;
 
-    for (let i = 0; i < MAX_ATTEMPTS; i++) {
-        if (foundCorrect) {
-            emoji.push('⬛');
-        } else if (guesses[i]) {
-            if (guesses[i] === 'skip') {
-                emoji.push('⬜');
-            } else if (guesses[i].toLowerCase() === dailySong.title.toLowerCase()) {
-                emoji.push('🟩');
-                foundCorrect = true;
-            } else {
-                emoji.push('🟥');
+    // Check all game modes for completed games
+    Object.values(GAME_MODES).forEach(mode => {
+        const modeDailySong = getDailySong(mode.id);
+        const savedState = loadGameState(mode.id, modeDailySong);
+
+        // Only include modes that have been completed today
+        if (savedState && savedState.gameOver && savedState.dayNumber === today) {
+            const emoji = [];
+            let foundCorrect = false;
+
+            for (let i = 0; i < MAX_ATTEMPTS; i++) {
+                if (foundCorrect) {
+                    emoji.push('⬛');
+                } else if (savedState.guesses[i]) {
+                    if (savedState.guesses[i] === 'skip') {
+                        emoji.push('⬜');
+                    } else if (savedState.guesses[i].toLowerCase() === modeDailySong.title.toLowerCase()) {
+                        emoji.push('🟩');
+                        foundCorrect = true;
+                    } else {
+                        emoji.push('🟥');
+                    }
+                } else {
+                    emoji.push('⬛');
+                }
             }
-        } else {
-            emoji.push('⬛');
+
+            // Use localized mode name if available
+            let modeName = mode.name;
+            if (locale && locale.modes && locale.modes[mode.id]) {
+                modeName = locale.modes[mode.id].name;
+            }
+
+            results.push(`${modeName}\n${emoji.join('')}`);
         }
+    });
+
+    // If only one mode completed, use simple format
+    let text;
+    if (results.length === 1) {
+        text = results[0] + ' 🎧';
+    } else if (results.length > 1) {
+        // Multiple modes completed - create summary
+        text = `Xeno Series Heardle - Day #${today} 🎧\n\n${results.join('\n\n')}`;
+    } else {
+        // Fallback to current mode only (shouldn't happen on results screen)
+        text = `${GAME_MODES[currentMode].name} #${dailySong.dayNumber} 🎧`;
     }
-
-    const mode = GAME_MODES[currentMode];
-    const modeName = mode ? mode.name : 'Xeno Heardle';
-
-    const text = `${modeName} - #${dailySong.dayNumber} 🎧
-${emoji.join('')}`;
 
     navigator.clipboard.writeText(text).then(() => {
         const button = document.querySelector('.copy-button');

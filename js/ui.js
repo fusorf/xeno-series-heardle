@@ -31,10 +31,13 @@ function renderModeSelector(currentMode, locale = null) {
             modeDesc = locale.modes[mode.id].description;
         }
 
+        // Only show description for random mode
+        const showDesc = mode.id === 'random';
+
         html += `
             <div class="mode-tab ${isActive}" data-mode="${mode.id}" onclick="switchMode('${mode.id}')">
                 <span class="mode-tab-name">${modeName}</span>
-                <span class="mode-tab-desc">${modeDesc}</span>
+                ${showDesc ? `<span class="mode-tab-desc">${modeDesc}</span>` : ''}
             </div>
         `;
     });

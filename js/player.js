@@ -87,28 +87,25 @@ async function playAudio(dailySong, currentAttempt) {
 
     try {
         if (startTime > 0) {
-            // Seek to startTime and wait for it to actually complete
+            // Wait for audio to have enough data before seeking
+            if (audioElement.readyState < 2) {
+                await new Promise(resolve => {
+                    audioElement.addEventListener('canplay', resolve, { once: true });
+                });
+            }
+
+            // Seek to startTime once
             audioElement.currentTime = startTime;
+
+            // Wait for seek to complete
             await new Promise(resolve => {
                 const onSeeked = () => {
                     audioElement.removeEventListener('seeked', onSeeked);
                     resolve();
                 };
-                audioElement.addEventListener('seeked', onSeeked);
-                // Fallback: if seeked doesn't fire (data not buffered yet),
-                // wait for enough data then retry the seek
-                setTimeout(() => {
-                    audioElement.removeEventListener('seeked', onSeeked);
-                    // Retry seek after buffer has had time to fill
-                    audioElement.currentTime = startTime;
-                    // Give it another chance
-                    const onSeeked2 = () => {
-                        audioElement.removeEventListener('seeked', onSeeked2);
-                        resolve();
-                    };
-                    audioElement.addEventListener('seeked', onSeeked2);
-                    setTimeout(resolve, 500);
-                }, 300);
+                audioElement.addEventListener('seeked', onSeeked, { once: true });
+                // Fallback timeout in case seeked never fires
+                setTimeout(resolve, 500);
             });
         }
 

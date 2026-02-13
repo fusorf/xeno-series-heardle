@@ -5208,8 +5208,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Survive ~ E.S. Battle (extended)",
-    "localizedTitle": "Survive ~ E.S. Battle (extended)",
+    "title": "Survive ~ E.S. Battle",
+    "localizedTitle": "Survive ~ E.S. Battle",
     "file": "13. Survive ~ E.S. Battle (extended).mp3",
     "duration": 344,
     "game": "xenosaga-3",
@@ -5334,8 +5334,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Creeping Into (extended)",
-    "localizedTitle": "Creeping Into (extended)",
+    "title": "Creeping Into",
+    "localizedTitle": "Creeping Into",
     "file": "27. Creeping Into (extended).mp3",
     "duration": 276,
     "game": "xenosaga-3",
@@ -5451,8 +5451,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "On Our Ways (extended)",
-    "localizedTitle": "On Our Ways (extended)",
+    "title": "On Our Ways",
+    "localizedTitle": "On Our Ways",
     "file": "12. On Our Ways (extended).mp3",
     "duration": 233,
     "game": "xenosaga-3",
@@ -5505,8 +5505,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Outrageous (extended)",
-    "localizedTitle": "Outrageous (extended)",
+    "title": "Outrageous",
+    "localizedTitle": "Outrageous",
     "file": "18. Outrageous (extended).mp3",
     "duration": 320,
     "game": "xenosaga-3",
@@ -5595,8 +5595,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Godsibb (extended)",
-    "localizedTitle": "Godsibb (extended)",
+    "title": "Godsibb",
+    "localizedTitle": "Godsibb",
     "file": "28. Godsibb (extended).mp3",
     "duration": 307,
     "game": "xenosaga-3",
@@ -5604,8 +5604,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "When the Grief Lets You Go (extended)",
-    "localizedTitle": "When the Grief Lets You Go (extended)",
+    "title": "When the Grief Lets You Go",
+    "localizedTitle": "When the Grief Lets You Go",
     "file": "01. When the Grief Lets You Go (extended).mp3",
     "duration": 122,
     "game": "xenosaga-3",
@@ -5667,8 +5667,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "To the Last Place (extended)",
-    "localizedTitle": "To the Last Place (extended)",
+    "title": "To the Last Place",
+    "localizedTitle": "To the Last Place",
     "file": "08. To the Last Place (extended).mp3",
     "duration": 206,
     "game": "xenosaga-3",
@@ -5676,8 +5676,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "A Memory of a Tragedy (extended)",
-    "localizedTitle": "A Memory of a Tragedy (extended)",
+    "title": "A Memory of a Tragedy",
+    "localizedTitle": "A Memory of a Tragedy",
     "file": "09. A Memory of a Tragedy (extended).mp3",
     "duration": 191,
     "game": "xenosaga-3",
@@ -5712,8 +5712,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Testament (extended)",
-    "localizedTitle": "Testament (extended)",
+    "title": "Testament",
+    "localizedTitle": "Testament",
     "file": "13. Testament (extended).mp3",
     "duration": 213,
     "game": "xenosaga-3",
@@ -5730,8 +5730,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Zarathustra Dungeon (extended)",
-    "localizedTitle": "Zarathustra Dungeon (extended)",
+    "title": "Zarathustra Dungeon",
+    "localizedTitle": "Zarathustra Dungeon",
     "file": "15. Zarathustra Dungeon (extended).mp3",
     "duration": 242,
     "game": "xenosaga-3",
@@ -5784,8 +5784,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Promised Pain (extended)",
-    "localizedTitle": "Promised Pain (extended)",
+    "title": "Promised Pain",
+    "localizedTitle": "Promised Pain",
     "file": "21. Promised Pain (extended).mp3",
     "duration": 314,
     "game": "xenosaga-3",
