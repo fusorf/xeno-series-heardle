@@ -122,7 +122,7 @@ function selectRandomDailySong(dateString) {
   const gameSeed = createSeed(dateString, 'random', 'game');
   const gameRng = new SeededRandom(gameSeed);
   const gameIndex = gameRng.nextInt(0, mode.games.length);
-  const selectedGameId = mode.games[gameIndex];
+  const selectedGameId = window.DAILY_GAME_OVERRIDE || mode.games[gameIndex];
   const selectedGame = GAMES[selectedGameId];
 
   // Step 2: Get songs from selected game
@@ -173,3 +173,37 @@ function getDailySong(modeId = 'full-xeno') {
   // Standard modes
   return selectStandardDailySong(modeId, dateString);
 }
+
+// ============================================
+// DEBUG CONSOLE COMMANDS
+// ============================================
+
+// Load override from sessionStorage on page load
+window.DAILY_GAME_OVERRIDE = sessionStorage.getItem('DAILY_GAME_OVERRIDE');
+
+function setDailyGame(gameId) {
+  window.DAILY_GAME_OVERRIDE = gameId;
+  sessionStorage.setItem('DAILY_GAME_OVERRIDE', gameId);
+  console.log(`✅ Daily game override set to: ${gameId}`);
+  console.log('💡 Reload the page or switch modes to apply');
+}
+
+function clearDailyGame() {
+  window.DAILY_GAME_OVERRIDE = null;
+  sessionStorage.removeItem('DAILY_GAME_OVERRIDE');
+  console.log('✅ Daily game override cleared');
+  console.log('💡 Reload the page or switch modes to apply');
+}
+
+function listGames() {
+  const mode = GAME_MODES['random'];
+  console.log('🎮 Available games for Random Challenge:');
+  mode.games.forEach(gameId => {
+    console.log(`  ${gameId}: ${GAMES[gameId].name}`);
+  });
+}
+
+console.log('Random Challenge Debug:');
+console.log('  setDailyGame(gameId) - Force game (use listGames())');
+console.log('  clearDailyGame()     - Clear override');
+console.log('  listGames()          - Show available games');

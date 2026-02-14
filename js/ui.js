@@ -72,14 +72,16 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
     // 1. Audio player first
     html += `
         <div class="audio-player">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <div class="time-labels">
-                <span id="currentTimeLabel">0s</span>
-                <span id="maxTimeLabel">${DURATIONS[currentAttempt]}s</span>
-            </div>
             <div class="play-button" id="playButton"></div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-labels">
+                    <span id="currentTimeLabel">0s</span>
+                    <span id="maxTimeLabel">${DURATIONS[currentAttempt]}s</span>
+                </div>
+            </div>
         </div>
     `;
 

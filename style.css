@@ -356,14 +356,16 @@ h1::before {
 
 .audio-player {
     background: var(--panel-bg);
-    padding: 30px;
+    padding: 20px 30px 0;
     border-radius: 20px;
     margin-bottom: 30px;
     border: 2px solid var(--panel-border);
     position: relative;
-    box-shadow: 
+    box-shadow:
         0 0 30px rgba(0, 212, 255, 0.2),
         inset 0 0 30px rgba(0, 212, 255, 0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .audio-player::after {
@@ -454,7 +456,7 @@ h1::before {
     justify-content: space-between;
     font-size: 0.9rem;
     color: var(--primary-blue);
-    margin-bottom: 25px;
+    margin-bottom: 0;
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
     text-shadow: 0 0 5px var(--glow-blue);
@@ -1086,6 +1088,45 @@ button:active::before {
 
     .audio-player {
         padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .play-button::after {
+        border-left-width: 18px;
+        border-top-width: 11px;
+        border-bottom-width: 11px;
+        margin-left: 4px;
+    }
+
+    .play-button.playing::after {
+        width: 18px;
+        height: 22px;
+    }
+
+    .progress-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .audio-player .progress-bar {
+        margin-bottom: 8px;
+    }
+
+    .audio-player .time-labels {
+        margin-bottom: 0;
+        font-size: 0.8rem;
     }
 
     .game-filters {
@@ -1096,11 +1137,6 @@ button:active::before {
     .game-filter-chip {
         padding: 6px 8px;
         font-size: 0.75rem;
-    }
-
-    .play-button {
-        width: 75px;
-        height: 75px;
     }
 
     button {
