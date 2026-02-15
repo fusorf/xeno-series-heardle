@@ -46,7 +46,6 @@ async function loadLocale(forceLang = null) {
         locale = await response.json();
     }
 
-    updatePageTitle(currentMode);
     updateLanguageSelector();
     updateCredits();
 }
@@ -66,7 +65,8 @@ async function initGame() {
     // Get daily song for current mode
     dailySong = getDailySong(currentMode);
 
-    // Apply theme
+    // Initialize theme system and apply theme
+    initThemeSystem();
     applyTheme(currentMode, dailySong);
 
     // Show daily game banner for Random mode
@@ -86,6 +86,7 @@ async function initGame() {
 
         if (gameOver) {
             showResults(dailySong, guesses, locale, savedState.won);
+            applyResultsTheme(dailySong.game);
             updateCountdown(locale);
             window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
         } else {
@@ -142,6 +143,7 @@ function switchMode(modeId) {
 
         if (gameOver) {
             showResults(dailySong, guesses, locale, savedState.won);
+            applyResultsTheme(dailySong.game);
             updateCountdown(locale);
             // Clear any existing countdown interval
             if (window.countdownInterval) clearInterval(window.countdownInterval);
@@ -384,7 +386,10 @@ function handleSearchInput(e) {
     // Search in mode-specific songs, filtered by active game filters
     let modeSongs = getSongsForMode(currentMode);
     if (activeGameFilters.size > 0) {
-        modeSongs = modeSongs.filter(song => activeGameFilters.has(song.game));
+        modeSongs = modeSongs.filter(song =>
+            activeGameFilters.has(song.game) ||
+            [...activeGameFilters].some(filterId => song.game.startsWith(filterId + '-'))
+        );
     }
     const matches = modeSongs.filter(song =>
         song.title.toLowerCase().includes(query) ||
@@ -523,6 +528,7 @@ function endGame(won) {
     saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
 
     showResults(dailySong, guesses, locale, won);
+    applyResultsTheme(dailySong.game);
     updateCountdown(locale);
     setInterval(() => updateCountdown(locale), 1000);
 }

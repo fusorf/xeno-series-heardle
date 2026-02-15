@@ -10,11 +10,6 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-function updatePageTitle(currentMode) {
-    // Always keep the main title as "XENO SERIES HEARDLE"
-    document.getElementById('pageTitle').textContent = 'XENO SERIES HEARDLE';
-}
-
 function renderModeSelector(currentMode, locale = null) {
     const container = document.getElementById('modeSelector');
     let html = '';

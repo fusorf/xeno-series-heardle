@@ -1,0 +1,14 @@
+/* Random Challenge Mode - Orange Theme */
+:root {
+    --theme-primary: #FF6B35;
+    --theme-secondary: #CC562A;
+    --theme-accent: #FFA07A;
+    --theme-primary-rgb: 255, 107, 53;
+    --theme-secondary-rgb: 204, 86, 42;
+    --theme-accent-rgb: 255, 160, 122;
+    --theme-bg-darkest: #0A0402;
+    --theme-bg-darker: #120804;
+    --theme-bg-dark: #231008;
+    --theme-bg-dark-rgb: 35, 16, 8;
+    --theme-bg-darker-rgb: 18, 8, 4;
+}

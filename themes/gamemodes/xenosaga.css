@@ -1,0 +1,14 @@
+/* Xenosaga Heardle Mode - Purple Theme */
+:root {
+    --theme-primary: #7209B7;
+    --theme-secondary: #5B0792;
+    --theme-accent: #B44DFF;
+    --theme-primary-rgb: 114, 9, 183;
+    --theme-secondary-rgb: 91, 7, 146;
+    --theme-accent-rgb: 180, 77, 255;
+    --theme-bg-darkest: #050012;
+    --theme-bg-darker: #0A0121;
+    --theme-bg-dark: #140236;
+    --theme-bg-dark-rgb: 20, 2, 54;
+    --theme-bg-darker-rgb: 10, 1, 33;
+}

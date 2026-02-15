@@ -1,38 +1,64 @@
 // ============================================
-// THEME SYSTEM
+// THEME SYSTEM - CSS Stylesheet Swapping
 // ============================================
 
+// Track currently loaded theme stylesheets
+let currentGamemodeLink = null;
+let currentGameLink = null;
+
+/**
+ * Initialize theme system - create the <link> elements in <head>.
+ * Called once at startup.
+ */
+function initThemeSystem() {
+    // Gamemode theme (applied during gameplay)
+    currentGamemodeLink = document.createElement('link');
+    currentGamemodeLink.rel = 'stylesheet';
+    currentGamemodeLink.id = 'theme-gamemode';
+    document.head.appendChild(currentGamemodeLink);
+
+    // Game theme (applied on results screen, or for Random mode)
+    currentGameLink = document.createElement('link');
+    currentGameLink.rel = 'stylesheet';
+    currentGameLink.id = 'theme-game';
+    document.head.appendChild(currentGameLink);
+}
+
+/**
+ * Apply the gamemode theme (used during gameplay / guessing screen).
+ * For Random mode, applies the daily game's theme instead.
+ * Legacy wrapper: called from game.js as applyTheme().
+ */
 function applyTheme(modeId, song = null) {
     const mode = GAME_MODES[modeId];
     if (!mode) return;
 
-    let themeColor;
-    let bgImage;
-
-    // For Random mode, use the daily game's theme
     if (mode.showDailyGame && song && song.dailyGame) {
-        themeColor = song.dailyGame.color;
-        bgImage = song.dailyGame.bgImage;
+        // Random mode: use the daily game's theme throughout
+        currentGamemodeLink.setAttribute('href', '');
+        currentGameLink.setAttribute('href', `themes/games/${song.game}.css`);
     } else {
-        themeColor = mode.color;
-        bgImage = mode.bgImage;
+        // Standard mode: load the gamemode theme
+        currentGamemodeLink.setAttribute('href', `themes/gamemodes/${modeId}.css`);
+        // Clear game theme (will be set when results show)
+        currentGameLink.setAttribute('href', '');
     }
+}
 
-    // Convert hex to RGB for glow effects
-    const rgb = hexToRgb(themeColor);
-    const glowColor = rgb ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.7)` : 'rgba(57, 166, 164, 0.7)';
+/**
+ * Switch to the results screen theme: the song's game/DLC theme.
+ * The game theme <link> loads AFTER the gamemode <link>,
+ * so its :root overrides win by source order.
+ */
+function applyResultsTheme(gameId) {
+    currentGameLink.setAttribute('href', `themes/games/${gameId}.css`);
+}
 
-    // Apply CSS variables
-    document.documentElement.style.setProperty('--theme-primary', themeColor);
-    document.documentElement.style.setProperty('--theme-glow', glowColor);
-
-    // TODO: Apply background image when available
-    // if (bgImage) {
-    //     document.body.style.backgroundImage = `url('${bgImage}')`;
-    //     document.body.style.backgroundSize = 'cover';
-    //     document.body.style.backgroundPosition = 'center';
-    //     document.body.style.backgroundBlendMode = 'overlay';
-    // }
+/**
+ * Clear the game theme (when going back from results to gameplay).
+ */
+function clearGameTheme() {
+    currentGameLink.setAttribute('href', '');
 }
 
 function hexToRgb(hex) {

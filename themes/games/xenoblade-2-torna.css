@@ -1,0 +1,14 @@
+/* Xenoblade Chronicles 2 - Torna: The Golden Country - Turquoise Theme */
+:root {
+    --theme-primary: #20C997;
+    --theme-secondary: #1AA179;
+    --theme-accent: #66EABD;
+    --theme-primary-rgb: 32, 201, 151;
+    --theme-secondary-rgb: 26, 161, 121;
+    --theme-accent-rgb: 102, 234, 189;
+    --theme-bg-darkest: #020A07;
+    --theme-bg-darker: #04120D;
+    --theme-bg-dark: #08231A;
+    --theme-bg-dark-rgb: 8, 35, 26;
+    --theme-bg-darker-rgb: 4, 18, 13;
+}

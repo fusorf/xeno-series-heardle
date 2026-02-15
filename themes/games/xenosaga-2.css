@@ -1,0 +1,14 @@
+/* Xenosaga Episode II - Light Purple Theme */
+:root {
+    --theme-primary: #9D4EDD;
+    --theme-secondary: #7E3EB1;
+    --theme-accent: #C99EFF;
+    --theme-primary-rgb: 157, 78, 221;
+    --theme-secondary-rgb: 126, 62, 177;
+    --theme-accent-rgb: 201, 158, 255;
+    --theme-bg-darkest: #060212;
+    --theme-bg-darker: #0C0421;
+    --theme-bg-dark: #180836;
+    --theme-bg-dark-rgb: 24, 8, 54;
+    --theme-bg-darker-rgb: 12, 4, 33;
+}

@@ -36,7 +36,7 @@ const GAMES = {
     id: 'xenoblade-1',
     name: 'Xenoblade Chronicles Definitive Edition',
     shortName: 'XC1 DE',
-    color: '#E63946',
+    color: '#8bb80e',
     bgImage: 'assets/bg/xenoblade-1.jpg',
     coverArt: 'assets/covers/xenoblade-1.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
@@ -3720,7 +3720,7 @@ const SONGS_XENOBLADE_X_DE = [
 const SONGS_XENOGEARS = [
   {
     "title": "Dark Daybreak",
-    "localizedTitle": "Dark Daybreak",
+    "localizedTitle": "Dark Dawn",
     "file": "1-01. Dark Daybreak.mp3",
     "duration": 292,
     "game": "xenogears",
@@ -3744,7 +3744,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "My Village is Number One!",
-    "localizedTitle": "My Village is Number One!",
+    "localizedTitle": "Village Pride",
     "file": "1-04. My Village is Number One!.mp3",
     "duration": 244,
     "game": "xenogears",
@@ -3752,7 +3752,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Valley Where the Wind Is Born",
-    "localizedTitle": "Valley Where the Wind Is Born",
+    "localizedTitle": "Wind from the Valley",
     "file": "1-05. Valley Where the Wind Is Born.mp3",
     "duration": 153,
     "game": "xenogears",
@@ -3760,7 +3760,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Faraway Promise",
-    "localizedTitle": "Faraway Promise",
+    "localizedTitle": "A Distant Promise",
     "file": "1-06. Faraway Promise.mp3",
     "duration": 112,
     "game": "xenogears",
@@ -3768,7 +3768,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Steel Giant",
-    "localizedTitle": "Steel Giant",
+    "localizedTitle": "Steel Giants",
     "file": "1-07. Steel Giant.mp3",
     "duration": 149,
     "game": "xenogears",
@@ -3784,7 +3784,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Where the Egg of Dreams Hatches",
-    "localizedTitle": "Where the Egg of Dreams Hatches",
+    "localizedTitle": "Where Dreams Hatch",
     "file": "1-09. Where the Egg of Dreams Hatches.mp3",
     "duration": 183,
     "game": "xenogears",
@@ -3792,7 +3792,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Dozing Off (Short Version)",
-    "localizedTitle": "Dozing Off (Short Version)",
+    "localizedTitle": "Doze (Short Version)",
     "file": "1-10. Dozing Off (Short Version).mp3",
     "duration": 10,
     "game": "xenogears",
@@ -3800,7 +3800,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Dazil, Town of Burning Sands",
-    "localizedTitle": "Dazil, Town of Burning Sands",
+    "localizedTitle": "Desert City Dazil",
     "file": "1-11. Dazil, Town of Burning Sands.mp3",
     "duration": 208,
     "game": "xenogears",
@@ -3808,7 +3808,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Aspiration",
-    "localizedTitle": "Aspiration",
+    "localizedTitle": "Adoration",
     "file": "1-12. Aspiration.mp3",
     "duration": 189,
     "game": "xenogears",
@@ -3816,7 +3816,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Grahf, Ruler of Darkness",
-    "localizedTitle": "Grahf, Ruler of Darkness",
+    "localizedTitle": "Grahf -Ruler of Darkness-",
     "file": "1-13. Grahf, Ruler of Darkness.mp3",
     "duration": 231,
     "game": "xenogears",
@@ -3832,7 +3832,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "After the Soldiers' Dreams",
-    "localizedTitle": "After the Soldiers' Dreams",
+    "localizedTitle": "Dreams of the Brave",
     "file": "1-15. After the Soldiers' Dreams.mp3",
     "duration": 309,
     "game": "xenogears",
@@ -3840,7 +3840,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Unstealable Jewel",
-    "localizedTitle": "Unstealable Jewel",
+    "localizedTitle": "Intangible Treasure",
     "file": "1-16. Unstealable Jewel.mp3",
     "duration": 207,
     "game": "xenogears",
@@ -3848,7 +3848,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Aveh, The Ancient Dance",
-    "localizedTitle": "Aveh, The Ancient Dance",
+    "localizedTitle": "Ancient Dance of Aveh",
     "file": "1-17. Aveh, The Ancient Dance.mp3",
     "duration": 111,
     "game": "xenogears",
@@ -3856,7 +3856,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Invasion",
-    "localizedTitle": "Invasion",
+    "localizedTitle": "Infiltration",
     "file": "1-18. Invasion.mp3",
     "duration": 193,
     "game": "xenogears",
@@ -3864,7 +3864,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Stage of Death",
-    "localizedTitle": "Stage of Death",
+    "localizedTitle": "Deadly Dance",
     "file": "1-19. Stage of Death.mp3",
     "duration": 159,
     "game": "xenogears",
@@ -3872,7 +3872,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "In A Dark Slumber...",
-    "localizedTitle": "In A Dark Slumber...",
+    "localizedTitle": "Dark Slumber",
     "file": "1-20. In A Dark Slumber....mp3",
     "duration": 23,
     "game": "xenogears",
@@ -3880,7 +3880,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "The Gentle Breeze Sings",
-    "localizedTitle": "The Gentle Breeze Sings",
+    "localizedTitle": "Windy Song",
     "file": "1-21. The Gentle Breeze Sings.mp3",
     "duration": 250,
     "game": "xenogears",
@@ -3888,7 +3888,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Our Wounded Bodies Shall Advance Towards the Light",
-    "localizedTitle": "Our Wounded Bodies Shall Advance Towards the Light",
+    "localizedTitle": "We Wounded Follow the Light",
     "file": "1-22. Our Wounded Bodies Shall Advance Towards the Light.mp3",
     "duration": 117,
     "game": "xenogears",
@@ -3896,7 +3896,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "lost... Broken Shards",
-    "localizedTitle": "lost... Broken Shards",
+    "localizedTitle": "Lost... -Screeching Shards-",
     "file": "1-23. lost... Broken Shards.mp3",
     "duration": 66,
     "game": "xenogears",
@@ -3904,7 +3904,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Thames, Spirit of the Men of the Sea",
-    "localizedTitle": "Thames, Spirit of the Men of the Sea",
+    "localizedTitle": "The Thames -Men of the Sea-",
     "file": "1-24. Thames, Spirit of the Men of the Sea.mp3",
     "duration": 231,
     "game": "xenogears",
@@ -3912,7 +3912,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "The Blue Traveler",
-    "localizedTitle": "The Blue Traveler",
+    "localizedTitle": "Blue Traveler",
     "file": "1-25. The Blue Traveler.mp3",
     "duration": 192,
     "game": "xenogears",
@@ -3920,7 +3920,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "In a Prison of Peace and Regret",
-    "localizedTitle": "In a Prison of Peace and Regret",
+    "localizedTitle": "Cage of Remorse and Relief",
     "file": "2-01. In a Prison of Peace and Regret.mp3",
     "duration": 163,
     "game": "xenogears",
@@ -3928,7 +3928,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Jaws of Ice",
-    "localizedTitle": "Jaws of Ice",
+    "localizedTitle": "Icy Chin",
     "file": "2-02. Jaws of Ice.mp3",
     "duration": 174,
     "game": "xenogears",
@@ -3936,7 +3936,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Crimson Knight",
-    "localizedTitle": "Crimson Knight",
+    "localizedTitle": "Blazing Knights",
     "file": "2-03. Crimson Knight.mp3",
     "duration": 163,
     "game": "xenogears",
@@ -3952,7 +3952,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "The Wind Calls to Shevat in the Blue Sky",
-    "localizedTitle": "The Wind Calls to Shevat in the Blue Sky",
+    "localizedTitle": "Shevat -The Wind Calls-",
     "file": "2-05. The Wind Calls to Shevat in the Blue Sky.mp3",
     "duration": 212,
     "game": "xenogears",
@@ -3960,7 +3960,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "The Sky, the Clouds, and You",
-    "localizedTitle": "The Sky, the Clouds, and You",
+    "localizedTitle": "With the Sky, the Clouds, and You",
     "file": "2-06. The Sky, the Clouds, and You.mp3",
     "duration": 156,
     "game": "xenogears",
@@ -3968,7 +3968,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "A Gathering of Stars in the Night Sky",
-    "localizedTitle": "A Gathering of Stars in the Night Sky",
+    "localizedTitle": "Gather Up the Night Stars",
     "file": "2-07. A Gathering of Stars in the Night Sky.mp3",
     "duration": 185,
     "game": "xenogears",
@@ -3976,7 +3976,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Tears of the Stars, Thoughts of the People",
-    "localizedTitle": "Tears of the Stars, Thoughts of the People",
+    "localizedTitle": "Earthly Tears, Mortal Thoughts",
     "file": "2-08. Tears of the Stars, Thoughts of the People.mp3",
     "duration": 215,
     "game": "xenogears",
@@ -3984,7 +3984,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Flight",
-    "localizedTitle": "Flight",
+    "localizedTitle": "Soaring",
     "file": "2-09. Flight.mp3",
     "duration": 289,
     "game": "xenogears",
@@ -4000,7 +4000,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Solaris, Celestial Paradise",
-    "localizedTitle": "Solaris, Celestial Paradise",
+    "localizedTitle": "Solaris -Supernal Paradise-",
     "file": "2-11. Solaris, Celestial Paradise.mp3",
     "duration": 224,
     "game": "xenogears",
@@ -4008,7 +4008,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Dozing Off (Long Version)",
-    "localizedTitle": "Dozing Off (Long Version)",
+    "localizedTitle": "Doze (Long Version)",
     "file": "2-12. Dozing Off (Long Version).mp3",
     "duration": 14,
     "game": "xenogears",
@@ -4016,7 +4016,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "The One Who is Torn Apart",
-    "localizedTitle": "The One Who is Torn Apart",
+    "localizedTitle": "Torn",
     "file": "2-13. The One Who is Torn Apart.mp3",
     "duration": 307,
     "game": "xenogears",
@@ -4024,7 +4024,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "A Prayer for the Joy Man Desires",
-    "localizedTitle": "A Prayer for the Joy Man Desires",
+    "localizedTitle": "Prayers -The Joy of Hope-",
     "file": "2-14. A Prayer for the Joy Man Desires.mp3",
     "duration": 206,
     "game": "xenogears",
@@ -4032,7 +4032,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "Premonition",
-    "localizedTitle": "Premonition",
+    "localizedTitle": "Foreboding",
     "file": "2-15. Premonition.mp3",
     "duration": 295,
     "game": "xenogears",
@@ -4048,7 +4048,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "One Who Bares Fangs at God",
-    "localizedTitle": "One Who Bares Fangs at God",
+    "localizedTitle": "Fangs Bared at God",
     "file": "2-17. One Who Bares Fangs at God.mp3",
     "duration": 367,
     "game": "xenogears",
@@ -4064,7 +4064,7 @@ const SONGS_XENOGEARS = [
   },
   {
     "title": "SMALL TWO OF PIECES ~Broken Shards~",
-    "localizedTitle": "SMALL TWO OF PIECES ~Broken Shards~",
+    "localizedTitle": "Small Two of Pieces -Screeching Shards-",
     "file": "2-19. SMALL TWO OF PIECES ~Broken Shards~.mp3",
     "duration": 380,
     "game": "xenogears",

@@ -46,6 +46,16 @@ function initPlayer(dailySong) {
             resolve();
         }, { once: true });
 
+        // Block hardware media keys (keyboard play/pause button)
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.setActionHandler('play', () => {});
+            navigator.mediaSession.setActionHandler('pause', () => {});
+            navigator.mediaSession.setActionHandler('seekforward', () => {});
+            navigator.mediaSession.setActionHandler('seekbackward', () => {});
+            navigator.mediaSession.setActionHandler('previoustrack', () => {});
+            navigator.mediaSession.setActionHandler('nexttrack', () => {});
+        }
+
         // Start loading
         audioElement.load();
     });
