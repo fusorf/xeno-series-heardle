@@ -72,8 +72,7 @@ h1,
 
 body {
     font-family: var(--theme-font-body);
-    background: linear-gradient(135deg, var(--theme-bg-darkest) 0%, var(--theme-bg-darker) 50%, var(--theme-bg-dark) 100%);
-    background-attachment: fixed;
+    background: #000000;
     color: #ffffff;
     min-height: 100vh;
     display: flex;
