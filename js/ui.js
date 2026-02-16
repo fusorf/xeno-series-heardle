@@ -185,9 +185,9 @@ function showResults(dailySong, guesses, locale, won) {
     html += '<hr class="result-separator">';
 
     if (won) {
-        const correctGuesses = guesses.filter(g => g !== 'skip').length;
-        const tryWord = correctGuesses === 1 ? locale.try : locale.tries;
-        html += `<p>${locale.guessedIn} ${correctGuesses} ${tryWord} !</p>`;
+        const totalAttempts = guesses.length;
+        const tryWord = totalAttempts === 1 ? locale.try : locale.tries;
+        html += `<p>${locale.guessedIn} ${totalAttempts} ${tryWord} !</p>`;
     } else {
         html += `<p>${locale.youLost}</p>`;
     }

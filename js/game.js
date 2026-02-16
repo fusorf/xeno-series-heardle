@@ -514,7 +514,7 @@ function giveUp() {
 function endGame(won) {
     gameOver = true;
 
-    const finalAttempt = won ? guesses.filter(g => g !== 'skip').length : MAX_ATTEMPTS;
+    const finalAttempt = won ? guesses.length : MAX_ATTEMPTS;
 
     saveGameState(currentMode, {
         dayNumber: dailySong.dayNumber,
