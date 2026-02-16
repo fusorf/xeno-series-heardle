@@ -1,14 +1,14 @@
-/* Full Xeno Series Mode - Red Theme */
+/* Full Xeno Series Mode - Gold/Yellow Theme */
 :root {
-    --theme-primary: #E63946;
-    --theme-secondary: #B82D38;
-    --theme-accent: #FF6B6B;
-    --theme-primary-rgb: 230, 57, 70;
-    --theme-secondary-rgb: 184, 45, 56;
-    --theme-accent-rgb: 255, 107, 107;
-    --theme-bg-darkest: #0A0203;
-    --theme-bg-darker: #120506;
-    --theme-bg-dark: #230A0C;
-    --theme-bg-dark-rgb: 35, 10, 12;
-    --theme-bg-darker-rgb: 18, 5, 6;
+    --theme-primary: #C8A832;
+    --theme-secondary: #9E8428;
+    --theme-accent: #E8D44D;
+    --theme-primary-rgb: 200, 168, 50;
+    --theme-secondary-rgb: 158, 132, 40;
+    --theme-accent-rgb: 232, 212, 77;
+    --theme-bg-darkest: #080700;
+    --theme-bg-darker: #121003;
+    --theme-bg-dark: #231E08;
+    --theme-bg-dark-rgb: 35, 30, 8;
+    --theme-bg-darker-rgb: 18, 16, 3;
 }

@@ -6,6 +6,10 @@
 let currentGamemodeLink = null;
 let currentGameLink = null;
 
+// Track current background URL
+let currentBgUrl = null;
+let bgTransitionTimer = null;
+
 /**
  * Initialize theme system - create the <link> elements in <head>.
  * Called once at startup.
@@ -80,29 +84,54 @@ function clearGameTheme() {
 // ============================================
 
 /**
- * Set the background image on #backgroundLayer.
- * Handles preloading and fade-in transition.
- * If the image fails to load (e.g. no background for this mode), fades out.
+ * Set the background image on a single layer.
+ * First call (no current bg): apply directly with fade-in.
+ * Subsequent calls: fade-out, swap image, fade-in.
  */
 function setBackground(bgImageUrl) {
     const layer = document.getElementById('backgroundLayer');
     if (!layer) return;
 
+    // Same image — nothing to do
+    if (bgImageUrl === currentBgUrl) return;
+
+    // Cancel any pending transition
+    if (bgTransitionTimer) {
+        clearTimeout(bgTransitionTimer);
+        bgTransitionTimer = null;
+    }
+
     if (!bgImageUrl) {
         layer.classList.remove('active');
+        currentBgUrl = null;
         return;
     }
 
-    // Preload image, then apply
-    const img = new Image();
-    img.onload = () => {
+    // First load or no current background — apply directly
+    if (!currentBgUrl) {
         layer.style.backgroundImage = `url('${bgImageUrl}')`;
         layer.classList.add('active');
-    };
-    img.onerror = () => {
-        // Image doesn't exist (e.g. gamemode without background yet)
-        layer.classList.remove('active');
-    };
+        currentBgUrl = bgImageUrl;
+
+        // Check 404
+        const img = new Image();
+        img.onerror = () => { layer.classList.remove('active'); currentBgUrl = null; };
+        img.src = bgImageUrl;
+        return;
+    }
+
+    // Fade out, swap, fade in
+    layer.classList.remove('active');
+    bgTransitionTimer = setTimeout(() => {
+        layer.style.backgroundImage = `url('${bgImageUrl}')`;
+        layer.classList.add('active');
+        currentBgUrl = bgImageUrl;
+        bgTransitionTimer = null;
+    }, 100); // Match CSS transition duration
+
+    // Check 404
+    const img = new Image();
+    img.onerror = () => { layer.classList.remove('active'); currentBgUrl = null; };
     img.src = bgImageUrl;
 }
 

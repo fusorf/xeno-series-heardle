@@ -7,22 +7,22 @@
 }
 
 :root {
-    /* === THEME COLORS (overridden by theme CSS files) === */
-    --theme-primary: #39a6a4;
-    --theme-secondary: #2d8482;
-    --theme-accent: #5ffffe;
+    /* === THEME COLORS (neutral defaults, overridden by theme CSS files) === */
+    --theme-primary: #888888;
+    --theme-secondary: #666666;
+    --theme-accent: #aaaaaa;
 
     /* Raw RGB values for alpha compositing */
-    --theme-primary-rgb: 57, 166, 164;
-    --theme-secondary-rgb: 45, 132, 130;
-    --theme-accent-rgb: 95, 255, 254;
+    --theme-primary-rgb: 136, 136, 136;
+    --theme-secondary-rgb: 102, 102, 102;
+    --theme-accent-rgb: 170, 170, 170;
 
-    /* Background tones (dark-to-light, derived from primary hue) */
-    --theme-bg-darkest: #020908;
-    --theme-bg-darker: #051211;
-    --theme-bg-dark: #0a2423;
-    --theme-bg-dark-rgb: 10, 36, 35;
-    --theme-bg-darker-rgb: 5, 18, 17;
+    /* Background tones (neutral dark) */
+    --theme-bg-darkest: #050505;
+    --theme-bg-darker: #0a0a0a;
+    --theme-bg-dark: #151515;
+    --theme-bg-dark-rgb: 21, 21, 21;
+    --theme-bg-darker-rgb: 10, 10, 10;
 
     /* === COMPUTED (auto-derived from above, no per-theme override needed) === */
     --theme-glow: rgba(var(--theme-primary-rgb), 0.7);
@@ -41,6 +41,33 @@
     --darker-blue: var(--theme-bg-darker);
     --accent-cyan: var(--theme-accent);
     --glow-blue: var(--theme-glow);
+}
+
+/* Theme transition: smooth color changes when switching modes */
+body,
+h1,
+.audio-player,
+.play-button,
+.progress-bar,
+.progress-fill,
+.time-labels,
+.result-message,
+.result-message h2,
+.guess-box,
+.search-input,
+.submit-button,
+.skip-button,
+.give-up-button,
+.copy-button,
+.countdown,
+.mode-tab,
+.daily-game-banner,
+.result-play-button,
+.result-progress-bar,
+.credits-box a {
+    transition: background 0.8s ease, border-color 0.8s ease,
+                box-shadow 0.8s ease, text-shadow 0.8s ease,
+                color 0.8s ease;
 }
 
 body {
@@ -73,7 +100,7 @@ body {
     background-repeat: no-repeat;
     filter: blur(8px);
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.1s ease;
 }
 
 /* Dark overlay on top of background for readability */
@@ -84,7 +111,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65);
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.2) 65%, rgba(0,0,0,0.95) 100%),
+        rgba(0, 0, 0, 0.4);
 }
 
 #backgroundLayer.active {
@@ -102,7 +131,7 @@ h1 {
     letter-spacing: -3px;
     position: relative;
     z-index: 1;
-    text-shadow: 
+    text-shadow:
         0 0 10px var(--glow-blue),
         0 0 20px var(--glow-blue),
         0 0 30px var(--primary-blue),
@@ -873,11 +902,10 @@ button:active::before {
     }
 }
 
-/* Credits (bottom of page) */
+/* Credits (bottom of page, fixed on desktop) */
 .credits-box {
     max-width: 700px;
     width: 100%;
-    margin: 0px auto 0px;
     padding: 20px;
     font-family: var(--theme-font-body);
     font-size: 0.85rem;
@@ -885,7 +913,10 @@ button:active::before {
     text-align: center;
     z-index: 1;
     line-height: 1.8;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .credit-line {
@@ -1377,9 +1408,13 @@ button:active::before {
     }
 
     .credits-box {
+        position: relative;
+        left: auto;
+        transform: none;
         font-size: 0.75rem;
         margin: 30px auto 150px;
         padding: 15px;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.7);
     }
 
     .history-button {
