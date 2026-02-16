@@ -14,7 +14,7 @@ xeno-series-heardle/
 │   ├── random.js           # Deterministic randomization system (seeded PRNG)
 │   ├── game.js             # Main game orchestrator
 │   ├── storage.js          # Cookie-based state management
-│   ├── theme.js            # Dynamic theme application (CSS variables)
+│   ├── theme.js            # CSS stylesheet swapping (gamemode + game themes)
 │   ├── player.js           # HTML5 Audio player with progress tracking
 │   └── ui.js               # UI rendering and DOM manipulation
 │
@@ -71,16 +71,6 @@ xeno-series-heardle/
 │   │   ├── background.png
 │   │   └── cover.png
 │   │
-│   ├── xenosaga-2-gamerip/ # Xenosaga II Gamerip
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
-│   │
-│   ├── xenosaga-2-movie/   # Xenosaga II Movie
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
-│   │
 │   ├── xenosaga-3/         # Xenosaga Episode III
 │   │   ├── logo.png
 │   │   ├── background.png
@@ -105,6 +95,18 @@ xeno-series-heardle/
 │   ├── en.json             # English
 │   ├── fr.json             # French
 │   └── ja.json             # Japanese
+│
+├── themes/                 # CSS theme files (override :root variables)
+│   ├── games/              # Per-game color themes (loaded on results screen)
+│   │   ├── xenoblade-1.css # XC1: green Monado + Headland One font
+│   │   ├── xenoblade-x.css # XCX: blue + futuristic effects (grid, particles, glow)
+│   │   ├── xenoblade-x-de.css # XCX DE: cyan + futuristic effects
+│   │   └── ...             # One file per game/DLC
+│   └── gamemodes/          # Per-gamemode color themes (loaded during gameplay)
+│       ├── full-xeno.css
+│       ├── xenoblade.css
+│       ├── xenosaga.css
+│       └── random.css
 │
 ├── .gitignore              # Git ignore rules
 ├── README.md               # Project description
@@ -137,7 +139,7 @@ constants.js → songs.js → random.js → storage.js → theme.js → player.j
 - **Song Pool**: ~201 songs
 
 ### 4. Random Daily (`random`)
-- **Games**: ALL 14 games (including Freaks, Pied Piper)
+- **Games**: All 14 games (including Freaks, Pied Piper)
 - **Theme**: Inherits daily game's color
 - **Random Start**: YES (random timestamp between 0 and duration-16s)
 - **Special**: Daily game name is revealed to players
@@ -188,16 +190,23 @@ constants.js → songs.js → random.js → storage.js → theme.js → player.j
 
 ## Theme System
 
-### CSS Variables (Dynamic)
+### Two-level CSS theming via stylesheet swapping
+- **Gamemode theme** (`themes/gamemodes/`): loaded during gameplay
+- **Game theme** (`themes/games/`): loaded on results screen (overrides gamemode)
+- **Random mode**: loads game theme directly (no gamemode theme)
+- Two dynamic `<link>` elements in `<head>`, created by `initThemeSystem()` in theme.js
+
+### CSS Variables (overridden by theme files)
 ```css
---theme-primary: #color    /* Mode/game primary color */
---theme-glow: rgba(...)    /* Auto-calculated glow from hex→RGB */
+--theme-primary / --theme-secondary / --theme-accent   /* Colors */
+--theme-primary-rgb / --theme-secondary-rgb / --theme-accent-rgb  /* RGB for alpha */
+--theme-bg-darkest / --theme-bg-darker / --theme-bg-dark  /* Backgrounds */
+--theme-font-heading: 'Orbitron', sans-serif  /* Heading font (per-theme) */
+--theme-font-body: 'Rajdhani', sans-serif     /* Body font (per-theme) */
 ```
 
-### Theme Application
-1. **Standard modes**: Use mode's predefined color
-2. **Random mode**: Inherit daily game's color
-3. **Color conversion**: `hexToRgb()` for glow effects
+### Futuristic Effects (XCX/XCX DE exclusive)
+Grid, particles, scanlines, glow animations are defined only in `xenoblade-x.css` and `xenoblade-x-de.css`. Other themes have no effects.
 
 ## Randomization System
 
@@ -271,10 +280,10 @@ player.js → HTML5 <audio> element
 
 ## Song Database
 
-### Games (16 total including variants)
+### Games (14 total including DLC)
 | Game | ID | Songs | Color |
 |------|----|-------|-------|
-| Xenoblade 1 DE | `xenoblade-1` | 91 | #E63946 |
+| Xenoblade 1 DE | `xenoblade-1` | 91 | #8bb80e |
 | Xenoblade 1 FC | `xenoblade-1-fc` | 8 | #FF6B9D |
 | Xenoblade 2 | `xenoblade-2` | 105 | #06D6A0 |
 | Xenoblade 2 Torna | `xenoblade-2-torna` | 11 | #20C997 |
@@ -284,9 +293,7 @@ player.js → HTML5 <audio> element
 | Xenoblade X DE | `xenoblade-x-de` | 9 | #00D4FF |
 | Xenogears | `xenogears` | 44 | #FFD700 |
 | Xenosaga I | `xenosaga-1` | 47 | #9B59B6 |
-| Xenosaga II | `xenosaga-2` | 70 | #7209B7 |
-| Xenosaga II Gamerip | `xenosaga-2-gamerip` | - | #9D4EDD |
-| Xenosaga II Movie | `xenosaga-2-movie` | - | #9D4EDD |
+| Xenosaga II | `xenosaga-2` | 70 | #9D4EDD |
 | Xenosaga III | `xenosaga-3` | 84 | #8E44AD |
 | Xenosaga Freaks | `xenosaga-freaks` | 23 | #A855F7 |
 | Xenosaga Pied Piper | `xenosaga-pied-piper` | 16 | #C084FC |

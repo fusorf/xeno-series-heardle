@@ -53,6 +53,11 @@ class SeededRandom {
 // Get current UTC date as YYYY-MM-DD string
 // Song changes at 23:00 UTC (1 hour before midnight)
 function getUTCDateString() {
+  // Allow date override for testing (set via setDateOverride())
+  if (window.DATE_OVERRIDE) {
+    return window.DATE_OVERRIDE;
+  }
+
   const now = new Date();
 
   // Add 1 hour offset so the day changes at 23:00 UTC instead of 00:00 UTC
@@ -203,7 +208,35 @@ function listGames() {
   });
 }
 
+// ============================================
+// DATE OVERRIDE (for testing special dates, etc.)
+// ============================================
+
+// Load date override from sessionStorage on page load
+window.DATE_OVERRIDE = sessionStorage.getItem('DATE_OVERRIDE') || null;
+
+function setDateOverride(dateString) {
+  // Validate format YYYY-MM-DD
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    console.log('❌ Invalid format. Use YYYY-MM-DD (e.g. "2025-12-25")');
+    return;
+  }
+  window.DATE_OVERRIDE = dateString;
+  sessionStorage.setItem('DATE_OVERRIDE', dateString);
+  console.log(`✅ Date override set to: ${dateString}`);
+  console.log('💡 Reload the page to apply');
+}
+
+function clearDateOverride() {
+  window.DATE_OVERRIDE = null;
+  sessionStorage.removeItem('DATE_OVERRIDE');
+  console.log('✅ Date override cleared');
+  console.log('💡 Reload the page to apply');
+}
+
 console.log('Random Challenge Debug:');
 console.log('  setDailyGame(gameId) - Force game (use listGames())');
 console.log('  clearDailyGame()     - Clear override');
 console.log('  listGames()          - Show available games');
+console.log('  setDateOverride("YYYY-MM-DD") - Simulate a date');
+console.log('  clearDateOverride()  - Clear date override');

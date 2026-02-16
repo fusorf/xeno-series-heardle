@@ -25,6 +25,14 @@ function initThemeSystem() {
 }
 
 /**
+ * Derive background image URL from a game or mode ID.
+ * Convention: images/<id>/background.webp
+ */
+function getBackgroundUrl(id) {
+    return `images/${id}/background.webp`;
+}
+
+/**
  * Apply the gamemode theme (used during gameplay / guessing screen).
  * For Random mode, applies the daily game's theme instead.
  * Legacy wrapper: called from game.js as applyTheme().
@@ -37,11 +45,15 @@ function applyTheme(modeId, song = null) {
         // Random mode: use the daily game's theme throughout
         currentGamemodeLink.setAttribute('href', '');
         currentGameLink.setAttribute('href', `themes/games/${song.game}.css`);
+        // Set background from the daily game
+        setBackground(getBackgroundUrl(song.game));
     } else {
         // Standard mode: load the gamemode theme
         currentGamemodeLink.setAttribute('href', `themes/gamemodes/${modeId}.css`);
         // Clear game theme (will be set when results show)
         currentGameLink.setAttribute('href', '');
+        // Set background from gamemode (if it exists)
+        setBackground(getBackgroundUrl(modeId));
     }
 }
 
@@ -52,6 +64,8 @@ function applyTheme(modeId, song = null) {
  */
 function applyResultsTheme(gameId) {
     currentGameLink.setAttribute('href', `themes/games/${gameId}.css`);
+    // Switch background to the game's artwork
+    setBackground(getBackgroundUrl(gameId));
 }
 
 /**
@@ -59,6 +73,37 @@ function applyResultsTheme(gameId) {
  */
 function clearGameTheme() {
     currentGameLink.setAttribute('href', '');
+}
+
+// ============================================
+// BACKGROUND IMAGE MANAGEMENT
+// ============================================
+
+/**
+ * Set the background image on #backgroundLayer.
+ * Handles preloading and fade-in transition.
+ * If the image fails to load (e.g. no background for this mode), fades out.
+ */
+function setBackground(bgImageUrl) {
+    const layer = document.getElementById('backgroundLayer');
+    if (!layer) return;
+
+    if (!bgImageUrl) {
+        layer.classList.remove('active');
+        return;
+    }
+
+    // Preload image, then apply
+    const img = new Image();
+    img.onload = () => {
+        layer.style.backgroundImage = `url('${bgImageUrl}')`;
+        layer.classList.add('active');
+    };
+    img.onerror = () => {
+        // Image doesn't exist (e.g. gamemode without background yet)
+        layer.classList.remove('active');
+    };
+    img.src = bgImageUrl;
 }
 
 function hexToRgb(hex) {

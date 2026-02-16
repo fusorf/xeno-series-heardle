@@ -57,6 +57,40 @@ body {
     overflow-x: hidden;
 }
 
+/* ============================================ */
+/* BACKGROUND LAYER (blurred game artwork)      */
+/* ============================================ */
+
+#backgroundLayer {
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+/* Dark overlay on top of background for readability */
+#backgroundLayer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+#backgroundLayer.active {
+    opacity: 1;
+}
+
 
 h1 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -118,6 +152,12 @@ h1 {
     color: #cccccc;
     font-weight: 500;
     margin-top: 15px;
+}
+
+.result-separator {
+    border: none;
+    border-top: 1px solid var(--panel-border);
+    margin: 15px 0 0;
 }
 
 .guess-boxes {
@@ -370,7 +410,7 @@ h1 {
 /* ===== SEARCH SECTION ===== */
 
 .search-section {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* ===== SEARCH ===== */
@@ -785,7 +825,7 @@ button:active::before {
         0 0 30px var(--glow-blue),
         0 0 40px var(--primary-blue),
         inset 0 0 30px rgba(var(--theme-accent-rgb), 0.2);
-    transform: translateY(-3px) scale(1.05);
+    transform: scale(1.05);
 }
 
 .countdown {

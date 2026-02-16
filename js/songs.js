@@ -15,8 +15,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles X',
     shortName: 'XCX',
     color: '#00A8E8',
-    bgImage: 'assets/bg/xenoblade-x.jpg',
-    coverArt: 'assets/covers/xenoblade-x.jpg',
     folder: 'Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)'
   },
   'xenoblade-x-de': {
@@ -24,8 +22,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles X - Definitive Edition',
     shortName: 'XCX DE',
     color: '#00D4FF',
-    bgImage: 'assets/bg/xenoblade-x-de.jpg',
-    coverArt: 'assets/covers/xenoblade-x-de.jpg',
     folder: 'Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)',
     parentGame: 'xenoblade-x',
     isDLC: true
@@ -37,8 +33,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles Definitive Edition',
     shortName: 'XC1 DE',
     color: '#8bb80e',
-    bgImage: 'assets/bg/xenoblade-1.jpg',
-    coverArt: 'assets/covers/xenoblade-1.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
   },
   'xenoblade-1-fc': {
@@ -46,8 +40,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles - Future Connected',
     shortName: 'XC1 FC',
     color: '#FF6B9D',
-    bgImage: 'assets/bg/xenoblade-1-fc.jpg',
-    coverArt: 'assets/covers/xenoblade-1-fc.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)',
     parentGame: 'xenoblade-1',
     isDLC: true
@@ -58,8 +50,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles 2',
     shortName: 'XC2',
     color: '#06D6A0',
-    bgImage: 'assets/bg/xenoblade-2.jpg',
-    coverArt: 'assets/covers/xenoblade-2.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
   },
   'xenoblade-2-torna': {
@@ -67,8 +57,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles 2 - Torna: The Golden Country',
     shortName: 'XC2 Torna',
     color: '#20C997',
-    bgImage: 'assets/bg/xenoblade-2-torna.jpg',
-    coverArt: 'assets/covers/xenoblade-2-torna.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)',
     parentGame: 'xenoblade-2',
     isDLC: true
@@ -80,8 +68,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles 3',
     shortName: 'XC3',
     color: '#FFB700',
-    bgImage: 'assets/bg/xenoblade-3.jpg',
-    coverArt: 'assets/covers/xenoblade-3.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)'
   },
   'xenoblade-3-fr': {
@@ -89,8 +75,6 @@ const GAMES = {
     name: 'Xenoblade Chronicles 3 - Future Redeemed',
     shortName: 'XC3 FR',
     color: '#FFC300',
-    bgImage: 'assets/bg/xenoblade-3-fr.jpg',
-    coverArt: 'assets/covers/xenoblade-3-fr.jpg',
     folder: 'Xenoblade Chronicles Original Soundtrack Trinity Box (2023)',
     parentGame: 'xenoblade-3',
     isDLC: true
@@ -102,8 +86,6 @@ const GAMES = {
     name: 'Xenosaga Episode I',
     shortName: 'Xenosaga I',
     color: '#7209B7',
-    bgImage: 'assets/bg/xenosaga-1.jpg',
-    coverArt: 'assets/covers/xenosaga-1.jpg',
     folder: 'Xenosaga Episode I (2004)'
   },
   'xenosaga-2': {
@@ -111,35 +93,13 @@ const GAMES = {
     name: 'Xenosaga Episode II',
     shortName: 'Xenosaga II',
     color: '#9D4EDD',
-    bgImage: 'assets/bg/xenosaga-2.jpg',
-    coverArt: 'assets/covers/xenosaga-2.jpg',
     folder: 'xenosaga-2'
-  },
-  'xenosaga-2-gamerip': {
-    id: 'xenosaga-2-gamerip',
-    name: 'Xenosaga Episode II (Gamerip)',
-    shortName: 'Xenosaga II',
-    color: '#9D4EDD',
-    bgImage: 'assets/bg/xenosaga-2.jpg',
-    coverArt: 'assets/covers/xenosaga-2.jpg',
-    folder: 'Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)'
-  },
-  'xenosaga-2-movie': {
-    id: 'xenosaga-2-movie',
-    name: 'Xenosaga Episode II (Movie)',
-    shortName: 'Xenosaga II',
-    color: '#9D4EDD',
-    bgImage: 'assets/bg/xenosaga-2.jpg',
-    coverArt: 'assets/covers/xenosaga-2.jpg',
-    folder: 'Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)'
   },
   'xenosaga-3': {
     id: 'xenosaga-3',
     name: 'Xenosaga Episode III',
     shortName: 'Xenosaga III',
     color: '#5A189A',
-    bgImage: 'assets/bg/xenosaga-3.jpg',
-    coverArt: 'assets/covers/xenosaga-3.jpg',
     folder: 'Xenosaga Episode III OST'
   },
 
@@ -149,8 +109,6 @@ const GAMES = {
     name: 'Xenosaga Freaks',
     shortName: 'XS Freaks',
     color: '#C77DFF',
-    bgImage: 'assets/bg/xenosaga-freaks.jpg',
-    coverArt: 'assets/covers/xenosaga-freaks.jpg',
     folder: 'Xenosaga Freaks (PS2) (gamerip) (2004)',
     isSpinOff: true
   },
@@ -159,8 +117,6 @@ const GAMES = {
     name: 'Xenosaga Pied Piper',
     shortName: 'XS Pied Piper',
     color: '#B5179E',
-    bgImage: 'assets/bg/xenosaga-pied-piper.jpg',
-    coverArt: 'assets/covers/xenosaga-pied-piper.jpg',
     folder: 'Xenosaga Pied Piper (Mobile) (gamerip) (2004)',
     isSpinOff: true
   },
@@ -171,8 +127,6 @@ const GAMES = {
     name: 'Xenogears',
     shortName: 'Xenogears',
     color: '#8B4513',
-    bgImage: 'assets/bg/xenogears.jpg',
-    coverArt: 'assets/covers/xenogears.jpg',
     folder: 'Xenogears ORIGINAL SOUNDTRACK (1998)'
   },
 };
@@ -201,8 +155,6 @@ const GAME_MODES = {
     id: 'full-xeno',
     name: 'Full Xeno Series',
     description: 'All main Xeno games + DLC',
-    color: '#E63946',
-    bgImage: 'assets/bg/full-xeno.jpg',
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
@@ -214,8 +166,6 @@ const GAME_MODES = {
     id: 'xenoblade',
     name: 'Xenoblade Heardle',
     description: 'Xenoblade Chronicles series + DLC',
-    color: '#E63946',
-    bgImage: 'assets/bg/xenoblade-all.jpg',
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x'
     ]),
@@ -225,8 +175,6 @@ const GAME_MODES = {
     id: 'xenosaga',
     name: 'Xenosaga Heardle',
     description: 'Xenosaga trilogy',
-    color: '#7209B7',
-    bgImage: 'assets/bg/xenosaga-all.jpg',
     games: ['xenosaga-1', 'xenosaga-2', 'xenosaga-3'],
     randomStart: false
   },
@@ -234,8 +182,6 @@ const GAME_MODES = {
     id: 'random',
     name: 'Random Challenge',
     description: 'Random game + random start time',
-    color: '#FF6B35',
-    bgImage: null,
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
@@ -4499,601 +4445,671 @@ const SONGS_XENOSAGA_1 = [
   },
 ];
 
-// xenosaga-2-gamerip
+// xenosaga-2 (gamerip)
 const SONGS_XENOSAGA_2_GAMERIP = [
   {
     "title": "Old Miltia (14 Years Ago)",
     "localizedTitle": "Old Miltia (14 Years Ago)",
     "file": "1-01. Old Miltia (14 Years Ago).mp3",
     "duration": 239,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "E.S. Battle",
     "localizedTitle": "E.S. Battle",
     "file": "1-02. E.S. Battle.mp3",
     "duration": 214,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Victory Theme",
     "localizedTitle": "Victory Theme",
     "file": "1-03. Victory Theme.mp3",
     "duration": 51,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Character Battle",
     "localizedTitle": "Character Battle",
     "file": "1-04. Character Battle.mp3",
     "duration": 219,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Second Miltia",
     "localizedTitle": "Second Miltia",
     "file": "1-06. Second Miltia.mp3",
     "duration": 176,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Evading the U-TIC Organization",
     "localizedTitle": "Evading the U-TIC Organization",
     "file": "1-07. Evading the U-TIC Organization.mp3",
     "duration": 276,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Minor Boss Battle",
     "localizedTitle": "Minor Boss Battle",
     "file": "1-08. Minor Boss Battle.mp3",
     "duration": 191,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Records",
     "localizedTitle": "Records",
     "file": "1-09. Records.mp3",
     "duration": 86,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Moby Dick's Cafe",
     "localizedTitle": "Moby Dick's Cafe",
     "file": "1-10. Moby Dick's Cafe.mp3",
     "duration": 350,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Uzuki Residence",
     "localizedTitle": "Uzuki Residence",
     "file": "1-11. Uzuki Residence.mp3",
     "duration": 236,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "U.M.N. Control Center",
     "localizedTitle": "U.M.N. Control Center",
     "file": "1-12. U.M.N. Control Center.mp3",
     "duration": 159,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Vector Industries, Second Division",
     "localizedTitle": "Vector Industries, Second Division",
     "file": "1-13. Vector Industries, Second Division.mp3",
     "duration": 197,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Subconscious Domain (Sakura's World)",
     "localizedTitle": "Subconscious Domain (Sakura's World)",
     "file": "1-14. Subconscious Domain (Sakura's World).mp3",
     "duration": 186,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Subconscious Domain (Summer)",
     "localizedTitle": "Subconscious Domain (Summer)",
     "file": "1-15. Subconscious Domain (Summer).mp3",
     "duration": 237,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Subconscious Domain (Winter)",
     "localizedTitle": "Subconscious Domain (Winter)",
     "file": "1-16. Subconscious Domain (Winter).mp3",
     "duration": 319,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "The Elsa von Brabant",
     "localizedTitle": "The Elsa von Brabant",
     "file": "2-01. The Elsa von Brabant.mp3",
     "duration": 200,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Robot Academy",
     "localizedTitle": "Robot Academy",
     "file": "2-02. Robot Academy.mp3",
     "duration": 117,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Ormus Stronghold",
     "localizedTitle": "Ormus Stronghold",
     "file": "2-03. Ormus Stronghold.mp3",
     "duration": 207,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Major Boss Battle",
     "localizedTitle": "Major Boss Battle",
     "file": "2-04. Major Boss Battle.mp3",
     "duration": 243,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Ormus Stronghold - Countdown to Self-Destruct",
     "localizedTitle": "Ormus Stronghold - Countdown to Self-Destruct",
     "file": "2-05. Ormus Stronghold - Countdown to Self-Destruct.mp3",
     "duration": 200,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "The Durandal",
     "localizedTitle": "The Durandal",
     "file": "2-06. The Durandal.mp3",
     "duration": 224,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Kukai Foundation",
     "localizedTitle": "Kukai Foundation",
     "file": "2-07. Kukai Foundation.mp3",
     "duration": 182,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Foundation Fishing Lab",
     "localizedTitle": "Foundation Fishing Lab",
     "file": "2-08. Foundation Fishing Lab.mp3",
     "duration": 195,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Old Miltia (Submerged City)",
     "localizedTitle": "Old Miltia (Submerged City)",
     "file": "2-09. Old Miltia (Submerged City).mp3",
     "duration": 207,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Labyrinthos",
     "localizedTitle": "Labyrinthos",
     "file": "2-10. Labyrinthos.mp3",
     "duration": 219,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Omega System",
     "localizedTitle": "Omega System",
     "file": "2-11. Omega System.mp3",
     "duration": 218,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Space-Time Anomaly",
     "localizedTitle": "Space-Time Anomaly",
     "file": "2-12. Space-Time Anomaly.mp3",
     "duration": 271,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Final Battle",
     "localizedTitle": "Final Battle",
     "file": "2-13. Final Battle.mp3",
     "duration": 360,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Desert",
     "localizedTitle": "Desert",
     "file": "2-14. Desert.mp3",
     "duration": 283,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
     "title": "Industrial Plant",
     "localizedTitle": "Industrial Plant",
     "file": "2-15. Industrial Plant.mp3",
     "duration": 188,
-    "game": "xenosaga-2-gamerip",
+    "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe"
+    "artist": "Shinji Hosoe",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
 ];
 
-// xenosaga-2-movie
+// xenosaga-2 (movie)
 const SONGS_XENOSAGA_2_MOVIE = [
   {
     "title": "in the beginning, there was....",
     "localizedTitle": "in the beginning, there was....",
     "file": "1-01. in the beginning, there was.....mp3",
     "duration": 120,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "first meeting",
     "localizedTitle": "first meeting",
     "file": "1-02. first meeting.mp3",
     "duration": 168,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Xenosaga II opening theme",
     "localizedTitle": "Xenosaga II opening theme",
     "file": "1-03. Xenosaga II opening theme.mp3",
     "duration": 152,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "assault",
     "localizedTitle": "assault",
     "file": "1-04. assault.mp3",
     "duration": 221,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "strain-Jin",
     "localizedTitle": "strain-Jin",
     "file": "1-05. strain-Jin.mp3",
     "duration": 235,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "here he comes",
     "localizedTitle": "here he comes",
     "file": "1-06. here he comes.mp3",
     "duration": 117,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "fatal fight (Jin & Margulis)",
     "localizedTitle": "fatal fight (Jin & Margulis)",
     "file": "1-07. fatal fight (Jin & Margulis).mp3",
     "duration": 253,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "R&D report",
     "localizedTitle": "R&D report",
     "file": "1-08. R&D report.mp3",
     "duration": 111,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "chase",
     "localizedTitle": "chase",
     "file": "1-09. chase.mp3",
     "duration": 159,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "surrounded",
     "localizedTitle": "surrounded",
     "file": "1-10. surrounded.mp3",
     "duration": 175,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "lamentation",
     "localizedTitle": "lamentation",
     "file": "1-11. lamentation.mp3",
     "duration": 324,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Albedo",
     "localizedTitle": "Albedo",
     "file": "1-12. Albedo.mp3",
     "duration": 119,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "communication breakdown",
     "localizedTitle": "communication breakdown",
     "file": "1-13. communication breakdown.mp3",
     "duration": 253,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Sakura (theme-piano ver.)",
     "localizedTitle": "Sakura (theme-piano ver.)",
     "file": "1-14. Sakura (theme-piano ver.).mp3",
     "duration": 98,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Sakura #2 (theme-simple voc.ver.)",
     "localizedTitle": "Sakura #2 (theme-simple voc.ver.)",
     "file": "1-15. Sakura #2 (theme-simple voc.ver.).mp3",
     "duration": 152,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "strained",
     "localizedTitle": "strained",
     "file": "1-16. strained.mp3",
     "duration": 68,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Jr. #2",
     "localizedTitle": "Jr. #2",
     "file": "1-17. Jr. #2.mp3",
     "duration": 101,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "strained #2 - Albedo #2",
     "localizedTitle": "strained #2 - Albedo #2",
     "file": "1-18. strained #2 - Albedo #2.mp3",
     "duration": 235,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "in the beginning, there was... #2",
     "localizedTitle": "in the beginning, there was... #2",
     "file": "1-19. in the beginning, there was... #2.mp3",
     "duration": 120,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "battle of Elsa",
     "localizedTitle": "battle of Elsa",
     "file": "1-20. battle of Elsa.mp3",
     "duration": 182,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "here she comes (KOS-MOS)",
     "localizedTitle": "here she comes (KOS-MOS)",
     "file": "1-21. here she comes (KOS-MOS).mp3",
     "duration": 158,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "battle of Elsa #2",
     "localizedTitle": "battle of Elsa #2",
     "file": "1-22. battle of Elsa #2.mp3",
     "duration": 129,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "gate out",
     "localizedTitle": "gate out",
     "file": "1-23. gate out.mp3",
     "duration": 209,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "here he comes #2",
     "localizedTitle": "here he comes #2",
     "file": "2-01. here he comes #2.mp3",
     "duration": 210,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "creeping fear",
     "localizedTitle": "creeping fear",
     "file": "2-02. creeping fear.mp3",
     "duration": 126,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "U-DO - Febronia",
     "localizedTitle": "U-DO - Febronia",
     "file": "2-03. U-DO - Febronia.mp3",
     "duration": 228,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "final crisis",
     "localizedTitle": "final crisis",
     "file": "2-04. final crisis.mp3",
     "duration": 134,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "presentiment - Jr.#3",
     "localizedTitle": "presentiment - Jr.#3",
     "file": "2-05. presentiment - Jr.#3.mp3",
     "duration": 195,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "a field of battle - bitter #2",
     "localizedTitle": "a field of battle - bitter #2",
     "file": "2-06. a field of battle - bitter #2.mp3",
     "duration": 176,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "inside - Sakura #3",
     "localizedTitle": "inside - Sakura #3",
     "file": "2-07. inside - Sakura #3.mp3",
     "duration": 84,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "I am free",
     "localizedTitle": "I am free",
     "file": "2-08. I am free.mp3",
     "duration": 100,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Sakura #4 (theme - gentle strings ver.)",
     "localizedTitle": "Sakura #4 (theme - gentle strings ver.)",
     "file": "2-09. Sakura #4 (theme - gentle strings ver.).mp3",
     "duration": 126,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Sweet Song (Xenosaga II ending theme)",
     "localizedTitle": "Sweet Song (Xenosaga II ending theme)",
     "file": "2-10. Sweet Song (Xenosaga II ending theme).mp3",
     "duration": 333,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Jr.",
     "localizedTitle": "Jr.",
     "file": "2-11. Jr..mp3",
     "duration": 206,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Jr. #4",
     "localizedTitle": "Jr. #4",
     "file": "2-12. Jr. #4.mp3",
     "duration": 157,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "fatal fight #2",
     "localizedTitle": "fatal fight #2",
     "file": "2-13. fatal fight #2.mp3",
     "duration": 140,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "bitter",
     "localizedTitle": "bitter",
     "file": "2-14. bitter.mp3",
     "duration": 173,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "Nephilim",
     "localizedTitle": "Nephilim",
     "file": "2-15. Nephilim.mp3",
     "duration": 88,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "the image theme of Xenosaga II #piano ver.",
     "localizedTitle": "the image theme of Xenosaga II #piano ver.",
     "file": "2-16. the image theme of Xenosaga II #piano ver..mp3",
     "duration": 190,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
     "title": "the image theme of Xenosaga II",
     "localizedTitle": "the image theme of Xenosaga II",
     "file": "2-17. the image theme of Xenosaga II.mp3",
     "duration": 204,
-    "game": "xenosaga-2-movie",
-    "artist": "YUKI KAJIURA"
+    "game": "xenosaga-2",
+    "artist": "Yuki Kajiura",
+    "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
 ];
 
@@ -6245,8 +6261,9 @@ function getAudioUrl(song) {
   // Encode filename to handle spaces, #, and special characters
   const encodedFile = encodeURIComponent(song.file);
 
-  // Use R2 storage
-  return `${AUDIO_BASE_URL}/music/${game.folder}/${encodedFile}`;
+  // Use song-level folder override if present, otherwise game folder
+  const folder = song.folder || game.folder;
+  return `${AUDIO_BASE_URL}/music/${folder}/${encodedFile}`;
 }
 
 // Legacy compatibility

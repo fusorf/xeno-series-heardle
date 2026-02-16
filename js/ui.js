@@ -157,11 +157,15 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
 function showResults(dailySong, guesses, locale, won) {
     const container = document.getElementById('gameContainer');
 
+    // Hide daily game banner on results screen
+    const banner = document.getElementById('dailyGameBanner');
+    if (banner) banner.style.display = 'none';
+
     // Add class to disable grid layout on results screen
     container.classList.add('results-screen');
 
     let html = '<div class="result-message">';
-    html += `<h2>${locale.todaySong} ${dailySong.title}</h2>`;
+    html += `<h2>${dailySong.title}</h2>`;
 
     // Display game name
     const gameInfo = GAMES[dailySong.game];
@@ -169,14 +173,16 @@ function showResults(dailySong, guesses, locale, won) {
         html += `<p class="song-credit">${escapeHtml(gameInfo.name)}</p>`;
     }
 
-    // Display composer and artist metadata right after title
-    if (dailySong.composer) {
-        html += `<p class="song-credit">${locale.composer}: ${escapeHtml(dailySong.composer)}</p>`;
+    // Display artist/composer credits
+    if (dailySong.composer && dailySong.artist && dailySong.artist !== dailySong.composer) {
+        html += `<p class="song-credit">${escapeHtml(dailySong.composer)}, ${escapeHtml(dailySong.artist)}</p>`;
+    } else if (dailySong.composer) {
+        html += `<p class="song-credit">${escapeHtml(dailySong.composer)}</p>`;
+    } else if (dailySong.artist) {
+        html += `<p class="song-credit">${escapeHtml(dailySong.artist)}</p>`;
     }
-    // Only show artist if different from composer
-    if (dailySong.artist && dailySong.artist !== dailySong.composer) {
-        html += `<p class="song-credit">${locale.artist}: ${escapeHtml(dailySong.artist)}</p>`;
-    }
+
+    html += '<hr class="result-separator">';
 
     if (won) {
         const correctGuesses = guesses.filter(g => g !== 'skip').length;
@@ -240,6 +246,13 @@ function updateCountdown(locale) {
 // ============================================
 
 function checkSpecialDate() {
+    // Use date override if set, otherwise use real date
+    if (window.DATE_OVERRIDE) {
+        const parts = window.DATE_OVERRIDE.split('-');
+        const m = parseInt(parts[1], 10) - 1; // 0-indexed
+        const d = parseInt(parts[2], 10);
+        return m === 11 && d === 25;
+    }
     const today = new Date();
     const m = today.getUTCMonth();
     const d = today.getUTCDate();
