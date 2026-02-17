@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
 /* Xenosaga Freaks - Lavender Theme */
 :root {
     --theme-primary: #C77DFF;
@@ -6,4 +8,8 @@
     --theme-primary-rgb: 199, 125, 255;
     --theme-secondary-rgb: 159, 100, 204;
     --theme-accent-rgb: 229, 184, 255;
+    --theme-bg-dark-rgb: 28, 12, 54;
+    --theme-bg-darker-rgb: 14, 6, 33;
+    --theme-font-heading: 'Electrolize', sans-serif;
+    --theme-font-body: 'Electrolize', sans-serif;
 }

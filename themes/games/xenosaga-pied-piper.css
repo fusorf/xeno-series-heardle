@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
 /* Xenosaga Pied Piper - Magenta Theme */
 :root {
     --theme-primary: #B5179E;
@@ -6,4 +8,8 @@
     --theme-primary-rgb: 181, 23, 158;
     --theme-secondary-rgb: 145, 18, 126;
     --theme-accent-rgb: 232, 93, 208;
+    --theme-bg-dark-rgb: 35, 4, 30;
+    --theme-bg-darker-rgb: 18, 2, 16;
+    --theme-font-heading: 'Electrolize', sans-serif;
+    --theme-font-body: 'Electrolize', sans-serif;
 }

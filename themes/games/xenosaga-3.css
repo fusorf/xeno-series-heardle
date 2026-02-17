@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
 /* Xenosaga Episode III - Dark Purple Theme */
 :root {
     --theme-primary: #5A189A;
@@ -6,4 +8,8 @@
     --theme-primary-rgb: 90, 24, 154;
     --theme-secondary-rgb: 72, 19, 123;
     --theme-accent-rgb: 155, 89, 214;
+    --theme-bg-dark-rgb: 16, 2, 46;
+    --theme-bg-darker-rgb: 8, 1, 29;
+    --theme-font-heading: 'Electrolize', sans-serif;
+    --theme-font-body: 'Electrolize', sans-serif;
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&display=swap');
+
 /* Xenoblade Chronicles 2 - Teal Green Theme */
 :root {
     --theme-primary: #06D6A0;
@@ -6,4 +8,8 @@
     --theme-primary-rgb: 6, 214, 160;
     --theme-secondary-rgb: 5, 171, 128;
     --theme-accent-rgb: 86, 255, 214;
+    --theme-bg-dark-rgb: 8, 35, 26;
+    --theme-bg-darker-rgb: 4, 18, 13;
+    --theme-font-heading: 'Noto Sans', sans-serif;
+    --theme-font-body: 'Noto Sans', sans-serif;
 }

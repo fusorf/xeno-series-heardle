@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&display=swap');
+
 /* Xenoblade Chronicles 2 - Torna: The Golden Country - Turquoise Theme */
 :root {
     --theme-primary: #20C997;
@@ -6,4 +8,8 @@
     --theme-primary-rgb: 32, 201, 151;
     --theme-secondary-rgb: 26, 161, 121;
     --theme-accent-rgb: 102, 234, 189;
+    --theme-bg-dark-rgb: 8, 35, 26;
+    --theme-bg-darker-rgb: 4, 18, 13;
+    --theme-font-heading: 'Noto Sans', sans-serif;
+    --theme-font-body: 'Noto Sans', sans-serif;
 }

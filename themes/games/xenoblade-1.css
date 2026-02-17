@@ -8,5 +8,7 @@
     --theme-primary-rgb: 139, 184, 14;
     --theme-secondary-rgb: 122, 149, 55;
     --theme-accent-rgb: 255, 255, 69;
+    --theme-bg-dark-rgb: 75, 69, 64;
+    --theme-bg-darker-rgb: 44, 42, 40;
     --theme-font-heading: 'Headland One', serif;
 }

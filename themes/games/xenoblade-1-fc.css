@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Headland+One&display=swap');
+
 /* Xenoblade Chronicles 1 - Future Connected - Pink Theme */
 :root {
     --theme-primary: #FF6B9D;
@@ -6,4 +8,7 @@
     --theme-primary-rgb: 255, 107, 157;
     --theme-secondary-rgb: 204, 86, 126;
     --theme-accent-rgb: 255, 179, 204;
+    --theme-bg-dark-rgb: 35, 10, 16;
+    --theme-bg-darker-rgb: 18, 5, 8;
+    --theme-font-heading: 'Headland One', serif;
 }

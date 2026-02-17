@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
 /* Xenoblade Chronicles 3 - Future Redeemed - Golden Theme */
 :root {
     --theme-primary: #FFC300;
@@ -6,4 +8,8 @@
     --theme-primary-rgb: 255, 195, 0;
     --theme-secondary-rgb: 204, 156, 0;
     --theme-accent-rgb: 255, 220, 102;
+    --theme-bg-dark-rgb: 35, 27, 5;
+    --theme-bg-darker-rgb: 18, 14, 2;
+    --theme-font-heading: 'Inter', sans-serif;
+    --theme-font-body: 'Inter', sans-serif;
 }
