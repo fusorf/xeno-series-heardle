@@ -37,11 +37,13 @@ function getBackgroundUrl(id) {
 }
 
 /**
- * Apply the gamemode theme (used during gameplay / guessing screen).
- * For Random mode, applies the daily game's theme instead.
- * Legacy wrapper: called from game.js as applyTheme().
+ * Single entry point for all theme changes.
+ *
+ * @param {string} modeId   - The gamemode id (e.g. 'xenoblade', 'random')
+ * @param {object} song     - The daily song object
+ * @param {boolean} isResults - true = results screen, false = gameplay screen
  */
-function applyTheme(modeId, song = null) {
+function applyTheme(modeId, song, isResults = false) {
     const mode = GAME_MODES[modeId];
     if (!mode) return;
 
@@ -49,27 +51,18 @@ function applyTheme(modeId, song = null) {
         // Random mode: use the daily game's theme throughout
         currentGamemodeLink.setAttribute('href', '');
         currentGameLink.setAttribute('href', `themes/games/${song.game}.css`);
-        // Set background from the daily game
+        setBackground(getBackgroundUrl(song.game));
+    } else if (isResults) {
+        // Results screen: load both gamemode CSS (variables) and game CSS (overrides)
+        currentGamemodeLink.setAttribute('href', `themes/gamemodes/${modeId}.css`);
+        currentGameLink.setAttribute('href', `themes/games/${song.game}.css`);
         setBackground(getBackgroundUrl(song.game));
     } else {
-        // Standard mode: load the gamemode theme
+        // Gameplay screen: gamemode only
         currentGamemodeLink.setAttribute('href', `themes/gamemodes/${modeId}.css`);
-        // Clear game theme (will be set when results show)
         currentGameLink.setAttribute('href', '');
-        // Set background from gamemode (if it exists)
         setBackground(getBackgroundUrl(modeId));
     }
-}
-
-/**
- * Switch to the results screen theme: the song's game/DLC theme.
- * The game theme <link> loads AFTER the gamemode <link>,
- * so its :root overrides win by source order.
- */
-function applyResultsTheme(gameId) {
-    currentGameLink.setAttribute('href', `themes/games/${gameId}.css`);
-    // Switch background to the game's artwork
-    setBackground(getBackgroundUrl(gameId));
 }
 
 /**

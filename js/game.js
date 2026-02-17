@@ -65,9 +65,8 @@ async function initGame() {
     // Get daily song for current mode
     dailySong = getDailySong(currentMode);
 
-    // Initialize theme system and apply theme
+    // Initialize theme system
     initThemeSystem();
-    applyTheme(currentMode, dailySong);
 
     // Show daily game banner for Random mode
     updateDailyGameBanner(currentMode, dailySong, locale);
@@ -77,8 +76,21 @@ async function initGame() {
         addVisualEffect();
     }
 
-    // Load saved game state
+    // Load and display game state
+    loadAndDisplay();
+}
+
+// ============================================
+// CORE DISPLAY LOGIC
+// ============================================
+
+/**
+ * Load saved state for current mode and display the appropriate screen.
+ * Single source of truth for "what to show" — used by init, switchMode, and switchLanguage.
+ */
+function loadAndDisplay() {
     const savedState = loadGameState(currentMode, dailySong);
+
     if (savedState) {
         currentAttempt = savedState.currentAttempt;
         guesses = savedState.guesses;
@@ -86,20 +98,24 @@ async function initGame() {
 
         if (gameOver) {
             initShareScope();
+            applyTheme(currentMode, dailySong, true);
             showResults(dailySong, guesses, locale, savedState.won);
-            applyResultsTheme(dailySong.game);
             updateCountdown(locale);
+            if (window.countdownInterval) clearInterval(window.countdownInterval);
             window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
-        } else {
-            renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
-            initializeGameFilters();
-            setupEventListeners();
+            return;
         }
     } else {
-        renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
-        initializeGameFilters();
-        setupEventListeners();
+        currentAttempt = 0;
+        guesses = [];
+        gameOver = false;
     }
+
+    // Gameplay screen
+    applyTheme(currentMode, dailySong, false);
+    renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+    initializeGameFilters();
+    setupEventListeners();
 }
 
 // ============================================
@@ -109,7 +125,7 @@ async function initGame() {
 function switchMode(modeId) {
     if (modeId === currentMode) return;
 
-    // Save mode preference and reset game state
+    // Save mode preference
     currentMode = modeId;
     setCookie('xenoHeardleMode', modeId, 365);
 
@@ -117,52 +133,20 @@ function switchMode(modeId) {
     if (typeof destroyPlayer === 'function') {
         destroyPlayer();
     }
-    // Stop result audio player if playing
     if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
         resultAudioElement.pause();
         resultAudioElement = null;
     }
 
-    // Get new daily song for the new mode
+    // Get new daily song
     dailySong = getDailySong(currentMode);
 
-    // Apply new theme
-    applyTheme(currentMode, dailySong);
-
-    // Update mode selector UI
+    // Update UI chrome
     renderModeSelector(currentMode, locale);
-
-    // Update daily game banner
     updateDailyGameBanner(currentMode, dailySong, locale);
 
-    // Load saved game state for this mode
-    const savedState = loadGameState(currentMode, dailySong);
-    if (savedState) {
-        currentAttempt = savedState.currentAttempt;
-        guesses = savedState.guesses;
-        gameOver = savedState.gameOver;
-
-        if (gameOver) {
-            showResults(dailySong, guesses, locale, savedState.won);
-            applyResultsTheme(dailySong.game);
-            updateCountdown(locale);
-            // Clear any existing countdown interval
-            if (window.countdownInterval) clearInterval(window.countdownInterval);
-            window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
-        } else {
-            renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
-            initializeGameFilters();
-            setupEventListeners();
-        }
-    } else {
-        // New game for this mode
-        currentAttempt = 0;
-        guesses = [];
-        gameOver = false;
-        renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
-        initializeGameFilters();
-        setupEventListeners();
-    }
+    // Load and display
+    loadAndDisplay();
 }
 
 // ============================================
@@ -529,14 +513,14 @@ function endGame(won) {
     saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
 
     initShareScope();
+    applyTheme(currentMode, dailySong, true);
     showResults(dailySong, guesses, locale, won);
-    applyResultsTheme(dailySong.game);
     updateCountdown(locale);
     setInterval(() => updateCountdown(locale), 1000);
 }
 
 // ============================================
-// RESULTS
+// RESULTS / SHARE
 // ============================================
 
 const SITE_URL = 'fusorf.github.io/xeno-series-heardle/';
