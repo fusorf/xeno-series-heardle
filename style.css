@@ -58,7 +58,8 @@ h1,
 .submit-button,
 .skip-button,
 .give-up-button,
-.copy-button,
+.share-action-btn,
+.scope-btn,
 .countdown,
 .mode-tab,
 .daily-game-banner,
@@ -806,29 +807,83 @@ button:active::before {
     color: #cccccc;
 }
 
-.copy-button {
-    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-    color: #ffffff;
-    padding: 18px 40px;
-    border: 2px solid var(--primary-blue);
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
+/* Share section */
+.share-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin: 0 auto 25px;
-    display: block;
-    font-family: var(--theme-font-heading);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow:
-        0 0 20px var(--glow-blue),
-        inset 0 0 20px rgba(var(--theme-accent-rgb), 0.1);
-    position: relative;
-    overflow: hidden;
+    max-width: 340px;
+    width: 100%;
 }
 
-.copy-button::before {
+/* Scope toggle (these results / all results) */
+.share-scope-toggle {
+    display: flex;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 3px;
+}
+
+.scope-btn {
+    flex: 1;
+    padding: 8px 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 6px;
+    font-family: var(--theme-font-heading);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.scope-btn.active {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    color: #ffffff;
+    box-shadow: 0 0 10px var(--glow-blue);
+}
+
+.scope-btn:not(.active):hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Action buttons (copy / tweet) */
+.share-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.share-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 0;
+    border: 2px solid var(--primary-blue);
+    border-radius: 10px;
+    font-family: var(--theme-font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.share-action-btn::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -841,17 +896,45 @@ button:active::before {
     transition: width 0.6s, height 0.6s;
 }
 
-.copy-button:active::before {
+.share-action-btn:active::before {
     width: 300px;
     height: 300px;
 }
 
-.copy-button:hover {
+.copy-btn {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    color: #ffffff;
     box-shadow:
-        0 0 30px var(--glow-blue),
-        0 0 40px var(--primary-blue),
-        inset 0 0 30px rgba(var(--theme-accent-rgb), 0.2);
-    transform: scale(1.05);
+        0 0 15px var(--glow-blue),
+        inset 0 0 15px rgba(var(--theme-accent-rgb), 0.1);
+}
+
+.copy-btn:hover {
+    box-shadow:
+        0 0 25px var(--glow-blue),
+        0 0 35px var(--primary-blue),
+        inset 0 0 25px rgba(var(--theme-accent-rgb), 0.2);
+    transform: scale(1.03);
+}
+
+.tweet-btn {
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+    color: #ffffff;
+    box-shadow:
+        0 0 15px rgba(var(--theme-accent-rgb), 0.1),
+        inset 0 0 15px rgba(255, 255, 255, 0.03);
+}
+
+.tweet-btn:hover {
+    background: linear-gradient(135deg, #2a2a3e, #1a1a2e);
+    box-shadow:
+        0 0 25px rgba(var(--theme-accent-rgb), 0.15),
+        inset 0 0 25px rgba(255, 255, 255, 0.05);
+    transform: scale(1.03);
+}
+
+.share-action-btn svg {
+    flex-shrink: 0;
 }
 
 .countdown {

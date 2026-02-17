@@ -85,6 +85,7 @@ async function initGame() {
         gameOver = savedState.gameOver;
 
         if (gameOver) {
+            initShareScope();
             showResults(dailySong, guesses, locale, savedState.won);
             applyResultsTheme(dailySong.game);
             updateCountdown(locale);
@@ -527,6 +528,7 @@ function endGame(won) {
     // Save to history
     saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
 
+    initShareScope();
     showResults(dailySong, guesses, locale, won);
     applyResultsTheme(dailySong.game);
     updateCountdown(locale);
@@ -537,64 +539,118 @@ function endGame(won) {
 // RESULTS
 // ============================================
 
-function copyResults() {
-    const results = [];
-    const today = getDailySong(currentMode).dayNumber;
+const SITE_URL = 'fusorf.github.io/xeno-series-heardle/';
 
-    // Check all game modes for completed games
+function buildModeResult(mode, modeDailySong, savedState) {
+    const emoji = [];
+    let foundCorrect = false;
+
+    for (let i = 0; i < MAX_ATTEMPTS; i++) {
+        if (foundCorrect) {
+            emoji.push('⬛');
+        } else if (savedState.guesses[i]) {
+            if (savedState.guesses[i] === 'skip') {
+                emoji.push('⬜');
+            } else if (savedState.guesses[i].toLowerCase() === modeDailySong.title.toLowerCase()) {
+                emoji.push('🟩');
+                foundCorrect = true;
+            } else {
+                emoji.push('🟥');
+            }
+        } else {
+            emoji.push('⬛');
+        }
+    }
+
+    // Use localized mode name if available
+    let modeName = mode.name;
+    if (locale && locale.modes && locale.modes[mode.id]) {
+        modeName = locale.modes[mode.id].name;
+    }
+
+    return `${modeName}\n${emoji.join('')}`;
+}
+
+let shareScope = 'this';
+
+function initShareScope() {
+    const today = getDailySong(currentMode).dayNumber;
+    const allModesCount = Object.keys(GAME_MODES).length;
+    let completedCount = 0;
     Object.values(GAME_MODES).forEach(mode => {
         const modeDailySong = getDailySong(mode.id);
         const savedState = loadGameState(mode.id, modeDailySong);
-
-        // Only include modes that have been completed today
         if (savedState && savedState.gameOver && savedState.dayNumber === today) {
-            const emoji = [];
-            let foundCorrect = false;
-
-            for (let i = 0; i < MAX_ATTEMPTS; i++) {
-                if (foundCorrect) {
-                    emoji.push('⬛');
-                } else if (savedState.guesses[i]) {
-                    if (savedState.guesses[i] === 'skip') {
-                        emoji.push('⬜');
-                    } else if (savedState.guesses[i].toLowerCase() === modeDailySong.title.toLowerCase()) {
-                        emoji.push('🟩');
-                        foundCorrect = true;
-                    } else {
-                        emoji.push('🟥');
-                    }
-                } else {
-                    emoji.push('⬛');
-                }
-            }
-
-            // Use localized mode name if available
-            let modeName = mode.name;
-            if (locale && locale.modes && locale.modes[mode.id]) {
-                modeName = locale.modes[mode.id].name;
-            }
-
-            results.push(`${modeName}\n${emoji.join('')}`);
+            completedCount++;
         }
     });
+    shareScope = completedCount >= allModesCount ? 'all' : 'this';
+}
 
-    // Always use header with day number
+function setShareScope(scope) {
+    shareScope = scope;
+    document.querySelectorAll('.scope-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.scope === scope);
+    });
+}
+
+function buildShareText() {
+    const today = getDailySong(currentMode).dayNumber;
     let text;
-    if (results.length >= 1) {
-        text = `Xeno Series Heardle #${today} 🎧\n\n${results.join('\n\n')}`;
+
+    if (shareScope === 'this') {
+        const mode = GAME_MODES[currentMode];
+        const modeDailySong = getDailySong(currentMode);
+        const savedState = loadGameState(currentMode, modeDailySong);
+
+        if (savedState && savedState.gameOver && savedState.dayNumber === today) {
+            const result = buildModeResult(mode, modeDailySong, savedState);
+            text = `Xeno Series Heardle #${today} 🎧\n\n${result}`;
+        } else {
+            text = `${mode.name} #${today} 🎧`;
+        }
     } else {
-        // Fallback to current mode only (shouldn't happen on results screen)
-        text = `${GAME_MODES[currentMode].name} #${dailySong.dayNumber} 🎧`;
+        const results = [];
+
+        Object.values(GAME_MODES).forEach(mode => {
+            const modeDailySong = getDailySong(mode.id);
+            const savedState = loadGameState(mode.id, modeDailySong);
+
+            if (savedState && savedState.gameOver && savedState.dayNumber === today) {
+                results.push(buildModeResult(mode, modeDailySong, savedState));
+            }
+        });
+
+        if (results.length >= 1) {
+            text = `Xeno Series Heardle #${today} 🎧\n\n${results.join('\n\n')}`;
+        } else {
+            text = `${GAME_MODES[currentMode].name} #${today} 🎧`;
+        }
     }
 
+    return `${text}\n\n${SITE_URL}`;
+}
+
+function copyResults() {
+    const text = buildShareText();
+
     navigator.clipboard.writeText(text).then(() => {
-        const button = document.querySelector('.copy-button');
-        const originalText = button.textContent;
-        button.textContent = locale.copied;
-        setTimeout(() => {
-            button.textContent = originalText;
-        }, 2000);
+        const button = document.querySelector('.copy-btn');
+        if (button) {
+            const span = button.querySelector('span');
+            const originalText = span.textContent;
+            span.textContent = locale.copied;
+            setTimeout(() => {
+                span.textContent = originalText;
+            }, 2000);
+        }
     });
+}
+
+function tweetResults() {
+    const text = buildShareText();
+    const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    window.open(tweetUrl, '_blank');
 }
 
 // ============================================
