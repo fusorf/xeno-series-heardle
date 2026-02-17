@@ -184,12 +184,16 @@ function getEndlessSong(modeId) {
     startTime = maxStart > 0 ? Math.floor(Math.random() * (maxStart + 1)) : 0;
   }
 
+  // Include dailyGame info for random mode (needed for banner display)
+  const dailyGame = mode.showDailyGame && song.game ? GAMES[song.game] : undefined;
+
   return {
     ...song,
     dayNumber: 0, // No day number for endless
     endlessId: Date.now(), // Unique ID per round
     startTime,
-    mode: modeId
+    mode: modeId,
+    dailyGame
   };
 }
 
