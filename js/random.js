@@ -234,9 +234,11 @@ function clearDateOverride() {
   console.log('💡 Reload the page to apply');
 }
 
-console.log('Random Challenge Debug:');
-console.log('  setDailyGame(gameId) - Force game (use listGames())');
-console.log('  clearDailyGame()     - Clear override');
-console.log('  listGames()          - Show available games');
-console.log('  setDateOverride("YYYY-MM-DD") - Simulate a date');
-console.log('  clearDateOverride()  - Clear date override');
+if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+  console.log('Random Challenge Debug:');
+  console.log('  setDailyGame(gameId) - Force game (use listGames())');
+  console.log('  clearDailyGame()     - Clear override');
+  console.log('  listGames()          - Show available games');
+  console.log('  setDateOverride("YYYY-MM-DD") - Simulate a date');
+  console.log('  clearDateOverride()  - Clear date override');
+}

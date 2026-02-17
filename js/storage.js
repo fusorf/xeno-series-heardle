@@ -202,7 +202,9 @@ function showCookies() {
     });
 }
 
-console.log('Debug commands:');
-console.log('  clearAllCookies()    - Clear all saved games');
-console.log('  clearModeCookies(mode) - Clear specific mode (e.g., clearModeCookies("xenosaga"))');
-console.log('  showCookies()        - Show all saved states');
+if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+  console.log('Debug commands:');
+  console.log('  clearAllCookies()    - Clear all saved games');
+  console.log('  clearModeCookies(mode) - Clear specific mode (e.g., clearModeCookies("xenosaga"))');
+  console.log('  showCookies()        - Show all saved states');
+}
