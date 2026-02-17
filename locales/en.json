@@ -30,6 +30,17 @@
     "maxOneShotStreak": "Best One Shot Streak",
     "noHistory": "No games played yet"
   },
+  "endless": {
+    "name": "Endless Now",
+    "restart": "Restart",
+    "daily": "Daily",
+    "endless": "Endless Now"
+  },
+  "tooltips": {
+    "language": "Language",
+    "stats": "Statistics",
+    "endless": "Endless Now"
+  },
   "credits": {
     "madeBy": "Made by",
     "specialThanks": "Special thanks to"

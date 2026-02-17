@@ -82,9 +82,49 @@ function saveToHistory(modeId, dayNumber, won, attempts, guesses) {
     setCookie(historyKey, history, 365);
 }
 
-function getStats(modeId) {
-    const history = getHistory(modeId);
+// ============================================
+// ENDLESS HISTORY MANAGEMENT
+// ============================================
 
+function getEndlessHistory(modeId) {
+    const key = `xenoHeardle_${modeId}_endless`;
+    const history = getCookie(key);
+    return history || [];
+}
+
+function saveToEndlessHistory(modeId, won, attempts, guesses) {
+    const history = getEndlessHistory(modeId);
+
+    history.push({
+        won,
+        attempts,
+        guesses,
+        timestamp: new Date().toISOString()
+    });
+
+    // Keep last 200 entries
+    if (history.length > 200) {
+        history.splice(0, history.length - 200);
+    }
+
+    const key = `xenoHeardle_${modeId}_endless`;
+    setCookie(key, history, 365);
+}
+
+function getEndlessStats(modeId) {
+    const history = getEndlessHistory(modeId);
+    return computeStats(history);
+}
+
+// ============================================
+// STATS COMPUTATION
+// ============================================
+
+/**
+ * Compute stats from a history array.
+ * Works for both daily (sorted by day) and endless (sorted by array order).
+ */
+function computeStats(history) {
     if (history.length === 0) {
         return {
             totalPlayed: 0,
@@ -103,7 +143,7 @@ function getStats(modeId) {
     const totalWon = history.filter(h => h.won).length;
     const winRate = Math.round((totalWon / totalPlayed) * 100);
 
-    // Calculate guess distribution
+    // Guess distribution
     const guessDistribution = [0, 0, 0, 0, 0];
     history.forEach(h => {
         if (h.won && h.attempts > 0 && h.attempts <= 5) {
@@ -111,60 +151,52 @@ function getStats(modeId) {
         }
     });
 
-    // Calculate streaks
-    const sortedHistory = [...history].sort((a, b) => a.day - b.day);
+    // Streaks (use array order — works for both daily sorted by day and endless by insertion)
     let currentStreak = 0;
     let maxStreak = 0;
     let tempStreak = 0;
 
-    for (let i = 0; i < sortedHistory.length; i++) {
-        if (sortedHistory[i].won) {
+    for (let i = 0; i < history.length; i++) {
+        if (history[i].won) {
             tempStreak++;
             if (tempStreak > maxStreak) maxStreak = tempStreak;
-            // Check if this is the most recent day
-            if (i === sortedHistory.length - 1) {
-                currentStreak = tempStreak;
-            }
+            if (i === history.length - 1) currentStreak = tempStreak;
         } else {
-            if (i === sortedHistory.length - 1) {
-                currentStreak = 0;
-            }
+            if (i === history.length - 1) currentStreak = 0;
             tempStreak = 0;
         }
     }
 
-    // Calculate one-shot stats
+    // One-shot stats
     const oneShots = history.filter(h => h.won && h.attempts === 1).length;
     let oneShotStreak = 0;
     let maxOneShotStreak = 0;
     let tempOneShotStreak = 0;
 
-    for (let i = 0; i < sortedHistory.length; i++) {
-        if (sortedHistory[i].won && sortedHistory[i].attempts === 1) {
+    for (let i = 0; i < history.length; i++) {
+        if (history[i].won && history[i].attempts === 1) {
             tempOneShotStreak++;
             if (tempOneShotStreak > maxOneShotStreak) maxOneShotStreak = tempOneShotStreak;
-            if (i === sortedHistory.length - 1) {
-                oneShotStreak = tempOneShotStreak;
-            }
+            if (i === history.length - 1) oneShotStreak = tempOneShotStreak;
         } else {
-            if (i === sortedHistory.length - 1 && !(sortedHistory[i].won && sortedHistory[i].attempts === 1)) {
-                oneShotStreak = 0;
-            }
+            if (i === history.length - 1) oneShotStreak = 0;
             tempOneShotStreak = 0;
         }
     }
 
     return {
-        totalPlayed,
-        totalWon,
-        winRate,
-        currentStreak,
-        maxStreak,
+        totalPlayed, totalWon, winRate,
+        currentStreak, maxStreak,
         guessDistribution,
-        oneShots,
-        oneShotStreak,
-        maxOneShotStreak
+        oneShots, oneShotStreak, maxOneShotStreak
     };
+}
+
+function getStats(modeId) {
+    const history = getHistory(modeId);
+    // Sort daily history by day number before computing streaks
+    const sorted = [...history].sort((a, b) => a.day - b.day);
+    return computeStats(sorted);
 }
 
 // ============================================

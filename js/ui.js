@@ -154,7 +154,7 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
     container.innerHTML = html;
 }
 
-function showResults(dailySong, guesses, locale, won) {
+function showResults(dailySong, guesses, locale, won, isEndless = false) {
     const container = document.getElementById('gameContainer');
 
     // Hide daily game banner on results screen
@@ -210,32 +210,39 @@ function showResults(dailySong, guesses, locale, won) {
         </div>
     `;
 
-    // Determine default scope: "all" if all modes completed today, "this" otherwise
-    const today = dailySong.dayNumber;
-    const allModesCount = Object.keys(GAME_MODES).length;
-    let completedModesCount = 0;
-    Object.values(GAME_MODES).forEach(mode => {
-        const modeDailySong = getDailySong(mode.id);
-        const savedState = loadGameState(mode.id, modeDailySong);
-        if (savedState && savedState.gameOver && savedState.dayNumber === today) {
-            completedModesCount++;
-        }
-    });
-    const defaultScope = completedModesCount >= allModesCount ? 'all' : 'this';
-    const thisActive = defaultScope === 'this' ? ' active' : '';
-    const allActive = defaultScope === 'all' ? ' active' : '';
+    if (isEndless) {
+        // Endless: show restart button
+        html += `<button class="restart-button" onclick="startEndlessRound()">`;
+        html += `<span class="restart-icon">∞</span> ${locale.endless.restart}`;
+        html += `</button>`;
+    } else {
+        // Daily: show share section + countdown
+        const today = dailySong.dayNumber;
+        const allModesCount = Object.keys(GAME_MODES).length;
+        let completedModesCount = 0;
+        Object.values(GAME_MODES).forEach(mode => {
+            const modeDailySong = getDailySong(mode.id);
+            const savedState = loadGameState(mode.id, modeDailySong);
+            if (savedState && savedState.gameOver && savedState.dayNumber === today) {
+                completedModesCount++;
+            }
+        });
+        const defaultScope = completedModesCount >= allModesCount ? 'all' : 'this';
+        const thisActive = defaultScope === 'this' ? ' active' : '';
+        const allActive = defaultScope === 'all' ? ' active' : '';
 
-    html += `<div class="share-section">`;
-    html += `<div class="share-scope-toggle">`;
-    html += `<button class="scope-btn${thisActive}" data-scope="this" onclick="setShareScope('this')">${locale.scopeThis}</button>`;
-    html += `<button class="scope-btn${allActive}" data-scope="all" onclick="setShareScope('all')">${locale.scopeAll}</button>`;
-    html += `</div>`;
-    html += `<div class="share-actions">`;
-    html += `<button class="share-action-btn copy-btn" onclick="copyResults()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>${locale.copyResults}</span></button>`;
-    html += `<button class="share-action-btn tweet-btn" onclick="tweetResults()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Tweet</span></button>`;
-    html += `</div>`;
-    html += `</div>`;
-    html += '<div class="countdown" id="countdown"></div>';
+        html += `<div class="share-section">`;
+        html += `<div class="share-scope-toggle">`;
+        html += `<button class="scope-btn${thisActive}" data-scope="this" onclick="setShareScope('this')">${locale.scopeThis}</button>`;
+        html += `<button class="scope-btn${allActive}" data-scope="all" onclick="setShareScope('all')">${locale.scopeAll}</button>`;
+        html += `</div>`;
+        html += `<div class="share-actions">`;
+        html += `<button class="share-action-btn copy-btn" onclick="copyResults()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>${locale.copyResults}</span></button>`;
+        html += `<button class="share-action-btn tweet-btn" onclick="tweetResults()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Tweet</span></button>`;
+        html += `</div>`;
+        html += `</div>`;
+        html += '<div class="countdown" id="countdown"></div>';
+    }
 
     container.innerHTML = html;
 
@@ -313,7 +320,12 @@ function addVisualEffect() {
 // HISTORY MODAL
 // ============================================
 
+let currentStatsTab = 'daily';
+
 function showHistoryModal() {
+    // Default tab based on current mode
+    currentStatsTab = endlessMode ? 'endless' : 'daily';
+
     // Create modal if it doesn't exist
     let modal = document.getElementById('historyModal');
     if (!modal) {
@@ -330,16 +342,39 @@ function showHistoryModal() {
         });
     }
 
-    // Build content
+    renderStatsContent(modal);
+    modal.classList.add('active');
+}
+
+function switchStatsTab(tab) {
+    currentStatsTab = tab;
+    const modal = document.getElementById('historyModal');
+    if (modal) renderStatsContent(modal);
+}
+
+function renderStatsContent(modal) {
+    const dailyActive = currentStatsTab === 'daily' ? ' active' : '';
+    const endlessActive = currentStatsTab === 'endless' ? ' active' : '';
+
     let html = '<div class="history-content">';
     html += '<button class="history-close" onclick="closeHistoryModal()">×</button>';
+
+    // Header with title + toggle
+    html += '<div class="stats-header">';
     html += `<h2 class="history-title">${locale.stats.title}</h2>`;
+    html += '<div class="share-scope-toggle stats-toggle">';
+    html += `<button class="scope-btn${dailyActive}" data-scope="daily" onclick="switchStatsTab('daily')">${locale.endless.daily}</button>`;
+    html += `<button class="scope-btn${endlessActive}" data-scope="endless" onclick="switchStatsTab('endless')">${locale.endless.endless}</button>`;
+    html += '</div>';
+    html += '</div>';
 
-    // Get stats for each mode
+    // Stats content
+    let hasStats = false;
     Object.values(GAME_MODES).forEach(mode => {
-        const stats = getStats(mode.id);
+        const stats = currentStatsTab === 'daily' ? getStats(mode.id) : getEndlessStats(mode.id);
 
-        if (stats.totalPlayed === 0) return; // Skip modes with no history
+        if (stats.totalPlayed === 0) return;
+        hasStats = true;
 
         // Use localized mode name
         let modeName = mode.name;
@@ -401,15 +436,12 @@ function showHistoryModal() {
         html += '</div>';
     });
 
-    // If no history at all
-    if (html === '<div class="history-content"><button class="history-close" onclick="closeHistoryModal()">×</button>' + `<h2 class="history-title">${locale.stats.title}</h2>`) {
+    if (!hasStats) {
         html += `<div class="no-history">${locale.stats.noHistory}</div>`;
     }
 
     html += '</div>';
-
     modal.innerHTML = html;
-    modal.classList.add('active');
 }
 
 function closeHistoryModal() {

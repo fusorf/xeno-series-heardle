@@ -13,6 +13,7 @@ let gameOver = false;
 let dailySong = null;
 let selectedSong = null;
 let activeGameFilters = new Set(); // empty = all games (no filter)
+let endlessMode = false;
 
 // ============================================
 // INITIALIZATION
@@ -76,8 +77,33 @@ async function initGame() {
         addVisualEffect();
     }
 
+    // Set button tooltips and endless label
+    updateButtonTooltips();
+
     // Load and display game state
     loadAndDisplay();
+}
+
+// ============================================
+// BUTTON TOOLTIPS & LABELS
+// ============================================
+
+function updateButtonTooltips() {
+    const langBtn = document.getElementById('langToggle');
+    const statsBtn = document.getElementById('historyButton');
+    const endlessBtn = document.getElementById('endlessButton');
+    const endlessLabel = document.getElementById('endlessModeLabel');
+
+    if (locale.tooltips) {
+        if (langBtn) langBtn.setAttribute('data-tooltip', locale.tooltips.language);
+        if (statsBtn) statsBtn.setAttribute('data-tooltip', locale.tooltips.stats);
+        if (endlessBtn) endlessBtn.setAttribute('data-tooltip', locale.tooltips.endless);
+    }
+
+    // Update endless label text if visible
+    if (endlessLabel && endlessMode) {
+        endlessLabel.textContent = locale.endless.name;
+    }
 }
 
 // ============================================
@@ -119,6 +145,70 @@ function loadAndDisplay() {
 }
 
 // ============================================
+// ENDLESS MODE
+// ============================================
+
+function toggleEndlessMode() {
+    endlessMode = !endlessMode;
+
+    // Update button active state
+    const btn = document.getElementById('endlessButton');
+    if (btn) btn.classList.toggle('active', endlessMode);
+
+    // Update badge visibility
+    const badge = document.getElementById('endlessBadge');
+    if (badge) badge.classList.toggle('visible', endlessMode);
+
+    // Update endless mode label
+    const label = document.getElementById('endlessModeLabel');
+    if (label) {
+        label.classList.toggle('visible', endlessMode);
+        label.textContent = locale.endless.name;
+    }
+
+    // Cleanup players
+    if (typeof destroyPlayer === 'function') destroyPlayer();
+    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
+        resultAudioElement.pause();
+        resultAudioElement = null;
+    }
+
+    if (endlessMode) {
+        startEndlessRound();
+    } else {
+        // Return to daily game
+        dailySong = getDailySong(currentMode);
+        updateDailyGameBanner(currentMode, dailySong, locale);
+        loadAndDisplay();
+    }
+}
+
+function startEndlessRound() {
+    // Cleanup
+    if (typeof destroyPlayer === 'function') destroyPlayer();
+    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
+        resultAudioElement.pause();
+        resultAudioElement = null;
+    }
+
+    // Get a random song
+    dailySong = getEndlessSong(currentMode);
+
+    // Reset game state
+    currentAttempt = 0;
+    guesses = [];
+    gameOver = false;
+    selectedSong = null;
+
+    // Update UI
+    updateDailyGameBanner(currentMode, dailySong, locale);
+    applyTheme(currentMode, dailySong, false);
+    renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
+    initializeGameFilters();
+    setupEventListeners();
+}
+
+// ============================================
 // MODE SWITCHING
 // ============================================
 
@@ -138,15 +228,16 @@ function switchMode(modeId) {
         resultAudioElement = null;
     }
 
-    // Get new daily song
-    dailySong = getDailySong(currentMode);
-
     // Update UI chrome
     renderModeSelector(currentMode, locale);
-    updateDailyGameBanner(currentMode, dailySong, locale);
 
-    // Load and display
-    loadAndDisplay();
+    if (endlessMode) {
+        startEndlessRound();
+    } else {
+        dailySong = getDailySong(currentMode);
+        updateDailyGameBanner(currentMode, dailySong, locale);
+        loadAndDisplay();
+    }
 }
 
 // ============================================
@@ -177,6 +268,7 @@ async function switchLanguage(langCode) {
 
     updateDailyGameBanner(currentMode, dailySong, locale);
     updateLanguageSelector();
+    updateButtonTooltips();
     updateCredits();
 }
 
@@ -447,12 +539,14 @@ function skipAttempt() {
     if (currentAttempt >= MAX_ATTEMPTS) {
         endGame(false);
     } else {
-        saveGameState(currentMode, {
-            dayNumber: dailySong.dayNumber,
-            currentAttempt,
-            guesses,
-            gameOver: false
-        });
+        if (!endlessMode) {
+            saveGameState(currentMode, {
+                dayNumber: dailySong.dayNumber,
+                currentAttempt,
+                guesses,
+                gameOver: false
+            });
+        }
         renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
         setupEventListeners();
     }
@@ -476,12 +570,14 @@ function submitGuess() {
         if (currentAttempt >= MAX_ATTEMPTS) {
             endGame(false);
         } else {
-            saveGameState(currentMode, {
-                dayNumber: dailySong.dayNumber,
-                currentAttempt,
-                guesses,
-                gameOver: false
-            });
+            if (!endlessMode) {
+                saveGameState(currentMode, {
+                    dayNumber: dailySong.dayNumber,
+                    currentAttempt,
+                    guesses,
+                    gameOver: false
+                });
+            }
             renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
             setupEventListeners();
         }
@@ -501,22 +597,28 @@ function endGame(won) {
 
     const finalAttempt = won ? guesses.length : MAX_ATTEMPTS;
 
-    saveGameState(currentMode, {
-        dayNumber: dailySong.dayNumber,
-        currentAttempt,
-        guesses,
-        gameOver: true,
-        won
-    });
-
-    // Save to history
-    saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
-
-    initShareScope();
-    applyTheme(currentMode, dailySong, true);
-    showResults(dailySong, guesses, locale, won);
-    updateCountdown(locale);
-    setInterval(() => updateCountdown(locale), 1000);
+    if (endlessMode) {
+        // Endless: save to endless history only
+        saveToEndlessHistory(currentMode, won, finalAttempt, guesses);
+        applyTheme(currentMode, dailySong, true);
+        showResults(dailySong, guesses, locale, won, true);
+    } else {
+        // Daily: save state + history, show share + countdown
+        saveGameState(currentMode, {
+            dayNumber: dailySong.dayNumber,
+            currentAttempt,
+            guesses,
+            gameOver: true,
+            won
+        });
+        saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
+        initShareScope();
+        applyTheme(currentMode, dailySong, true);
+        showResults(dailySong, guesses, locale, won, false);
+        updateCountdown(locale);
+        if (window.countdownInterval) clearInterval(window.countdownInterval);
+        window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
+    }
 }
 
 // ============================================

@@ -65,7 +65,10 @@ h1,
 .daily-game-banner,
 .result-play-button,
 .result-progress-bar,
-.credits-box a {
+.credits-box a,
+.endless-button,
+.restart-button,
+.endless-mode-label {
     transition: background 0.8s ease, border-color 0.8s ease,
                 box-shadow 0.8s ease, text-shadow 0.8s ease,
                 color 0.8s ease;
@@ -1349,6 +1352,244 @@ button:active::before {
     box-shadow: 0 4px 15px var(--theme-glow);
 }
 
+/* ============================================ */
+/* TITLE WRAPPER & ENDLESS BADGE               */
+/* ============================================ */
+
+.title-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.endless-badge {
+    display: none;
+    font-family: var(--theme-font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 10px;
+    margin-top: -2px;
+    pointer-events: none;
+    text-shadow:
+        0 0 10px var(--glow-blue),
+        0 0 20px var(--primary-blue),
+        0 0 30px var(--primary-blue);
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+.endless-badge.visible {
+    display: inline-block;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        text-shadow:
+            0 0 10px var(--glow-blue),
+            0 0 20px var(--primary-blue),
+            0 0 30px var(--primary-blue);
+    }
+    50% {
+        text-shadow:
+            0 0 15px var(--glow-blue),
+            0 0 30px var(--primary-blue),
+            0 0 50px var(--primary-blue),
+            0 0 70px var(--primary-blue);
+    }
+}
+
+/* Endless mode label (shown under title when active) */
+.endless-mode-label {
+    display: none;
+    font-family: var(--theme-font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    text-shadow:
+        0 0 10px var(--glow-blue),
+        0 0 20px rgba(255, 255, 255, 0.15),
+        0 0 40px rgba(255, 255, 255, 0.08);
+    opacity: 0.8;
+}
+
+.endless-mode-label.visible {
+    display: block;
+}
+
+/* ============================================ */
+/* ENDLESS BUTTON                              */
+/* ============================================ */
+
+.endless-button {
+    position: fixed;
+    bottom: 20px;
+    left: 120px;
+    z-index: 5000;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--panel-border);
+    background: var(--panel-bg);
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    font-family: var(--theme-font-heading);
+    line-height: 1;
+    padding: 0;
+}
+
+.endless-button:hover {
+    background: rgba(var(--theme-primary-rgb), 0.2);
+    border-color: var(--theme-primary);
+    box-shadow: 0 4px 15px var(--theme-glow);
+}
+
+.endless-button.active {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    border-color: var(--primary-blue);
+    color: #ffffff;
+    box-shadow:
+        0 0 15px var(--glow-blue),
+        0 0 25px var(--primary-blue);
+    animation: endlessBtnGlow 2s ease-in-out infinite;
+}
+
+@keyframes endlessBtnGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 15px var(--glow-blue),
+            0 0 25px var(--primary-blue);
+    }
+    50% {
+        box-shadow:
+            0 0 20px var(--glow-blue),
+            0 0 35px var(--primary-blue),
+            0 0 45px var(--primary-blue);
+    }
+}
+
+/* ============================================ */
+/* BUTTON TOOLTIPS (desktop only)              */
+/* ============================================ */
+
+@media (min-width: 601px) {
+    .lang-toggle[data-tooltip] {
+        overflow: visible;
+        position: relative;
+    }
+
+    .history-button[data-tooltip],
+    .endless-button[data-tooltip] {
+        overflow: visible;
+    }
+
+    .lang-toggle[data-tooltip]::after,
+    .history-button[data-tooltip]::after,
+    .endless-button[data-tooltip]::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        background: rgba(0, 0, 0, 0.85);
+        color: #ffffff;
+        font-family: var(--theme-font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 5px 10px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
+        z-index: 10000;
+        text-transform: none;
+    }
+
+    .lang-toggle[data-tooltip]:hover::after,
+    .history-button[data-tooltip]:hover::after,
+    .endless-button[data-tooltip]:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ============================================ */
+/* RESTART BUTTON (Endless results screen)     */
+/* ============================================ */
+
+.restart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 25px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    color: #ffffff;
+    border: 2px solid var(--primary-blue);
+    border-radius: 12px;
+    font-family: var(--theme-font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 20px var(--glow-blue),
+        inset 0 0 20px rgba(var(--theme-accent-rgb), 0.1);
+    transition: all 0.3s ease;
+}
+
+.restart-button:hover {
+    box-shadow:
+        0 0 30px var(--glow-blue),
+        0 0 40px var(--primary-blue),
+        inset 0 0 30px rgba(var(--theme-accent-rgb), 0.2);
+    transform: scale(1.03);
+}
+
+.restart-button:active {
+    transform: scale(0.98);
+}
+
+/* ============================================ */
+/* STATS HEADER (Daily / Endless toggle)       */
+/* ============================================ */
+
+.stats-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.stats-header .history-title {
+    margin-bottom: 15px;
+}
+
+.stats-header .share-scope-toggle {
+    max-width: 340px;
+    margin: 0 auto;
+}
+
 /* Language Selector (bottom-left corner) */
 .language-selector {
     position: fixed;
@@ -1502,6 +1743,29 @@ button:active::before {
         top: 58px;
         left: auto;
         right: 10px;
+    }
+
+    .endless-button {
+        bottom: auto;
+        top: 10px;
+        left: 10px;
+        right: auto;
+    }
+
+    .endless-badge {
+        font-size: 2.2rem;
+    }
+
+    .endless-mode-label {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        margin-top: -32px;
+        margin-bottom: 25px;
+    }
+
+    .restart-button {
+        font-size: 1rem;
+        padding: 14px 20px;
     }
 }
 

@@ -30,6 +30,17 @@
     "maxOneShotStreak": "最高ワンショット連続",
     "noHistory": "まだプレイしていません"
   },
+  "endless": {
+    "name": "永遠の今",
+    "restart": "もう一回",
+    "daily": "デイリー",
+    "endless": "永遠の今"
+  },
+  "tooltips": {
+    "language": "言語",
+    "stats": "統計",
+    "endless": "永遠の今"
+  },
   "credits": {
     "madeBy": "制作",
     "specialThanks": "協力"

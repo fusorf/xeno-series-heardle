@@ -30,6 +30,17 @@
     "maxOneShotStreak": "Meilleure série One Shot",
     "noHistory": "Aucune partie jouée"
   },
+  "endless": {
+    "name": "Éternel présent",
+    "restart": "Recommencer",
+    "daily": "Quotidien",
+    "endless": "Éternel présent"
+  },
+  "tooltips": {
+    "language": "Langue",
+    "stats": "Statistiques",
+    "endless": "Éternel présent"
+  },
   "credits": {
     "madeBy": "Créé par",
     "specialThanks": "Merci spécial à"

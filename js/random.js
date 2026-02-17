@@ -158,6 +158,42 @@ function selectRandomDailySong(dateString) {
 }
 
 // ============================================
+// ENDLESS SONG SELECTION
+// ============================================
+
+/**
+ * Pick a random song for endless mode (non-deterministic).
+ * Uses Math.random() so each call gives a different song.
+ */
+function getEndlessSong(modeId) {
+  const mode = GAME_MODES[modeId];
+  if (!mode) return null;
+
+  const songs = getSongsForMode(modeId);
+  if (songs.length === 0) return null;
+
+  // Pick random song
+  const songIndex = Math.floor(Math.random() * songs.length);
+  const song = songs[songIndex];
+
+  // Random start time if mode supports it, otherwise 0
+  let startTime = 0;
+  if (mode.randomStart) {
+    const minRequired = 16; // DURATIONS[4]
+    const maxStart = Math.max(0, song.duration - minRequired);
+    startTime = maxStart > 0 ? Math.floor(Math.random() * (maxStart + 1)) : 0;
+  }
+
+  return {
+    ...song,
+    dayNumber: 0, // No day number for endless
+    endlessId: Date.now(), // Unique ID per round
+    startTime,
+    mode: modeId
+  };
+}
+
+// ============================================
 // MAIN DAILY SONG GETTER
 // ============================================
 

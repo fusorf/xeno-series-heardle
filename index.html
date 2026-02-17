@@ -11,7 +11,11 @@
     <!-- Background layer (blurred game artwork) -->
     <div id="backgroundLayer"></div>
 
-    <h1 id="pageTitle">Xeno Series Heardle</h1>
+    <div class="title-wrapper">
+        <h1 id="pageTitle">Xeno Series Heardle</h1>
+        <span class="endless-badge" id="endlessBadge">∞</span>
+    </div>
+    <div class="endless-mode-label" id="endlessModeLabel">Endless Now</div>
 
     <!-- Mode selector tabs -->
     <div class="mode-selector" id="modeSelector">
@@ -44,6 +48,9 @@
 
     <!-- History button -->
     <button class="history-button" id="historyButton" onclick="showHistoryModal()" title="Statistics">📊</button>
+
+    <!-- Endless mode button -->
+    <button class="endless-button" id="endlessButton" onclick="toggleEndlessMode()" title="Endless Now">∞</button>
 
     <!-- Constants -->
     <script src="js/constants.js"></script>
