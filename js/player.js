@@ -9,6 +9,7 @@ let isPlaying = false;
 let currentTime = 0;
 let animationFrame = null;
 let playbackStartTime = 0; // Actual position where playback started
+let currentDailySong = null; // Reference to current song for visibility pause
 
 // DURATIONS is defined in constants.js
 
@@ -87,6 +88,7 @@ async function playAudio(dailySong, currentAttempt) {
     }
 
     isPlaying = true;
+    currentDailySong = dailySong;
     const playButton = document.getElementById('playButton');
     if (playButton) {
         playButton.classList.add('playing');
@@ -221,7 +223,16 @@ function destroyPlayer() {
     playerReady = false;
     currentTime = 0;
     playbackStartTime = 0;
+    currentDailySong = null;
 }
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        if (isPlaying && currentDailySong) {
+            pauseAudio(currentDailySong);
+        }
+    }
+});
 
 // Export player state for use in other modules
 function getPlayerState() {
