@@ -581,7 +581,7 @@ function copyResults() {
     // Always use header with day number
     let text;
     if (results.length >= 1) {
-        text = `Xeno Series Heardle - Day #${today} 🎧\n\n${results.join('\n\n')}`;
+        text = `Xeno Series Heardle #${today} 🎧\n\n${results.join('\n\n')}`;
     } else {
         // Fallback to current mode only (shouldn't happen on results screen)
         text = `${GAME_MODES[currentMode].name} #${dailySong.dayNumber} 🎧`;
