@@ -1390,7 +1390,7 @@ button:active::before {
 
 .endless-badge {
     display: none;
-    font-family: var(--theme-font-heading);
+    font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
     font-weight: 700;
     color: #ffffff;
@@ -1427,7 +1427,7 @@ button:active::before {
 /* Endless mode label (shown under title when active) */
 .endless-mode-label {
     display: none;
-    font-family: var(--theme-font-heading);
+    font-family: 'Orbitron', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--primary-blue);
