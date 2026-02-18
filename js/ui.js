@@ -140,10 +140,12 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
                 content = locale.skipped;
             } else if (guesses[i].toLowerCase() === dailySong.title.toLowerCase()) {
                 className += ' correct';
-                content = guesses[i];
+                content = getDisplayTitle(dailySong);
             } else {
                 className += ' wrong';
-                content = guesses[i];
+                // Find the guessed song to display its localized title
+                const guessedSong = getSongsForMode(currentMode).find(s => s.title.toLowerCase() === guesses[i].toLowerCase());
+                content = guessedSong ? getDisplayTitle(guessedSong) : guesses[i];
             }
         }
 
@@ -179,7 +181,7 @@ function showResults(dailySong, guesses, locale, won, isEndless = false) {
     html += `</div>`;
 
     html += '<div class="result-info">';
-    html += `<h2>${dailySong.title}</h2>`;
+    html += `<h2>${getDisplayTitle(dailySong)}</h2>`;
 
     if (gameInfo) {
         html += `<p class="song-credit">${escapeHtml(gameInfo.name)}</p>`;

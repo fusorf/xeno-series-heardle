@@ -15,6 +15,14 @@ let selectedSong = null;
 let activeGameFilters = new Set(); // empty = all games (no filter)
 let endlessMode = false;
 
+// Helper: get display title based on current language
+function getDisplayTitle(song) {
+    if (currentLanguage === 'ja' && song.japaneseTitle) {
+        return song.japaneseTitle;
+    }
+    return song.title;
+}
+
 // ============================================
 // INITIALIZATION
 // ============================================
@@ -470,14 +478,16 @@ function handleSearchInput(e) {
     }
     const matches = modeSongs.filter(song =>
         song.title.toLowerCase().includes(query) ||
-        song.localizedTitle.toLowerCase().includes(query)
+        song.localizedTitle.toLowerCase().includes(query) ||
+        (song.japaneseTitle && song.japaneseTitle.toLowerCase().includes(query))
     ).slice(0, 10);
 
     if (matches.length > 0) {
         autocompleteList.innerHTML = matches.map(song => {
             const game = GAMES[song.game];
             const badge = game ? `<span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>` : '';
-            return `<div class="autocomplete-item" data-title="${escapeHtml(song.title)}">${escapeHtml(song.title)}${badge}</div>`;
+            const displayTitle = getDisplayTitle(song);
+            return `<div class="autocomplete-item" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
         }).join('');
 
         autocompleteList.classList.add('active');
@@ -497,7 +507,8 @@ function handleSearchInput(e) {
 
     const exactMatch = modeSongs.find(song =>
         song.title.toLowerCase() === query ||
-        song.localizedTitle.toLowerCase() === query
+        song.localizedTitle.toLowerCase() === query ||
+        (song.japaneseTitle && song.japaneseTitle.toLowerCase() === query)
     );
 
     if (exactMatch) {
@@ -519,9 +530,12 @@ function handleSearchKeydown(e) {
 }
 
 function selectSongFromList(title) {
-    document.getElementById('searchInput').value = title;
+    // Find the song to display the correct localized title in the input
+    const song = getSongsForMode(currentMode).find(s => s.title === title);
+    const displayTitle = song ? getDisplayTitle(song) : title;
+    document.getElementById('searchInput').value = displayTitle;
     document.getElementById('autocompleteList').classList.remove('active');
-    selectedSong = title;
+    selectedSong = title; // Always store the EN title internally
     document.getElementById('submitButton').disabled = false;
 }
 
