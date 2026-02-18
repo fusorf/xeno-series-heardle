@@ -714,7 +714,7 @@ function buildShareText() {
         }
     }
 
-    return `${text}\n\n${SITE_URL}`;
+    return text;
 }
 
 function copyResults() {
