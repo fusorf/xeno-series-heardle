@@ -187,9 +187,9 @@ function showResults(dailySong, guesses, locale, won, isEndless = false) {
     if (won) {
         const totalAttempts = guesses.length;
         const tryWord = totalAttempts === 1 ? locale.try : locale.tries;
-        html += `<p>${locale.guessedIn} ${totalAttempts} ${tryWord} !</p>`;
+        html += `<p class="result-outcome result-won">${locale.guessedIn} <span class="result-attempts">${totalAttempts} ${tryWord}</span> !</p>`;
     } else {
-        html += `<p>${locale.youLost}</p>`;
+        html += `<p class="result-outcome result-lost">${locale.youLost}</p>`;
     }
 
     html += '</div>';

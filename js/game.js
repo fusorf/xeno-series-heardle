@@ -28,7 +28,7 @@ function detectLanguage() {
 
 async function loadLocale(forceLang = null) {
     // Check for saved language preference
-    const savedLang = getCookie('xenoHeardleLanguage');
+    const savedLang = storageGet('xenoHeardleLanguage');
 
     if (forceLang) {
         currentLanguage = forceLang;
@@ -55,7 +55,7 @@ async function initGame() {
     await loadLocale();
 
     // Load saved mode preference
-    const savedMode = getCookie('xenoHeardleMode');
+    const savedMode = storageGet('xenoHeardleMode');
     if (savedMode && GAME_MODES[savedMode]) {
         currentMode = savedMode;
     }
@@ -217,7 +217,7 @@ function switchMode(modeId) {
 
     // Save mode preference
     currentMode = modeId;
-    setCookie('xenoHeardleMode', modeId, 365);
+    storageSet('xenoHeardleMode', modeId);
 
     // Cleanup current players
     if (typeof destroyPlayer === 'function') {
@@ -245,11 +245,11 @@ function switchMode(modeId) {
 // ============================================
 
 async function switchLanguage(langCode) {
-    const currentLang = getCookie('xenoHeardleLanguage') || 'auto';
+    const currentLang = storageGet('xenoHeardleLanguage') || 'auto';
     if (langCode === currentLang) return;
 
     // Save language preference ('auto', 'en', 'fr', 'ja')
-    setCookie('xenoHeardleLanguage', langCode, 365);
+    storageSet('xenoHeardleLanguage', langCode);
 
     // Reload locale and update UI without full page reload
     await loadLocale(langCode === 'auto' ? null : langCode);
@@ -273,7 +273,7 @@ async function switchLanguage(langCode) {
 }
 
 function updateLanguageSelector() {
-    const savedLang = getCookie('xenoHeardleLanguage');
+    const savedLang = storageGet('xenoHeardleLanguage');
     const currentLang = savedLang || detectLanguage();
 
     const buttons = document.querySelectorAll('.lang-option');

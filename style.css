@@ -192,6 +192,30 @@ h1 {
     margin: 15px 0 0;
 }
 
+/* Result outcome styles */
+.result-outcome {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 18px;
+    letter-spacing: 0.3px;
+}
+
+.result-won {
+    color: #b0b0b0;
+}
+
+.result-won .result-attempts {
+    color: var(--primary-blue);
+    font-weight: 800;
+    text-shadow: 0 0 12px var(--glow-blue);
+}
+
+.result-lost {
+    color: #f87171;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
 .guess-boxes {
     display: flex;
     flex-direction: column;

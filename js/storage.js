@@ -1,34 +1,83 @@
 // ============================================
-// STORAGE & COOKIE MANAGEMENT
+// STORAGE MANAGEMENT (localStorage)
 // ============================================
 
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + JSON.stringify(value) + ";" + expires + ";path=/";
+function storageSet(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+        console.warn('localStorage write failed:', e);
+    }
 }
 
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) {
-            try {
-                return JSON.parse(c.substring(nameEQ.length, c.length));
-            } catch (e) {
-                return null;
+function storageGet(key) {
+    try {
+        const raw = localStorage.getItem(key);
+        if (raw === null) return null;
+        return JSON.parse(raw);
+    } catch (e) {
+        return null;
+    }
+}
+
+function storageRemove(key) {
+    localStorage.removeItem(key);
+}
+
+// ============================================
+// TEMPORARY: Cookie → localStorage migration
+// TODO: Remove after ~1 week (added 2025-02-18)
+// ============================================
+
+(function migrateCookies() {
+    function readCookie(name) {
+        const nameEQ = name + '=';
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(nameEQ) === 0) {
+                try { return JSON.parse(c.substring(nameEQ.length)); }
+                catch (e) { return null; }
             }
         }
+        return null;
     }
-    return null;
-}
+
+    function deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+
+    const keys = ['xenoHeardleMode', 'xenoHeardleLanguage'];
+    const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
+    modes.forEach(mode => {
+        keys.push(`xenoHeardle_${mode}_state`);
+        keys.push(`xenoHeardle_${mode}_history`);
+        keys.push(`xenoHeardle_${mode}_endless`);
+    });
+
+    let migrated = 0;
+    keys.forEach(key => {
+        const value = readCookie(key);
+        if (value !== null) {
+            // Only migrate if localStorage doesn't already have data for this key
+            if (localStorage.getItem(key) === null) {
+                try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+                migrated++;
+            }
+            deleteCookie(key);
+        }
+    });
+
+    if (migrated > 0) {
+        console.log(`🔄 Migrated ${migrated} cookie(s) to localStorage.`);
+    }
+})();
+
+// ============================================
 
 function loadGameState(currentMode, dailySong) {
-    const cookieName = `xenoHeardle_${currentMode}_state`;
-    const savedState = getCookie(cookieName);
+    const key = `xenoHeardle_${currentMode}_state`;
+    const savedState = storageGet(key);
     if (savedState && savedState.dayNumber === dailySong.dayNumber) {
         return savedState;
     }
@@ -36,8 +85,8 @@ function loadGameState(currentMode, dailySong) {
 }
 
 function saveGameState(currentMode, state) {
-    const cookieName = `xenoHeardle_${currentMode}_state`;
-    setCookie(cookieName, state, 1);
+    const key = `xenoHeardle_${currentMode}_state`;
+    storageSet(key, state);
 }
 
 // ============================================
@@ -45,8 +94,8 @@ function saveGameState(currentMode, state) {
 // ============================================
 
 function getHistory(modeId) {
-    const historyKey = `xenoHeardle_${modeId}_history`;
-    const history = getCookie(historyKey);
+    const key = `xenoHeardle_${modeId}_history`;
+    const history = storageGet(key);
     return history || [];
 }
 
@@ -78,8 +127,8 @@ function saveToHistory(modeId, dayNumber, won, attempts, guesses) {
         history.splice(100);
     }
 
-    const historyKey = `xenoHeardle_${modeId}_history`;
-    setCookie(historyKey, history, 365);
+    const key = `xenoHeardle_${modeId}_history`;
+    storageSet(key, history);
 }
 
 // ============================================
@@ -88,7 +137,7 @@ function saveToHistory(modeId, dayNumber, won, attempts, guesses) {
 
 function getEndlessHistory(modeId) {
     const key = `xenoHeardle_${modeId}_endless`;
-    const history = getCookie(key);
+    const history = storageGet(key);
     return history || [];
 }
 
@@ -108,7 +157,7 @@ function saveToEndlessHistory(modeId, won, attempts, guesses) {
     }
 
     const key = `xenoHeardle_${modeId}_endless`;
-    setCookie(key, history, 365);
+    storageSet(key, history);
 }
 
 function getEndlessStats(modeId) {
@@ -203,40 +252,50 @@ function getStats(modeId) {
 // DEBUG CONSOLE COMMANDS
 // ============================================
 
-// Clear all cookies for all modes
-function clearAllCookies() {
+// Clear all data for all modes
+function clearAllData() {
     const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
     modes.forEach(mode => {
-        const cookieName = `xenoHeardle_${mode}_state`;
-        document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        storageRemove(`xenoHeardle_${mode}_state`);
+        storageRemove(`xenoHeardle_${mode}_history`);
+        storageRemove(`xenoHeardle_${mode}_endless`);
     });
-    console.log('✅ All cookies cleared! Reload the page to start fresh.');
+    storageRemove('xenoHeardleMode');
+    storageRemove('xenoHeardleLanguage');
+    console.log('✅ All data cleared! Reload the page to start fresh.');
 }
 
-// Clear cookies for a specific mode
-function clearModeCookies(mode) {
-    const cookieName = `xenoHeardle_${mode}_state`;
-    document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    console.log(`✅ Cookies cleared for mode: ${mode}. Reload the page to start fresh.`);
+// Clear data for a specific mode
+function clearModeData(mode) {
+    storageRemove(`xenoHeardle_${mode}_state`);
+    storageRemove(`xenoHeardle_${mode}_history`);
+    storageRemove(`xenoHeardle_${mode}_endless`);
+    console.log(`✅ Data cleared for mode: ${mode}. Reload the page to start fresh.`);
 }
 
-// Show all saved cookies
-function showCookies() {
+// Show all saved data
+function showData() {
     const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
     console.log('📊 Saved game states:');
     modes.forEach(mode => {
-        const state = getCookie(`xenoHeardle_${mode}_state`);
+        const state = storageGet(`xenoHeardle_${mode}_state`);
         if (state) {
             console.log(`  ${mode}: Day ${state.dayNumber}, Attempt ${state.currentAttempt}, GameOver: ${state.gameOver}`);
         } else {
             console.log(`  ${mode}: No saved state`);
         }
     });
+    console.log('📈 History sizes:');
+    modes.forEach(mode => {
+        const history = storageGet(`xenoHeardle_${mode}_history`) || [];
+        const endless = storageGet(`xenoHeardle_${mode}_endless`) || [];
+        console.log(`  ${mode}: ${history.length} daily, ${endless.length} endless`);
+    });
 }
 
 if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
   console.log('Debug commands:');
-  console.log('  clearAllCookies()    - Clear all saved games');
-  console.log('  clearModeCookies(mode) - Clear specific mode (e.g., clearModeCookies("xenosaga"))');
-  console.log('  showCookies()        - Show all saved states');
+  console.log('  clearAllData()       - Clear all saved data');
+  console.log('  clearModeData(mode)  - Clear specific mode (e.g., clearModeData("xenosaga"))');
+  console.log('  showData()           - Show all saved states & history sizes');
 }
