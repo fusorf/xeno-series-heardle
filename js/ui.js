@@ -438,10 +438,6 @@ function renderStatsContent(modal) {
             <div class="stat-label">${locale.stats.played}</div>
         </div>`;
         html += `<div class="stat-box">
-            <div class="stat-value">${stats.totalPlayed - stats.totalWon}</div>
-            <div class="stat-label">${locale.stats.failed}</div>
-        </div>`;
-        html += `<div class="stat-box">
             <div class="stat-value">${stats.winRate}%</div>
             <div class="stat-label">${locale.stats.winRate}</div>
         </div>`;
@@ -464,6 +460,10 @@ function renderStatsContent(modal) {
         html += `<div class="stat-box">
             <div class="stat-value">${stats.maxOneShotStreak}</div>
             <div class="stat-label">${locale.stats.maxOneShotStreak}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.totalPlayed - stats.totalWon}</div>
+            <div class="stat-label">${locale.stats.failed}</div>
         </div>`;
         html += '</div>';
 
