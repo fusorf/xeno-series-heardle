@@ -52,7 +52,7 @@ h1,
 .progress-fill,
 .time-labels,
 .result-message,
-.result-message h2,
+.result-info h2,
 .guess-box,
 .search-input,
 .submit-button,
@@ -154,7 +154,6 @@ h1 {
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    text-align: center;
     border: 2px solid var(--panel-border);
     position: relative;
     overflow: hidden;
@@ -163,7 +162,71 @@ h1 {
         inset 0 0 20px rgba(var(--theme-accent-rgb), 0.05);
 }
 
-.result-message h2 {
+/* Result header: cover + info side by side */
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Cover 3D card */
+.result-cover-wrapper {
+    flex-shrink: 0;
+    perspective: 600px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-cover {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(var(--theme-accent-rgb), 0.15);
+    will-change: transform;
+}
+
+.result-cover:hover {
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(var(--theme-accent-rgb), 0.3);
+}
+
+.result-cover img {
+    display: block;
+    max-width: 120px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    pointer-events: none;
+}
+
+.result-cover-glare {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    border-radius: 10px;
+}
+
+/* Info section: left-aligned text */
+.result-info {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+}
+
+.result-info h2 {
     margin-bottom: 8px;
     font-size: 1.4rem;
     font-family: var(--theme-font-heading);
@@ -194,6 +257,7 @@ h1 {
 
 /* Result outcome styles */
 .result-outcome {
+    text-align: center;
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 18px;
@@ -1288,7 +1352,6 @@ button:active::before {
         0 0 30px var(--theme-glow),
         0 0 40px var(--theme-primary),
         inset 0 0 30px rgba(var(--theme-accent-rgb), 0.2);
-    transform: scale(1.05);
 }
 
 .mode-tab-name {
@@ -1302,10 +1365,11 @@ button:active::before {
     font-size: 0.65rem;
     font-weight: 400;
     opacity: 0.8;
-    font-family: var(--theme-font-body);
+    font-family: 'Rajdhani', sans-serif;
     letter-spacing: 0.5px;
     margin-top: 4px;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 /* Daily Game Banner (for Random mode) */
@@ -1790,6 +1854,29 @@ button:active::before {
     .restart-button {
         font-size: 1rem;
         padding: 14px 20px;
+    }
+
+    .result-cover-wrapper {
+        width: 90px;
+        height: 90px;
+    }
+
+    .result-cover {
+        max-width: 90px;
+        max-height: 90px;
+    }
+
+    .result-cover img {
+        max-width: 90px;
+        max-height: 90px;
+    }
+
+    .result-header {
+        gap: 15px;
+    }
+
+    .result-info h2 {
+        font-size: 1.15rem;
     }
 }
 

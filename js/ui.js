@@ -164,16 +164,27 @@ function showResults(dailySong, guesses, locale, won, isEndless = false) {
     // Add class to disable grid layout on results screen
     container.classList.add('results-screen');
 
+    const gameInfo = GAMES[dailySong.game];
+    const coverPath = `images/${dailySong.game}/cover.jpg`;
+
     let html = '<div class="result-message">';
+
+    // Cover + credits row
+    html += '<div class="result-header">';
+    html += `<div class="result-cover-wrapper">`;
+    html += `<div class="result-cover" id="resultCover">`;
+    html += `<div class="result-cover-glare"></div>`;
+    html += `<img src="${coverPath}" alt="" draggable="false">`;
+    html += `</div>`;
+    html += `</div>`;
+
+    html += '<div class="result-info">';
     html += `<h2>${dailySong.title}</h2>`;
 
-    // Display game name
-    const gameInfo = GAMES[dailySong.game];
     if (gameInfo) {
         html += `<p class="song-credit">${escapeHtml(gameInfo.name)}</p>`;
     }
 
-    // Display artist/composer credits
     if (dailySong.composer && dailySong.artist && dailySong.artist !== dailySong.composer) {
         html += `<p class="song-credit">${escapeHtml(dailySong.composer)}, ${escapeHtml(dailySong.artist)}</p>`;
     } else if (dailySong.composer) {
@@ -181,6 +192,8 @@ function showResults(dailySong, guesses, locale, won, isEndless = false) {
     } else if (dailySong.artist) {
         html += `<p class="song-credit">${escapeHtml(dailySong.artist)}</p>`;
     }
+    html += '</div>'; // .result-info
+    html += '</div>'; // .result-header
 
     html += '<hr class="result-separator">';
 
@@ -248,6 +261,39 @@ function showResults(dailySong, guesses, locale, won, isEndless = false) {
 
     // Initialize result audio player
     initResultAudioPlayer(dailySong);
+
+    // Initialize 3D cover hover effect
+    initCover3D();
+}
+
+function initCover3D() {
+    const cover = document.getElementById('resultCover');
+    if (!cover) return;
+
+    const glare = cover.querySelector('.result-cover-glare');
+
+    cover.addEventListener('mousemove', (e) => {
+        const rect = cover.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - 0.5) * 30;
+        const rotateX = (0.5 - y) * 30;
+
+        cover.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+
+        if (glare) {
+            glare.style.opacity = '1';
+            glare.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.35) 0%, transparent 60%)`;
+        }
+    });
+
+    cover.addEventListener('mouseleave', () => {
+        cover.style.transform = '';
+        if (glare) {
+            glare.style.opacity = '0';
+        }
+    });
 }
 
 function updateCountdown(locale) {
