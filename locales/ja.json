@@ -21,6 +21,7 @@
   "stats": {
     "title": "統計",
     "played": "プレイ回数",
+    "failed": "失敗",
     "winRate": "勝率",
     "currentStreak": "連勝",
     "maxStreak": "最高連勝",

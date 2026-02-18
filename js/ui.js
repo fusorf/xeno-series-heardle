@@ -314,7 +314,7 @@ function updateCountdown(locale) {
 
     const countdownElement = document.getElementById('countdown');
     if (countdownElement) {
-        countdownElement.textContent = `${locale.comeBackIn} ${hours}h ${minutes}m ${seconds}s ${locale.forNextOne}`;
+        countdownElement.innerHTML = `${locale.comeBackIn} ${hours}h ${minutes}m ${seconds}s<br class="countdown-break"> ${locale.forNextOne}`;
     }
 }
 
@@ -436,6 +436,10 @@ function renderStatsContent(modal) {
         html += `<div class="stat-box">
             <div class="stat-value">${stats.totalPlayed}</div>
             <div class="stat-label">${locale.stats.played}</div>
+        </div>`;
+        html += `<div class="stat-box">
+            <div class="stat-value">${stats.totalPlayed - stats.totalWon}</div>
+            <div class="stat-label">${locale.stats.failed}</div>
         </div>`;
         html += `<div class="stat-box">
             <div class="stat-value">${stats.winRate}%</div>

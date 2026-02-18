@@ -1038,6 +1038,16 @@ button:active::before {
     margin-bottom: 100px;
 }
 
+.countdown-break {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .countdown-break {
+        display: block;
+    }
+}
+
 /* Desktop layout: two columns */
 @media (min-width: 601px) {
     .game-container:not(.results-screen) {

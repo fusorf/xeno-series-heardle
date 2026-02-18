@@ -21,6 +21,7 @@
   "stats": {
     "title": "Statistiques",
     "played": "Parties",
+    "failed": "Échouées",
     "winRate": "Taux de réussite",
     "currentStreak": "Série actuelle",
     "maxStreak": "Meilleure série",

@@ -21,6 +21,7 @@
   "stats": {
     "title": "Statistics",
     "played": "Played",
+    "failed": "Failed",
     "winRate": "Win Rate",
     "currentStreak": "Current Streak",
     "maxStreak": "Max Streak",
