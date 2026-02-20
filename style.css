@@ -82,7 +82,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: clamp(5px, 1.5vh, 20px);
+    padding-bottom: 60px;
     position: relative;
     overflow-x: hidden;
 }
@@ -140,8 +141,8 @@ h1 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px var(--glow-blue)) drop-shadow(0 0 25px var(--primary-blue));
 }
+
 
 
 .game-container {
@@ -285,8 +286,8 @@ h1 {
 .guess-boxes {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: clamp(3px, 1.1vh, 10px);
+    margin-bottom: clamp(5px, 3.3vh, 30px);
     position: relative;
 }
 
@@ -314,8 +315,8 @@ h1 {
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
-    padding: 12px;
-    height: 45px;
+    padding: clamp(5px, 1.3vh, 12px);
+    height: clamp(28px, 5vh, 45px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,9 +393,9 @@ h1 {
 
 .audio-player {
     background: var(--panel-bg);
-    padding: 20px 30px 0;
+    padding: clamp(5px, 2.2vh, 20px) 30px 0;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: clamp(5px, 3.3vh, 30px);
     border: 2px solid var(--panel-border);
     position: relative;
     box-shadow:
@@ -409,7 +410,7 @@ h1 {
     height: 10px;
     background: rgba(var(--theme-primary-rgb), 0.1);
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: clamp(4px, 1.6vh, 15px);
     position: relative;
     overflow: hidden;
     border: 1px solid var(--panel-border);
@@ -439,8 +440,8 @@ h1 {
 }
 
 .play-button {
-    width: 90px;
-    height: 90px;
+    width: clamp(50px, 10vh, 90px);
+    height: clamp(50px, 10vh, 90px);
     background: linear-gradient(135deg, var(--dark-blue), var(--darker-blue));
     border: 3px solid var(--primary-blue);
     border-radius: 50%;
@@ -448,7 +449,7 @@ h1 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin: 0 auto 20px;
+    margin: 0 auto clamp(5px, 2.2vh, 20px);
     transition: all 0.3s ease;
     position: relative;
     box-shadow:
@@ -499,12 +500,12 @@ h1 {
 .game-filters {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: clamp(4px, 0.8vh, 8px);
+    margin-bottom: clamp(6px, 1.6vh, 16px);
 }
 
 .game-filter-chip {
-    padding: 8px 12px;
+    padding: clamp(3px, 0.9vh, 8px) 12px;
     border-radius: 20px;
     border: 2px solid var(--chip-color);
     background: transparent;
@@ -539,14 +540,14 @@ h1 {
 
 .search-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: clamp(5px, 2.2vh, 20px);
     z-index: 10000;
 }
 
 .search-input {
     width: 100%;
-    padding: 18px 18px 18px 55px;
-    font-size: 1.1rem;
+    padding: clamp(10px, 2vh, 18px) 18px clamp(10px, 2vh, 18px) 55px;
+    font-size: clamp(0.9rem, 1.3vh, 1.1rem);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
     background: var(--panel-bg);
@@ -687,8 +688,8 @@ h1 {
 
 button {
     flex: 1;
-    padding: 18px;
-    font-size: 1.1rem;
+    padding: clamp(6px, 1.8vh, 18px);
+    font-size: clamp(0.8rem, 1.2vh, 1.1rem);
     font-weight: 700;
     border: none;
     border-radius: 12px;
@@ -1055,7 +1056,7 @@ button:active::before {
     .game-container:not(.results-screen) {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        gap: clamp(8px, 3.3vh, 30px);
         align-items: start;
     }
 
@@ -1299,7 +1300,7 @@ button:active::before {
 .mode-selector {
     max-width: 900px;
     width: 100%;
-    margin: 0 auto 30px;
+    margin: 0 auto clamp(5px, 3.3vh, 30px);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -1309,7 +1310,7 @@ button:active::before {
 
 .mode-tab {
     min-width: 0;
-    padding: 8px 12px;
+    padding: clamp(2px, 0.9vh, 8px) 12px;
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
