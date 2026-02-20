@@ -127,18 +127,20 @@ body {
 h1 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 3rem;
-    font-weight: 900;
+    font-weight: 1000;
     font-style: oblique;
     margin-bottom: 40px;
     text-align: center;
     letter-spacing: -3px;
     position: relative;
     z-index: 1;
-    text-shadow:
-        0 0 10px var(--glow-blue),
-        0 0 20px var(--glow-blue),
-        0 0 30px var(--primary-blue),
-        0 0 40px var(--primary-blue);
+    padding-right: 0.25em;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.16) 30%, #0000 60%), url("images/noise-texture.png");
+    background-size: 100%, 200px 200px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px var(--glow-blue)) drop-shadow(0 0 25px var(--primary-blue));
 }
 
 
@@ -1315,7 +1317,7 @@ button:active::before {
     transition: all 0.3s ease;
     text-align: center;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 900;
+    font-weight: 1000;
     font-style: oblique;
     font-size: 0.9rem;
     text-transform: capitalize;
@@ -1364,10 +1366,28 @@ button:active::before {
         inset 0 0 30px rgba(var(--theme-accent-rgb), 0.2);
 }
 
+.mode-tab.active .mode-tab-name {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.12), transparent 40%),
+        url("images/noise-texture.png");
+    background-size: 100%, 200px 200px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .mode-tab-name {
     display: block;
     font-size: 1.2rem;
     line-height: 1.2;
+    padding-right: 0.15em;
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0.06) 30%, transparent 60%),
+        url("images/noise-texture.png");
+    background-size: 100%, 200px 200px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .mode-tab-desc {
