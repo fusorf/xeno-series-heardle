@@ -1101,6 +1101,7 @@ button:active::before {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    transition: opacity 0.4s ease;
 }
 
 .credit-line {
@@ -1122,6 +1123,7 @@ button:active::before {
 @media (max-width: 600px) {
     h1 {
         font-size: 2rem;
+        margin-top: 7px;
     }
 
     body {
@@ -1484,14 +1486,21 @@ button:active::before {
 }
 
 .endless-badge {
-    display: none;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
+    display: inline-block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 1000;
+    font-style: oblique;
     color: #ffffff;
-    margin-left: 10px;
-    margin-top: -2px;
+    padding: 15px 25px 15px 10px;
+    margin-top: -17px;
+    margin-bottom: -15px;
+    margin-left: -15px;
     pointer-events: none;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-width 0.4s ease;
     text-shadow:
         0 0 10px var(--glow-blue),
         0 0 20px var(--primary-blue),
@@ -1500,7 +1509,8 @@ button:active::before {
 }
 
 .endless-badge.visible {
-    display: inline-block;
+    opacity: 1;
+    max-width: 5em;
 }
 
 @keyframes badgePulse {
@@ -1521,7 +1531,10 @@ button:active::before {
 
 /* Endless mode label (shown under title when active) */
 .endless-mode-label {
-    display: none;
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Orbitron', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
@@ -1529,17 +1542,44 @@ button:active::before {
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
-    margin-top: -30px;
-    margin-bottom: 30px;
+    white-space: nowrap;
     text-shadow:
         0 0 10px var(--glow-blue),
         0 0 20px rgba(255, 255, 255, 0.15),
         0 0 40px rgba(255, 255, 255, 0.08);
-    opacity: 0.8;
+    opacity: 0;
+    clip-path: inset(-10px 100% -10px 0);
+    pointer-events: none;
 }
 
 .endless-mode-label.visible {
-    display: block;
+    animation: labelReveal 0.6s ease forwards;
+}
+
+.endless-mode-label.hiding {
+    animation: labelFadeOut 0.3s ease forwards;
+}
+
+@keyframes labelReveal {
+    0% {
+        opacity: 0;
+        clip-path: inset(-10px 100% -10px 0);
+    }
+    100% {
+        opacity: 0.8;
+        clip-path: inset(-10px 0% -10px 0);
+    }
+}
+
+@keyframes labelFadeOut {
+    0% {
+        opacity: 0.8;
+        clip-path: inset(-10px 0% -10px 0);
+    }
+    100% {
+        opacity: 0;
+        clip-path: inset(-10px 0% -10px 0);
+    }
 }
 
 /* ============================================ */
@@ -1872,14 +1912,13 @@ button:active::before {
     }
 
     .endless-badge {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .endless-mode-label {
         font-size: 0.75rem;
         letter-spacing: 2px;
-        margin-top: -32px;
-        margin-bottom: 25px;
+        bottom: 20px;
     }
 
     .restart-button {

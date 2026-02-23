@@ -502,3 +502,40 @@ function closeHistoryModal() {
         modal.classList.remove('active');
     }
 }
+
+// ============================================
+// CREDITS VISIBILITY (desktop only)
+// ============================================
+// Hide credits when page has a scrollbar,
+// fade them in only when scrolled near the bottom.
+
+function updateCreditsVisibility() {
+    const credits = document.getElementById('creditsBox');
+    if (!credits || window.innerWidth <= 600) return;
+
+    const hasScrollbar = document.body.scrollHeight > window.innerHeight + 10;
+
+    if (!hasScrollbar) {
+        credits.style.opacity = '1';
+        credits.style.pointerEvents = '';
+        return;
+    }
+
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const nearBottom = document.body.scrollHeight - scrollBottom < 20;
+
+    credits.style.opacity = nearBottom ? '1' : '0';
+    credits.style.pointerEvents = nearBottom ? '' : 'none';
+}
+
+window.addEventListener('scroll', updateCreditsVisibility, { passive: true });
+window.addEventListener('resize', updateCreditsVisibility);
+document.addEventListener('DOMContentLoaded', () => {
+    updateCreditsVisibility();
+    // Re-check after content loads (fonts, images, etc.)
+    setTimeout(updateCreditsVisibility, 500);
+});
+// Also observe DOM changes that might affect page height
+new MutationObserver(updateCreditsVisibility).observe(document.body, {
+    childList: true, subtree: true, attributes: true
+});

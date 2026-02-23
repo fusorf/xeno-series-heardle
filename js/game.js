@@ -170,8 +170,17 @@ function toggleEndlessMode() {
     // Update endless mode label
     const label = document.getElementById('endlessModeLabel');
     if (label) {
-        label.classList.toggle('visible', endlessMode);
-        label.textContent = locale.endless.name;
+        if (endlessMode) {
+            label.textContent = locale.endless.name;
+            label.classList.remove('hiding');
+            label.classList.add('visible');
+        } else {
+            label.classList.remove('visible');
+            label.classList.add('hiding');
+            label.addEventListener('animationend', () => {
+                label.classList.remove('hiding');
+            }, { once: true });
+        }
     }
 
     // Cleanup players
