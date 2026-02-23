@@ -1509,6 +1509,7 @@ button:active::before {
     align-items: flex-start;
     justify-content: center;
     width: 100%;
+    margin-left: 10px;
 }
 
 .endless-badge {
