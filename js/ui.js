@@ -29,8 +29,10 @@ function renderModeSelector(currentMode, locale = null) {
         // Only show description for random mode
         const showDesc = mode.id === 'random';
 
+        const logoStyle = mode.logo ? `style="--mode-logo: url('${mode.logo}')"` : '';
+
         html += `
-            <div class="mode-tab ${isActive}" data-mode="${mode.id}" onclick="switchMode('${mode.id}')">
+            <div class="mode-tab ${isActive}" data-mode="${mode.id}" onclick="switchMode('${mode.id}')" ${logoStyle}>
                 <span class="mode-tab-name">${modeName}</span>
                 ${showDesc ? `<span class="mode-tab-desc">${modeDesc}</span>` : ''}
             </div>

@@ -1046,14 +1046,14 @@ button:active::before {
     display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .countdown-break {
         display: block;
     }
 }
 
 /* Desktop layout: two columns */
-@media (min-width: 601px) {
+@media (min-width: 901px) {
     .game-container:not(.results-screen) {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1121,7 +1121,7 @@ button:active::before {
 }
 
 /* Responsive design */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     h1 {
         font-size: 2rem;
         margin-top: 7px;
@@ -1385,6 +1385,8 @@ button:active::before {
     font-size: 1.2rem;
     line-height: 1.2;
     padding-right: 0.15em;
+    position: relative;
+    z-index: 1;
     background:
         linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0.06) 30%, transparent 60%),
         url("images/noise-texture.png");
@@ -1398,12 +1400,34 @@ button:active::before {
     display: block;
     font-size: 0.65rem;
     font-weight: 400;
+    position: relative;
+    z-index: 1;
     opacity: 0.8;
     font-family: 'Rajdhani', sans-serif;
     letter-spacing: 0.5px;
     margin-top: 4px;
     line-height: 1.2;
     white-space: nowrap;
+}
+
+/* Mode tab logo overlay (set via --mode-logo custom property) */
+.mode-tab::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--mode-logo);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    filter: brightness(0) invert(1);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mode-tab.active::after {
+    filter: none;
+    opacity: 0.15;
 }
 
 /* Daily Game Banner (for Random mode) */
@@ -1645,7 +1669,7 @@ button:active::before {
 /* BUTTON TOOLTIPS (desktop only)              */
 /* ============================================ */
 
-@media (min-width: 601px) {
+@media (min-width: 901px) {
     .lang-toggle[data-tooltip] {
         overflow: visible;
         position: relative;
@@ -1827,8 +1851,8 @@ button:active::before {
     box-shadow: 0 0 15px var(--theme-glow);
 }
 
-/* Responsive tabs */
-@media (max-width: 600px) {
+/* Responsive tabs (2x2 grid below 900px) */
+@media (max-width: 900px) {
     .mode-selector {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
@@ -2139,7 +2163,7 @@ button:active::before {
     color: #888888;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .history-content {
         padding: 20px;
         max-height: 85vh;

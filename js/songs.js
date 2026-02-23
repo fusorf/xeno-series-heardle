@@ -155,6 +155,7 @@ const GAME_MODES = {
     id: 'full-xeno',
     name: 'Full Xeno Series',
     description: 'All main Xeno games + DLC',
+    logo: 'images/full-xeno/logo.svg',
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
@@ -166,6 +167,7 @@ const GAME_MODES = {
     id: 'xenoblade',
     name: 'Xenoblade Heardle',
     description: 'Xenoblade Chronicles series + DLC',
+    logo: 'images/xenoblade/logo.svg',
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x'
     ]),
@@ -175,6 +177,7 @@ const GAME_MODES = {
     id: 'xenosaga',
     name: 'Xenosaga Heardle',
     description: 'Xenosaga trilogy',
+    logo: 'images/xenosaga/logo.svg',
     games: ['xenosaga-1', 'xenosaga-2', 'xenosaga-3'],
     randomStart: false
   },
@@ -182,6 +185,7 @@ const GAME_MODES = {
     id: 'random',
     name: 'Random Challenge',
     description: 'Random game + random start time',
+    logo: 'images/random/logo.svg',
     games: getGamesWithDLC([
       'xenoblade-1', 'xenoblade-2', 'xenoblade-3', 'xenoblade-x',
       'xenosaga-1', 'xenosaga-2', 'xenosaga-3',
