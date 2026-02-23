@@ -10,88 +10,90 @@ xeno-series-heardle/
 │
 ├── js/                     # All JavaScript files
 │   ├── constants.js        # Game constants (durations, max attempts, default mode)
-│   ├── songs.js            # Song database with game metadata (705 songs)
+│   ├── songs.js            # Song database with game metadata (705 songs) + GAME_MODES config
 │   ├── random.js           # Deterministic randomization system (seeded PRNG)
-│   ├── game.js             # Main game orchestrator
-│   ├── storage.js          # Cookie-based state management
+│   ├── game.js             # Main game orchestrator (daily + endless modes)
+│   ├── storage.js          # localStorage-based state management (migrated from cookies)
 │   ├── theme.js            # CSS stylesheet swapping (gamemode + game themes)
 │   ├── player.js           # HTML5 Audio player with progress tracking
-│   └── ui.js               # UI rendering and DOM manipulation
+│   └── ui.js               # UI rendering, DOM manipulation, credits visibility
 │
 ├── images/                 # All image assets
+│   ├── noise-texture.png   # Marble texture for title text effect (Marble006 inverted, CC0)
 │   ├── patate.png          # Easter egg image (special dates)
 │   │
-│   ├── xenoblade-x/        # Xenoblade Chronicles X
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   ├── full-xeno/          # Full Xeno Series mode
+│   │   ├── logo.svg        # Mode tab logo overlay (SVG)
+│   │   └── background.webp
 │   │
-│   ├── xenoblade-x-de/     # Xenoblade X Definitive Edition
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   ├── xenoblade/          # Xenoblade mode (parent)
+│   │   ├── logo.svg        # Mode tab logo overlay (Monado symbol)
+│   │   └── background.webp
+│   │
+│   ├── xenosaga/           # Xenosaga mode (parent)
+│   │   ├── logo.svg        # Mode tab logo overlay
+│   │   └── background.webp
+│   │
+│   ├── random/             # Random mode
+│   │   └── logo.svg        # Mode tab logo overlay
 │   │
 │   ├── xenoblade-1/        # Xenoblade Chronicles 1 DE
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenoblade-1-fc/     # Future Connected
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenoblade-2/        # Xenoblade Chronicles 2
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenoblade-2-torna/  # Torna: The Golden Country
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenoblade-3/        # Xenoblade Chronicles 3
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenoblade-3-fr/     # Future Redeemed
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
+│   │
+│   ├── xenoblade-x/        # Xenoblade Chronicles X
+│   │   ├── background.webp
+│   │   └── cover.jpg
+│   │
+│   ├── xenoblade-x-de/     # Xenoblade X Definitive Edition
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenosaga-1/         # Xenosaga Episode I
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenosaga-2/         # Xenosaga Episode II
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenosaga-3/         # Xenosaga Episode III
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenosaga-freaks/    # Xenosaga Freaks
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   ├── xenosaga-pied-piper/ # Xenosaga Pied Piper
-│   │   ├── logo.png
-│   │   ├── background.png
-│   │   └── cover.png
+│   │   ├── background.webp
+│   │   └── cover.jpg
 │   │
 │   └── xenogears/          # Xenogears
-│       ├── logo.png
-│       ├── background.png
-│       └── cover.png
+│       ├── background.webp
+│       └── cover.jpg
 │
-├── locales/                # Internationalization
+├── locales/                # Internationalization (EN/FR/JA)
 │   ├── en.json             # English
 │   ├── fr.json             # French
 │   └── ja.json             # Japanese
@@ -110,7 +112,7 @@ xeno-series-heardle/
 │
 ├── .gitignore              # Git ignore rules
 ├── README.md               # Project description
-└── ARCHITECTURE.md         # This file
+└── architecture.md         # This file
 ```
 
 ### Script Loading Order (index.html)
@@ -120,30 +122,44 @@ constants.js → songs.js → random.js → storage.js → theme.js → player.j
 
 ## Game Modes
 
+Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description`, `logo` (SVG path), `games` (array), `randomStart` (bool).
+
 ### 1. Full Xeno Series (`full-xeno`)
 - **Games**: Xenoblade 1 DE, FC, 2, Torna, 3, FR, X, X DE + Xenosaga I-II-III + Xenogears
+- **Logo**: `images/full-xeno/logo.svg`
 - **Theme**: Red (#E63946)
 - **Random Start**: No (always 0s)
 - **Song Pool**: ~635 songs
 
 ### 2. Xenoblade Heardle (`xenoblade`) - Default
 - **Games**: Xenoblade 1 DE, FC, 2, Torna, 3, FR, X, X DE
+- **Logo**: `images/xenoblade/logo.svg` (Monado symbol)
 - **Theme**: Red (#E63946)
 - **Random Start**: No
 - **Song Pool**: ~421 songs
 
 ### 3. Xenosaga Heardle (`xenosaga`)
 - **Games**: Xenosaga I, II, III
+- **Logo**: `images/xenosaga/logo.svg`
 - **Theme**: Purple (#7209B7)
 - **Random Start**: No
 - **Song Pool**: ~201 songs
 
 ### 4. Random Daily (`random`)
 - **Games**: All 14 games (including Freaks, Pied Piper)
+- **Logo**: `images/random/logo.svg`
 - **Theme**: Inherits daily game's color
 - **Random Start**: YES (random timestamp between 0 and duration-16s)
 - **Special**: Daily game name is revealed to players
 - **Song Pool**: 705 songs (full database)
+
+### 5. Endless Mode (overlay on any mode)
+- **Toggle**: Fixed button (∞) in bottom-left corner
+- **Badge**: Animated ∞ symbol next to title (Helvetica Neue, oblique, fade+expand transition)
+- **Label**: "Endless Now" text under title (clip-path left-to-right reveal animation, fade-out on disable)
+- **Behavior**: Plays random songs continuously, independent from daily game
+- **Stats**: Separate endless history stored in localStorage per mode
+- **Functions**: `toggleEndlessMode()`, `startEndlessRound()` in game.js
 
 ## Data Flow
 
@@ -151,7 +167,7 @@ constants.js → songs.js → random.js → storage.js → theme.js → player.j
 1. User visits page
    └─> initGame() [game.js]
        ├─> Load locale (EN/FR/JA) via fetch
-       ├─> Load saved mode preference (cookie)
+       ├─> Load saved mode preference (localStorage)
        ├─> Render mode selector tabs [ui.js]
        ├─> Get daily song (deterministic)
        │   └─> getDailySong(mode) [random.js]
@@ -178,15 +194,40 @@ constants.js → songs.js → random.js → storage.js → theme.js → player.j
        └─> Submit guess
            ├─> Correct → endGame(won=true)
            └─> Wrong → currentAttempt++
-               ├─> Save state (cookie) [storage.js]
+               ├─> Save state (localStorage) [storage.js]
                └─> Re-render with new duration [ui.js]
 
 4. User switches mode
    └─> switchMode(modeId) [game.js]
-       ├─> Save preference (cookie)
+       ├─> Save preference (localStorage)
        ├─> Cleanup current player
        └─> Re-initialize game for new mode
+
+5. User shares results
+   └─> buildShareText() [game.js]
+       ├─> copyResults() → clipboard
+       └─> tweetResults() → x.com/intent/tweet
 ```
+
+## Visual Design
+
+### Title Text Effect (h1)
+- **Font**: Helvetica Neue, 900 weight, oblique, -3px letter-spacing
+- **Texture**: Marble texture (`noise-texture.png`) + gradient overlay via `background-clip: text`
+- **Layers**: Bottom layer = marble texture (200x200 tiled), Top layer = gradient (dark bottom → transparent top) for relief
+- **Source**: ambientCG Marble006 (CC0), inverted, 300x300, grayscale with sigmoidal contrast
+
+### Mode Tab Logo Overlay
+- **System**: SVG logos embedded via CSS custom property `--mode-logo` on each tab
+- **Rendering**: `::after` pseudo-element, centered, 80% size, low opacity (0.15)
+- **Active state**: `filter: none` (dark logo on blue gradient), inactive: `filter: brightness(0) invert(1)` (white logo on dark bg)
+- **Scalable**: Add `logo` field to any GAME_MODES entry to enable
+
+### Responsive Design
+- **Breakpoint**: 900px (single breakpoint for mobile/desktop)
+- **Height scaling**: `clamp()` with `vh` units on most vertical-spacing elements (body padding, buttons, gaps, margins)
+- **Credits**: Fixed at bottom on desktop, hidden when scrollbar present, fade-in when scrolled near bottom (`updateCreditsVisibility()` in ui.js)
+- **Album covers**: 3D perspective hover effect on results screen
 
 ## Theme System
 
@@ -234,11 +275,13 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 
 ## State Management
 
-### Cookies
-- **Mode preference**: `xenoHeardleMode` (365 days)
-- **Language**: `xenoHeardleLang` (365 days)
-- **Game state**: `xenoHeardle_{mode}_state` (1 day, expires at UTC midnight)
+### localStorage
+- **Mode preference**: `xenoHeardleMode`
+- **Language**: `xenoHeardleLang`
+- **Game state**: `xenoHeardle_{mode}_state` (cleared at UTC midnight via dayNumber check)
   - Separate state per mode (independent progress)
+- **Endless history**: `xenoHeardle_{mode}_endless_history`
+- **Endless stats**: Per-mode win/loss/streak tracking
 
 ### Saved State Schema
 ```javascript
@@ -251,11 +294,11 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 }
 ```
 
-### Debug Utilities (browser console)
+### Debug Utilities (browser console, localhost only)
 ```javascript
-clearAllCookies()        // Wipe all saved games
-clearModeCookies(mode)   // Clear specific mode
-showCookies()            // Display all saved states
+clearAllData()           // Wipe all saved games
+clearModeData(mode)      // Clear specific mode
+showData()               // Display all saved states
 ```
 
 ## Audio System
@@ -303,6 +346,7 @@ player.js → HTML5 <audio> element
 ```javascript
 {
   title: "Song Name",
+  japaneseTitle: "日本語タイトル",    // Japanese title (shown when locale=ja)
   localizedTitle: "Localized Name",  // or null
   file: "filename.mp3",
   duration: 234.5,                    // seconds
@@ -314,12 +358,16 @@ player.js → HTML5 <audio> element
 
 ## Image Assets
 
-Each game has three image types in `images/{game-id}/`:
-- **logo.png** - Game logo for branding
-- **background.png** - Background image for theming
-- **cover.png** - Album cover art
+Each game has image assets in `images/{game-id}/`:
+- **background.webp** - Background image for theming
+- **cover.jpg** - Album cover art (3D hover effect on results screen)
 
-All placeholders are currently 1x1 transparent PNGs to be replaced with actual assets.
+Mode parent folders (`images/{mode-id}/`) contain:
+- **logo.svg** - SVG logo used as mode tab overlay texture
+- **background.webp** - Mode background
+
+Additional assets:
+- **noise-texture.png** - Marble texture for h1 title text effect
 
 ## Development
 
@@ -332,9 +380,9 @@ testRandomnessQuality('random', 100);
 
 ### Debug Utilities
 ```javascript
-clearAllCookies()        // Wipe all saved games
-clearModeCookies(mode)   // Clear specific mode
-showCookies()            // Display all saved states
+clearAllData()           // Wipe all saved games
+clearModeData(mode)      // Clear specific mode
+showData()               // Display all saved states
 ```
 
 ## Notes
@@ -347,3 +395,5 @@ showCookies()            // Display all saved states
 - **No build step**: Pure vanilla JS, no bundler required
 - **No backend**: 100% client-side application
 - **All music hosted on Cloudflare R2**
+- **Responsive breakpoint**: 900px (mobile ↔ desktop)
+- **iOS compatibility**: font-weight capped at 900 (iOS Safari max)
