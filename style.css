@@ -128,13 +128,14 @@ body {
 h1 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 3rem;
-    font-weight: 1000;
+    font-weight: 900;
     font-style: oblique;
     margin-bottom: 40px;
     text-align: center;
     letter-spacing: -3px;
     position: relative;
     z-index: 1;
+    padding-left: 0.15em;
     padding-right: 0.25em;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.16) 30%, #0000 60%), url("images/noise-texture.png");
     background-size: 100%, 200px 200px;
@@ -1124,7 +1125,7 @@ button:active::before {
 @media (max-width: 900px) {
     h1 {
         font-size: 2rem;
-        margin-top: 7px;
+        margin-top: 15px;
     }
 
     body {
@@ -1321,7 +1322,7 @@ button:active::before {
     transition: all 0.3s ease;
     text-align: center;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 1000;
+    font-weight: 900;
     font-style: oblique;
     font-size: 0.9rem;
     text-transform: capitalize;
@@ -1514,7 +1515,7 @@ button:active::before {
     display: inline-block;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 2.4rem;
-    font-weight: 1000;
+    font-weight: 900;
     font-style: oblique;
     color: #ffffff;
     padding: 15px 25px 15px 10px;
