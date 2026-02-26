@@ -1132,7 +1132,7 @@ button:active::before {
     bottom: 6px;
     right: 20px;
     z-index: 1;
-    font-family: var(--theme-font-body);
+    font-family: 'Rajdhani', sans-serif;
     font-size: 0.6rem;
     color: rgba(255, 255, 255, 0.2);
     letter-spacing: 0.5px;
