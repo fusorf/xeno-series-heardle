@@ -74,6 +74,82 @@ function storageRemove(key) {
 })();
 
 // ============================================
+// BACKFILL: Add missing 'game' field to old history entries
+// ============================================
+
+(function backfillHistoryGames() {
+    // Build reverse index: title (lowercase) → game id
+    const titleToGame = {};
+    for (const [gameId, songs] of Object.entries(SONG_POOLS)) {
+        songs.forEach(song => {
+            titleToGame[song.title.toLowerCase()] = gameId;
+        });
+    }
+
+    let totalPatched = 0;
+    const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
+
+    modes.forEach(modeId => {
+        // Patch daily history
+        const historyKey = `xenoHeardle_${modeId}_history`;
+        const history = storageGet(historyKey);
+        if (history && history.length > 0) {
+            let patched = 0;
+            history.forEach(entry => {
+                if (!entry.game && entry.guesses) {
+                    // Search guesses for a known song title (skip 'skip' entries)
+                    for (let i = entry.guesses.length - 1; i >= 0; i--) {
+                        const guess = entry.guesses[i];
+                        if (guess && guess !== 'skip') {
+                            const game = titleToGame[guess.toLowerCase()];
+                            if (game) {
+                                entry.game = game;
+                                patched++;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+            if (patched > 0) {
+                storageSet(historyKey, history);
+                totalPatched += patched;
+            }
+        }
+
+        // Patch endless history
+        const endlessKey = `xenoHeardle_${modeId}_endless`;
+        const endless = storageGet(endlessKey);
+        if (endless && endless.length > 0) {
+            let patched = 0;
+            endless.forEach(entry => {
+                if (!entry.game && entry.guesses) {
+                    for (let i = entry.guesses.length - 1; i >= 0; i--) {
+                        const guess = entry.guesses[i];
+                        if (guess && guess !== 'skip') {
+                            const game = titleToGame[guess.toLowerCase()];
+                            if (game) {
+                                entry.game = game;
+                                patched++;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+            if (patched > 0) {
+                storageSet(endlessKey, endless);
+                totalPatched += patched;
+            }
+        }
+    });
+
+    if (totalPatched > 0) {
+        console.log(`🔄 Backfilled game info for ${totalPatched} history entries.`);
+    }
+})();
+
+// ============================================
 
 function loadGameState(currentMode, dailySong) {
     const key = `xenoHeardle_${currentMode}_state`;
