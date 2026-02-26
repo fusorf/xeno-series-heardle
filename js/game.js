@@ -480,10 +480,7 @@ function handleSearchInput(e) {
     // Search in mode-specific songs, filtered by active game filters
     let modeSongs = getSongsForMode(currentMode);
     if (activeGameFilters.size > 0) {
-        modeSongs = modeSongs.filter(song =>
-            activeGameFilters.has(song.game) ||
-            [...activeGameFilters].some(filterId => song.game.startsWith(filterId + '-'))
-        );
+        modeSongs = modeSongs.filter(song => activeGameFilters.has(song.game));
     }
     const matches = modeSongs.filter(song =>
         song.title.toLowerCase().includes(query) ||
