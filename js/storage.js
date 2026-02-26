@@ -99,7 +99,7 @@ function getHistory(modeId) {
     return history || [];
 }
 
-function saveToHistory(modeId, dayNumber, won, attempts, guesses) {
+function saveToHistory(modeId, dayNumber, won, attempts, guesses, game = null) {
     const history = getHistory(modeId);
 
     // Check if this day is already in history
@@ -112,6 +112,7 @@ function saveToHistory(modeId, dayNumber, won, attempts, guesses) {
         guesses: guesses,
         timestamp: new Date().toISOString()
     };
+    if (game) entry.game = game;
 
     if (existingIndex >= 0) {
         // Update existing entry
@@ -141,15 +142,18 @@ function getEndlessHistory(modeId) {
     return history || [];
 }
 
-function saveToEndlessHistory(modeId, won, attempts, guesses) {
+function saveToEndlessHistory(modeId, won, attempts, guesses, game = null) {
     const history = getEndlessHistory(modeId);
 
-    history.push({
+    const entry = {
         won,
         attempts,
         guesses,
         timestamp: new Date().toISOString()
-    });
+    };
+    if (game) entry.game = game;
+
+    history.push(entry);
 
     // Keep last 200 entries
     if (history.length > 200) {
@@ -160,8 +164,11 @@ function saveToEndlessHistory(modeId, won, attempts, guesses) {
     storageSet(key, history);
 }
 
-function getEndlessStats(modeId) {
-    const history = getEndlessHistory(modeId);
+function getEndlessStats(modeId, gameFilter = null) {
+    let history = getEndlessHistory(modeId);
+    if (gameFilter) {
+        history = history.filter(h => h.game === gameFilter);
+    }
     return computeStats(history);
 }
 
@@ -241,8 +248,11 @@ function computeStats(history) {
     };
 }
 
-function getStats(modeId) {
-    const history = getHistory(modeId);
+function getStats(modeId, gameFilter = null) {
+    let history = getHistory(modeId);
+    if (gameFilter) {
+        history = history.filter(h => h.game === gameFilter);
+    }
     // Sort daily history by day number before computing streaks
     const sorted = [...history].sort((a, b) => a.day - b.day);
     return computeStats(sorted);

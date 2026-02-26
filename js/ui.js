@@ -62,7 +62,6 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
                 if (game) {
                     itemsHtml += `<div class="autocomplete-item game-select-item" data-game="${gameId}">
                         ${escapeHtml(game.name)}
-                        <span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>
                     </div>`;
                 }
             });
@@ -446,10 +445,12 @@ function addVisualEffect() {
 // ============================================
 
 let currentStatsTab = 'daily';
+let statsGameFilter = null;
 
 function showHistoryModal() {
     // Default tab based on current mode
     currentStatsTab = endlessMode ? 'endless' : 'daily';
+    statsGameFilter = null;
 
     // Create modal if it doesn't exist
     let modal = document.getElementById('historyModal');
@@ -473,8 +474,22 @@ function showHistoryModal() {
 
 function switchStatsTab(tab) {
     currentStatsTab = tab;
+    statsGameFilter = null;
     const modal = document.getElementById('historyModal');
     if (modal) renderStatsContent(modal);
+}
+
+function filterStatsGame(gameId) {
+    statsGameFilter = gameId || null;
+    const modal = document.getElementById('historyModal');
+    if (modal) {
+        // Preserve scroll position of .history-content
+        const content = modal.querySelector('.history-content');
+        const scrollTop = content ? content.scrollTop : 0;
+        renderStatsContent(modal);
+        const newContent = modal.querySelector('.history-content');
+        if (newContent) newContent.scrollTop = scrollTop;
+    }
 }
 
 function renderStatsContent(modal) {
@@ -482,10 +497,10 @@ function renderStatsContent(modal) {
     const endlessActive = currentStatsTab === 'endless' ? ' active' : '';
 
     let html = '<div class="history-content">';
-    html += '<button class="history-close" onclick="closeHistoryModal()">×</button>';
 
-    // Header with title + toggle
+    // Sticky header with title + toggle + close
     html += '<div class="stats-header">';
+    html += '<button class="history-close" onclick="closeHistoryModal()">×</button>';
     html += `<h2 class="history-title">${locale.stats.title}</h2>`;
     html += '<div class="share-scope-toggle stats-toggle">';
     html += `<button class="scope-btn${dailyActive}" data-scope="daily" onclick="switchStatsTab('daily')">${locale.endless.daily}</button>`;
@@ -496,9 +511,15 @@ function renderStatsContent(modal) {
     // Stats content
     let hasStats = false;
     Object.values(GAME_MODES).forEach(mode => {
-        const stats = currentStatsTab === 'daily' ? getStats(mode.id) : getEndlessStats(mode.id);
+        const stats = currentStatsTab === 'daily'
+            ? getStats(mode.id, statsGameFilter)
+            : getEndlessStats(mode.id, statsGameFilter);
 
-        if (stats.totalPlayed === 0) return;
+        // Check unfiltered stats to decide if section should show at all
+        const unfilteredStats = statsGameFilter
+            ? (currentStatsTab === 'daily' ? getStats(mode.id) : getEndlessStats(mode.id))
+            : stats;
+        if (unfilteredStats.totalPlayed === 0) return;
         hasStats = true;
 
         // Use localized mode name
@@ -509,6 +530,23 @@ function renderStatsContent(modal) {
 
         html += '<div class="mode-stats">';
         html += `<div class="mode-name">${escapeHtml(modeName)}</div>`;
+
+        // Game filter chips — show all games/DLCs from this mode
+        if (mode.games && mode.games.length > 1) {
+            const allGamesText = locale?.stats?.allGames || 'All Games';
+            const allActive = statsGameFilter === null ? ' active' : '';
+
+            html += '<div class="stats-game-filters">';
+            html += `<button class="game-filter-chip${allActive}" style="--chip-color: var(--primary-blue)" onclick="filterStatsGame(null)">${allGamesText}</button>`;
+            mode.games.forEach(gameId => {
+                const game = GAMES[gameId];
+                if (game) {
+                    const active = statsGameFilter === gameId ? ' active' : '';
+                    html += `<button class="game-filter-chip${active}" style="--chip-color: ${game.color}" onclick="filterStatsGame('${gameId}')">${escapeHtml(game.shortName)}</button>`;
+                }
+            });
+            html += '</div>';
+        }
 
         // Main stats grid
         html += '<div class="stats-grid">';
@@ -569,7 +607,7 @@ function renderStatsContent(modal) {
         html += `<div class="no-history">${locale.stats.noHistory}</div>`;
     }
 
-    html += '</div>';
+    html += '</div>'; // .history-content
     modal.innerHTML = html;
 }
 

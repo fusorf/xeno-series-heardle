@@ -29,7 +29,8 @@
     "oneShots": "One Shots",
     "oneShotStreak": "Série One Shot",
     "maxOneShotStreak": "Meilleure série One Shot",
-    "noHistory": "Aucune partie jouée"
+    "noHistory": "Aucune partie jouée",
+    "allGames": "Tous les jeux"
   },
   "endless": {
     "name": "Éternel présent",

@@ -355,6 +355,12 @@ function updateCredits() {
         <div class="credit-line">${madeBy} <a href="https://x.com/fusorf_" target="_blank" rel="noopener noreferrer">@fusorf_</a></div>
         <div class="credit-line">${specialThanks} <a href="https://x.com/XenoFrance" target="_blank" rel="noopener noreferrer">Xeno Series France</a></div>
     `;
+
+    // Version label
+    const versionLabel = document.getElementById('versionLabel');
+    if (versionLabel && typeof APP_VERSION !== 'undefined') {
+        versionLabel.textContent = APP_VERSION;
+    }
 }
 
 // ============================================
@@ -506,6 +512,11 @@ function handleSearchInput(e) {
 
         autocompleteList.classList.add('active');
 
+        // Cap dropdown height to not exceed the viewport bottom
+        const listRect = autocompleteList.getBoundingClientRect();
+        const maxAvailable = window.innerHeight - listRect.top - 10;
+        autocompleteList.style.maxHeight = Math.max(120, Math.min(350, maxAvailable)) + 'px';
+
         // Use event delegation instead of adding listeners to each item
         if (!autocompleteList._delegationSetup) {
             autocompleteList.addEventListener('click', (e) => {
@@ -627,7 +638,7 @@ function endGame(won) {
 
     if (endlessMode) {
         // Endless: save to endless history only
-        saveToEndlessHistory(currentMode, won, finalAttempt, guesses);
+        saveToEndlessHistory(currentMode, won, finalAttempt, guesses, dailySong.game);
         applyTheme(currentMode, dailySong, true);
         showResults(dailySong, guesses, locale, won, true);
     } else {
@@ -639,7 +650,7 @@ function endGame(won) {
             gameOver: true,
             won
         });
-        saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses);
+        saveToHistory(currentMode, dailySong.dayNumber, won, finalAttempt, guesses, dailySong.game);
         initShareScope();
         applyTheme(currentMode, dailySong, true);
         showResults(dailySong, guesses, locale, won, false);
