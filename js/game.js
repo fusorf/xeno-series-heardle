@@ -14,6 +14,7 @@ let dailySong = null;
 let selectedSong = null;
 let activeGameFilters = new Set(); // empty = all games (no filter)
 let endlessMode = false;
+let endlessLockedGame = null; // null = random each round, gameId = locked to that game
 
 // Helper: get display title based on current language
 function getDisplayTitle(song) {
@@ -158,6 +159,7 @@ function loadAndDisplay() {
 
 function toggleEndlessMode() {
     endlessMode = !endlessMode;
+    endlessLockedGame = null; // Reset game lock on toggle
 
     // Update button active state
     const btn = document.getElementById('endlessButton');
@@ -208,8 +210,8 @@ function startEndlessRound() {
         resultAudioElement = null;
     }
 
-    // Get a random song
-    dailySong = getEndlessSong(currentMode);
+    // Get a random song (filtered by locked game if set)
+    dailySong = getEndlessSong(currentMode, endlessLockedGame);
 
     // Reset game state
     currentAttempt = 0;
@@ -223,6 +225,11 @@ function startEndlessRound() {
     renderGame(currentMode, dailySong, currentAttempt, guesses, locale);
     initializeGameFilters();
     setupEventListeners();
+}
+
+function onEndlessGameSelect(gameId) {
+    endlessLockedGame = gameId;
+    startEndlessRound();
 }
 
 // ============================================
@@ -249,6 +256,7 @@ function switchMode(modeId) {
     renderModeSelector(currentMode, locale);
 
     if (endlessMode) {
+        endlessLockedGame = null; // Reset game lock when switching modes
         startEndlessRound();
     } else {
         dailySong = getDailySong(currentMode);

@@ -164,12 +164,20 @@ function selectRandomDailySong(dateString) {
 /**
  * Pick a random song for endless mode (non-deterministic).
  * Uses Math.random() so each call gives a different song.
+ * @param {string} modeId - The current game mode
+ * @param {string|null} gameId - Optional: lock to a specific game's song pool
  */
-function getEndlessSong(modeId) {
+function getEndlessSong(modeId, gameId = null) {
   const mode = GAME_MODES[modeId];
   if (!mode) return null;
 
-  const songs = getSongsForMode(modeId);
+  // If a specific game is requested, use its song pool directly
+  let songs;
+  if (gameId && SONG_POOLS[gameId]) {
+    songs = SONG_POOLS[gameId];
+  } else {
+    songs = getSongsForMode(modeId);
+  }
   if (songs.length === 0) return null;
 
   // Pick random song

@@ -591,8 +591,7 @@ h1 {
     right: 0;
     background: var(--panel-dark);
     border: 2px solid var(--panel-border);
-    border-top: none;
-    border-radius: 0 0 12px 12px;
+    border-radius: 12px;
     max-height: 350px;
     overflow-y: auto;
     z-index: 10000;
@@ -1354,7 +1353,6 @@ button:active::before {
 }
 
 .mode-tab:hover {
-    transform: translateY(-2px);
     border-color: var(--theme-primary);
     box-shadow:
         0 0 25px var(--theme-glow),
@@ -1470,6 +1468,60 @@ button:active::before {
         0 0 15px var(--theme-glow),
         0 0 25px var(--theme-glow),
         0 0 35px var(--theme-primary);
+}
+
+/* Game Selector (Random + Endless mode) */
+.daily-game-banner:has(.game-select-list) {
+    overflow: visible;
+    cursor: pointer;
+}
+
+.game-select-chevron {
+    vertical-align: middle;
+    margin-left: 4px;
+    opacity: 0.5;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.daily-game-banner.open .game-select-chevron {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+.game-select-list {
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: calc(100% + 6px);
+    background: var(--panel-dark);
+    border: 2px solid var(--panel-border);
+    border-radius: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 10000;
+    display: none;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(var(--theme-primary-rgb), 0.2);
+}
+
+.daily-game-banner.open .game-select-list {
+    display: block;
+    animation: dropDown 0.2s ease-out;
+}
+
+.game-select-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.game-select-list::-webkit-scrollbar-track {
+    background: rgba(var(--theme-bg-dark-rgb), 0.5);
+}
+
+.game-select-list::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--glow-blue);
 }
 
 /* History Button (next to language selector) */
@@ -1886,6 +1938,10 @@ button:active::before {
     .daily-game-name {
         font-size: 1.2rem;
         letter-spacing: 2px;
+    }
+
+    .game-select-list {
+        max-height: 250px;
     }
 
     .language-selector {

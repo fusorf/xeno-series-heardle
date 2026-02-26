@@ -35,7 +35,10 @@
     "name": "永遠の今",
     "restart": "もう一回",
     "daily": "デイリー",
-    "endless": "永遠の今"
+    "endless": "永遠の今",
+    "selectGame": "ゲームを選択",
+    "randomGame": "ランダム",
+    "selectedGame": "選択中のゲーム"
   },
   "tooltips": {
     "language": "言語",

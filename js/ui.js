@@ -49,13 +49,88 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
     if (mode && mode.showDailyGame && dailySong && dailySong.dailyGame) {
         const todayGameText = locale ? locale.todayGame : "Today's Game";
         banner.style.display = 'block';
-        banner.innerHTML = `
-            <div class="daily-game-title">${todayGameText}</div>
-            <div class="daily-game-name">${dailySong.dailyGame.name}</div>
-        `;
+
+        // In Random + Endless mode: game name with click dropdown list
+        if (currentMode === 'random' && endlessMode) {
+            const bannerTitle = endlessLockedGame
+                ? (locale?.endless?.selectedGame || 'Selected Game')
+                : todayGameText;
+
+            let itemsHtml = '';
+            mode.games.forEach(gameId => {
+                const game = GAMES[gameId];
+                if (game) {
+                    itemsHtml += `<div class="autocomplete-item game-select-item" data-game="${gameId}">
+                        ${escapeHtml(game.name)}
+                        <span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>
+                    </div>`;
+                }
+            });
+
+            banner.innerHTML = `
+                <div class="daily-game-title">${bannerTitle}</div>
+                <div class="daily-game-name">
+                    ${escapeHtml(dailySong.dailyGame.name)}
+                    <svg class="game-select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="game-select-list" id="gameSelectList">
+                    ${itemsHtml}
+                </div>
+            `;
+
+            // Toggle dropdown on banner click (clean up previous listener)
+            if (banner._toggleHandler) {
+                banner.removeEventListener('click', banner._toggleHandler);
+            }
+            banner._toggleHandler = (e) => {
+                if (e.target.closest('.game-select-item')) return;
+                banner.classList.toggle('open');
+            };
+            banner.addEventListener('click', banner._toggleHandler);
+
+            // Close on outside click (clean up previous listener)
+            if (banner._outsideClickHandler) {
+                document.removeEventListener('click', banner._outsideClickHandler);
+            }
+            banner._outsideClickHandler = (e) => {
+                if (!banner.contains(e.target)) {
+                    banner.classList.remove('open');
+                }
+            };
+            document.addEventListener('click', banner._outsideClickHandler);
+
+            // Item selection — close list then switch game
+            document.getElementById('gameSelectList').addEventListener('click', (e) => {
+                const item = e.target.closest('.game-select-item');
+                if (item) {
+                    banner.classList.remove('open');
+                    onEndlessGameSelect(item.dataset.game);
+                }
+            });
+        } else {
+            // Daily mode: static text — clean up dropdown listeners
+            cleanupBannerListeners(banner);
+            banner.innerHTML = `
+                <div class="daily-game-title">${todayGameText}</div>
+                <div class="daily-game-name">${dailySong.dailyGame.name}</div>
+            `;
+        }
     } else {
+        cleanupBannerListeners(banner);
         banner.style.display = 'none';
     }
+}
+
+function cleanupBannerListeners(banner) {
+    if (banner._toggleHandler) {
+        banner.removeEventListener('click', banner._toggleHandler);
+        banner._toggleHandler = null;
+    }
+    if (banner._outsideClickHandler) {
+        document.removeEventListener('click', banner._outsideClickHandler);
+        banner._outsideClickHandler = null;
+    }
+    banner.classList.remove('open');
 }
 
 function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {

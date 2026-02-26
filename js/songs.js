@@ -19,7 +19,7 @@ const GAMES = {
   },
   'xenoblade-x-de': {
     id: 'xenoblade-x-de',
-    name: 'Xenoblade Chronicles X - Definitive Edition',
+    name: 'Xenoblade Chronicles X Definitive Edition',
     shortName: 'XCX DE',
     color: '#00D4FF',
     folder: 'Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)',

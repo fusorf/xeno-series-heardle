@@ -35,7 +35,10 @@
     "name": "Éternel présent",
     "restart": "Recommencer",
     "daily": "Quotidien",
-    "endless": "Éternel présent"
+    "endless": "Éternel présent",
+    "selectGame": "Choisir un jeu",
+    "randomGame": "Aléatoire",
+    "selectedGame": "Jeu sélectionné"
   },
   "tooltips": {
     "language": "Langue",

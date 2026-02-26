@@ -35,7 +35,10 @@
     "name": "Endless Now",
     "restart": "Restart",
     "daily": "Daily",
-    "endless": "Endless Now"
+    "endless": "Endless Now",
+    "selectGame": "Select Game",
+    "randomGame": "Random",
+    "selectedGame": "Selected Game"
   },
   "tooltips": {
     "language": "Language",
