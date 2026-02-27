@@ -525,6 +525,8 @@ function stopBlitzAudio() {
 // SEARCH & GUESSING
 // ============================================
 
+let blitzAcIndex = 0; // Currently highlighted autocomplete index
+
 function handleBlitzSearch(e) {
     const query = e.target.value.toLowerCase();
     const autocomplete = document.getElementById('blitzAutocomplete');
@@ -545,42 +547,66 @@ function handleBlitzSearch(e) {
     ).slice(0, 8);
 
     if (matches.length > 0) {
-        autocomplete.innerHTML = matches.map(song => {
+        autocomplete.innerHTML = matches.map((song, i) => {
             const game = GAMES[song.game];
             const badge = game ? `<span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>` : '';
             const displayTitle = getDisplayTitle(song);
-            return `<div class="autocomplete-item blitz-ac-item" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
+            const hl = i === 0 ? ' ac-highlighted' : '';
+            return `<div class="autocomplete-item blitz-ac-item${hl}" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
         }).join('');
         autocomplete.classList.add('active');
+        blitzAcIndex = 0;
+
+        // Auto-select first match
+        blitzSelectedSong = matches[0].title;
+        submitBtn.disabled = false;
 
         const rect = autocomplete.getBoundingClientRect();
         const maxAvailable = window.innerHeight - rect.top - 10;
         autocomplete.style.maxHeight = Math.max(120, Math.min(300, maxAvailable)) + 'px';
     } else {
         autocomplete.classList.remove('active');
-    }
-
-    const exactMatch = allSongs.find(song =>
-        song.title.toLowerCase() === query ||
-        song.localizedTitle.toLowerCase() === query ||
-        (song.japaneseTitle && song.japaneseTitle.toLowerCase() === query)
-    );
-
-    if (exactMatch) {
-        blitzSelectedSong = exactMatch.title;
-        submitBtn.disabled = false;
-    } else {
         blitzSelectedSong = null;
         submitBtn.disabled = true;
     }
 }
 
 function handleBlitzKeydown(e) {
-    if (e.key === 'Enter') {
-        const autocomplete = document.getElementById('blitzAutocomplete');
+    const autocomplete = document.getElementById('blitzAutocomplete');
+    const isOpen = autocomplete.classList.contains('active');
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (!isOpen) return;
+        e.preventDefault();
         const items = autocomplete.querySelectorAll('.blitz-ac-item');
-        if (items.length > 0) {
-            items[0].click();
+        if (items.length === 0) return;
+
+        items[blitzAcIndex]?.classList.remove('ac-highlighted');
+        if (e.key === 'ArrowDown') {
+            blitzAcIndex = (blitzAcIndex + 1) % items.length;
+        } else {
+            blitzAcIndex = (blitzAcIndex - 1 + items.length) % items.length;
+        }
+        items[blitzAcIndex].classList.add('ac-highlighted');
+        items[blitzAcIndex].scrollIntoView({ block: 'nearest' });
+
+        // Update selection to highlighted item
+        blitzSelectedSong = items[blitzAcIndex].dataset.title;
+        document.getElementById('blitzSubmitBtn').disabled = false;
+        return;
+    }
+
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        if (isOpen) {
+            // Close list and fill input with highlighted item
+            const items = autocomplete.querySelectorAll('.blitz-ac-item');
+            if (items.length > 0 && items[blitzAcIndex]) {
+                selectBlitzSongFromList(items[blitzAcIndex].dataset.title);
+            }
+        } else if (blitzSelectedSong) {
+            // List closed, song selected → submit
+            submitBlitzGuess();
         }
     }
 }
@@ -853,7 +879,21 @@ function buildBlitzShareText() {
         ? Math.round((blitzSongsCorrect / blitzHistory.length) * 100)
         : 0;
 
+    // Mode name (localized)
+    let modeName = GAME_MODES[currentMode]?.name || currentMode;
+    if (locale?.modes?.[currentMode]?.name) {
+        modeName = locale.modes[currentMode].name;
+    }
+
+    // Game name for Single Game mode
+    let gameName = '';
+    if (currentMode === 'random' && endlessLockedGame) {
+        const game = GAMES[endlessLockedGame];
+        if (game) gameName = ` — ${game.name}`;
+    }
+
     let text = `Xeno Series Heardle ⚡ BLITZ\n`;
+    text += `🎮 ${modeName}${gameName}\n`;
     text += `💯 ${blitzScore} pts | 🎯 ${blitzSongsCorrect}/${blitzHistory.length} | 🔥 ×${blitzBestCombo}`;
     return text;
 }

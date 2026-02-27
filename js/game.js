@@ -523,6 +523,8 @@ function toggleGameFilter(gameId) {
 // SEARCH & AUTOCOMPLETE
 // ============================================
 
+let acIndex = 0; // Currently highlighted autocomplete index
+
 function handleSearchInput(e) {
     const query = e.target.value.toLowerCase();
     const autocompleteList = document.getElementById('autocompleteList');
@@ -547,14 +549,20 @@ function handleSearchInput(e) {
     ).slice(0, 10);
 
     if (matches.length > 0) {
-        autocompleteList.innerHTML = matches.map(song => {
+        autocompleteList.innerHTML = matches.map((song, i) => {
             const game = GAMES[song.game];
             const badge = game ? `<span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>` : '';
             const displayTitle = getDisplayTitle(song);
-            return `<div class="autocomplete-item" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
+            const hl = i === 0 ? ' ac-highlighted' : '';
+            return `<div class="autocomplete-item${hl}" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
         }).join('');
 
         autocompleteList.classList.add('active');
+        acIndex = 0;
+
+        // Auto-select first match
+        selectedSong = matches[0].title;
+        submitButton.disabled = false;
 
         // Cap dropdown height to not exceed the viewport bottom
         const listRect = autocompleteList.getBoundingClientRect();
@@ -564,18 +572,6 @@ function handleSearchInput(e) {
         // Autocomplete click delegation is set up in setupEventListeners()
     } else {
         autocompleteList.classList.remove('active');
-    }
-
-    const exactMatch = modeSongs.find(song =>
-        song.title.toLowerCase() === query ||
-        song.localizedTitle.toLowerCase() === query ||
-        (song.japaneseTitle && song.japaneseTitle.toLowerCase() === query)
-    );
-
-    if (exactMatch) {
-        selectedSong = exactMatch.title;
-        submitButton.disabled = false;
-    } else {
         selectedSong = null;
         submitButton.disabled = true;
     }
@@ -583,10 +579,41 @@ function handleSearchInput(e) {
 
 function handleSearchKeydown(e) {
     const autocompleteList = document.getElementById('autocompleteList');
-    const items = autocompleteList.querySelectorAll('.autocomplete-item');
+    const isOpen = autocompleteList.classList.contains('active');
 
-    if (e.key === 'Enter' && items.length > 0) {
-        items[0].click();
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (!isOpen) return;
+        e.preventDefault();
+        const items = autocompleteList.querySelectorAll('.autocomplete-item');
+        if (items.length === 0) return;
+
+        items[acIndex]?.classList.remove('ac-highlighted');
+        if (e.key === 'ArrowDown') {
+            acIndex = (acIndex + 1) % items.length;
+        } else {
+            acIndex = (acIndex - 1 + items.length) % items.length;
+        }
+        items[acIndex].classList.add('ac-highlighted');
+        items[acIndex].scrollIntoView({ block: 'nearest' });
+
+        // Update selection to highlighted item
+        selectedSong = items[acIndex].dataset.title;
+        document.getElementById('submitButton').disabled = false;
+        return;
+    }
+
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        if (isOpen) {
+            // Close list and fill input with highlighted item
+            const items = autocompleteList.querySelectorAll('.autocomplete-item');
+            if (items.length > 0 && items[acIndex]) {
+                selectSongFromList(items[acIndex].dataset.title);
+            }
+        } else if (selectedSong) {
+            // List closed, song selected → submit guess
+            submitGuess();
+        }
     }
 }
 
