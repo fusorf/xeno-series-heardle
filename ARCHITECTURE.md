@@ -13,11 +13,12 @@ xeno-series-heardle/
 │   ├── constants.js        # Game constants (durations, max attempts, default mode)
 │   ├── songs.js            # Song database with game metadata (705 songs) + GAME_MODES config
 │   ├── random.js           # Deterministic randomization system (seeded PRNG)
-│   ├── game.js             # Main game orchestrator (daily + endless modes)
+│   ├── game.js             # Main game orchestrator (daily + endless + blitz modes)
 │   ├── storage.js          # localStorage-based state management (migrated from cookies)
 │   ├── theme.js            # CSS stylesheet swapping (gamemode + game themes)
 │   ├── player.js           # HTML5 Audio player with progress tracking
-│   └── ui.js               # UI rendering, DOM manipulation, credits visibility
+│   ├── ui.js               # UI rendering, DOM manipulation, credits visibility
+│   └── blitz.js            # Blitz mode — 60-second rapid-fire challenge
 │
 ├── images/                 # All image assets
 │   ├── noise-texture.png   # Marble texture for title text effect (Marble006 inverted, CC0)
@@ -118,7 +119,7 @@ xeno-series-heardle/
 
 ### Script Loading Order (index.html)
 ```
-version.js → constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → game.js
+version.js → constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → blitz.js → game.js
 ```
 
 ## Game Modes
@@ -170,6 +171,27 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
   - Random mode stats split into two sub-sections: "Random Excerpt" vs "From the Start"
   - Each history entry stores `randomStart: true` flag when applicable
 - **Functions**: `toggleEndlessMode()`, `startEndlessRound()`, `setEndlessStart()` in game.js
+
+### 6. Blitz Mode (overlay on any mode)
+- **Toggle**: Fixed button (⚡) in top-left corner (below Endless button on mobile)
+- **Label**: "BLITZ" text under title (same clip-path reveal animation as Endless)
+- **Behavior**: 60-second rapid-fire challenge. Songs play continuously until guess or skip.
+- **Theme**: Inherits selected gamemode/game theme (no blitz-specific colors)
+- **Scoring**:
+  - Base: 100 points × combo multiplier (1x–4x)
+  - Correct guess: +points, combo+1, +3s time bonus (capped at 60s)
+  - Wrong guess: no penalty, input clears, can retry
+  - Skip: combo resets to 1x
+- **State flags**: `blitzActive` (mode on), `blitzGameOver` (round ended, results shown), `blitzAdvanceTimeout` (tracked for cleanup)
+- **Song selection**: Random from mode pool, random start position (0 to duration-16s)
+- **Game selector**: In Single Game mode, shows game dropdown (same as Endless). Auto-picks random game if none locked.
+- **Results screen**: Final score, accuracy, best combo, song recap list, share (copy/tweet), play again
+- **Stats**: Separate blitz history per mode in localStorage (`xenoHeardle_{mode}_blitz`)
+  - No game filter chips in stats modal (blitz runs span multiple songs/games)
+  - Stats: games played, high score, avg score, songs guessed, accuracy, best combo
+- **Functions**: `toggleBlitzMode()`, `activateBlitz()`, `deactivateBlitz()`, `startBlitzRound()`, `endBlitz()` in blitz.js
+- **Integration**: `switchMode()` in game.js calls `applyBlitzTheme()` + `startBlitzRound()` when blitz is active
+- **Shared state**: Uses `endlessLockedGame` for Single Game mode (reset to null on deactivate)
 
 ## Data Flow
 
@@ -296,10 +318,12 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 - **Language**: `xenoHeardleLang`
 - **Game state**: `xenoHeardle_{mode}_state` (cleared at UTC midnight via dayNumber check)
   - Separate state per mode (independent progress)
-- **Endless history**: `xenoHeardle_{mode}_endless_history`
-- **Endless stats**: Per-mode win/loss/streak tracking
-- **Stats UI**: Game filter chips in header (horizontal scroll, shared across all categories)
-- **Global stats**: `getGlobalStats()` / `getGlobalEndlessStats()` merge histories across all modes, displayed at top of stats modal
+- **Daily history**: `xenoHeardle_{mode}_history` (last 100 entries)
+- **Endless history**: `xenoHeardle_{mode}_endless` (last 200 entries)
+- **Blitz history**: `xenoHeardle_{mode}_blitz` (last 200 entries)
+- **Blitz high score**: `xenoHeardle_blitz_highscore`
+- **Stats UI**: Game filter chips in header (horizontal scroll, daily/endless only — hidden for blitz)
+- **Global stats**: `getGlobalStats()` / `getGlobalEndlessStats()` / `getGlobalBlitzStats()` merge histories across all modes, displayed at top of stats modal
 
 ### Saved State Schema
 ```javascript
@@ -314,8 +338,8 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 
 ### Debug Utilities (browser console, localhost only)
 ```javascript
-clearAllData()           // Wipe all saved games
-clearModeData(mode)      // Clear specific mode
+clearAllData()           // Wipe all saved games (daily + endless + blitz)
+clearModeData(mode)      // Clear specific mode (daily + endless + blitz)
 showData()               // Display all saved states
 ```
 
@@ -330,10 +354,17 @@ player.js → HTML5 <audio> element
 │   ├─ Plays for DURATIONS[attempt] seconds
 │   └─ Progress bar via requestAnimationFrame
 │
-└── Result player: full song playback
-    ├─ Initialized after game ends
-    ├─ Click-to-seek on progress bar
-    └─ Time display (current / total)
+├── Result player: full song playback
+│   ├─ Initialized after game ends
+│   ├─ Click-to-seek on progress bar
+│   └─ Time display (current / total)
+│
+└── Blitz player: continuous playback (blitz.js)
+    ├─ Separate Audio object (blitzAudio)
+    ├─ Plays continuously until guess or skip
+    ├─ Random start position per song
+    ├─ Loops from start position on song end
+    └─ Stale-reference protection on audio fallback timeout
 ```
 
 ### Audio Sources
@@ -398,8 +429,8 @@ testRandomnessQuality('random', 100);
 
 ### Debug Utilities
 ```javascript
-clearAllData()           // Wipe all saved games
-clearModeData(mode)      // Clear specific mode
+clearAllData()           // Wipe all saved games (daily + endless + blitz)
+clearModeData(mode)      // Clear specific mode (daily + endless + blitz)
 showData()               // Display all saved states
 ```
 

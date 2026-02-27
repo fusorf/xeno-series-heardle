@@ -102,15 +102,17 @@ function updateButtonTooltips() {
     const langBtn = document.getElementById('langToggle');
     const statsBtn = document.getElementById('historyButton');
     const endlessBtn = document.getElementById('endlessButton');
-    const endlessLabel = document.getElementById('endlessModeLabel');
+    const blitzBtn = document.getElementById('blitzButton');
 
     if (locale.tooltips) {
         if (langBtn) langBtn.setAttribute('data-tooltip', locale.tooltips.language);
         if (statsBtn) statsBtn.setAttribute('data-tooltip', locale.tooltips.stats);
         if (endlessBtn) endlessBtn.setAttribute('data-tooltip', locale.tooltips.endless);
+        if (blitzBtn) blitzBtn.setAttribute('data-tooltip', locale.tooltips.blitz);
     }
 
     // Update endless label text if visible
+    const endlessLabel = document.getElementById('endlessModeLabel');
     if (endlessLabel && endlessMode) {
         endlessLabel.textContent = locale.endless.name;
     }
@@ -159,6 +161,11 @@ function loadAndDisplay() {
 // ============================================
 
 function toggleEndlessMode() {
+    // Deactivate blitz if active
+    if (typeof blitzActive !== 'undefined' && blitzActive) {
+        deactivateBlitz();
+    }
+
     endlessMode = !endlessMode;
     endlessLockedGame = null;
     endlessRandomStart = true;
@@ -166,10 +173,6 @@ function toggleEndlessMode() {
     // Update button active state
     const btn = document.getElementById('endlessButton');
     if (btn) btn.classList.toggle('active', endlessMode);
-
-    // Update badge visibility
-    const badge = document.getElementById('endlessBadge');
-    if (badge) badge.classList.toggle('visible', endlessMode);
 
     // Update endless mode label
     const label = document.getElementById('endlessModeLabel');
@@ -252,7 +255,18 @@ function switchMode(modeId) {
     currentMode = modeId;
     storageSet('xenoHeardleMode', modeId);
 
-    // Cleanup current state
+    // Update UI chrome
+    renderModeSelector(currentMode, locale);
+
+    if (blitzActive) {
+        endlessLockedGame = null;
+        applyBlitzTheme();
+        updateBlitzBanner();
+        startBlitzRound();
+        return;
+    }
+
+    // Cleanup current state (not needed during blitz)
     clearInterval(window.countdownInterval);
     if (typeof destroyPlayer === 'function') {
         destroyPlayer();
@@ -261,9 +275,6 @@ function switchMode(modeId) {
         resultAudioElement.pause();
         resultAudioElement = null;
     }
-
-    // Update UI chrome
-    renderModeSelector(currentMode, locale);
 
     if (endlessMode) {
         endlessLockedGame = null; // Reset game lock when switching modes
@@ -292,7 +303,25 @@ async function switchLanguage(langCode) {
     // Update UI elements with new locale
     renderModeSelector(currentMode, locale);
 
-    if (gameOver) {
+    if (blitzActive) {
+        // Re-render blitz UI with new locale
+        const container = document.getElementById('gameContainer');
+        const isResults = container.classList.contains('results-screen');
+        const isInGame = !!container.querySelector('.blitz-banner:not(:has(.blitz-countdown-overlay))');
+        if (isResults) {
+            // Stay on results screen, just re-render with new locale
+            const prevHigh = blitzScore >= (getBlitzHighScore() || 0);
+            renderBlitzResults(prevHigh);
+        } else if (isInGame) {
+            renderBlitzGame();
+            updateBlitzTimer();
+            updateBlitzScore();
+            updateBlitzSongCounter();
+            updateBlitzHistoryDisplay();
+        }
+        // Don't re-render during countdown — leave it running
+        updateBlitzBanner();
+    } else if (gameOver) {
         showResults(dailySong, guesses, locale, guesses[guesses.length - 1]?.toLowerCase() === dailySong.title.toLowerCase());
         updateCountdown(locale);
     } else {
@@ -301,7 +330,9 @@ async function switchLanguage(langCode) {
         setupEventListeners();
     }
 
-    updateDailyGameBanner(currentMode, dailySong, locale);
+    if (!blitzActive) {
+        updateDailyGameBanner(currentMode, dailySong, locale);
+    }
     updateLanguageSelector();
     updateButtonTooltips();
     updateCredits();

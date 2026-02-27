@@ -46,10 +46,28 @@
     "statsRandomStart": "Extrait aléatoire",
     "statsNormalStart": "Depuis le début"
   },
+  "blitz": {
+    "name": "BLITZ",
+    "searchPlaceholder": "Devinez vite !",
+    "skip": "Passer",
+    "submit": "Go !",
+    "quit": "Quitter",
+    "timesUp": "Temps écoulé !",
+    "newHighScore": "Nouveau record !",
+    "points": "points",
+    "songsGuessed": "Devinées",
+    "accuracy": "Précision",
+    "bestCombo": "Meilleur combo",
+    "highScore": "Record",
+    "avgScore": "Score moyen",
+    "playAgain": "Rejouer",
+    "backToGame": "Retour"
+  },
   "tooltips": {
     "language": "Langue",
     "stats": "Statistiques",
-    "endless": "Éternel présent"
+    "endless": "Éternel présent",
+    "blitz": "Blitz"
   },
   "credits": {
     "madeBy": "Créé par",
@@ -69,7 +87,7 @@
       "description": "Trilogie Xenosaga"
     },
     "random": {
-      "name": "Défi Aléatoire",
+      "name": "Jeu Individuel",
       "description": "Jeu aléatoire + début aléatoire"
     }
   }

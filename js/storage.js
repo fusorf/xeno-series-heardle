@@ -311,6 +311,79 @@ function getGlobalEndlessStats(gameFilter = null, randomStartFilter = null) {
 }
 
 // ============================================
+// BLITZ HISTORY (per mode, like endless)
+// ============================================
+
+function getBlitzHistory(modeId) {
+    const key = `xenoHeardle_${modeId}_blitz`;
+    return storageGet(key) || [];
+}
+
+function saveToBlitzHistory(modeId, score, correct, attempted, bestCombo, game = null) {
+    const history = getBlitzHistory(modeId);
+
+    const entry = {
+        score,
+        correct,
+        attempted,
+        bestCombo,
+        timestamp: new Date().toISOString()
+    };
+    if (game) entry.game = game;
+
+    history.push(entry);
+
+    // Keep last 200 entries
+    if (history.length > 200) {
+        history.splice(0, history.length - 200);
+    }
+
+    const key = `xenoHeardle_${modeId}_blitz`;
+    storageSet(key, history);
+}
+
+function computeBlitzStats(history) {
+    if (history.length === 0) {
+        return { gamesPlayed: 0, totalScore: 0, bestScore: 0, totalCorrect: 0, totalAttempted: 0, bestCombo: 0, avgScore: 0 };
+    }
+
+    const gamesPlayed = history.length;
+    let totalScore = 0, bestScore = 0, totalCorrect = 0, totalAttempted = 0, bestCombo = 0;
+
+    history.forEach(h => {
+        totalScore += h.score;
+        if (h.score > bestScore) bestScore = h.score;
+        totalCorrect += h.correct;
+        totalAttempted += h.attempted;
+        if (h.bestCombo > bestCombo) bestCombo = h.bestCombo;
+    });
+
+    const avgScore = Math.round(totalScore / gamesPlayed);
+
+    return { gamesPlayed, totalScore, bestScore, totalCorrect, totalAttempted, bestCombo, avgScore };
+}
+
+function getBlitzStats(modeId, gameFilter = null) {
+    let history = getBlitzHistory(modeId);
+    if (gameFilter) {
+        history = history.filter(h => h.game === gameFilter);
+    }
+    return computeBlitzStats(history);
+}
+
+function getGlobalBlitzStats(gameFilter = null) {
+    let allHistory = [];
+    Object.keys(GAME_MODES).forEach(modeId => {
+        allHistory = allHistory.concat(getBlitzHistory(modeId));
+    });
+    if (gameFilter) {
+        allHistory = allHistory.filter(h => h.game === gameFilter);
+    }
+    allHistory.sort((a, b) => (a.timestamp || '').localeCompare(b.timestamp || ''));
+    return computeBlitzStats(allHistory);
+}
+
+// ============================================
 // DEBUG CONSOLE COMMANDS
 // ============================================
 
@@ -321,9 +394,12 @@ function clearAllData() {
         storageRemove(`xenoHeardle_${mode}_state`);
         storageRemove(`xenoHeardle_${mode}_history`);
         storageRemove(`xenoHeardle_${mode}_endless`);
+        storageRemove(`xenoHeardle_${mode}_blitz`);
     });
     storageRemove('xenoHeardleMode');
     storageRemove('xenoHeardleLanguage');
+    storageRemove('xenoHeardle_blitz_highscore');
+    storageRemove('xenoHeardle_blitz_stats');
     console.log('✅ All data cleared! Reload the page to start fresh.');
 }
 
@@ -332,6 +408,7 @@ function clearModeData(mode) {
     storageRemove(`xenoHeardle_${mode}_state`);
     storageRemove(`xenoHeardle_${mode}_history`);
     storageRemove(`xenoHeardle_${mode}_endless`);
+    storageRemove(`xenoHeardle_${mode}_blitz`);
     console.log(`✅ Data cleared for mode: ${mode}. Reload the page to start fresh.`);
 }
 

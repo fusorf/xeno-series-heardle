@@ -14,8 +14,8 @@
 
     <div class="title-wrapper">
         <h1 id="pageTitle">Xeno Series Heardle</h1>
-        <span class="endless-badge" id="endlessBadge">∞</span>
         <div class="endless-mode-label" id="endlessModeLabel">Endless Now</div>
+        <div class="blitz-mode-label" id="blitzModeLabel"></div>
     </div>
 
     <!-- Mode selector tabs -->
@@ -56,6 +56,9 @@
     <!-- Endless mode button -->
     <button class="endless-button" id="endlessButton" onclick="toggleEndlessMode()" title="Endless Now">∞</button>
 
+    <!-- Blitz mode button -->
+    <button class="blitz-button" id="blitzButton" onclick="toggleBlitzMode()" title="Blitz"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></button>
+
     <!-- Version (auto-generated) -->
     <script src="js/version.js"></script>
 
@@ -71,6 +74,7 @@
     <script src="js/theme.js"></script>
     <script src="js/player.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/blitz.js"></script>
 
     <!-- Main game logic -->
     <script src="js/game.js"></script>

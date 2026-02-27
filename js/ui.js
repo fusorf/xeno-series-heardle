@@ -457,7 +457,7 @@ let statsGameFilter = null;
 
 function showHistoryModal() {
     // Default tab based on current mode
-    currentStatsTab = endlessMode ? 'endless' : 'daily';
+    currentStatsTab = blitzActive ? 'blitz' : (endlessMode ? 'endless' : 'daily');
     statsGameFilter = null;
 
     // Create modal if it doesn't exist
@@ -482,7 +482,7 @@ function showHistoryModal() {
 
 function switchStatsTab(tab) {
     currentStatsTab = tab;
-    statsGameFilter = null;
+    statsGameFilter = null; // Reset game filter on tab switch
     const modal = document.getElementById('historyModal');
     if (modal) renderStatsContent(modal);
 }
@@ -509,6 +509,7 @@ function filterStatsGame(gameId) {
 function renderStatsContent(modal) {
     const dailyActive = currentStatsTab === 'daily' ? ' active' : '';
     const endlessActive = currentStatsTab === 'endless' ? ' active' : '';
+    const blitzTabActive = currentStatsTab === 'blitz' ? ' active' : '';
 
     let html = '<div class="history-content">';
 
@@ -519,25 +520,95 @@ function renderStatsContent(modal) {
     html += '<div class="share-scope-toggle stats-toggle">';
     html += `<button class="scope-btn${dailyActive}" data-scope="daily" onclick="switchStatsTab('daily')">${locale.endless.daily}</button>`;
     html += `<button class="scope-btn${endlessActive}" data-scope="endless" onclick="switchStatsTab('endless')">${locale.endless.endless}</button>`;
+    html += `<button class="scope-btn${blitzTabActive}" data-scope="blitz" onclick="switchStatsTab('blitz')">${locale.blitz?.name || 'Blitz'}</button>`;
     html += '</div>';
 
-    // Global game filter chips — all unique games across all modes
-    const allGamesText = locale?.stats?.allGames || 'All Games';
-    const allActive = statsGameFilter === null ? ' active' : '';
-    const allGameIds = [...new Set(Object.values(GAME_MODES).flatMap(m => m.games))];
+    // Global game filter chips — hidden for blitz (filters don't apply to blitz runs)
+    if (currentStatsTab !== 'blitz') {
+        const allGamesText = locale?.stats?.allGames || 'All Games';
+        const allActive = statsGameFilter === null ? ' active' : '';
+        const allGameIds = [...new Set(Object.values(GAME_MODES).flatMap(m => m.games))];
 
-    html += '<div class="stats-game-filters">';
-    html += `<button class="game-filter-chip${allActive}" style="--chip-color: var(--primary-blue)" onclick="filterStatsGame(null)">${allGamesText}</button>`;
-    allGameIds.forEach(gameId => {
-        const game = GAMES[gameId];
-        if (game) {
-            const active = statsGameFilter === gameId ? ' active' : '';
-            html += `<button class="game-filter-chip${active}" style="--chip-color: ${game.color}" onclick="filterStatsGame('${gameId}')">${escapeHtml(game.shortName)}</button>`;
+        html += '<div class="stats-game-filters">';
+        html += `<button class="game-filter-chip${allActive}" style="--chip-color: var(--primary-blue)" onclick="filterStatsGame(null)">${allGamesText}</button>`;
+        allGameIds.forEach(gameId => {
+            const game = GAMES[gameId];
+            if (game) {
+                const active = statsGameFilter === gameId ? ' active' : '';
+                html += `<button class="game-filter-chip${active}" style="--chip-color: ${game.color}" onclick="filterStatsGame('${gameId}')">${escapeHtml(game.shortName)}</button>`;
+            }
+        });
+        html += '</div>';
+    }
+
+    html += '</div>';
+
+    // Blitz tab: per-mode layout with global, same pattern as daily/endless
+    if (currentStatsTab === 'blitz') {
+        const l = locale.blitz || {};
+
+        function renderBlitzStatsBlock(stats) {
+            const accuracy = stats.totalAttempted > 0 ? Math.round((stats.totalCorrect / stats.totalAttempted) * 100) : 0;
+            let s = '<div class="stats-grid blitz-stats-grid">';
+            s += `<div class="stat-box"><div class="stat-value">${stats.gamesPlayed}</div><div class="stat-label">${locale.stats.played}</div></div>`;
+            s += `<div class="stat-box"><div class="stat-value">${stats.bestScore}</div><div class="stat-label">${l.highScore || 'High Score'}</div></div>`;
+            s += `<div class="stat-box"><div class="stat-value">${stats.avgScore}</div><div class="stat-label">${l.avgScore || 'Avg Score'}</div></div>`;
+            s += `<div class="stat-box"><div class="stat-value">${stats.totalCorrect}</div><div class="stat-label">${l.songsGuessed || 'Songs'}</div></div>`;
+            s += `<div class="stat-box"><div class="stat-value">${accuracy}%</div><div class="stat-label">${l.accuracy || 'Accuracy'}</div></div>`;
+            s += `<div class="stat-box"><div class="stat-value">×${stats.bestCombo}</div><div class="stat-label">${l.bestCombo || 'Best Combo'}</div></div>`;
+            s += '</div>';
+            return s;
         }
-    });
-    html += '</div>';
 
-    html += '</div>';
+        // Global blitz stats (no game filter — blitz runs span multiple songs/games)
+        const globalStats = getGlobalBlitzStats();
+        let hasStats = false;
+
+        if (globalStats.gamesPlayed > 0) {
+            hasStats = true;
+            const globalLabel = locale?.stats?.global || 'Global';
+            html += '<div class="mode-stats">';
+            html += `<div class="mode-name">${escapeHtml(globalLabel)}</div>`;
+            html += renderBlitzStatsBlock(globalStats);
+            html += '</div>';
+        }
+
+        // Per-mode blitz stats
+        Object.values(GAME_MODES).forEach(mode => {
+            const stats = getBlitzStats(mode.id);
+            if (stats.gamesPlayed === 0) return;
+            hasStats = true;
+
+            let modeName = mode.name;
+            if (locale && locale.modes && locale.modes[mode.id]) {
+                modeName = locale.modes[mode.id].name;
+            }
+
+            html += '<div class="mode-stats">';
+            html += `<div class="mode-name">${escapeHtml(modeName)}</div>`;
+            html += renderBlitzStatsBlock(stats);
+            html += '</div>';
+        });
+
+        if (!hasStats) {
+            html += `<div class="no-history">${locale.stats.noHistory}</div>`;
+        }
+
+        html += '</div>'; // .history-content
+        modal.innerHTML = html;
+
+        // Enable horizontal scroll with mouse wheel on game filter chips
+        const filtersEl = modal.querySelector('.stats-game-filters');
+        if (filtersEl) {
+            filtersEl.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    filtersEl.scrollLeft += e.deltaY;
+                }
+            }, { passive: false });
+        }
+        return;
+    }
 
     // Helper: render stats block (grid + distribution) for a given stats object
     function renderStatsBlock(stats) {
@@ -593,13 +664,16 @@ function renderStatsContent(modal) {
         return s;
     }
 
-    // Global stats (across all modes)
+    // Global stats (always shown if any games exist)
     const globalStats = currentStatsTab === 'daily'
         ? getGlobalStats(statsGameFilter)
         : getGlobalEndlessStats(statsGameFilter);
+    const globalUnfiltered = statsGameFilter
+        ? (currentStatsTab === 'daily' ? getGlobalStats() : getGlobalEndlessStats())
+        : globalStats;
 
     let hasStats = false;
-    if (globalStats.totalPlayed > 0) {
+    if (globalUnfiltered.totalPlayed > 0) {
         hasStats = true;
         const globalLabel = locale?.stats?.global || 'Global';
         html += '<div class="mode-stats">';
@@ -616,10 +690,8 @@ function renderStatsContent(modal) {
         if (isRandomEndless) {
             const randomStats = getEndlessStats(mode.id, statsGameFilter, true);
             const normalStats = getEndlessStats(mode.id, statsGameFilter, false);
-            const unfilteredRandom = statsGameFilter ? getEndlessStats(mode.id, null, true) : randomStats;
-            const unfilteredNormal = statsGameFilter ? getEndlessStats(mode.id, null, false) : normalStats;
 
-            if (unfilteredRandom.totalPlayed === 0 && unfilteredNormal.totalPlayed === 0) return;
+            if (randomStats.totalPlayed === 0 && normalStats.totalPlayed === 0) return;
             hasStats = true;
 
             let modeName = mode.name;
@@ -631,7 +703,7 @@ function renderStatsContent(modal) {
             const normalLabel = locale?.endless?.statsNormalStart || 'From the Start';
 
             // Random start sub-section
-            if (unfilteredRandom.totalPlayed > 0) {
+            if (randomStats.totalPlayed > 0) {
                 html += '<div class="mode-stats">';
                 html += `<div class="mode-name">${escapeHtml(modeName)} — ${escapeHtml(randomLabel)}</div>`;
                 html += renderStatsBlock(randomStats);
@@ -639,7 +711,7 @@ function renderStatsContent(modal) {
             }
 
             // Normal start sub-section
-            if (unfilteredNormal.totalPlayed > 0) {
+            if (normalStats.totalPlayed > 0) {
                 html += '<div class="mode-stats">';
                 html += `<div class="mode-name">${escapeHtml(modeName)} — ${escapeHtml(normalLabel)}</div>`;
                 html += renderStatsBlock(normalStats);
@@ -650,10 +722,7 @@ function renderStatsContent(modal) {
                 ? getStats(mode.id, statsGameFilter)
                 : getEndlessStats(mode.id, statsGameFilter);
 
-            const unfilteredStats = statsGameFilter
-                ? (currentStatsTab === 'daily' ? getStats(mode.id) : getEndlessStats(mode.id))
-                : stats;
-            if (unfilteredStats.totalPlayed === 0) return;
+            if (stats.totalPlayed === 0) return;
             hasStats = true;
 
             let modeName = mode.name;
@@ -732,6 +801,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCreditsVisibility();
     // Re-check after content loads (fonts, images, etc.)
     setTimeout(updateCreditsVisibility, 500);
+});
+
+// Close autocomplete dropdowns on outside click
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-container')) {
+        const lists = document.querySelectorAll('.autocomplete-list.active');
+        lists.forEach(list => list.classList.remove('active'));
+    }
 });
 // Also observe DOM changes that might affect page height
 new MutationObserver(updateCreditsVisibility).observe(document.body, {

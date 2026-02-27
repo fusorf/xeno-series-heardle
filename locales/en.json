@@ -46,10 +46,28 @@
     "statsRandomStart": "Random Excerpt",
     "statsNormalStart": "From the Start"
   },
+  "blitz": {
+    "name": "BLITZ",
+    "searchPlaceholder": "Guess fast!",
+    "skip": "Skip",
+    "submit": "Go!",
+    "quit": "Quit",
+    "timesUp": "Time's Up!",
+    "newHighScore": "New High Score!",
+    "points": "points",
+    "songsGuessed": "Songs",
+    "accuracy": "Accuracy",
+    "bestCombo": "Best Combo",
+    "highScore": "High Score",
+    "avgScore": "Avg Score",
+    "playAgain": "Play Again",
+    "backToGame": "Back"
+  },
   "tooltips": {
     "language": "Language",
     "stats": "Statistics",
-    "endless": "Endless Now"
+    "endless": "Endless Now",
+    "blitz": "Blitz"
   },
   "credits": {
     "madeBy": "Made by",
@@ -69,7 +87,7 @@
       "description": "Xenosaga trilogy"
     },
     "random": {
-      "name": "Random Challenge",
+      "name": "Single Game",
       "description": "Random game + random start time"
     }
   }

@@ -46,10 +46,28 @@
     "statsRandomStart": "ランダム抜粋",
     "statsNormalStart": "最初から"
   },
+  "blitz": {
+    "name": "ブリッツ",
+    "searchPlaceholder": "速く答えて！",
+    "skip": "スキップ",
+    "submit": "回答！",
+    "quit": "やめる",
+    "timesUp": "タイムアップ！",
+    "newHighScore": "ハイスコア更新！",
+    "points": "ポイント",
+    "songsGuessed": "正解数",
+    "accuracy": "正解率",
+    "bestCombo": "最高コンボ",
+    "highScore": "ハイスコア",
+    "avgScore": "平均スコア",
+    "playAgain": "もう一回",
+    "backToGame": "戻る"
+  },
   "tooltips": {
     "language": "言語",
     "stats": "統計",
-    "endless": "永遠の今"
+    "endless": "永遠の今",
+    "blitz": "ブリッツ"
   },
   "credits": {
     "madeBy": "制作",
@@ -69,7 +87,7 @@
       "description": "ゼノサーガ三部作"
     },
     "random": {
-      "name": "ランダムチャレンジ",
+      "name": "個別ゲーム",
       "description": "ランダムゲーム + ランダム開始"
     }
   }
