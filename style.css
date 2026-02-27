@@ -1285,10 +1285,6 @@ button:active::before {
     100% { transform: rotate(360deg); }
 }
 
-.loading {
-    animation: spin 1s linear infinite;
-}
-
 /* Visual effect container */
 .snow-container {
     position: fixed;

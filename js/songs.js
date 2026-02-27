@@ -6974,6 +6974,3 @@ function getAudioUrl(song) {
   const folder = song.folder || game.folder;
   return `${AUDIO_BASE_URL}/music/${folder}/${encodedFile}`;
 }
-
-// Legacy compatibility
-const SONGS = SONGS_XENOBLADE_X;

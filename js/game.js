@@ -213,7 +213,8 @@ function startEndlessRound() {
     }
 
     // Get a random song (filtered by locked game if set)
-    dailySong = getEndlessSong(currentMode, endlessLockedGame, endlessRandomStart);
+    const useRandomStart = currentMode === 'random' && endlessRandomStart;
+    dailySong = getEndlessSong(currentMode, endlessLockedGame, useRandomStart);
 
     // Reset game state
     currentAttempt = 0;
@@ -642,7 +643,8 @@ function endGame(won) {
 
     if (endlessMode) {
         // Endless: save to endless history only
-        saveToEndlessHistory(currentMode, won, finalAttempt, guesses, dailySong.game, endlessRandomStart);
+        const wasRandomStart = currentMode === 'random' && endlessRandomStart;
+        saveToEndlessHistory(currentMode, won, finalAttempt, guesses, dailySong.game, wasRandomStart);
         applyTheme(currentMode, dailySong, true);
         showResults(dailySong, guesses, locale, won, true);
     } else {

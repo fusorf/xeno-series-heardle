@@ -165,7 +165,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
   - Classic: song starts at 0s
   - Random Start: song starts at random timestamp (0 to duration-16s) — **default**
   - Uses same `.share-scope-toggle` / `.scope-btn` pattern as other toggles
-  - State: `endlessRandomStart` variable in game.js
+  - State: `endlessRandomStart` variable in game.js (scoped to random mode only via `currentMode === 'random' && endlessRandomStart`)
 - **Stats**: Separate endless history stored in localStorage per mode
   - Random mode stats split into two sub-sections: "Random Excerpt" vs "From the Start"
   - Each history entry stores `randomStart: true` flag when applicable

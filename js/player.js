@@ -234,11 +234,6 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-// Export player state for use in other modules
-function getPlayerState() {
-    return { isPlaying, playerReady, currentTime };
-}
-
 // ============================================
 // RESULT SCREEN AUDIO PLAYER (full song)
 // ============================================
