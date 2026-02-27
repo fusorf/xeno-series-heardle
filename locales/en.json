@@ -39,7 +39,9 @@
     "endless": "Endless Now",
     "selectGame": "Select Game",
     "randomGame": "Random",
-    "selectedGame": "Selected Game"
+    "selectedGame": "Selected Game",
+    "startNormal": "Classic",
+    "startRandom": "Random Start"
   },
   "tooltips": {
     "language": "Language",

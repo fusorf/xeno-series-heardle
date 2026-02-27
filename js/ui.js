@@ -50,11 +50,9 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
         const todayGameText = locale ? locale.todayGame : "Today's Game";
         banner.style.display = 'block';
 
-        // In Random + Endless mode: game name with click dropdown list
+        // In Random + Endless mode: game name with click dropdown list + start mode toggle
         if (currentMode === 'random' && endlessMode) {
-            const bannerTitle = endlessLockedGame
-                ? (locale?.endless?.selectedGame || 'Selected Game')
-                : todayGameText;
+            const bannerTitle = locale?.endless?.selectedGame || 'Selected Game';
 
             let itemsHtml = '';
             mode.games.forEach(gameId => {
@@ -66,6 +64,11 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
                 }
             });
 
+            const normalActive = !endlessRandomStart ? ' active' : '';
+            const randomActive = endlessRandomStart ? ' active' : '';
+            const startNormalText = locale?.endless?.startNormal || 'Classic';
+            const startRandomText = locale?.endless?.startRandom || 'Random Start';
+
             banner.innerHTML = `
                 <div class="daily-game-title">${bannerTitle}</div>
                 <div class="daily-game-name">
@@ -74,6 +77,10 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
                 </div>
                 <div class="game-select-list" id="gameSelectList">
                     ${itemsHtml}
+                </div>
+                <div class="share-scope-toggle start-mode-toggle">
+                    <button class="scope-btn${normalActive}" onclick="event.stopPropagation(); setEndlessStart(false)">${startNormalText}</button>
+                    <button class="scope-btn${randomActive}" onclick="event.stopPropagation(); setEndlessStart(true)">${startRandomText}</button>
                 </div>
             `;
 
@@ -644,7 +651,14 @@ function closeHistoryModal() {
 
 function updateCreditsVisibility() {
     const credits = document.getElementById('creditsBox');
-    if (!credits || window.innerWidth <= 600) return;
+    if (!credits) return;
+
+    // On mobile, credits are in-flow (position: relative) — always visible
+    if (window.innerWidth <= 900) {
+        credits.style.opacity = '1';
+        credits.style.pointerEvents = '';
+        return;
+    }
 
     const hasScrollbar = document.body.scrollHeight > window.innerHeight + 10;
 

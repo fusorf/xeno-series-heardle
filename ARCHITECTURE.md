@@ -159,8 +159,14 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Badge**: Animated ∞ symbol next to title (Helvetica Neue, oblique, fade+expand transition)
 - **Label**: "Endless Now" text under title (clip-path left-to-right reveal animation, fade-out on disable)
 - **Behavior**: Plays random songs continuously, independent from daily game
+- **Banner**: Always shows "Selected Game" (never "Today's Game"), even without game override
+- **Start Mode Toggle**: Classic / Random Start toggle below game name in banner (Random mode only)
+  - Classic: song starts at 0s
+  - Random Start: song starts at random timestamp (0 to duration-16s) — **default**
+  - Uses same `.share-scope-toggle` / `.scope-btn` pattern as other toggles
+  - State: `endlessRandomStart` variable in game.js
 - **Stats**: Separate endless history stored in localStorage per mode
-- **Functions**: `toggleEndlessMode()`, `startEndlessRound()` in game.js
+- **Functions**: `toggleEndlessMode()`, `startEndlessRound()`, `setEndlessStart()` in game.js
 
 ## Data Flow
 
@@ -178,7 +184,8 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
        │           ├─> Pick song (seed 2)
        │           └─> Pick start time (seed 3)
        ├─> Apply theme (CSS variables) [theme.js]
-       ├─> Show daily game banner (Random mode only)
+       ├─> Show daily game banner (Random mode, or Endless mode)
+       │   └─> Endless: banner shows "Selected Game" + start mode toggle
        └─> Load saved state [storage.js] or render new game [ui.js]
 
 2. User plays
@@ -259,10 +266,15 @@ Seed = hash(date + mode + salt + "xenoheardle")
 
 Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 
-### Random Mode Seeds
+### Random Mode Seeds (daily)
 - **Seed 1**: Game selection (weighted by game pool size)
 - **Seed 2**: Song selection (within selected game)
 - **Seed 3**: Start time (0 to duration-16s)
+
+### Endless Mode
+- Uses `Math.random()` (non-deterministic) via `getEndlessSong(modeId, gameId, randomStart)`
+- `gameId`: optional lock to a specific game's song pool (user-selected filter)
+- `randomStart`: when true, picks random start time (0 to duration-16s)
 
 ### Why Deterministic?
 - All clients get same song/game daily without server
@@ -283,6 +295,7 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
   - Separate state per mode (independent progress)
 - **Endless history**: `xenoHeardle_{mode}_endless_history`
 - **Endless stats**: Per-mode win/loss/streak tracking
+- **Stats UI**: Game filter chips in header (horizontal scroll, shared across all categories)
 
 ### Saved State Schema
 ```javascript
@@ -393,7 +406,7 @@ showData()               // Display all saved states
 - **Day #1 epoch**: 2026-02-09 (launch date)
 - **Cycle length**: 20 days (avoids immediate repeats)
 - **Max song duration**: Should be > 16s (for random start mode)
-- **Locale files**: Must match structure in en.json
+- **Locale files**: Must match structure in en.json (EN/FR/JA)
 - **No build step**: Pure vanilla JS, no bundler required
 - **No backend**: 100% client-side application
 - **All music hosted on Cloudflare R2**

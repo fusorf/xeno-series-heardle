@@ -39,7 +39,9 @@
     "endless": "永遠の今",
     "selectGame": "ゲームを選択",
     "randomGame": "ランダム",
-    "selectedGame": "選択中のゲーム"
+    "selectedGame": "選択中のゲーム",
+    "startNormal": "通常",
+    "startRandom": "ランダム開始"
   },
   "tooltips": {
     "language": "言語",

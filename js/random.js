@@ -166,8 +166,9 @@ function selectRandomDailySong(dateString) {
  * Uses Math.random() so each call gives a different song.
  * @param {string} modeId - The current game mode
  * @param {string|null} gameId - Optional: lock to a specific game's song pool
+ * @param {boolean} randomStart - Whether to use random start time
  */
-function getEndlessSong(modeId, gameId = null) {
+function getEndlessSong(modeId, gameId = null, randomStart = false) {
   const mode = GAME_MODES[modeId];
   if (!mode) return null;
 
@@ -184,9 +185,9 @@ function getEndlessSong(modeId, gameId = null) {
   const songIndex = Math.floor(Math.random() * songs.length);
   const song = songs[songIndex];
 
-  // Random start time if mode supports it, otherwise 0
+  // Random start time if requested, otherwise 0
   let startTime = 0;
-  if (mode.randomStart) {
+  if (randomStart) {
     const minRequired = 16; // DURATIONS[4]
     const maxStart = Math.max(0, song.duration - minRequired);
     startTime = maxStart > 0 ? Math.floor(Math.random() * (maxStart + 1)) : 0;

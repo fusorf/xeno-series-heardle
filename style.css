@@ -1533,6 +1533,11 @@ button:active::before {
     animation: dropDown 0.2s ease-out;
 }
 
+.start-mode-toggle {
+    max-width: 280px;
+    margin: 12px auto 0;
+}
+
 .game-select-list {
     scrollbar-width: thin;
     scrollbar-color: var(--primary-blue) transparent;

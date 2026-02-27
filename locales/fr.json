@@ -39,7 +39,9 @@
     "endless": "Éternel présent",
     "selectGame": "Choisir un jeu",
     "randomGame": "Aléatoire",
-    "selectedGame": "Jeu sélectionné"
+    "selectedGame": "Jeu sélectionné",
+    "startNormal": "Classique",
+    "startRandom": "Début aléatoire"
   },
   "tooltips": {
     "language": "Langue",
