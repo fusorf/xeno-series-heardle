@@ -160,6 +160,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Label**: "Endless Now" text under title (clip-path left-to-right reveal animation, fade-out on disable)
 - **Behavior**: Plays random songs continuously, independent from daily game
 - **Banner**: Always shows "Selected Game" (never "Today's Game"), even without game override
+  - Click to open game selector dropdown (chevron in bordered box, highlights on hover/open)
 - **Start Mode Toggle**: Classic / Random Start toggle below game name in banner (Random mode only)
   - Classic: song starts at 0s
   - Random Start: song starts at random timestamp (0 to duration-16s) — **default**
@@ -236,7 +237,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 ### Responsive Design
 - **Breakpoint**: 900px (single breakpoint for mobile/desktop)
 - **Height scaling**: `clamp()` with `vh` units on most vertical-spacing elements (body padding, buttons, gaps, margins)
-- **Credits**: Fixed at bottom on desktop, hidden when scrollbar present, fade-in when scrolled near bottom (`updateCreditsVisibility()` in ui.js)
+- **Credits**: Fixed at bottom on desktop, fade-in when scrolled near bottom (`updateCreditsVisibility()` in ui.js). Always visible on mobile (in-flow, no fade)
 - **Album covers**: 3D perspective hover effect on results screen
 
 ## Theme System
@@ -298,6 +299,7 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 - **Endless history**: `xenoHeardle_{mode}_endless_history`
 - **Endless stats**: Per-mode win/loss/streak tracking
 - **Stats UI**: Game filter chips in header (horizontal scroll, shared across all categories)
+- **Global stats**: `getGlobalStats()` / `getGlobalEndlessStats()` merge histories across all modes, displayed at top of stats modal
 
 ### Saved State Schema
 ```javascript

@@ -30,7 +30,8 @@
     "oneShotStreak": "ワンショット連続",
     "maxOneShotStreak": "最高ワンショット連続",
     "noHistory": "まだプレイしていません",
-    "allGames": "全ゲーム"
+    "allGames": "全ゲーム",
+    "global": "総合"
   },
   "endless": {
     "name": "永遠の今",

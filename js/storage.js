@@ -278,6 +278,39 @@ function getStats(modeId, gameFilter = null) {
 }
 
 // ============================================
+// GLOBAL STATS (across all modes)
+// ============================================
+
+function getGlobalStats(gameFilter = null) {
+    let allHistory = [];
+    Object.keys(GAME_MODES).forEach(modeId => {
+        allHistory = allHistory.concat(getHistory(modeId));
+    });
+    if (gameFilter) {
+        allHistory = allHistory.filter(h => h.game === gameFilter);
+    }
+    // Sort by day for correct streak computation (entries from different modes on same day are kept)
+    const sorted = [...allHistory].sort((a, b) => a.day - b.day);
+    return computeStats(sorted);
+}
+
+function getGlobalEndlessStats(gameFilter = null, randomStartFilter = null) {
+    let allHistory = [];
+    Object.keys(GAME_MODES).forEach(modeId => {
+        allHistory = allHistory.concat(getEndlessHistory(modeId));
+    });
+    if (gameFilter) {
+        allHistory = allHistory.filter(h => h.game === gameFilter);
+    }
+    if (randomStartFilter !== null) {
+        allHistory = allHistory.filter(h => !!h.randomStart === randomStartFilter);
+    }
+    // Sort by timestamp for correct streak computation
+    allHistory.sort((a, b) => (a.timestamp || '').localeCompare(b.timestamp || ''));
+    return computeStats(allHistory);
+}
+
+// ============================================
 // DEBUG CONSOLE COMMANDS
 // ============================================
 

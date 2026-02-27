@@ -73,7 +73,7 @@ function updateDailyGameBanner(currentMode, dailySong, locale = null) {
                 <div class="daily-game-title">${bannerTitle}</div>
                 <div class="daily-game-name">
                     ${escapeHtml(dailySong.dailyGame.name)}
-                    <svg class="game-select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <span class="game-select-chevron-box"><svg class="game-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="game-select-list" id="gameSelectList">
                     ${itemsHtml}
@@ -593,8 +593,22 @@ function renderStatsContent(modal) {
         return s;
     }
 
-    // Stats content
+    // Global stats (across all modes)
+    const globalStats = currentStatsTab === 'daily'
+        ? getGlobalStats(statsGameFilter)
+        : getGlobalEndlessStats(statsGameFilter);
+
     let hasStats = false;
+    if (globalStats.totalPlayed > 0) {
+        hasStats = true;
+        const globalLabel = locale?.stats?.global || 'Global';
+        html += '<div class="mode-stats">';
+        html += `<div class="mode-name">${escapeHtml(globalLabel)}</div>`;
+        html += renderStatsBlock(globalStats);
+        html += '</div>';
+    }
+
+    // Per-mode stats
     Object.values(GAME_MODES).forEach(mode => {
         // For random mode in endless tab: split into two sub-sections
         const isRandomEndless = currentStatsTab === 'endless' && mode.id === 'random';

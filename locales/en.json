@@ -30,7 +30,8 @@
     "oneShotStreak": "One Shot Streak",
     "maxOneShotStreak": "Best One Shot Streak",
     "noHistory": "No games played yet",
-    "allGames": "All Games"
+    "allGames": "All Games",
+    "global": "Global"
   },
   "endless": {
     "name": "Endless Now",
