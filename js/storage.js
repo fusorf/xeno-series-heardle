@@ -25,55 +25,6 @@ function storageRemove(key) {
 }
 
 // ============================================
-// TEMPORARY: Cookie → localStorage migration
-// TODO: Remove after ~1 week (added 2025-02-18)
-// ============================================
-
-(function migrateCookies() {
-    function readCookie(name) {
-        const nameEQ = name + '=';
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i].trim();
-            if (c.indexOf(nameEQ) === 0) {
-                try { return JSON.parse(c.substring(nameEQ.length)); }
-                catch (e) { return null; }
-            }
-        }
-        return null;
-    }
-
-    function deleteCookie(name) {
-        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    }
-
-    const keys = ['xenoHeardleMode', 'xenoHeardleLanguage'];
-    const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
-    modes.forEach(mode => {
-        keys.push(`xenoHeardle_${mode}_state`);
-        keys.push(`xenoHeardle_${mode}_history`);
-        keys.push(`xenoHeardle_${mode}_endless`);
-    });
-
-    let migrated = 0;
-    keys.forEach(key => {
-        const value = readCookie(key);
-        if (value !== null) {
-            // Only migrate if localStorage doesn't already have data for this key
-            if (localStorage.getItem(key) === null) {
-                try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
-                migrated++;
-            }
-            deleteCookie(key);
-        }
-    });
-
-    if (migrated > 0) {
-        console.log(`🔄 Migrated ${migrated} cookie(s) to localStorage.`);
-    }
-})();
-
-// ============================================
 // BACKFILL: Add missing 'game' field to old history entries
 // ============================================
 
@@ -86,7 +37,6 @@ function storageRemove(key) {
         });
     }
 
-    let totalPatched = 0;
     const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
 
     modes.forEach(modeId => {
@@ -94,34 +44,30 @@ function storageRemove(key) {
         const historyKey = `xenoHeardle_${modeId}_history`;
         const history = storageGet(historyKey);
         if (history && history.length > 0) {
-            let patched = 0;
+            let patched = false;
             history.forEach(entry => {
                 if (!entry.game && entry.guesses) {
-                    // Search guesses for a known song title (skip 'skip' entries)
                     for (let i = entry.guesses.length - 1; i >= 0; i--) {
                         const guess = entry.guesses[i];
                         if (guess && guess !== 'skip') {
                             const game = titleToGame[guess.toLowerCase()];
                             if (game) {
                                 entry.game = game;
-                                patched++;
+                                patched = true;
                                 break;
                             }
                         }
                     }
                 }
             });
-            if (patched > 0) {
-                storageSet(historyKey, history);
-                totalPatched += patched;
-            }
+            if (patched) storageSet(historyKey, history);
         }
 
         // Patch endless history
         const endlessKey = `xenoHeardle_${modeId}_endless`;
         const endless = storageGet(endlessKey);
         if (endless && endless.length > 0) {
-            let patched = 0;
+            let patched = false;
             endless.forEach(entry => {
                 if (!entry.game && entry.guesses) {
                     for (let i = entry.guesses.length - 1; i >= 0; i--) {
@@ -130,23 +76,16 @@ function storageRemove(key) {
                             const game = titleToGame[guess.toLowerCase()];
                             if (game) {
                                 entry.game = game;
-                                patched++;
+                                patched = true;
                                 break;
                             }
                         }
                     }
                 }
             });
-            if (patched > 0) {
-                storageSet(endlessKey, endless);
-                totalPatched += patched;
-            }
+            if (patched) storageSet(endlessKey, endless);
         }
     });
-
-    if (totalPatched > 0) {
-        console.log(`🔄 Backfilled game info for ${totalPatched} history entries.`);
-    }
 })();
 
 // ============================================

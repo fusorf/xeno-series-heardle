@@ -136,7 +136,7 @@ function loadAndDisplay() {
             applyTheme(currentMode, dailySong, true);
             showResults(dailySong, guesses, locale, savedState.won);
             updateCountdown(locale);
-            if (window.countdownInterval) clearInterval(window.countdownInterval);
+            clearInterval(window.countdownInterval);
             window.countdownInterval = setInterval(() => updateCountdown(locale), 1000);
             return;
         }
@@ -243,7 +243,8 @@ function switchMode(modeId) {
     currentMode = modeId;
     storageSet('xenoHeardleMode', modeId);
 
-    // Cleanup current players
+    // Cleanup current state
+    clearInterval(window.countdownInterval);
     if (typeof destroyPlayer === 'function') {
         destroyPlayer();
     }
@@ -382,12 +383,12 @@ function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
     const giveUpButton = document.getElementById('giveUpButton');
 
-    // Remove old listeners if they exist
+    // Remove old listeners if they exist (skipButton/giveUpButton are mutually exclusive)
     if (playButtonHandler) playButton.removeEventListener('click', playButtonHandler);
-    if (skipButtonHandler && skipButton) skipButton.removeEventListener('click', skipButtonHandler);
     if (submitButtonHandler) submitButton.removeEventListener('click', submitButtonHandler);
     if (searchInputHandler) searchInput.removeEventListener('input', searchInputHandler);
     if (searchKeydownHandler) searchInput.removeEventListener('keydown', searchKeydownHandler);
+    if (skipButtonHandler && skipButton) skipButton.removeEventListener('click', skipButtonHandler);
     if (giveUpButtonHandler && giveUpButton) giveUpButton.removeEventListener('click', giveUpButtonHandler);
 
     // Create new handlers
@@ -411,20 +412,20 @@ function setupEventListeners() {
         giveUpButton.addEventListener('click', giveUpButtonHandler);
     }
 
-    // Game filter chips - use event delegation to avoid multiple listeners
+    // Event delegation on gameContainer for filter chips + autocomplete
     const gameContainer = document.getElementById('gameContainer');
     if (gameContainer) {
-        // Remove old delegation handler if exists
-        if (gameContainer._filterHandler) {
-            gameContainer.removeEventListener('click', gameContainer._filterHandler);
+        if (gameContainer._delegationHandler) {
+            gameContainer.removeEventListener('click', gameContainer._delegationHandler);
         }
-        // Add new delegation handler
-        gameContainer._filterHandler = (e) => {
+        gameContainer._delegationHandler = (e) => {
             if (e.target.classList.contains('game-filter-chip')) {
                 toggleGameFilter(e.target.dataset.game);
+            } else if (e.target.classList.contains('autocomplete-item')) {
+                selectSongFromList(e.target.dataset.title);
             }
         };
-        gameContainer.addEventListener('click', gameContainer._filterHandler);
+        gameContainer.addEventListener('click', gameContainer._delegationHandler);
     }
 }
 
@@ -520,15 +521,7 @@ function handleSearchInput(e) {
         const maxAvailable = window.innerHeight - listRect.top - 10;
         autocompleteList.style.maxHeight = Math.max(120, Math.min(350, maxAvailable)) + 'px';
 
-        // Use event delegation instead of adding listeners to each item
-        if (!autocompleteList._delegationSetup) {
-            autocompleteList.addEventListener('click', (e) => {
-                if (e.target.classList.contains('autocomplete-item')) {
-                    selectSongFromList(e.target.dataset.title);
-                }
-            });
-            autocompleteList._delegationSetup = true;
-        }
+        // Autocomplete click delegation is set up in setupEventListeners()
     } else {
         autocompleteList.classList.remove('active');
     }

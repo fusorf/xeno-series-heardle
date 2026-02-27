@@ -9,6 +9,7 @@ xeno-series-heardle/
 ├── favicon.ico             # Site favicon
 │
 ├── js/                     # All JavaScript files
+│   ├── version.js          # Auto-generated app version (pre-commit hook)
 │   ├── constants.js        # Game constants (durations, max attempts, default mode)
 │   ├── songs.js            # Song database with game metadata (705 songs) + GAME_MODES config
 │   ├── random.js           # Deterministic randomization system (seeded PRNG)
@@ -117,7 +118,7 @@ xeno-series-heardle/
 
 ### Script Loading Order (index.html)
 ```
-constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → game.js
+version.js → constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → game.js
 ```
 
 ## Game Modes
@@ -269,8 +270,8 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 - Invalidates automatically if song pool changes
 
 ### Day Numbering
-- **Epoch**: 2025-01-01 (Day 0)
-- **Timezone**: UTC
+- **Epoch**: 2026-02-09 (Day 1, launch date)
+- **Timezone**: UTC (song changeover at 23:00 UTC)
 - **Cycle length**: 20 days (to avoid immediate repeats)
 
 ## State Management
@@ -330,16 +331,16 @@ player.js → HTML5 <audio> element
 | Xenoblade 1 FC | `xenoblade-1-fc` | 8 | #FF6B9D |
 | Xenoblade 2 | `xenoblade-2` | 105 | #06D6A0 |
 | Xenoblade 2 Torna | `xenoblade-2-torna` | 11 | #20C997 |
-| Xenoblade 3 | `xenoblade-3` | 128 | #4361EE |
-| Xenoblade 3 FR | `xenoblade-3-fr` | 14 | #7B2FBE |
+| Xenoblade 3 | `xenoblade-3` | 128 | #FFB700 |
+| Xenoblade 3 FR | `xenoblade-3-fr` | 14 | #FFC300 |
 | Xenoblade X | `xenoblade-x` | 55 | #00A8E8 |
 | Xenoblade X DE | `xenoblade-x-de` | 9 | #00D4FF |
-| Xenogears | `xenogears` | 44 | #FFD700 |
-| Xenosaga I | `xenosaga-1` | 47 | #9B59B6 |
+| Xenogears | `xenogears` | 44 | #8B4513 |
+| Xenosaga I | `xenosaga-1` | 47 | #7209B7 |
 | Xenosaga II | `xenosaga-2` | 70 | #9D4EDD |
-| Xenosaga III | `xenosaga-3` | 84 | #8E44AD |
-| Xenosaga Freaks | `xenosaga-freaks` | 23 | #A855F7 |
-| Xenosaga Pied Piper | `xenosaga-pied-piper` | 16 | #C084FC |
+| Xenosaga III | `xenosaga-3` | 84 | #5A189A |
+| Xenosaga Freaks | `xenosaga-freaks` | 23 | #C77DFF |
+| Xenosaga Pied Piper | `xenosaga-pied-piper` | 16 | #B5179E |
 | **Total** | | **705** | |
 
 ### Song Entry Format
@@ -388,7 +389,8 @@ showData()               // Display all saved states
 ## Notes
 
 - **UTC timezone** used for all date calculations
-- **Day #1 epoch**: 2025-01-01
+- **Song changeover**: 23:00 UTC (1 hour before midnight)
+- **Day #1 epoch**: 2026-02-09 (launch date)
 - **Cycle length**: 20 days (avoids immediate repeats)
 - **Max song duration**: Should be > 16s (for random start mode)
 - **Locale files**: Must match structure in en.json
