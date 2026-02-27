@@ -2188,16 +2188,31 @@ button:active::before {
 }
 
 .stats-game-filters {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     gap: 6px;
-    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 2px 12px 6px;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent, black 12px, black calc(100% - 12px), transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent, black 12px, black calc(100% - 12px), transparent
+    );
+}
+
+.stats-game-filters::-webkit-scrollbar {
+    display: none;
 }
 
 .stats-game-filters .game-filter-chip {
-    font-size: 0.75rem;
+    flex: 0 0 auto;
+    font-size: 0.7rem;
     padding: 4px 10px;
-    width: 100%;
 }
 
 .stats-grid {

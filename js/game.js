@@ -445,6 +445,17 @@ function initializeGameFilters() {
     }
 }
 
+function updateGameFilterChips() {
+    document.querySelectorAll('.game-filter-chip').forEach(chip => {
+        const id = chip.dataset.game;
+        if (activeGameFilters.size === 0) {
+            chip.classList.add('active');
+        } else {
+            chip.classList.toggle('active', activeGameFilters.has(id));
+        }
+    });
+}
+
 function toggleGameFilter(gameId) {
     if (activeGameFilters.has(gameId)) {
         activeGameFilters.delete(gameId);
@@ -458,15 +469,7 @@ function toggleGameFilter(gameId) {
         activeGameFilters.clear();
     }
 
-    // Update chip visuals
-    document.querySelectorAll('.game-filter-chip').forEach(chip => {
-        const id = chip.dataset.game;
-        if (activeGameFilters.size === 0) {
-            chip.classList.add('active');
-        } else {
-            chip.classList.toggle('active', activeGameFilters.has(id));
-        }
-    });
+    updateGameFilterChips();
 
     // Re-trigger search with current input
     const searchInput = document.getElementById('searchInput');

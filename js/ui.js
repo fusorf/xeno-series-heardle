@@ -167,7 +167,8 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
         modeGames.forEach(gameId => {
             const game = GAMES[gameId];
             if (game) {
-                html += `<button class="game-filter-chip active" data-game="${gameId}" style="--chip-color: ${game.color}">${escapeHtml(game.shortName)}</button>`;
+                const isActive = activeGameFilters.size === 0 || activeGameFilters.has(gameId);
+                html += `<button class="game-filter-chip${isActive ? ' active' : ''}" data-game="${gameId}" style="--chip-color: ${game.color}">${escapeHtml(game.shortName)}</button>`;
             }
         });
         html += '</div>';
@@ -489,6 +490,12 @@ function filterStatsGame(gameId) {
         renderStatsContent(modal);
         const newContent = modal.querySelector('.history-content');
         if (newContent) newContent.scrollTop = scrollTop;
+
+        // Scroll active chip into view
+        const activeChip = modal.querySelector('.stats-game-filters .game-filter-chip.active');
+        if (activeChip) {
+            activeChip.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+        }
     }
 }
 
@@ -506,6 +513,23 @@ function renderStatsContent(modal) {
     html += `<button class="scope-btn${dailyActive}" data-scope="daily" onclick="switchStatsTab('daily')">${locale.endless.daily}</button>`;
     html += `<button class="scope-btn${endlessActive}" data-scope="endless" onclick="switchStatsTab('endless')">${locale.endless.endless}</button>`;
     html += '</div>';
+
+    // Global game filter chips — all unique games across all modes
+    const allGamesText = locale?.stats?.allGames || 'All Games';
+    const allActive = statsGameFilter === null ? ' active' : '';
+    const allGameIds = [...new Set(Object.values(GAME_MODES).flatMap(m => m.games))];
+
+    html += '<div class="stats-game-filters">';
+    html += `<button class="game-filter-chip${allActive}" style="--chip-color: var(--primary-blue)" onclick="filterStatsGame(null)">${allGamesText}</button>`;
+    allGameIds.forEach(gameId => {
+        const game = GAMES[gameId];
+        if (game) {
+            const active = statsGameFilter === gameId ? ' active' : '';
+            html += `<button class="game-filter-chip${active}" style="--chip-color: ${game.color}" onclick="filterStatsGame('${gameId}')">${escapeHtml(game.shortName)}</button>`;
+        }
+    });
+    html += '</div>';
+
     html += '</div>';
 
     // Stats content
@@ -530,23 +554,6 @@ function renderStatsContent(modal) {
 
         html += '<div class="mode-stats">';
         html += `<div class="mode-name">${escapeHtml(modeName)}</div>`;
-
-        // Game filter chips — show all games/DLCs from this mode
-        if (mode.games && mode.games.length > 1) {
-            const allGamesText = locale?.stats?.allGames || 'All Games';
-            const allActive = statsGameFilter === null ? ' active' : '';
-
-            html += '<div class="stats-game-filters">';
-            html += `<button class="game-filter-chip${allActive}" style="--chip-color: var(--primary-blue)" onclick="filterStatsGame(null)">${allGamesText}</button>`;
-            mode.games.forEach(gameId => {
-                const game = GAMES[gameId];
-                if (game) {
-                    const active = statsGameFilter === gameId ? ' active' : '';
-                    html += `<button class="game-filter-chip${active}" style="--chip-color: ${game.color}" onclick="filterStatsGame('${gameId}')">${escapeHtml(game.shortName)}</button>`;
-                }
-            });
-            html += '</div>';
-        }
 
         // Main stats grid
         html += '<div class="stats-grid">';
@@ -609,6 +616,17 @@ function renderStatsContent(modal) {
 
     html += '</div>'; // .history-content
     modal.innerHTML = html;
+
+    // Enable horizontal scroll with mouse wheel on game filter chips
+    const filtersEl = modal.querySelector('.stats-game-filters');
+    if (filtersEl) {
+        filtersEl.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                filtersEl.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+    }
 }
 
 function closeHistoryModal() {
