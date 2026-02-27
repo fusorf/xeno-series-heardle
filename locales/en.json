@@ -41,7 +41,9 @@
     "randomGame": "Random",
     "selectedGame": "Selected Game",
     "startNormal": "Classic",
-    "startRandom": "Random Start"
+    "startRandom": "Random Start",
+    "statsRandomStart": "Random Excerpt",
+    "statsNormalStart": "From the Start"
   },
   "tooltips": {
     "language": "Language",

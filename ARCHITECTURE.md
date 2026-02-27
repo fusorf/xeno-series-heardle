@@ -166,6 +166,8 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
   - Uses same `.share-scope-toggle` / `.scope-btn` pattern as other toggles
   - State: `endlessRandomStart` variable in game.js
 - **Stats**: Separate endless history stored in localStorage per mode
+  - Random mode stats split into two sub-sections: "Random Excerpt" vs "From the Start"
+  - Each history entry stores `randomStart: true` flag when applicable
 - **Functions**: `toggleEndlessMode()`, `startEndlessRound()`, `setEndlessStart()` in game.js
 
 ## Data Flow

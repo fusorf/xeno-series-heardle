@@ -41,7 +41,9 @@
     "randomGame": "ランダム",
     "selectedGame": "選択中のゲーム",
     "startNormal": "通常",
-    "startRandom": "ランダム開始"
+    "startRandom": "ランダム開始",
+    "statsRandomStart": "ランダム抜粋",
+    "statsNormalStart": "最初から"
   },
   "tooltips": {
     "language": "言語",

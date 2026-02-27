@@ -41,7 +41,9 @@
     "randomGame": "Aléatoire",
     "selectedGame": "Jeu sélectionné",
     "startNormal": "Classique",
-    "startRandom": "Début aléatoire"
+    "startRandom": "Début aléatoire",
+    "statsRandomStart": "Extrait aléatoire",
+    "statsNormalStart": "Depuis le début"
   },
   "tooltips": {
     "language": "Langue",

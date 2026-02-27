@@ -539,82 +539,119 @@ function renderStatsContent(modal) {
 
     html += '</div>';
 
-    // Stats content
-    let hasStats = false;
-    Object.values(GAME_MODES).forEach(mode => {
-        const stats = currentStatsTab === 'daily'
-            ? getStats(mode.id, statsGameFilter)
-            : getEndlessStats(mode.id, statsGameFilter);
-
-        // Check unfiltered stats to decide if section should show at all
-        const unfilteredStats = statsGameFilter
-            ? (currentStatsTab === 'daily' ? getStats(mode.id) : getEndlessStats(mode.id))
-            : stats;
-        if (unfilteredStats.totalPlayed === 0) return;
-        hasStats = true;
-
-        // Use localized mode name
-        let modeName = mode.name;
-        if (locale && locale.modes && locale.modes[mode.id]) {
-            modeName = locale.modes[mode.id].name;
-        }
-
-        html += '<div class="mode-stats">';
-        html += `<div class="mode-name">${escapeHtml(modeName)}</div>`;
-
-        // Main stats grid
-        html += '<div class="stats-grid">';
-        html += `<div class="stat-box">
+    // Helper: render stats block (grid + distribution) for a given stats object
+    function renderStatsBlock(stats) {
+        let s = '<div class="stats-grid">';
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.totalPlayed}</div>
             <div class="stat-label">${locale.stats.played}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.winRate}%</div>
             <div class="stat-label">${locale.stats.winRate}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.currentStreak}</div>
             <div class="stat-label">${locale.stats.currentStreak}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.maxStreak}</div>
             <div class="stat-label">${locale.stats.maxStreak}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.oneShots}</div>
             <div class="stat-label">${locale.stats.oneShots}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.oneShotStreak}</div>
             <div class="stat-label">${locale.stats.oneShotStreak}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.maxOneShotStreak}</div>
             <div class="stat-label">${locale.stats.maxOneShotStreak}</div>
         </div>`;
-        html += `<div class="stat-box">
+        s += `<div class="stat-box">
             <div class="stat-value">${stats.totalPlayed - stats.totalWon}</div>
             <div class="stat-label">${locale.stats.failed}</div>
         </div>`;
-        html += '</div>';
+        s += '</div>';
 
-        // Guess distribution
-        html += '<div class="guess-distribution">';
-        html += `<div class="distribution-title">${locale.stats.guessDistribution}</div>`;
+        s += '<div class="guess-distribution">';
+        s += `<div class="distribution-title">${locale.stats.guessDistribution}</div>`;
         const maxGuesses = Math.max(...stats.guessDistribution, 1);
         for (let i = 0; i < 5; i++) {
             const count = stats.guessDistribution[i];
             const percentage = count > 0 ? (count / maxGuesses) * 100 : 0;
-            html += '<div class="distribution-bar">';
-            html += `<div class="bar-label">${i + 1}</div>`;
-            html += '<div class="bar-container">';
-            html += `<div class="bar-fill" style="width: ${percentage}%">${count}</div>`;
-            html += '</div>';
+            s += '<div class="distribution-bar">';
+            s += `<div class="bar-label">${i + 1}</div>`;
+            s += '<div class="bar-container">';
+            s += `<div class="bar-fill" style="width: ${percentage}%">${count}</div>`;
+            s += '</div>';
+            s += '</div>';
+        }
+        s += '</div>';
+        return s;
+    }
+
+    // Stats content
+    let hasStats = false;
+    Object.values(GAME_MODES).forEach(mode => {
+        // For random mode in endless tab: split into two sub-sections
+        const isRandomEndless = currentStatsTab === 'endless' && mode.id === 'random';
+
+        if (isRandomEndless) {
+            const randomStats = getEndlessStats(mode.id, statsGameFilter, true);
+            const normalStats = getEndlessStats(mode.id, statsGameFilter, false);
+            const unfilteredRandom = statsGameFilter ? getEndlessStats(mode.id, null, true) : randomStats;
+            const unfilteredNormal = statsGameFilter ? getEndlessStats(mode.id, null, false) : normalStats;
+
+            if (unfilteredRandom.totalPlayed === 0 && unfilteredNormal.totalPlayed === 0) return;
+            hasStats = true;
+
+            let modeName = mode.name;
+            if (locale && locale.modes && locale.modes[mode.id]) {
+                modeName = locale.modes[mode.id].name;
+            }
+
+            const randomLabel = locale?.endless?.statsRandomStart || 'Random Excerpt';
+            const normalLabel = locale?.endless?.statsNormalStart || 'From the Start';
+
+            // Random start sub-section
+            if (unfilteredRandom.totalPlayed > 0) {
+                html += '<div class="mode-stats">';
+                html += `<div class="mode-name">${escapeHtml(modeName)} — ${escapeHtml(randomLabel)}</div>`;
+                html += renderStatsBlock(randomStats);
+                html += '</div>';
+            }
+
+            // Normal start sub-section
+            if (unfilteredNormal.totalPlayed > 0) {
+                html += '<div class="mode-stats">';
+                html += `<div class="mode-name">${escapeHtml(modeName)} — ${escapeHtml(normalLabel)}</div>`;
+                html += renderStatsBlock(normalStats);
+                html += '</div>';
+            }
+        } else {
+            const stats = currentStatsTab === 'daily'
+                ? getStats(mode.id, statsGameFilter)
+                : getEndlessStats(mode.id, statsGameFilter);
+
+            const unfilteredStats = statsGameFilter
+                ? (currentStatsTab === 'daily' ? getStats(mode.id) : getEndlessStats(mode.id))
+                : stats;
+            if (unfilteredStats.totalPlayed === 0) return;
+            hasStats = true;
+
+            let modeName = mode.name;
+            if (locale && locale.modes && locale.modes[mode.id]) {
+                modeName = locale.modes[mode.id].name;
+            }
+
+            html += '<div class="mode-stats">';
+            html += `<div class="mode-name">${escapeHtml(modeName)}</div>`;
+            html += renderStatsBlock(stats);
             html += '</div>';
         }
-        html += '</div>';
-
-        html += '</div>';
     });
 
     if (!hasStats) {

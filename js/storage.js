@@ -157,7 +157,7 @@ function getEndlessHistory(modeId) {
     return history || [];
 }
 
-function saveToEndlessHistory(modeId, won, attempts, guesses, game = null) {
+function saveToEndlessHistory(modeId, won, attempts, guesses, game = null, randomStart = false) {
     const history = getEndlessHistory(modeId);
 
     const entry = {
@@ -167,6 +167,7 @@ function saveToEndlessHistory(modeId, won, attempts, guesses, game = null) {
         timestamp: new Date().toISOString()
     };
     if (game) entry.game = game;
+    if (randomStart) entry.randomStart = true;
 
     history.push(entry);
 
@@ -179,10 +180,13 @@ function saveToEndlessHistory(modeId, won, attempts, guesses, game = null) {
     storageSet(key, history);
 }
 
-function getEndlessStats(modeId, gameFilter = null) {
+function getEndlessStats(modeId, gameFilter = null, randomStartFilter = null) {
     let history = getEndlessHistory(modeId);
     if (gameFilter) {
         history = history.filter(h => h.game === gameFilter);
+    }
+    if (randomStartFilter !== null) {
+        history = history.filter(h => !!h.randomStart === randomStartFilter);
     }
     return computeStats(history);
 }

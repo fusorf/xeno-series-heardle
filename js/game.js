@@ -642,7 +642,7 @@ function endGame(won) {
 
     if (endlessMode) {
         // Endless: save to endless history only
-        saveToEndlessHistory(currentMode, won, finalAttempt, guesses, dailySong.game);
+        saveToEndlessHistory(currentMode, won, finalAttempt, guesses, dailySong.game, endlessRandomStart);
         applyTheme(currentMode, dailySong, true);
         showResults(dailySong, guesses, locale, won, true);
     } else {
