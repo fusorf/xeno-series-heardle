@@ -6784,7 +6784,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "01. Sharon's Theme.mp3",
     "duration": 53,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Creeping Suspicion",
@@ -6793,7 +6793,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "02. Creeping Suspicion.mp3",
     "duration": 24,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "U.M.N. Operation",
@@ -6802,7 +6802,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "03. U.M.N. Operation.mp3",
     "duration": 27,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "At Ease",
@@ -6811,7 +6811,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "04. At Ease.mp3",
     "duration": 28,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Mission Briefing",
@@ -6820,7 +6820,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "05. Mission Briefing.mp3",
     "duration": 36,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "High Alert",
@@ -6829,7 +6829,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "06. High Alert.mp3",
     "duration": 25,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Aggravated Assault",
@@ -6838,7 +6838,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "07. Aggravated Assault.mp3",
     "duration": 19,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "All Clear",
@@ -6847,7 +6847,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "08. All Clear.mp3",
     "duration": 3,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Operation Update",
@@ -6856,7 +6856,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "09. Operation Update.mp3",
     "duration": 30,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "U.M.N. Menace",
@@ -6865,7 +6865,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "10. U.M.N. Menace.mp3",
     "duration": 32,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Revelations",
@@ -6874,7 +6874,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "11. Revelations.mp3",
     "duration": 24,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "End of Watch Call",
@@ -6883,7 +6883,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "12. End of Watch Call.mp3",
     "duration": 36,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Pulse",
@@ -6892,7 +6892,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "13. Pulse.mp3",
     "duration": 6,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "The Zohar's Awakening",
@@ -6901,7 +6901,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "14. The Zohar's Awakening.mp3",
     "duration": 61,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Mantle of Shadow",
@@ -6910,7 +6910,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "15. Mantle of Shadow.mp3",
     "duration": 28,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
   {
     "title": "Final Report",
@@ -6919,7 +6919,7 @@ const SONGS_XENOSAGA_PIED_PIPER = [
     "file": "16. Final Report.mp3",
     "duration": 57,
     "game": "xenosaga-pied-piper",
-    "artist": "Watte Tv"
+    "composer": "TWO FIVE (Kousei Muraki, Tomokazu Ushiyama)"
   },
 ];
 
