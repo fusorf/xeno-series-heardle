@@ -545,7 +545,7 @@ function playBlitzSong(preloadedAudio) {
         blitzAudio = preloadedAudio;
     } else {
         blitzAudio = new Audio(url);
-        blitzAudio.volume = 1.0;
+        blitzAudio.volume = globalVolume;
         blitzAudio.preload = 'auto';
     }
 
@@ -602,7 +602,7 @@ function preloadNextBlitzSong() {
     }
     preloadedBlitzAudio = new Audio(url);
     preloadedBlitzAudio.preload = 'auto';
-    preloadedBlitzAudio.volume = 1.0;
+    preloadedBlitzAudio.volume = globalVolume;
     preloadedBlitzAudio.load();
 }
 

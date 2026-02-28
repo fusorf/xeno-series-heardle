@@ -103,12 +103,14 @@ function updateButtonTooltips() {
     const statsBtn = document.getElementById('historyButton');
     const endlessBtn = document.getElementById('endlessButton');
     const blitzBtn = document.getElementById('blitzButton');
+    const volumeBtn = document.getElementById('volumeToggle');
 
     if (locale.tooltips) {
         if (langBtn) langBtn.setAttribute('data-tooltip', locale.tooltips.language);
         if (statsBtn) statsBtn.setAttribute('data-tooltip', locale.tooltips.stats);
         if (endlessBtn) endlessBtn.setAttribute('data-tooltip', locale.tooltips.endless);
         if (blitzBtn) blitzBtn.setAttribute('data-tooltip', locale.tooltips.blitz);
+        if (volumeBtn) volumeBtn.setAttribute('data-tooltip', locale.tooltips.volume);
     }
 
     // Update endless label text if visible
@@ -368,6 +370,53 @@ document.addEventListener('click', function(event) {
             langMenu.style.display = 'none';
         }
     }
+});
+
+// ============================================
+// VOLUME CONTROL
+// ============================================
+
+let globalVolume = parseFloat(localStorage.getItem('globalVolume') ?? '1');
+
+function toggleVolumeMenu() {
+    const menu = document.getElementById('volumeMenu');
+    menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+}
+
+function setGlobalVolume(val) {
+    globalVolume = Math.max(0, Math.min(1, val));
+    localStorage.setItem('globalVolume', String(globalVolume));
+    applyVolume();
+    updateVolumeIcon();
+}
+
+function applyVolume() {
+    if (typeof audioElement !== 'undefined' && audioElement) audioElement.volume = globalVolume;
+    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) resultAudioElement.volume = globalVolume;
+    if (typeof blitzAudio !== 'undefined' && blitzAudio) blitzAudio.volume = globalVolume;
+    if (typeof preloadedBlitzAudio !== 'undefined' && preloadedBlitzAudio) preloadedBlitzAudio.volume = globalVolume;
+}
+
+function updateVolumeIcon() {
+    const btn = document.getElementById('volumeToggle');
+    if (!btn) return;
+    btn.textContent = globalVolume === 0 ? '🔇' : globalVolume < 0.5 ? '🔈' : '🔊';
+}
+
+// Close volume menu when clicking outside
+document.addEventListener('click', function(event) {
+    const volSelector = document.querySelector('.volume-selector');
+    const volMenu = document.getElementById('volumeMenu');
+    if (volSelector && !volSelector.contains(event.target)) {
+        if (volMenu) volMenu.style.display = 'none';
+    }
+});
+
+// Init volume UI on load
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('volumeSlider');
+    if (slider) slider.value = Math.round(globalVolume * 100);
+    updateVolumeIcon();
 });
 
 // ============================================

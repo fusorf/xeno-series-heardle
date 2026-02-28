@@ -32,7 +32,7 @@ function initPlayer(dailySong) {
         // Create HTML5 audio element
         audioElement = new Audio(audioUrl);
         audioElement.preload = 'auto';
-        audioElement.volume = 1.0;
+        audioElement.volume = globalVolume;
 
         // Wait for audio to be ready
         audioElement.addEventListener('canplaythrough', () => {
@@ -265,7 +265,7 @@ function initResultAudioPlayer(dailySong) {
 
     resultAudioElement = new Audio(audioUrl);
     resultAudioElement.preload = 'auto';
-    resultAudioElement.volume = 1.0;
+    resultAudioElement.volume = globalVolume;
 
     // Update progress bar
     resultAudioElement.addEventListener('timeupdate', updateResultProgress);

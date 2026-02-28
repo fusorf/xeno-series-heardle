@@ -59,6 +59,14 @@
     <!-- Blitz mode button -->
     <button class="blitz-button" id="blitzButton" onclick="toggleBlitzMode()" title="Blitz"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></button>
 
+    <!-- Volume control (desktop only) -->
+    <div class="volume-selector" id="volumeSelector">
+        <button class="volume-toggle" id="volumeToggle" onclick="toggleVolumeMenu()">🔊</button>
+        <div class="volume-menu" id="volumeMenu" style="display: none;">
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="100" oninput="setGlobalVolume(this.value / 100)">
+        </div>
+    </div>
+
     <!-- Version (auto-generated) -->
     <script src="js/version.js"></script>
 
