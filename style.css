@@ -1157,6 +1157,14 @@ button:active::before {
         padding-bottom: 180px; /* Space for sticky search section */
     }
 
+    /* Lock body scroll when mobile keyboard is open */
+    body.keyboard-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+
     .guess-box {
         padding: 10px;
         font-size: 0.9rem;
