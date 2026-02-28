@@ -254,6 +254,9 @@ function switchMode(modeId) {
     // Update UI chrome
     renderModeSelector(currentMode, locale);
 
+    // Reset search filters when switching modes
+    activeGameFilters.clear();
+
     if (blitzActive) {
         endlessLockedGame = null;
         applyBlitzTheme();
