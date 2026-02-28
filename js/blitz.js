@@ -7,7 +7,6 @@
 const BLITZ_DURATION = 60;
 const BLITZ_BASE_SCORE = 100;
 const BLITZ_MAX_COMBO = 4;
-const BLITZ_ADVANCE_DELAY = 600;
 const BLITZ_TIME_BONUS = 3;
 
 // State
@@ -27,6 +26,46 @@ let blitzAudio = null;
 let blitzHistory = [];
 let blitzAdvancing = false;
 let blitzSelectedSong = null;
+let displayedBlitzScore = 0;
+let scoreAnimFrame = null;
+
+/**
+ * Animate a score element counting from `from` to `to` with a scale pulse.
+ * @param {HTMLElement} el - The score element
+ * @param {number} from - Starting value
+ * @param {number} to - Target value
+ * @param {number} duration - Duration in ms
+ */
+function animateScoreCount(el, from, to, duration) {
+    if (scoreAnimFrame) {
+        cancelAnimationFrame(scoreAnimFrame);
+        scoreAnimFrame = null;
+    }
+    const startTime = performance.now();
+    const diff = to - from;
+
+    function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const current = Math.round(from + diff * eased);
+        el.textContent = current;
+
+        // Scale arc: 1 → peak → 1
+        const scale = 1 + 0.18 * Math.sin(progress * Math.PI);
+        el.style.transform = `scale(${scale})`;
+
+        if (progress < 1) {
+            scoreAnimFrame = requestAnimationFrame(tick);
+        } else {
+            el.textContent = to;
+            el.style.transform = '';
+            scoreAnimFrame = null;
+        }
+    }
+
+    scoreAnimFrame = requestAnimationFrame(tick);
+}
 
 // ============================================
 // THEME
@@ -288,6 +327,12 @@ function startBlitzRound() {
     blitzSelectedSong = null;
     blitzActive = true;
     blitzGameOver = false;
+    prevBlitzCombo = 1;
+    displayedBlitzScore = 0;
+    if (scoreAnimFrame) {
+        cancelAnimationFrame(scoreAnimFrame);
+        scoreAnimFrame = null;
+    }
 
     // In Single Game mode, auto-select a random game if none locked
     if (currentMode === 'random' && !endlessLockedGame) {
@@ -390,13 +435,12 @@ function renderBlitzGame() {
 
     // Blitz banner (styled like daily-game-banner)
     html += '<div class="blitz-banner">';
-    html += `<div class="blitz-score-area"><span class="blitz-score" id="blitzScoreDisplay">${blitzScore}</span></div>`;
-    html += `<div class="blitz-timer-bar"><div class="blitz-timer-fill" id="blitzTimerFill"></div></div>`;
-    html += `<div class="blitz-info-row">`;
-    html += `<span class="blitz-combo" id="blitzComboDisplay">×${blitzCombo}</span>`;
-    html += `<span class="blitz-song-counter" id="blitzSongCounter">#${blitzSongsAttempted}</span>`;
-    html += `<span class="blitz-timer-text" id="blitzTimerText">${blitzTimeLeft}s</span>`;
+    html += `<div class="blitz-top-row">`;
+    html += `<div class="blitz-combo-box" id="blitzComboBox"><div class="blitz-combo-fire"></div><span class="blitz-combo" id="blitzComboDisplay">×${blitzCombo}</span></div>`;
+    html += `<div class="blitz-score-area"><span class="blitz-score" id="blitzScoreDisplay">${blitzScore}</span><span class="blitz-score-pts">pts</span></div>`;
+    html += `<div class="blitz-meta"><span class="blitz-song-counter" id="blitzSongCounter">#${blitzSongsAttempted}</span><span class="blitz-timer-text" id="blitzTimerText">${blitzTimeLeft}s</span></div>`;
     html += `</div>`;
+    html += `<div class="blitz-timer-bar"><div class="blitz-timer-fill" id="blitzTimerFill"></div></div>`;
 
     // Song history (scrollable list inside banner)
     html += `<div class="blitz-history" id="blitzHistory"></div>`;
@@ -450,6 +494,7 @@ function nextBlitzSong() {
     blitzSongsAttempted++;
 
     blitzCurrentSong = pickBlitzSong();
+    console.log('[BLITZ] Answer:', blitzCurrentSong.title); // TEMP — remove after testing
     playBlitzSong();
     updateBlitzSongCounter();
 
@@ -483,23 +528,25 @@ function playBlitzSong() {
 
     const startPos = blitzCurrentSong.startTime || 0;
 
+    // Capture local ref so stale callbacks don't act on a newer audio object
+    const audioRef = blitzAudio;
+
     const onReady = () => {
-        if (!blitzActive || !blitzAudio) return;
-        blitzAudio.currentTime = startPos;
-        blitzAudio.play().catch(() => {});
+        if (!blitzActive || audioRef !== blitzAudio) return;
+        audioRef.currentTime = startPos;
+        audioRef.play().catch(() => {});
     };
 
-    blitzAudio.addEventListener('canplaythrough', onReady, { once: true });
+    audioRef.addEventListener('canplaythrough', onReady, { once: true });
 
     // If song ends, loop from start position
-    blitzAudio.addEventListener('ended', () => {
-        if (!blitzActive || !blitzAudio) return;
-        blitzAudio.currentTime = startPos;
-        blitzAudio.play().catch(() => {});
+    audioRef.addEventListener('ended', () => {
+        if (!blitzActive || audioRef !== blitzAudio) return;
+        audioRef.currentTime = startPos;
+        audioRef.play().catch(() => {});
     });
 
-    // Fallback if canplaythrough is slow — capture local ref to avoid acting on a new audio
-    const audioRef = blitzAudio;
+    // Fallback if canplaythrough is slow
     setTimeout(() => {
         if (audioRef === blitzAudio && blitzActive && audioRef.paused) {
             audioRef.currentTime = startPos;
@@ -524,6 +571,7 @@ function stopBlitzAudio() {
 // ============================================
 
 let blitzAcIndex = 0; // Currently highlighted autocomplete index
+let prevBlitzCombo = 1; // Track previous combo for slide animation direction
 
 function handleBlitzSearch(e) {
     const query = e.target.value.toLowerCase();
@@ -611,13 +659,12 @@ function submitBlitzGuess() {
         blitzHistory.push({ song: blitzCurrentSong, correct: true, points });
         showBlitzFeedback('correct', points);
         updateBlitzHistoryDisplay();
+        updateBlitzScore();
 
-        blitzAdvancing = true;
-        blitzAdvanceTimeout = setTimeout(() => {
-            blitzAdvanceTimeout = null;
-            if (blitzActive && !blitzGameOver) nextBlitzSong();
-        }, BLITZ_ADVANCE_DELAY);
+        // Advance immediately — score animation runs in parallel
+        if (blitzActive && !blitzGameOver) nextBlitzSong();
     } else {
+        blitzCombo = 1;
         showBlitzFeedback('wrong');
         // Clear input so user can try again quickly
         const input = document.getElementById('blitzSearchInput');
@@ -712,19 +759,46 @@ function updateBlitzTimer() {
 function updateBlitzScore() {
     const scoreEl = document.getElementById('blitzScoreDisplay');
     const comboEl = document.getElementById('blitzComboDisplay');
+    const comboBox = document.getElementById('blitzComboBox');
 
-    if (scoreEl) {
-        scoreEl.textContent = blitzScore;
-        scoreEl.classList.remove('blitz-score-pop');
-        void scoreEl.offsetWidth;
-        scoreEl.classList.add('blitz-score-pop');
+    if (scoreEl && blitzScore !== displayedBlitzScore) {
+        // Read current displayed number so overlapping animations chain smoothly
+        const currentDisplayed = parseInt(scoreEl.textContent) || displayedBlitzScore;
+        animateScoreCount(scoreEl, currentDisplayed, blitzScore, 400);
+        displayedBlitzScore = blitzScore;
     }
     if (comboEl) {
-        comboEl.textContent = `×${blitzCombo}`;
-        comboEl.className = 'blitz-combo';
-        if (blitzCombo >= 4) comboEl.classList.add('blitz-combo-max');
-        else if (blitzCombo >= 3) comboEl.classList.add('blitz-combo-high');
-        else if (blitzCombo >= 2) comboEl.classList.add('blitz-combo-mid');
+        const newCombo = blitzCombo;
+        if (newCombo !== prevBlitzCombo) {
+            // Slide animation: up for increase, down for decrease/reset
+            const direction = newCombo > prevBlitzCombo ? 'up' : 'down';
+            comboEl.classList.remove('blitz-combo-slide-up', 'blitz-combo-slide-down');
+            void comboEl.offsetWidth;
+            comboEl.classList.add(`blitz-combo-slide-${direction}`);
+            // Swap text mid-animation
+            setTimeout(() => { comboEl.textContent = `×${newCombo}`; }, 150);
+
+            // Shake on choke (combo decreased)
+            if (comboBox && newCombo < prevBlitzCombo) {
+                comboBox.classList.remove('blitz-combo-choke');
+                void comboBox.offsetWidth;
+                comboBox.classList.add('blitz-combo-choke');
+            }
+
+            prevBlitzCombo = newCombo;
+        }
+
+        // Update color classes
+        comboEl.className = comboEl.className.replace(/\bblitz-combo-(mid|high|max)\b/g, '').trim();
+        if (!comboEl.classList.contains('blitz-combo')) comboEl.classList.add('blitz-combo');
+        if (newCombo >= 4) comboEl.classList.add('blitz-combo-max');
+        else if (newCombo >= 3) comboEl.classList.add('blitz-combo-high');
+        else if (newCombo >= 2) comboEl.classList.add('blitz-combo-mid');
+    }
+
+    // Fire visibility at max combo
+    if (comboBox) {
+        comboBox.classList.toggle('blitz-combo-fire-active', blitzCombo >= 4);
     }
 }
 
@@ -799,8 +873,7 @@ function renderBlitzResults(isNewHigh) {
     if (isNewHigh) {
         html += `<p class="blitz-new-high-tag">${l.newHighScore || 'New High Score!'}</p>`;
     }
-    html += `<div class="blitz-final-score">${blitzScore}</div>`;
-    html += `<p class="blitz-final-label">${l.points || 'points'}</p>`;
+    html += `<div class="blitz-final-score">${blitzScore}<span class="blitz-final-pts">${l.pts || 'pts'}</span></div>`;
     html += `</div>`;
 
     // Stats — 3 key stats only
@@ -833,6 +906,18 @@ function renderBlitzResults(isNewHigh) {
     html += '</div>';
 
     container.innerHTML = html;
+
+    // Animate final score counting up from 0
+    const finalScoreEl = container.querySelector('.blitz-final-score');
+    if (finalScoreEl && blitzScore > 0) {
+        // Store the pts span since animateScoreCount overwrites textContent
+        const ptsSpan = finalScoreEl.querySelector('.blitz-final-pts');
+        const ptsHtml = ptsSpan ? ptsSpan.outerHTML : '';
+        // Use a dedicated counter span so we don't lose the pts span
+        finalScoreEl.innerHTML = `<span class="blitz-final-num">0</span>${ptsHtml}`;
+        const numEl = finalScoreEl.querySelector('.blitz-final-num');
+        animateScoreCount(numEl, 0, blitzScore, 1500);
+    }
 }
 
 // ============================================

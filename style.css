@@ -1842,9 +1842,17 @@ button:active::before {
     flex-direction: column;
 }
 
-.blitz-score-area {
-    padding: 5px 0 8px;
+.blitz-top-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
     flex-shrink: 0;
+}
+
+.blitz-score-area {
+    text-align: center;
 }
 
 .blitz-timer-bar {
@@ -1878,13 +1886,31 @@ button:active::before {
     50% { opacity: 0.6; }
 }
 
-.blitz-info-row {
+.blitz-combo-box {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 8px;
-    flex-shrink: 0;
+    justify-content: center;
+    justify-self: start;
+    min-width: 60px;
+    padding: 6px 12px;
+    border: 2px solid rgba(var(--theme-primary-rgb), 0.3);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    overflow: visible;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.blitz-combo-box.blitz-combo-fire-active {
+    border-color: rgba(var(--theme-primary-rgb), 0.8);
+    box-shadow: 0 -5px 15px rgba(var(--theme-primary-rgb), 0.4), 0 0 15px rgba(var(--theme-primary-rgb), 0.3);
+}
+
+.blitz-meta {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 12px;
 }
 
 .blitz-score {
@@ -1892,20 +1918,24 @@ button:active::before {
     font-size: 4rem;
     font-weight: 900;
     line-height: 1;
+    display: inline-block;
     background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.blitz-score-pop {
-    animation: blitzScorePop 0.3s ease-out;
-}
-
-@keyframes blitzScorePop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+.blitz-score-pts {
+    font-family: var(--theme-font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-left: 4px;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    vertical-align: baseline;
 }
 
 .blitz-combo {
@@ -1914,6 +1944,8 @@ button:active::before {
     font-weight: 800;
     color: rgba(255, 255, 255, 0.4);
     transition: color 0.2s, text-shadow 0.2s;
+    position: relative;
+    z-index: 1;
 }
 
 .blitz-combo-mid {
@@ -2101,6 +2133,92 @@ button:active::before {
     80% { transform: translateX(4px); }
 }
 
+/* Combo slide animations */
+@keyframes blitzComboSlideUp {
+    0%   { transform: translateY(0); opacity: 1; }
+    40%  { transform: translateY(-100%); opacity: 0; }
+    60%  { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes blitzComboSlideDown {
+    0%   { transform: translateY(0); opacity: 1; }
+    40%  { transform: translateY(100%); opacity: 0; }
+    60%  { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.blitz-combo-slide-up { animation: blitzComboSlideUp 0.3s ease-out; }
+.blitz-combo-slide-down { animation: blitzComboSlideDown 0.3s ease-out; }
+
+/* Choke shake on combo box */
+.blitz-combo-choke {
+    animation: blitzShake 0.4s ease-out;
+}
+
+/* Fire effect at max combo — Balatro-style flames above the box */
+.blitz-combo-fire {
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 100%;
+    height: 28px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    filter: blur(0.5px);
+}
+
+.blitz-combo-fire-active .blitz-combo-fire {
+    opacity: 1;
+}
+
+/* Center flame tongue — tallest */
+.blitz-combo-fire::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 22px;
+    border-radius: 50% 50% 20% 20%;
+    background: radial-gradient(ellipse at center bottom, rgba(var(--theme-primary-rgb), 0.9), rgba(var(--theme-accent-rgb), 0.4) 70%, transparent);
+    box-shadow:
+        -18px 8px 0 -3px rgba(var(--theme-accent-rgb), 0.7),
+        18px 6px 0 -3px rgba(var(--theme-accent-rgb), 0.6),
+        -9px 3px 0 -2px rgba(var(--theme-primary-rgb), 0.65),
+        9px 4px 0 -2px rgba(var(--theme-primary-rgb), 0.55);
+    animation: blitzFlame1 0.15s ease-in-out infinite alternate;
+}
+
+/* Secondary flame layer — offset timing */
+.blitz-combo-fire::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 17px;
+    border-radius: 50% 50% 25% 25%;
+    background: radial-gradient(ellipse at center bottom, rgba(var(--theme-accent-rgb), 0.7), transparent 80%);
+    box-shadow:
+        -14px 6px 0 -3px rgba(var(--theme-primary-rgb), 0.5),
+        14px 5px 0 -3px rgba(var(--theme-primary-rgb), 0.45);
+    animation: blitzFlame2 0.2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes blitzFlame1 {
+    from { transform: translateX(-50%) scaleY(1) scaleX(1); }
+    to { transform: translateX(-50%) scaleY(1.18) scaleX(0.88); }
+}
+
+@keyframes blitzFlame2 {
+    from { transform: translateX(-50%) scaleY(1) scaleX(0.9); }
+    to { transform: translateX(-50%) scaleY(1.12) scaleX(1.1); }
+}
+
 /* ============================================ */
 /* BLITZ RESULTS (in gameContainer)            */
 /* ============================================ */
@@ -2135,14 +2253,19 @@ button:active::before {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-bottom: 10px;
 }
 
-.blitz-final-label {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
+.blitz-final-num {
+    display: inline-block;
+}
+
+.blitz-final-pts {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    vertical-align: baseline;
+    margin-left: 4px;
 }
 
 .blitz-results-header {
