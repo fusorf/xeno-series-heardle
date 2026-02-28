@@ -132,6 +132,34 @@ const GAMES = {
 };
 
 
+// Search aliases for game abbreviations (exact word matching)
+// "xeno" matches all games via substring on game names — no alias needed.
+// DLC games auto-inherit their parent's aliases via getGameSearchAliases().
+const GAME_SEARCH_ALIASES = {
+  'xenoblade-x':        'xcx xbx',
+  'xenoblade-x-de':     'xcxde',
+  'xenoblade-1':        'xc1 xb1',
+  'xenoblade-1-fc':     'xc1fc fc',
+  'xenoblade-2':        'xc2 xb2',
+  'xenoblade-2-torna':  'xc2t torna',
+  'xenoblade-3':        'xc3 xb3',
+  'xenoblade-3-fr':     'xc3fr fr',
+  'xenosaga-1':         'xs xs1 xsi',
+  'xenosaga-2':         'xs xs2 xsii',
+  'xenosaga-3':         'xs xs3 xsiii',
+  'xenosaga-freaks':    'xs xsf freaks',
+  'xenosaga-pied-piper':'xs xspp',
+  'xenogears':          'xg xgears',
+};
+
+function getGameSearchAliases(gameId) {
+  const own = GAME_SEARCH_ALIASES[gameId] || '';
+  const parent = GAMES[gameId]?.parentGame;
+  const inherited = parent ? (GAME_SEARCH_ALIASES[parent] || '') : '';
+  const combined = (own + ' ' + inherited).trim();
+  return combined || '';
+}
+
 // Helper: Get all games including their DLC
 function getGamesWithDLC(baseGames) {
   const result = [];

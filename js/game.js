@@ -573,11 +573,19 @@ function handleSearchInput(e) {
     if (activeGameFilters.size > 0) {
         modeSongs = modeSongs.filter(song => activeGameFilters.has(song.game));
     }
-    const matches = modeSongs.filter(song =>
-        song.title.toLowerCase().includes(query) ||
-        song.localizedTitle.toLowerCase().includes(query) ||
-        (song.japaneseTitle && song.japaneseTitle.toLowerCase().includes(query))
-    ).slice(0, 10);
+    const words = query.split(/\s+/).filter(Boolean);
+    const matches = modeSongs.filter(song => {
+        const game = GAMES[song.game];
+        const haystack = [
+            song.title.toLowerCase(),
+            song.localizedTitle.toLowerCase(),
+            song.japaneseTitle ? song.japaneseTitle.toLowerCase() : '',
+            game ? game.name.toLowerCase() : '',
+            game ? game.shortName.toLowerCase() : ''
+        ].join(' ');
+        const aliasWords = getGameSearchAliases(song.game).split(/\s+/).filter(Boolean);
+        return words.every(w => haystack.includes(w) || aliasWords.includes(w));
+    });
 
     if (matches.length > 0) {
         autocompleteList.innerHTML = matches.map((song, i) => {

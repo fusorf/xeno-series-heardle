@@ -504,7 +504,7 @@ function nextBlitzSong() {
         playBlitzSong(null);
     }
 
-    console.log('[BLITZ] Answer:', blitzCurrentSong.title); // TEMP
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.log('[BLITZ] Answer:', blitzCurrentSong.title);
     updateBlitzSongCounter();
 
     // Preload the next song in parallel
@@ -635,11 +635,19 @@ function handleBlitzSearch(e) {
     }
 
     const allSongs = getBlitzSongPool();
-    const matches = allSongs.filter(song =>
-        song.title.toLowerCase().includes(query) ||
-        song.localizedTitle.toLowerCase().includes(query) ||
-        (song.japaneseTitle && song.japaneseTitle.toLowerCase().includes(query))
-    ).slice(0, 8);
+    const words = query.split(/\s+/).filter(Boolean);
+    const matches = allSongs.filter(song => {
+        const game = GAMES[song.game];
+        const haystack = [
+            song.title.toLowerCase(),
+            song.localizedTitle.toLowerCase(),
+            song.japaneseTitle ? song.japaneseTitle.toLowerCase() : '',
+            game ? game.name.toLowerCase() : '',
+            game ? game.shortName.toLowerCase() : ''
+        ].join(' ');
+        const aliasWords = getGameSearchAliases(song.game).split(/\s+/).filter(Boolean);
+        return words.every(w => haystack.includes(w) || aliasWords.includes(w));
+    });
 
     if (matches.length > 0) {
         autocomplete.innerHTML = matches.map((song, i) => {
