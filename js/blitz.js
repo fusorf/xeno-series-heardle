@@ -14,7 +14,6 @@ let blitzActive = false;
 let blitzGameOver = false;
 let blitzTimerInterval = null;
 let blitzCountdownInterval = null;
-let blitzAdvanceTimeout = null;
 let blitzTimeLeft = BLITZ_DURATION;
 let blitzScore = 0;
 let blitzCombo = 1;
@@ -24,10 +23,11 @@ let blitzSongsAttempted = 0;
 let blitzCurrentSong = null;
 let blitzAudio = null;
 let blitzHistory = [];
-let blitzAdvancing = false;
 let blitzSelectedSong = null;
 let displayedBlitzScore = 0;
 let scoreAnimFrame = null;
+let preloadedBlitzSong = null;
+let preloadedBlitzAudio = null;
 
 /**
  * Animate a score element counting from `from` to `to` with a scale pulse.
@@ -168,10 +168,7 @@ function deactivateBlitz() {
     blitzActive = false;
     blitzGameOver = false;
     stopBlitzAudio();
-    if (blitzAdvanceTimeout) {
-        clearTimeout(blitzAdvanceTimeout);
-        blitzAdvanceTimeout = null;
-    }
+    cleanupPreload();
     if (blitzTimerInterval) {
         clearInterval(blitzTimerInterval);
         blitzTimerInterval = null;
@@ -179,6 +176,13 @@ function deactivateBlitz() {
     if (blitzCountdownInterval) {
         clearInterval(blitzCountdownInterval);
         blitzCountdownInterval = null;
+    }
+
+    // Clean up document-level listener from game selector dropdown
+    const banner = document.getElementById('dailyGameBanner');
+    if (banner && banner._outsideClickHandler) {
+        document.removeEventListener('click', banner._outsideClickHandler);
+        banner._outsideClickHandler = null;
     }
 
     // Reset shared state so it doesn't leak into endless mode
@@ -323,7 +327,6 @@ function startBlitzRound() {
     blitzSongsCorrect = 0;
     blitzSongsAttempted = 0;
     blitzHistory = [];
-    blitzAdvancing = false;
     blitzSelectedSong = null;
     blitzActive = true;
     blitzGameOver = false;
@@ -333,6 +336,7 @@ function startBlitzRound() {
         cancelAnimationFrame(scoreAnimFrame);
         scoreAnimFrame = null;
     }
+    cleanupPreload();
 
     // In Single Game mode, auto-select a random game if none locked
     if (currentMode === 'random' && !endlessLockedGame) {
@@ -343,10 +347,6 @@ function startBlitzRound() {
         updateBlitzBanner();
     }
 
-    if (blitzAdvanceTimeout) {
-        clearTimeout(blitzAdvanceTimeout);
-        blitzAdvanceTimeout = null;
-    }
     if (blitzTimerInterval) {
         clearInterval(blitzTimerInterval);
         blitzTimerInterval = null;
@@ -489,14 +489,26 @@ function setupBlitzListeners() {
 
 function nextBlitzSong() {
     if (blitzGameOver) return;
-    blitzAdvancing = false;
     blitzSelectedSong = null;
     blitzSongsAttempted++;
 
-    blitzCurrentSong = pickBlitzSong();
-    console.log('[BLITZ] Answer:', blitzCurrentSong.title); // TEMP — remove after testing
-    playBlitzSong();
+    // Use preloaded song if available, otherwise pick fresh
+    if (preloadedBlitzSong && preloadedBlitzAudio) {
+        blitzCurrentSong = preloadedBlitzSong;
+        const audio = preloadedBlitzAudio;
+        preloadedBlitzSong = null;
+        preloadedBlitzAudio = null;
+        playBlitzSong(audio);
+    } else {
+        blitzCurrentSong = pickBlitzSong();
+        playBlitzSong(null);
+    }
+
+    console.log('[BLITZ] Answer:', blitzCurrentSong.title); // TEMP
     updateBlitzSongCounter();
+
+    // Preload the next song in parallel
+    preloadNextBlitzSong();
 
     const input = document.getElementById('blitzSearchInput');
     if (input) {
@@ -509,24 +521,33 @@ function nextBlitzSong() {
 
     const autocomplete = document.getElementById('blitzAutocomplete');
     if (autocomplete) autocomplete.classList.remove('active');
-
 }
 
 // ============================================
 // AUDIO — plays continuously until guess/skip
 // ============================================
 
-function playBlitzSong() {
+function playBlitzSong(preloadedAudio) {
     stopBlitzAudio();
 
     const url = getAudioUrl(blitzCurrentSong);
-    if (!url) return;
-
-    blitzAudio = new Audio(url);
-    blitzAudio.volume = 1.0;
-    blitzAudio.preload = 'auto';
+    if (!url) {
+        if (preloadedAudio) {
+            preloadedAudio.removeAttribute('src');
+            preloadedAudio.load();
+        }
+        return;
+    }
 
     const startPos = blitzCurrentSong.startTime || 0;
+
+    if (preloadedAudio) {
+        blitzAudio = preloadedAudio;
+    } else {
+        blitzAudio = new Audio(url);
+        blitzAudio.volume = 1.0;
+        blitzAudio.preload = 'auto';
+    }
 
     // Capture local ref so stale callbacks don't act on a newer audio object
     const audioRef = blitzAudio;
@@ -537,7 +558,12 @@ function playBlitzSong() {
         audioRef.play().catch(() => {});
     };
 
-    audioRef.addEventListener('canplaythrough', onReady, { once: true });
+    // If already loaded (preloaded case), start immediately
+    if (audioRef.readyState >= 3) {
+        onReady();
+    } else {
+        audioRef.addEventListener('canplaythrough', onReady, { once: true });
+    }
 
     // If song ends, loop from start position
     audioRef.addEventListener('ended', () => {
@@ -554,7 +580,7 @@ function playBlitzSong() {
         }
     }, 3000);
 
-    blitzAudio.load();
+    if (!preloadedAudio) blitzAudio.load();
 }
 
 function stopBlitzAudio() {
@@ -564,6 +590,29 @@ function stopBlitzAudio() {
         blitzAudio.load();
         blitzAudio = null;
     }
+}
+
+function preloadNextBlitzSong() {
+    cleanupPreload();
+    preloadedBlitzSong = pickBlitzSong();
+    const url = getAudioUrl(preloadedBlitzSong);
+    if (!url) {
+        preloadedBlitzSong = null;
+        return;
+    }
+    preloadedBlitzAudio = new Audio(url);
+    preloadedBlitzAudio.preload = 'auto';
+    preloadedBlitzAudio.volume = 1.0;
+    preloadedBlitzAudio.load();
+}
+
+function cleanupPreload() {
+    if (preloadedBlitzAudio) {
+        preloadedBlitzAudio.removeAttribute('src');
+        preloadedBlitzAudio.load();
+        preloadedBlitzAudio = null;
+    }
+    preloadedBlitzSong = null;
 }
 
 // ============================================
@@ -641,7 +690,7 @@ function selectBlitzSongFromList(title) {
 }
 
 function submitBlitzGuess() {
-    if (!blitzActive || blitzGameOver || blitzAdvancing || !blitzSelectedSong) return;
+    if (!blitzActive || blitzGameOver || !blitzSelectedSong) return;
 
     const isCorrect = blitzSelectedSong.toLowerCase() === blitzCurrentSong.title.toLowerCase();
 
@@ -665,6 +714,7 @@ function submitBlitzGuess() {
         if (blitzActive && !blitzGameOver) nextBlitzSong();
     } else {
         blitzCombo = 1;
+        updateBlitzScore();
         showBlitzFeedback('wrong');
         // Clear input so user can try again quickly
         const input = document.getElementById('blitzSearchInput');
@@ -675,12 +725,10 @@ function submitBlitzGuess() {
         const autocomplete = document.getElementById('blitzAutocomplete');
         if (autocomplete) autocomplete.classList.remove('active');
     }
-
-    updateBlitzScore();
 }
 
 function skipBlitzSong() {
-    if (!blitzActive || blitzGameOver || blitzAdvancing) return;
+    if (!blitzActive || blitzGameOver) return;
 
     blitzCombo = 1;
     blitzHistory.push({ song: blitzCurrentSong, correct: false, points: 0 });
@@ -698,11 +746,8 @@ function endBlitz() {
     // Keep blitzActive = true so the toggle button returns to normal game
     blitzGameOver = true;
     stopBlitzAudio();
+    cleanupPreload();
 
-    if (blitzAdvanceTimeout) {
-        clearTimeout(blitzAdvanceTimeout);
-        blitzAdvanceTimeout = null;
-    }
     if (blitzTimerInterval) {
         clearInterval(blitzTimerInterval);
         blitzTimerInterval = null;
@@ -869,7 +914,6 @@ function renderBlitzResults(isNewHigh) {
 
     // Header
     html += `<div class="blitz-results-header">`;
-    html += `<h2>${l.timesUp || "Time's Up!"}</h2>`;
     if (isNewHigh) {
         html += `<p class="blitz-new-high-tag">${l.newHighScore || 'New High Score!'}</p>`;
     }
