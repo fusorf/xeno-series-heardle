@@ -6574,7 +6574,7 @@ const SONGS_XENOSAGA_3 = [
 // xenosaga-freaks
 const SONGS_XENOSAGA_FREAKS = [
   {
-    "title": "Elsa",
+    "title": "A Day Aboard the Elsa",
     "japaneseTitle": "Elsa",
     "localizedTitle": "Elsa",
     "file": "01. Elsa.mp3",
@@ -6584,7 +6584,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Elsa 2",
+    "title": "Elsa",
     "japaneseTitle": "Elsa 2",
     "localizedTitle": "Elsa 2",
     "file": "02. Elsa 2.mp3",
@@ -6594,7 +6594,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Subconcious Domain (Sakura's World)",
+    "title": "Consciousness ~ MOMO",
     "japaneseTitle": "Subconcious Domain (Sakura's World)",
     "localizedTitle": "Subconcious Domain (Sakura's World)",
     "file": "03. Subconcious Domain (Sakura's World).mp3",
@@ -6614,7 +6614,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Durandal 1",
+    "title": "The Durandal",
     "japaneseTitle": "Durandal 1",
     "localizedTitle": "Durandal 1",
     "file": "05. Durandal 1.mp3",
@@ -6624,7 +6624,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Durandal 2",
+    "title": "The Durandal - Hacked",
     "japaneseTitle": "Durandal 2",
     "localizedTitle": "Durandal 2",
     "file": "06. Durandal 2.mp3",
@@ -6644,7 +6644,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Unknown",
+    "title": "Depths of Consciousness",
     "japaneseTitle": "Unknown",
     "localizedTitle": "Unknown",
     "file": "08. Unknown.mp3",
@@ -6674,7 +6674,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Options",
+    "title": "Foundation",
     "japaneseTitle": "Options",
     "localizedTitle": "Options",
     "file": "11. Options.mp3",
@@ -6684,7 +6684,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
-    "title": "Xeno-Pittan - Opening",
+    "title": "Opening",
     "japaneseTitle": "Xeno-Pittan - Opening",
     "localizedTitle": "Xeno-Pittan - Opening",
     "file": "12. Xeno-Pittan - Opening.mp3",
@@ -6694,7 +6694,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": "Xeno-Pittan - Top Menu",
+    "title": "Top Menu",
     "japaneseTitle": "Xeno-Pittan - Top Menu",
     "localizedTitle": "Xeno-Pittan - Top Menu",
     "file": "13. Xeno-Pittan - Top Menu.mp3",
@@ -6704,7 +6704,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": "Xeno-Pittan - Stage Select",
+    "title": "Stage Select",
     "japaneseTitle": "Xeno-Pittan - Stage Select",
     "localizedTitle": "Xeno-Pittan - Stage Select",
     "file": "14. Xeno-Pittan - Stage Select.mp3",
@@ -6713,7 +6713,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Namco Sound Team"
   },
   {
-    "title": "Xeno-Pittan - Stage 01",
+    "title": "Stage Theme",
     "japaneseTitle": "Xeno-Pittan - Stage 01",
     "localizedTitle": "Xeno-Pittan - Stage 01",
     "file": "15. Xeno-Pittan - Stage 01.mp3",
@@ -6722,7 +6722,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Namco Sound Team"
   },
   {
-    "title": "Xeno-Pittan - estrellita",
+    "title": "estrellita",
     "japaneseTitle": "Xeno-Pittan - estrellita",
     "localizedTitle": "Xeno-Pittan - estrellita",
     "file": "16. Xeno-Pittan - estrellita.mp3",
@@ -6732,7 +6732,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Ai Maeda"
   },
   {
-    "title": "Xeno-Pittan - [ai]",
+    "title": "[ai]",
     "japaneseTitle": "Xeno-Pittan - [ai]",
     "localizedTitle": "Xeno-Pittan - [ai]",
     "file": "17. Xeno-Pittan - [ai].mp3",
@@ -6742,7 +6742,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Mariko Suzuki"
   },
   {
-    "title": "Xeno-Pittan - paradox",
+    "title": "paradox",
     "japaneseTitle": "Xeno-Pittan - paradox",
     "localizedTitle": "Xeno-Pittan - paradox",
     "file": "18. Xeno-Pittan - paradox.mp3",
@@ -6752,7 +6752,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Rumi Shishido"
   },
   {
-    "title": "Xeno-Pittan - Our Xenopittan",
+    "title": "Pittan for Two",
     "japaneseTitle": "Xeno-Pittan - Our Xenopittan",
     "localizedTitle": "Xeno-Pittan - Our Xenopittan",
     "file": "19. Xeno-Pittan - Our Xenopittan.mp3",
@@ -6762,7 +6762,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Ai Maeda, Mariko Suzuki, & Rumi Shishido"
   },
   {
-    "title": "Xeno-Pittan - Stage Clear",
+    "title": "Stage Clear",
     "japaneseTitle": "Xeno-Pittan - Stage Clear",
     "localizedTitle": "Xeno-Pittan - Stage Clear",
     "file": "20. Xeno-Pittan - Stage Clear.mp3",
@@ -6772,7 +6772,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": "Xeno-Pittan - Time Up",
+    "title": "Time Up",
     "japaneseTitle": "Xeno-Pittan - Time Up",
     "localizedTitle": "Xeno-Pittan - Time Up",
     "file": "21. Xeno-Pittan - Time Up.mp3",
@@ -6782,7 +6782,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": "Xeno-Pittan - Continue",
+    "title": "Continue",
     "japaneseTitle": "Xeno-Pittan - Continue",
     "localizedTitle": "Xeno-Pittan - Continue",
     "file": "22. Xeno-Pittan - Continue.mp3",
@@ -6792,7 +6792,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "artist": "Satoru Kosaki"
   },
   {
-    "title": "Xeno-Pittan - Personality Test",
+    "title": "Personality Test",
     "japaneseTitle": "Xeno-Pittan - Personality Test",
     "localizedTitle": "Xeno-Pittan - Personality Test",
     "file": "23. Xeno-Pittan - Personality Test.mp3",
