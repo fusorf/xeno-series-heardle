@@ -168,7 +168,8 @@ function deactivateBlitz() {
         }, { once: true });
     }
 
-    // Return to normal game
+    // Return to normal game — refresh dailySong for the (possibly changed) mode
+    dailySong = getDailySong(currentMode);
     renderModeSelector(currentMode, locale);
     updateDailyGameBanner(currentMode, dailySong, locale);
     loadAndDisplay();

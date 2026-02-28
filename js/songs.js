@@ -4632,7 +4632,7 @@ const SONGS_XENOSAGA_1 = [
   {
     "title": "Ω",
     "japaneseTitle": "Ω",
-    "localizedTitle": "Ω",
+    "localizedTitle": "Omega",
     "file": "1-15 Ω.mp3",
     "duration": 248,
     "game": "xenosaga-1",
