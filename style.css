@@ -1904,6 +1904,12 @@ button:active::before {
 .blitz-combo-box.blitz-combo-fire-active {
     border-color: rgba(var(--theme-primary-rgb), 0.8);
     box-shadow: 0 -5px 15px rgba(var(--theme-primary-rgb), 0.4), 0 0 15px rgba(var(--theme-primary-rgb), 0.3);
+    animation: blitzComboGlow 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes blitzComboGlow {
+    0% { box-shadow: 0 -4px 12px rgba(var(--theme-primary-rgb), 0.3), 0 0 10px rgba(var(--theme-primary-rgb), 0.2); }
+    100% { box-shadow: 0 -6px 18px rgba(var(--theme-primary-rgb), 0.5), 0 0 20px rgba(var(--theme-primary-rgb), 0.4); }
 }
 
 .blitz-meta {
@@ -2156,67 +2162,45 @@ button:active::before {
     animation: blitzShake 0.4s ease-out;
 }
 
-/* Fire effect at max combo — Balatro-style flames above the box */
+/* Fire effect at max combo — noise-texture fire above the combo box */
 .blitz-combo-fire {
     position: absolute;
-    left: 4px;
-    right: 4px;
-    bottom: 100%;
-    height: 28px;
+    left: -3px;
+    right: -3px;
+    bottom: calc(100% - 1px);
+    height: 44px;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
-    filter: blur(0.5px);
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
 }
 
 .blitz-combo-fire-active .blitz-combo-fire {
     opacity: 1;
 }
 
-/* Center flame tongue — tallest */
 .blitz-combo-fire::before {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 22px;
-    border-radius: 50% 50% 20% 20%;
-    background: radial-gradient(ellipse at center bottom, rgba(var(--theme-primary-rgb), 0.9), rgba(var(--theme-accent-rgb), 0.4) 70%, transparent);
-    box-shadow:
-        -18px 8px 0 -3px rgba(var(--theme-accent-rgb), 0.7),
-        18px 6px 0 -3px rgba(var(--theme-accent-rgb), 0.6),
-        -9px 3px 0 -2px rgba(var(--theme-primary-rgb), 0.65),
-        9px 4px 0 -2px rgba(var(--theme-primary-rgb), 0.55);
-    animation: blitzFlame1 0.15s ease-in-out infinite alternate;
+    inset: 0;
+    background-image:
+        url("https://assets.codepen.io/13471/silver-glitter-background.png"),
+        url("https://assets.codepen.io/13471/silver-glitter-background.png"),
+        linear-gradient(0deg, white 0px, rgba(var(--theme-accent-rgb), 1) 4px, rgba(var(--theme-primary-rgb), 0.6) 30%, transparent 65%),
+        radial-gradient(ellipse at bottom, transparent 25%, black 65%);
+    background-size: 200px 300px, 250px 400px, 100% 100%, 100% 100%;
+    background-blend-mode: hard-light, color-dodge, multiply;
+    background-position: center 0px, center 0px, 50% 100%, center center;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    mix-blend-mode: color-dodge;
+    filter: brightness(3) blur(3px) contrast(6);
+    animation: blitzFire 3s linear infinite;
 }
 
-/* Secondary flame layer — offset timing */
-.blitz-combo-fire::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 17px;
-    border-radius: 50% 50% 25% 25%;
-    background: radial-gradient(ellipse at center bottom, rgba(var(--theme-accent-rgb), 0.7), transparent 80%);
-    box-shadow:
-        -14px 6px 0 -3px rgba(var(--theme-primary-rgb), 0.5),
-        14px 5px 0 -3px rgba(var(--theme-primary-rgb), 0.45);
-    animation: blitzFlame2 0.2s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes blitzFlame1 {
-    from { transform: translateX(-50%) scaleY(1) scaleX(1); }
-    to { transform: translateX(-50%) scaleY(1.18) scaleX(0.88); }
-}
-
-@keyframes blitzFlame2 {
-    from { transform: translateX(-50%) scaleY(1) scaleX(0.9); }
-    to { transform: translateX(-50%) scaleY(1.12) scaleX(1.1); }
+@keyframes blitzFire {
+    0% { background-position: center 0px, center 0px, 50% 100%, center center; }
+    100% { background-position: center -300px, center -400px, 50% 100%, center center; }
 }
 
 /* ============================================ */
