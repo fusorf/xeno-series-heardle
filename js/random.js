@@ -101,9 +101,7 @@ function selectStandardDailySong(modeId, dateString) {
   // Shuffle all songs deterministically
   const shuffled = rng.shuffle(songs);
 
-  // Use cycle system to avoid immediate repeats (20-day cycles)
   const dayNumber = getDaysSinceEpoch(dateString);
-  const cycleLength = Math.min(20, songs.length);
   const songIndex = (dayNumber - 1) % shuffled.length;
 
   return {

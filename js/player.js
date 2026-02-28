@@ -242,6 +242,20 @@ let resultAudioElement = null;
 let resultIsPlaying = false;
 let resultAnimationFrame = null;
 
+function destroyResultPlayer() {
+    if (resultAnimationFrame) {
+        cancelAnimationFrame(resultAnimationFrame);
+        resultAnimationFrame = null;
+    }
+    if (resultAudioElement) {
+        resultAudioElement.pause();
+        resultAudioElement.removeAttribute('src');
+        resultAudioElement.load();
+        resultAudioElement = null;
+    }
+    resultIsPlaying = false;
+}
+
 function initResultAudioPlayer(dailySong) {
     const audioUrl = getAudioUrl(dailySong);
     if (!audioUrl) {

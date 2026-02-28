@@ -65,13 +65,6 @@ function applyTheme(modeId, song, isResults = false) {
     }
 }
 
-/**
- * Clear the game theme (when going back from results to gameplay).
- */
-function clearGameTheme() {
-    currentGameLink.setAttribute('href', '');
-}
-
 // ============================================
 // BACKGROUND IMAGE MANAGEMENT
 // ============================================

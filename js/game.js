@@ -191,11 +191,8 @@ function toggleEndlessMode() {
     }
 
     // Cleanup players
-    if (typeof destroyPlayer === 'function') destroyPlayer();
-    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
-        resultAudioElement.pause();
-        resultAudioElement = null;
-    }
+    destroyPlayer();
+    destroyResultPlayer();
 
     if (endlessMode) {
         startEndlessRound();
@@ -209,11 +206,8 @@ function toggleEndlessMode() {
 
 function startEndlessRound() {
     // Cleanup
-    if (typeof destroyPlayer === 'function') destroyPlayer();
-    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
-        resultAudioElement.pause();
-        resultAudioElement = null;
-    }
+    destroyPlayer();
+    destroyResultPlayer();
 
     // Get a random song (filtered by locked game if set)
     const useRandomStart = currentMode === 'random' && endlessRandomStart;
@@ -268,13 +262,8 @@ function switchMode(modeId) {
 
     // Cleanup current state (not needed during blitz)
     clearInterval(window.countdownInterval);
-    if (typeof destroyPlayer === 'function') {
-        destroyPlayer();
-    }
-    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
-        resultAudioElement.pause();
-        resultAudioElement = null;
-    }
+    destroyPlayer();
+    destroyResultPlayer();
 
     if (endlessMode) {
         endlessLockedGame = null; // Reset game lock when switching modes
@@ -525,6 +514,48 @@ function toggleGameFilter(gameId) {
 
 let acIndex = 0; // Currently highlighted autocomplete index
 
+/**
+ * Shared autocomplete keyboard navigation.
+ * @param {KeyboardEvent} e
+ * @param {object} opts - { listEl, itemSelector, getIndex, setIndex, setSelection, submitBtnId, onSelect, onSubmit }
+ */
+function handleAutocompleteKeydown(e, opts) {
+    const isOpen = opts.listEl.classList.contains('active');
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (!isOpen) return;
+        e.preventDefault();
+        const items = opts.listEl.querySelectorAll(opts.itemSelector);
+        if (items.length === 0) return;
+
+        const idx = opts.getIndex();
+        items[idx]?.classList.remove('ac-highlighted');
+        const newIdx = e.key === 'ArrowDown'
+            ? (idx + 1) % items.length
+            : (idx - 1 + items.length) % items.length;
+        opts.setIndex(newIdx);
+        items[newIdx].classList.add('ac-highlighted');
+        items[newIdx].scrollIntoView({ block: 'nearest' });
+
+        opts.setSelection(items[newIdx].dataset.title);
+        document.getElementById(opts.submitBtnId).disabled = false;
+        return;
+    }
+
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        if (isOpen) {
+            const items = opts.listEl.querySelectorAll(opts.itemSelector);
+            const idx = opts.getIndex();
+            if (items.length > 0 && items[idx]) {
+                opts.onSelect(items[idx].dataset.title);
+            }
+        } else if (opts.getSelection()) {
+            opts.onSubmit();
+        }
+    }
+}
+
 function handleSearchInput(e) {
     const query = e.target.value.toLowerCase();
     const autocompleteList = document.getElementById('autocompleteList');
@@ -578,43 +609,17 @@ function handleSearchInput(e) {
 }
 
 function handleSearchKeydown(e) {
-    const autocompleteList = document.getElementById('autocompleteList');
-    const isOpen = autocompleteList.classList.contains('active');
-
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        if (!isOpen) return;
-        e.preventDefault();
-        const items = autocompleteList.querySelectorAll('.autocomplete-item');
-        if (items.length === 0) return;
-
-        items[acIndex]?.classList.remove('ac-highlighted');
-        if (e.key === 'ArrowDown') {
-            acIndex = (acIndex + 1) % items.length;
-        } else {
-            acIndex = (acIndex - 1 + items.length) % items.length;
-        }
-        items[acIndex].classList.add('ac-highlighted');
-        items[acIndex].scrollIntoView({ block: 'nearest' });
-
-        // Update selection to highlighted item
-        selectedSong = items[acIndex].dataset.title;
-        document.getElementById('submitButton').disabled = false;
-        return;
-    }
-
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        if (isOpen) {
-            // Close list and fill input with highlighted item
-            const items = autocompleteList.querySelectorAll('.autocomplete-item');
-            if (items.length > 0 && items[acIndex]) {
-                selectSongFromList(items[acIndex].dataset.title);
-            }
-        } else if (selectedSong) {
-            // List closed, song selected → submit guess
-            submitGuess();
-        }
-    }
+    handleAutocompleteKeydown(e, {
+        listEl: document.getElementById('autocompleteList'),
+        itemSelector: '.autocomplete-item',
+        getIndex: () => acIndex,
+        setIndex: (i) => { acIndex = i; },
+        getSelection: () => selectedSong,
+        setSelection: (t) => { selectedSong = t; },
+        submitBtnId: 'submitButton',
+        onSelect: selectSongFromList,
+        onSubmit: submitGuess
+    });
 }
 
 function selectSongFromList(title) {

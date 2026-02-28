@@ -91,11 +91,8 @@ function activateBlitz() {
     }
 
     // Cleanup existing audio
-    if (typeof destroyPlayer === 'function') destroyPlayer();
-    if (typeof resultAudioElement !== 'undefined' && resultAudioElement) {
-        resultAudioElement.pause();
-        resultAudioElement = null;
-    }
+    destroyPlayer();
+    destroyResultPlayer();
     clearInterval(window.countdownInterval);
 
     blitzActive = true;
@@ -573,43 +570,17 @@ function handleBlitzSearch(e) {
 }
 
 function handleBlitzKeydown(e) {
-    const autocomplete = document.getElementById('blitzAutocomplete');
-    const isOpen = autocomplete.classList.contains('active');
-
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        if (!isOpen) return;
-        e.preventDefault();
-        const items = autocomplete.querySelectorAll('.blitz-ac-item');
-        if (items.length === 0) return;
-
-        items[blitzAcIndex]?.classList.remove('ac-highlighted');
-        if (e.key === 'ArrowDown') {
-            blitzAcIndex = (blitzAcIndex + 1) % items.length;
-        } else {
-            blitzAcIndex = (blitzAcIndex - 1 + items.length) % items.length;
-        }
-        items[blitzAcIndex].classList.add('ac-highlighted');
-        items[blitzAcIndex].scrollIntoView({ block: 'nearest' });
-
-        // Update selection to highlighted item
-        blitzSelectedSong = items[blitzAcIndex].dataset.title;
-        document.getElementById('blitzSubmitBtn').disabled = false;
-        return;
-    }
-
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        if (isOpen) {
-            // Close list and fill input with highlighted item
-            const items = autocomplete.querySelectorAll('.blitz-ac-item');
-            if (items.length > 0 && items[blitzAcIndex]) {
-                selectBlitzSongFromList(items[blitzAcIndex].dataset.title);
-            }
-        } else if (blitzSelectedSong) {
-            // List closed, song selected → submit
-            submitBlitzGuess();
-        }
-    }
+    handleAutocompleteKeydown(e, {
+        listEl: document.getElementById('blitzAutocomplete'),
+        itemSelector: '.blitz-ac-item',
+        getIndex: () => blitzAcIndex,
+        setIndex: (i) => { blitzAcIndex = i; },
+        getSelection: () => blitzSelectedSong,
+        setSelection: (t) => { blitzSelectedSong = t; },
+        submitBtnId: 'blitzSubmitBtn',
+        onSelect: selectBlitzSongFromList,
+        onSubmit: submitBlitzGuess
+    });
 }
 
 function selectBlitzSongFromList(title) {
@@ -762,27 +733,32 @@ function updateBlitzSongCounter() {
     if (el) el.textContent = `#${blitzSongsAttempted}`;
 }
 
-function updateBlitzHistoryDisplay() {
-    const container = document.getElementById('blitzHistory');
-    if (!container) return;
-
+/**
+ * Build HTML rows for blitz song history.
+ * @param {string} prefix - CSS class prefix ('blitz-history' or 'blitz-recap')
+ */
+function buildBlitzHistoryRows(prefix) {
     let html = '';
     blitzHistory.forEach(entry => {
         const game = GAMES[entry.song.game];
         const color = game ? game.color : '#888';
         const icon = entry.correct ? '✓' : '✗';
-        const cls = entry.correct ? 'blitz-history-correct' : 'blitz-history-wrong';
+        const cls = entry.correct ? `${prefix}-correct` : `${prefix}-wrong`;
         const title = getDisplayTitle(entry.song);
         const pts = entry.correct ? `+${entry.points}` : '';
-        html += `<div class="blitz-history-row ${cls}">
-            <span class="blitz-history-icon">${icon}</span>
-            <span class="blitz-history-title" style="border-left: 3px solid ${color}">${escapeHtml(title)}</span>
-            <span class="blitz-history-pts">${pts}</span>
+        html += `<div class="${prefix}-row ${cls}">
+            <span class="${prefix}-icon">${icon}</span>
+            <span class="${prefix}-title" style="border-left: 3px solid ${color}">${escapeHtml(title)}</span>
+            <span class="${prefix}-pts">${pts}</span>
         </div>`;
     });
-    container.innerHTML = html;
+    return html;
+}
 
-    // Auto-scroll to bottom
+function updateBlitzHistoryDisplay() {
+    const container = document.getElementById('blitzHistory');
+    if (!container) return;
+    container.innerHTML = buildBlitzHistoryRows('blitz-history');
     container.scrollTop = container.scrollHeight;
 }
 
@@ -837,19 +813,7 @@ function renderBlitzResults(isNewHigh) {
     // Song recap
     if (blitzHistory.length > 0) {
         html += '<div class="blitz-recap">';
-        blitzHistory.forEach(entry => {
-            const game = GAMES[entry.song.game];
-            const color = game ? game.color : '#888';
-            const icon = entry.correct ? '✓' : '✗';
-            const cls = entry.correct ? 'blitz-recap-correct' : 'blitz-recap-wrong';
-            const title = getDisplayTitle(entry.song);
-            const pts = entry.correct ? `+${entry.points}` : '';
-            html += `<div class="blitz-recap-row ${cls}">
-                <span class="blitz-recap-icon">${icon}</span>
-                <span class="blitz-recap-title" style="border-left: 3px solid ${color}">${escapeHtml(title)}</span>
-                <span class="blitz-recap-pts">${pts}</span>
-            </div>`;
-        });
+        html += buildBlitzHistoryRows('blitz-recap');
         html += '</div>';
     }
 
