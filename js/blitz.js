@@ -565,10 +565,10 @@ function playBlitzSong(preloadedAudio) {
         audioRef.addEventListener('canplaythrough', onReady, { once: true });
     }
 
-    // If song ends, loop from start position
+    // If song ends, loop from the beginning
     audioRef.addEventListener('ended', () => {
         if (!blitzActive || audioRef !== blitzAudio) return;
-        audioRef.currentTime = startPos;
+        audioRef.currentTime = 0;
         audioRef.play().catch(() => {});
     });
 
