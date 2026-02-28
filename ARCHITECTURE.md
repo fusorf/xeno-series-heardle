@@ -4,7 +4,7 @@
 
 ```
 xeno-series-heardle/
-├── index.html              # Main HTML entry point
+├── index.html              # Main HTML entry point (includes volume control, language selector)
 ├── style.css               # Global styles and theme system
 ├── favicon.ico             # Site favicon
 │
@@ -17,8 +17,8 @@ xeno-series-heardle/
 │   ├── storage.js          # localStorage-based state management (migrated from cookies)
 │   ├── theme.js            # CSS stylesheet swapping (gamemode + game themes)
 │   ├── player.js           # HTML5 Audio player with progress tracking
-│   ├── ui.js               # UI rendering, DOM manipulation, credits visibility
-│   └── blitz.js            # Blitz mode — 60-second rapid-fire challenge
+│   ├── ui.js               # UI rendering, DOM manipulation, autocomplete, mobile keyboard handling
+│   └── blitz.js            # Blitz mode — 60-second rapid-fire challenge, combo UI, audio preloading
 │
 ├── images/                 # All image assets
 │   ├── noise-texture.png   # Marble texture for title text effect (Marble006 inverted, CC0)
@@ -180,12 +180,19 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Scoring**:
   - Base: 100 points × combo multiplier (1x–4x)
   - Correct guess: +points, combo+1, +3s time bonus (capped at 60s)
-  - Wrong guess: no penalty, input clears, can retry
+  - Wrong guess: combo resets to 1x, input clears, can retry
   - Skip: combo resets to 1x
-- **State flags**: `blitzActive` (mode on), `blitzGameOver` (round ended, results shown), `blitzAdvanceTimeout` (tracked for cleanup)
+- **Combo UI**: Top-row layout (score left, combo right) with slide-in/slide-out animations
+  - Fire effect at x4 combo: noise-texture CSS technique with theme colors, 44px tall, 3s animation
+  - Combo box pulse glow animation (`blitzComboGlow` keyframe) at x4
+  - Shake animation on combo break (choke)
+- **Song advance**: Immediate (no delay between songs). Next song audio is preloaded during current song.
+- **Audio preloading**: `preloadNextBlitzSong()` creates a hidden Audio element for the next song. On advance, `playBlitzSong()` accepts the preloaded audio to skip load time. Stale preloads cleaned up via local `audioRef` capture.
+- **Song looping**: When a song reaches the end during blitz, it loops from 0:00 (beginning) instead of the random start position.
+- **State flags**: `blitzActive` (mode on), `blitzGameOver` (round ended, results shown)
 - **Song selection**: Random from mode pool, random start position (0 to duration-16s)
 - **Game selector**: In Single Game mode, shows game dropdown (same as Endless). Auto-picks random game if none locked.
-- **Results screen**: Final score, accuracy, best combo, song recap list, share (copy/tweet), play again
+- **Results screen**: Score with counting animation (`animateScoreCount`), accuracy, best combo, song recap list, share (copy/tweet), play again
 - **Stats**: Separate blitz history per mode in localStorage (`xenoHeardle_{mode}_blitz`)
   - No game filter chips in stats modal (blitz runs span multiple songs/games)
   - Stats: games played, high score, avg score, songs guessed, accuracy, best combo
@@ -223,7 +230,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
            └─> Update progress bar via requestAnimationFrame
 
 3. User guesses
-   └─> Search autocomplete (mode-specific songs)
+   └─> Search autocomplete (multi-word + game name matching)
        └─> Submit guess
            ├─> Correct → endGame(won=true)
            └─> Wrong → currentAttempt++
@@ -241,6 +248,49 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
        ├─> copyResults() → clipboard
        └─> tweetResults() → x.com/intent/tweet
 ```
+
+## Search & Autocomplete
+
+### Multi-word Matching
+- Search terms are split by spaces; all terms must match somewhere in the song title OR game name
+- Example: "xeno battle" matches "Battle!!" from Xenoblade 1 because "xeno" matches the game name and "battle" matches the title
+- Game name matching uses both the display name and abbreviation aliases
+
+### Game Search Aliases
+- `GAME_SEARCH_ALIASES` in songs.js maps game IDs to shorthand aliases
+- Examples: `xenoblade-1` → `["xc1", "xcde"]`, `xenogears` → `["xg"]`
+- `getGameSearchAliases(gameId)` returns the alias array for a game
+- Aliases are checked during autocomplete filtering alongside the full game name
+
+### Shared Keyboard Navigation
+- `handleAutocompleteKeydown(e, inputId, containerId, submitFn)` in ui.js
+- Handles ArrowUp/ArrowDown/Enter/Escape for both normal and blitz autocomplete
+- Used by both `#searchInput` and `#blitzSearchInput`
+
+### Result Player Cleanup
+- `destroyResultPlayer()` function stops and removes the results audio element
+- Called during mode switches and game transitions to prevent audio overlap
+
+## Volume Control
+
+- **Desktop only** (hidden on mobile via CSS media query)
+- **Position**: Bottom-right corner, same style as language selector
+- **UI**: Emoji button (🔊/🔈/🔇) opens a vertical slider menu above
+- **Global**: `globalVolume` variable in game.js, applied to all Audio elements (gameplay, results, blitz, preloaded)
+- **Persistence**: Saved in `localStorage` as `globalVolume` (0–1 float)
+- **Functions**: `toggleVolumeMenu()`, `setGlobalVolume(val)`, `applyVolume()`, `updateVolumeIcon()`
+- **Tooltip**: Localized via `data-tooltip` system (same as other buttons)
+
+## Mobile Keyboard Handling
+
+- **Detection**: `isMobileOS` check via `navigator.userAgent` (Android/iPhone/iPad/iPod)
+- **On input focus** (`.search-input`):
+  - Adds `keyboard-open` class to body (locks scroll via `position: fixed; overflow: hidden`)
+  - Scrolls to top with retry pattern at 50/150/300/500ms delays (browser fights scrollTo while keyboard opens)
+  - Listens to `visualViewport.resize` to detect keyboard height
+  - Pushes `.search-section` above keyboard by setting `bottom: keyboardHeight + 'px'`
+- **On input blur**: Removes class, resets section position, clears timers, removes viewport listener
+- **Event delegation**: Uses `focusin`/`focusout` (which bubble) on `document` to catch both normal and blitz inputs
 
 ## Visual Design
 
@@ -279,6 +329,12 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 --theme-font-body: 'Rajdhani', sans-serif     /* Body font (per-theme) */
 ```
 
+### Blitz Fire Effect (x4 combo)
+- **Technique**: Two scrolling glitter textures + color gradient + radial gradient mask
+- **Filter**: `brightness(3) blur(3px) contrast(6)` + `mix-blend-mode: color-dodge` creates a realistic fire look
+- **Colors**: Uses `--theme-accent-rgb` and `--theme-primary-rgb` to match the active theme
+- **Animation**: `blitzFire` keyframe scrolls textures upward over 3s, `blitzComboGlow` adds pulsing box-shadow glow
+
 ### Futuristic Effects (XCX/XCX DE exclusive)
 Grid, particles, scanlines, glow animations are defined only in `xenoblade-x.css` and `xenoblade-x-de.css`. Other themes have no effects.
 
@@ -316,6 +372,7 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 ### localStorage
 - **Mode preference**: `xenoHeardleMode`
 - **Language**: `xenoHeardleLang`
+- **Volume**: `globalVolume` (0–1 float, default 1)
 - **Game state**: `xenoHeardle_{mode}_state` (cleared at UTC midnight via dayNumber check)
   - Separate state per mode (independent progress)
 - **Daily history**: `xenoHeardle_{mode}_history` (last 100 entries)
@@ -363,8 +420,10 @@ player.js → HTML5 <audio> element
     ├─ Separate Audio object (blitzAudio)
     ├─ Plays continuously until guess or skip
     ├─ Random start position per song
-    ├─ Loops from start position on song end
-    └─ Stale-reference protection on audio fallback timeout
+    ├─ Loops from beginning (0:00) on song end
+    ├─ Next song preloaded via preloadNextBlitzSong()
+    ├─ Stale-reference protection on audio fallback timeout
+    └─ All players respect globalVolume (game.js)
 ```
 
 ### Audio Sources
