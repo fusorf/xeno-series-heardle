@@ -670,16 +670,26 @@ h1 {
     box-shadow: 0 0 10px var(--glow-blue);
 }
 
-.autocomplete-item:hover,
 .autocomplete-item.ac-highlighted {
     background: rgba(var(--theme-primary-rgb), 0.1);
     color: var(--primary-blue);
     padding-left: 25px;
 }
 
-.autocomplete-item:hover::before,
 .autocomplete-item.ac-highlighted::before {
     opacity: 1;
+}
+
+@media (hover: hover) {
+    .autocomplete-item:hover {
+        background: rgba(var(--theme-primary-rgb), 0.1);
+        color: var(--primary-blue);
+        padding-left: 25px;
+    }
+
+    .autocomplete-item:hover::before {
+        opacity: 1;
+    }
 }
 
 .autocomplete-item:last-child {
