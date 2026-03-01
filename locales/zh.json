@@ -1,0 +1,94 @@
+{
+  "search": "搜索歌曲...",
+  "skip": "跳过",
+  "submit": "提交",
+  "giveUp": "放弃",
+  "skipped": "已跳过",
+  "todayGame": "今日游戏",
+  "guessedIn": "猜对了！",
+  "try": "次",
+  "tries": "次",
+  "youLost": "明天再来！",
+  "copyResults": "复制",
+  "copied": "已复制！",
+  "scopeThis": "本次结果",
+  "scopeAll": "全部结果",
+  "comeBackIn": "下首歌曲将在",
+  "forNextOne": "后更新！",
+  "composer": "作曲",
+  "artist": "演唱",
+  "history": "历史记录",
+  "stats": {
+    "title": "统计",
+    "played": "游戏次数",
+    "failed": "失败",
+    "winRate": "胜率",
+    "currentStreak": "当前连胜",
+    "maxStreak": "最高连胜",
+    "guessDistribution": "猜测分布",
+    "oneShots": "一次猜中",
+    "oneShotStreak": "一次猜中连续",
+    "maxOneShotStreak": "最佳一次猜中连续",
+    "noHistory": "暂无游戏记录",
+    "allGames": "全部游戏",
+    "global": "综合"
+  },
+  "endless": {
+    "name": "无尽模式",
+    "restart": "重新开始",
+    "daily": "每日",
+    "endless": "无尽模式",
+    "selectGame": "选择游戏",
+    "randomGame": "随机",
+    "selectedGame": "已选游戏",
+    "startNormal": "经典",
+    "startRandom": "随机起点",
+    "statsRandomStart": "随机片段",
+    "statsNormalStart": "从头开始"
+  },
+  "blitz": {
+    "name": "闪电战",
+    "searchPlaceholder": "快速猜！",
+    "skip": "跳过",
+    "submit": "确定！",
+    "quit": "退出",
+    "newHighScore": "新纪录！",
+    "points": "分",
+    "songsGuessed": "歌曲数",
+    "accuracy": "准确率",
+    "bestCombo": "最佳连击",
+    "highScore": "最高分",
+    "avgScore": "平均分",
+    "playAgain": "再来一次",
+    "backToGame": "返回"
+  },
+  "tooltips": {
+    "language": "语言",
+    "stats": "统计",
+    "endless": "无尽模式",
+    "blitz": "闪电战",
+    "volume": "音量"
+  },
+  "credits": {
+    "madeBy": "制作",
+    "specialThanks": "特别感谢"
+  },
+  "modes": {
+    "full-xeno": {
+      "name": "Xeno 全系列",
+      "description": "全部 Xeno 游戏 + DLC"
+    },
+    "xenoblade": {
+      "name": "Xenoblade Heardle",
+      "description": "Xenoblade Chronicles 系列 + DLC"
+    },
+    "xenosaga": {
+      "name": "Xenosaga Heardle",
+      "description": "Xenosaga 三部曲"
+    },
+    "random": {
+      "name": "单独游戏",
+      "description": "随机游戏 + 随机起点"
+    }
+  }
+}

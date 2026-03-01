@@ -30,10 +30,10 @@ function getDisplayTitle(song) {
 // ============================================
 
 function detectLanguage() {
-    const browserLang = navigator.language || navigator.userLanguage;
-    if (browserLang.toLowerCase().startsWith('fr')) return 'fr';
-    if (browserLang.toLowerCase().startsWith('ja')) return 'ja';
-    return 'en';
+    const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+    const supported = ['fr', 'de', 'es', 'it', 'ja', 'ko', 'zh'];
+    const match = supported.find(lang => browserLang.startsWith(lang));
+    return match || 'en';
 }
 
 async function loadLocale(forceLang = null) {
@@ -288,7 +288,7 @@ async function switchLanguage(langCode) {
     const currentLang = storageGet('xenoHeardleLanguage') || 'auto';
     if (langCode === currentLang) return;
 
-    // Save language preference ('auto', 'en', 'fr', 'ja')
+    // Save language preference ('auto', 'en', 'fr', 'de', 'es', 'it', 'ja', 'ko', 'zh')
     storageSet('xenoHeardleLanguage', langCode);
 
     // Reload locale and update UI without full page reload
@@ -349,7 +349,7 @@ function updateLanguageSelector() {
 function toggleLanguageMenu() {
     const menu = document.getElementById('langMenu');
     if (menu.style.display === 'none') {
-        menu.style.display = 'flex';
+        menu.style.display = 'grid';
     } else {
         menu.style.display = 'none';
     }
@@ -391,6 +391,12 @@ function setGlobalVolume(val) {
     localStorage.setItem('globalVolume', String(globalVolume));
     applyVolume();
     updateVolumeIcon();
+    updateVolumeValue();
+}
+
+function updateVolumeValue() {
+    const label = document.getElementById('volumeValue');
+    if (label) label.textContent = Math.round(globalVolume * 100) + '%';
 }
 
 function applyVolume() {
@@ -420,6 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider = document.getElementById('volumeSlider');
     if (slider) slider.value = Math.round(globalVolume * 100);
     updateVolumeIcon();
+    updateVolumeValue();
 });
 
 // ============================================

@@ -1,0 +1,94 @@
+{
+  "search": "Buscar una canción...",
+  "skip": "Saltar",
+  "submit": "Enviar",
+  "giveUp": "Rendirse",
+  "skipped": "Saltado",
+  "todayGame": "Juego de hoy",
+  "guessedIn": "¡Adivinaste en",
+  "try": "intento",
+  "tries": "intentos",
+  "youLost": "¡Mejor suerte mañana!",
+  "copyResults": "Copiar",
+  "copied": "¡Copiado!",
+  "scopeThis": "Este resultado",
+  "scopeAll": "Todos los resultados",
+  "comeBackIn": "Vuelve en",
+  "forNextOne": "¡para el siguiente!",
+  "composer": "Compositor",
+  "artist": "Artista",
+  "history": "Historial",
+  "stats": {
+    "title": "Estadísticas",
+    "played": "Jugadas",
+    "failed": "Fallidas",
+    "winRate": "Tasa de victoria",
+    "currentStreak": "Racha actual",
+    "maxStreak": "Mejor racha",
+    "guessDistribution": "Distribución",
+    "oneShots": "One Shots",
+    "oneShotStreak": "Racha One Shot",
+    "maxOneShotStreak": "Mejor racha One Shot",
+    "noHistory": "Sin partidas aún",
+    "allGames": "Todos los juegos",
+    "global": "Global"
+  },
+  "endless": {
+    "name": "Modo Infinito",
+    "restart": "Reiniciar",
+    "daily": "Diario",
+    "endless": "Modo Infinito",
+    "selectGame": "Elegir juego",
+    "randomGame": "Aleatorio",
+    "selectedGame": "Juego seleccionado",
+    "startNormal": "Clásico",
+    "startRandom": "Inicio aleatorio",
+    "statsRandomStart": "Extracto aleatorio",
+    "statsNormalStart": "Desde el inicio"
+  },
+  "blitz": {
+    "name": "BLITZ",
+    "searchPlaceholder": "¡Adivina rápido!",
+    "skip": "Saltar",
+    "submit": "¡Ya!",
+    "quit": "Salir",
+    "newHighScore": "¡Nuevo récord!",
+    "points": "puntos",
+    "songsGuessed": "Canciones",
+    "accuracy": "Precisión",
+    "bestCombo": "Mejor combo",
+    "highScore": "Récord",
+    "avgScore": "Promedio",
+    "playAgain": "Otra vez",
+    "backToGame": "Volver"
+  },
+  "tooltips": {
+    "language": "Idioma",
+    "stats": "Estadísticas",
+    "endless": "Modo Infinito",
+    "blitz": "Blitz",
+    "volume": "Volumen"
+  },
+  "credits": {
+    "madeBy": "Creado por",
+    "specialThanks": "Agradecimientos a"
+  },
+  "modes": {
+    "full-xeno": {
+      "name": "Serie Xeno Completa",
+      "description": "Todos los juegos Xeno + DLC"
+    },
+    "xenoblade": {
+      "name": "Xenoblade Heardle",
+      "description": "Serie Xenoblade Chronicles + DLC"
+    },
+    "xenosaga": {
+      "name": "Xenosaga Heardle",
+      "description": "Trilogía Xenosaga"
+    },
+    "random": {
+      "name": "Juego Individual",
+      "description": "Juego aleatorio + inicio aleatorio"
+    }
+  }
+}

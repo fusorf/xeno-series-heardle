@@ -1591,12 +1591,8 @@ button:active::before {
     box-shadow: 0 0 10px var(--glow-blue);
 }
 
-/* History Button (next to language selector) */
+/* History Button */
 .history-button {
-    position: fixed;
-    bottom: 20px;
-    left: 70px;
-    z-index: 5000;
     width: 40px;
     height: 40px;
     border: 2px solid var(--panel-border);
@@ -1718,10 +1714,6 @@ button:active::before {
 /* ============================================ */
 
 .endless-button {
-    position: fixed;
-    bottom: 20px;
-    left: 120px;
-    z-index: 5000;
     width: 40px;
     height: 40px;
     border: 2px solid var(--panel-border);
@@ -1776,10 +1768,6 @@ button:active::before {
 /* ============================================ */
 
 .blitz-button {
-    position: fixed;
-    bottom: 20px;
-    left: 170px;
-    z-index: 5000;
     width: 40px;
     height: 40px;
     border: 2px solid var(--panel-border);
@@ -2518,12 +2506,30 @@ button:active::before {
     margin: 0 auto;
 }
 
-/* Language Selector (bottom-left corner) */
-.language-selector {
+/* Toolbar containers (desktop: fixed bottom corners) */
+.toolbar-left {
     position: fixed;
     bottom: 20px;
     left: 20px;
+    z-index: 5000;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.toolbar-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     z-index: 5001;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+/* Language Selector */
+.language-selector {
+    position: relative;
 }
 
 .lang-toggle {
@@ -2553,27 +2559,27 @@ button:active::before {
 .lang-menu {
     position: absolute;
     bottom: 50px;
-    left: 0;
+    right: 0;
     z-index: 5001;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 5px;
     background: var(--panel-bg);
-    border: none;
-    border-radius: 8px;
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
     padding: 8px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .lang-option {
     width: 40px;
-    height: 35px;
+    height: 34px;
     border: none;
     background: rgba(0, 0, 0, 0.3);
     color: #ffffff;
     font-family: var(--theme-font-heading);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -2597,10 +2603,7 @@ button:active::before {
 
 /* Volume control (desktop only) */
 .volume-selector {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 5001;
+    position: relative;
 }
 
 .volume-toggle {
@@ -2635,42 +2638,68 @@ button:active::before {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
     background: var(--panel-bg);
-    border-radius: 8px;
-    padding: 12px 10px;
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 14px 12px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.volume-value {
+    font-family: var(--theme-font-body), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--theme-primary);
+    letter-spacing: 0.5px;
+    user-select: none;
 }
 
 .volume-slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 100px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 6px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
     outline: none;
     cursor: pointer;
-    accent-color: var(--theme-primary);
 }
 
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background: var(--theme-primary);
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0 0 6px rgba(var(--theme-primary-rgb), 0.5);
+    transition: box-shadow 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 12px rgba(var(--theme-primary-rgb), 0.8);
 }
 
 .volume-slider::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background: var(--theme-primary);
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    box-shadow: 0 0 6px rgba(var(--theme-primary-rgb), 0.5);
+}
+
+.volume-slider::-moz-range-track {
+    width: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    border: none;
 }
 
 /* Responsive tabs (2x2 grid below 900px) */
@@ -2712,15 +2741,24 @@ button:active::before {
         max-height: 250px;
     }
 
+    .toolbar-left,
+    .toolbar-right {
+        position: static;
+        display: contents;
+    }
+
     .volume-selector {
         display: none;
     }
 
     .language-selector {
+        position: fixed;
         top: 10px;
         right: 10px;
         bottom: auto;
         left: auto;
+        z-index: 5001;
+        overflow: visible;
     }
 
     .lang-toggle {
@@ -2759,24 +2797,30 @@ button:active::before {
     }
 
     .history-button {
+        position: fixed;
         bottom: auto;
         top: 58px;
         left: auto;
         right: 10px;
+        z-index: 5000;
     }
 
     .endless-button {
+        position: fixed;
         bottom: auto;
         top: 10px;
         left: 10px;
         right: auto;
+        z-index: 5000;
     }
 
     .blitz-button {
+        position: fixed;
         bottom: auto;
         top: 56px;
         left: 10px;
         right: auto;
+        z-index: 5000;
     }
 
 

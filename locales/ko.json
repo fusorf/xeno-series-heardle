@@ -1,0 +1,94 @@
+{
+  "search": "곡 검색...",
+  "skip": "건너뛰기",
+  "submit": "제출",
+  "giveUp": "포기",
+  "skipped": "건너뜀",
+  "todayGame": "오늘의 게임",
+  "guessedIn": "정답!",
+  "try": "번",
+  "tries": "번",
+  "youLost": "내일 다시 도전!",
+  "copyResults": "복사",
+  "copied": "복사됨!",
+  "scopeThis": "이 결과만",
+  "scopeAll": "전체 결과",
+  "comeBackIn": "다음 곡까지",
+  "forNextOne": "기다려 주세요!",
+  "composer": "작곡가",
+  "artist": "아티스트",
+  "history": "기록",
+  "stats": {
+    "title": "통계",
+    "played": "플레이 횟수",
+    "failed": "실패",
+    "winRate": "승률",
+    "currentStreak": "현재 연승",
+    "maxStreak": "최고 연승",
+    "guessDistribution": "추측 분포",
+    "oneShots": "원샷",
+    "oneShotStreak": "원샷 연속",
+    "maxOneShotStreak": "최고 원샷 연속",
+    "noHistory": "아직 플레이 기록 없음",
+    "allGames": "전체 게임",
+    "global": "종합"
+  },
+  "endless": {
+    "name": "끝없는 모드",
+    "restart": "다시 시작",
+    "daily": "일일",
+    "endless": "끝없는 모드",
+    "selectGame": "게임 선택",
+    "randomGame": "랜덤",
+    "selectedGame": "선택한 게임",
+    "startNormal": "클래식",
+    "startRandom": "랜덤 시작",
+    "statsRandomStart": "랜덤 발췌",
+    "statsNormalStart": "처음부터"
+  },
+  "blitz": {
+    "name": "블리츠",
+    "searchPlaceholder": "빨리 맞혀봐!",
+    "skip": "건너뛰기",
+    "submit": "확인!",
+    "quit": "나가기",
+    "newHighScore": "신기록!",
+    "points": "점",
+    "songsGuessed": "곡수",
+    "accuracy": "정확도",
+    "bestCombo": "최고 콤보",
+    "highScore": "최고 점수",
+    "avgScore": "평균 점수",
+    "playAgain": "다시 하기",
+    "backToGame": "돌아가기"
+  },
+  "tooltips": {
+    "language": "언어",
+    "stats": "통계",
+    "endless": "끝없는 모드",
+    "blitz": "블리츠",
+    "volume": "음량"
+  },
+  "credits": {
+    "madeBy": "제작",
+    "specialThanks": "감사"
+  },
+  "modes": {
+    "full-xeno": {
+      "name": "Xeno 전체 시리즈",
+      "description": "모든 Xeno 게임 + DLC"
+    },
+    "xenoblade": {
+      "name": "Xenoblade Heardle",
+      "description": "Xenoblade Chronicles 시리즈 + DLC"
+    },
+    "xenosaga": {
+      "name": "Xenosaga Heardle",
+      "description": "Xenosaga 3부작"
+    },
+    "random": {
+      "name": "개별 게임",
+      "description": "랜덤 게임 + 랜덤 시작"
+    }
+  }
+}
