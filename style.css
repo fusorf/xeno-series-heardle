@@ -1331,7 +1331,7 @@ button:active::before {
 /* ============================================ */
 
 .mode-selector {
-    max-width: 900px;
+    max-width: 1050px;
     width: 100%;
     margin: 0 auto clamp(5px, 3.3vh, 30px);
     display: grid;
