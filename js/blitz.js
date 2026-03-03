@@ -654,15 +654,17 @@ function handleBlitzSearch(e) {
             const game = GAMES[song.game];
             const badge = game ? `<span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>` : '';
             const displayTitle = getDisplayTitle(song);
-            const hl = i === 0 ? ' ac-highlighted' : '';
+            const hl = (hasHover && i === 0) ? ' ac-highlighted' : '';
             return `<div class="autocomplete-item blitz-ac-item${hl}" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
         }).join('');
         autocomplete.classList.add('active');
         blitzAcIndex = 0;
 
-        // Auto-select first match
-        blitzSelectedSong = matches[0].title;
-        submitBtn.disabled = false;
+        // Auto-select first match (desktop only — on touch devices, user must tap)
+        if (hasHover) {
+            blitzSelectedSong = matches[0].title;
+            submitBtn.disabled = false;
+        }
 
         const rect = autocomplete.getBoundingClientRect();
         const maxAvailable = window.innerHeight - rect.top - 10;

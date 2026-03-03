@@ -509,8 +509,10 @@ function setupEventListeners() {
         gameContainer._delegationHandler = (e) => {
             if (e.target.classList.contains('game-filter-chip')) {
                 toggleGameFilter(e.target.dataset.game);
-            } else if (e.target.classList.contains('autocomplete-item')) {
-                selectSongFromList(e.target.dataset.title);
+            }
+            const acItem = e.target.closest('.autocomplete-item');
+            if (acItem) {
+                selectSongFromList(acItem.dataset.title);
             }
         };
         gameContainer.addEventListener('click', gameContainer._delegationHandler);
@@ -572,6 +574,9 @@ function toggleGameFilter(gameId) {
 // ============================================
 
 let acIndex = 0; // Currently highlighted autocomplete index
+
+// True on devices with a pointer that can hover (i.e. desktop, not touch-only)
+const hasHover = window.matchMedia('(hover: hover)').matches;
 
 /**
  * Shared autocomplete keyboard navigation.
@@ -651,16 +656,18 @@ function handleSearchInput(e) {
             const game = GAMES[song.game];
             const badge = game ? `<span class="autocomplete-game-badge" style="--badge-color: ${game.color}">${escapeHtml(game.shortName)}</span>` : '';
             const displayTitle = getDisplayTitle(song);
-            const hl = i === 0 ? ' ac-highlighted' : '';
+            const hl = (hasHover && i === 0) ? ' ac-highlighted' : '';
             return `<div class="autocomplete-item${hl}" data-title="${escapeHtml(song.title)}">${escapeHtml(displayTitle)}${badge}</div>`;
         }).join('');
 
         autocompleteList.classList.add('active');
         acIndex = 0;
 
-        // Auto-select first match
-        selectedSong = matches[0].title;
-        submitButton.disabled = false;
+        // Auto-select first match (desktop only — on touch devices, user must tap)
+        if (hasHover) {
+            selectedSong = matches[0].title;
+            submitButton.disabled = false;
+        }
 
         // Cap dropdown height to not exceed the viewport bottom
         const listRect = autocompleteList.getBoundingClientRect();
