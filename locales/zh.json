@@ -62,11 +62,22 @@
     "playAgain": "再来一次",
     "backToGame": "返回"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "或",
+    "correct": "正确",
+    "accuracy": "准确率",
+    "bestStreak": "最佳连续",
+    "songsFound": "首歌曲猜对",
+    "playAgain": "再来一次",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "语言",
     "stats": "统计",
     "endless": "无尽模式",
     "blitz": "闪电战",
+    "guesser": "猜游戏",
     "volume": "音量"
   },
   "credits": {

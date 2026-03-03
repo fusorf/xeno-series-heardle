@@ -62,11 +62,22 @@
     "playAgain": "다시 하기",
     "backToGame": "돌아가기"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "또는",
+    "correct": "정답",
+    "accuracy": "정확도",
+    "bestStreak": "최고 연속 정답",
+    "songsFound": "곡 맞춤",
+    "playAgain": "다시 하기",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "언어",
     "stats": "통계",
     "endless": "끝없는 모드",
     "blitz": "블리츠",
+    "guesser": "게임 맞추기",
     "volume": "음량"
   },
   "credits": {

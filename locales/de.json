@@ -62,11 +62,22 @@
     "playAgain": "Nochmal",
     "backToGame": "Zurück"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "ODER",
+    "correct": "Richtig",
+    "accuracy": "Genauigkeit",
+    "bestStreak": "Beste Serie",
+    "songsFound": "Lieder erkannt",
+    "playAgain": "Nochmal",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "Sprache",
     "stats": "Statistiken",
     "endless": "Endlosmodus",
     "blitz": "Blitz",
+    "guesser": "Game Guessr",
     "volume": "Lautstärke"
   },
   "credits": {

@@ -62,11 +62,22 @@
     "playAgain": "もう一回",
     "backToGame": "戻る"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "または",
+    "correct": "正解",
+    "accuracy": "正解率",
+    "bestStreak": "最高連続正解",
+    "songsFound": "曲を当てた",
+    "playAgain": "もう一回",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "言語",
     "stats": "統計",
     "endless": "永遠の今",
     "blitz": "ブリッツ",
+    "guesser": "ゲームゲッサー",
     "volume": "音量"
   },
   "credits": {

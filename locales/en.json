@@ -62,11 +62,22 @@
     "playAgain": "Play Again",
     "backToGame": "Back"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "OR",
+    "correct": "Correct",
+    "accuracy": "Accuracy",
+    "bestStreak": "Best Streak",
+    "songsFound": "songs found",
+    "playAgain": "Play Again",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "Language",
     "stats": "Statistics",
     "endless": "Endless Now",
     "blitz": "Blitz",
+    "guesser": "Game Guessr",
     "volume": "Volume"
   },
   "credits": {

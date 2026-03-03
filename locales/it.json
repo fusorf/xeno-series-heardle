@@ -62,11 +62,22 @@
     "playAgain": "Rigioca",
     "backToGame": "Indietro"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "O",
+    "correct": "Corretto",
+    "accuracy": "Precisione",
+    "bestStreak": "Miglior serie",
+    "songsFound": "canzoni trovate",
+    "playAgain": "Rigioca",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "Lingua",
     "stats": "Statistiche",
     "endless": "Modalità Infinita",
     "blitz": "Blitz",
+    "guesser": "Game Guessr",
     "volume": "Volume"
   },
   "credits": {

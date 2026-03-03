@@ -90,6 +90,9 @@ async function initGame() {
     // Set button tooltips and endless label
     updateButtonTooltips();
 
+    // Show/hide guesser button based on mode
+    if (typeof updateGuesserButtonVisibility === 'function') updateGuesserButtonVisibility();
+
     // Load and display game state
     loadAndDisplay();
 }
@@ -103,6 +106,7 @@ function updateButtonTooltips() {
     const statsBtn = document.getElementById('historyButton');
     const endlessBtn = document.getElementById('endlessButton');
     const blitzBtn = document.getElementById('blitzButton');
+    const guesserBtn = document.getElementById('guesserButton');
     const volumeBtn = document.getElementById('volumeToggle');
 
     if (locale.tooltips) {
@@ -110,6 +114,7 @@ function updateButtonTooltips() {
         if (statsBtn) statsBtn.setAttribute('data-tooltip', locale.tooltips.stats);
         if (endlessBtn) endlessBtn.setAttribute('data-tooltip', locale.tooltips.endless);
         if (blitzBtn) blitzBtn.setAttribute('data-tooltip', locale.tooltips.blitz);
+        if (guesserBtn) guesserBtn.setAttribute('data-tooltip', locale.tooltips.guesser || 'Game Guessr');
         if (volumeBtn) volumeBtn.setAttribute('data-tooltip', locale.tooltips.volume);
     }
 
@@ -117,6 +122,12 @@ function updateButtonTooltips() {
     const endlessLabel = document.getElementById('endlessModeLabel');
     if (endlessLabel && endlessMode) {
         endlessLabel.textContent = locale.endless.name;
+    }
+
+    // Update guesser label text if visible
+    const guesserLabel = document.getElementById('guesserModeLabel');
+    if (guesserLabel && typeof guesserActive !== 'undefined' && guesserActive) {
+        guesserLabel.textContent = locale.guesser?.name || 'Game Guessr';
     }
 }
 
@@ -166,6 +177,10 @@ function toggleEndlessMode() {
     // Deactivate blitz if active
     if (typeof blitzActive !== 'undefined' && blitzActive) {
         deactivateBlitz();
+    }
+    // Deactivate guesser if active
+    if (typeof guesserActive !== 'undefined' && guesserActive) {
+        deactivateGuesser();
     }
 
     endlessMode = !endlessMode;
@@ -254,6 +269,9 @@ function switchMode(modeId) {
     // Update UI chrome
     renderModeSelector(currentMode, locale);
 
+    // Show/hide guesser button based on mode
+    if (typeof updateGuesserButtonVisibility === 'function') updateGuesserButtonVisibility();
+
     // Reset search filters when switching modes
     activeGameFilters.clear();
 
@@ -263,6 +281,17 @@ function switchMode(modeId) {
         updateBlitzBanner();
         startBlitzRound();
         return;
+    }
+
+    if (guesserActive) {
+        if (currentMode === 'random') {
+            // Guesser not available on Single Game mode — deactivate
+            deactivateGuesser();
+        } else {
+            applyGuesserTheme();
+            startGuesserRound();
+            return;
+        }
     }
 
     // Cleanup current state (not needed during blitz)
@@ -297,7 +326,17 @@ async function switchLanguage(langCode) {
     // Update UI elements with new locale
     renderModeSelector(currentMode, locale);
 
-    if (blitzActive) {
+    if (guesserActive) {
+        // Re-render guesser UI with new locale
+        const container = document.getElementById('gameContainer');
+        const isResults = container.classList.contains('results-screen');
+        if (isResults) {
+            renderGuesserResults();
+        } else {
+            renderGuesserGame();
+            updateGuesserTimerDisplay();
+        }
+    } else if (blitzActive) {
         // Re-render blitz UI with new locale
         const container = document.getElementById('gameContainer');
         const isResults = container.classList.contains('results-screen');
@@ -392,6 +431,8 @@ function setGlobalVolume(val) {
     applyVolume();
     updateVolumeIcon();
     updateVolumeValue();
+    const slider = document.getElementById('volumeSlider');
+    if (slider) slider.value = Math.round(globalVolume * 100);
 }
 
 function updateVolumeValue() {
@@ -404,6 +445,8 @@ function applyVolume() {
     if (typeof resultAudioElement !== 'undefined' && resultAudioElement) resultAudioElement.volume = globalVolume;
     if (typeof blitzAudio !== 'undefined' && blitzAudio) blitzAudio.volume = globalVolume;
     if (typeof preloadedBlitzAudio !== 'undefined' && preloadedBlitzAudio) preloadedBlitzAudio.volume = globalVolume;
+    if (typeof guesserAudio !== 'undefined' && guesserAudio) guesserAudio.volume = globalVolume;
+    if (typeof preloadedGuesserAudio !== 'undefined' && preloadedGuesserAudio) preloadedGuesserAudio.volume = globalVolume;
 }
 
 function updateVolumeIcon() {
@@ -427,6 +470,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (slider) slider.value = Math.round(globalVolume * 100);
     updateVolumeIcon();
     updateVolumeValue();
+
+    // Scroll wheel support on volume selector
+    const volumeSelector = document.getElementById('volumeSelector');
+    if (volumeSelector) {
+        volumeSelector.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            const step = 0.05;
+            const delta = e.deltaY < 0 ? step : -step;
+            setGlobalVolume(globalVolume + delta);
+        }, { passive: false });
+    }
 });
 
 // ============================================

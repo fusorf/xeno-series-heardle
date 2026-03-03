@@ -62,11 +62,22 @@
     "playAgain": "Otra vez",
     "backToGame": "Volver"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "O",
+    "correct": "Correcto",
+    "accuracy": "Precisión",
+    "bestStreak": "Mejor racha",
+    "songsFound": "canciones encontradas",
+    "playAgain": "Otra vez",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "Idioma",
     "stats": "Estadísticas",
     "endless": "Modo Infinito",
     "blitz": "Blitz",
+    "guesser": "Game Guessr",
     "volume": "Volumen"
   },
   "credits": {

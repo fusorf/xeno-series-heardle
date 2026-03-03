@@ -16,6 +16,7 @@
         <h1 id="pageTitle">Xeno Series Heardle</h1>
         <div class="endless-mode-label" id="endlessModeLabel">Endless Now</div>
         <div class="blitz-mode-label" id="blitzModeLabel"></div>
+        <div class="guesser-mode-label" id="guesserModeLabel"></div>
     </div>
 
     <!-- Mode selector tabs -->
@@ -45,6 +46,7 @@
         <button class="history-button" id="historyButton" onclick="showHistoryModal()" title="Statistics">📊</button>
         <button class="endless-button" id="endlessButton" onclick="toggleEndlessMode()" title="Endless Now">∞</button>
         <button class="blitz-button" id="blitzButton" onclick="toggleBlitzMode()" title="Blitz"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></button>
+        <button class="guesser-button" id="guesserButton" onclick="toggleGuesserMode()" title="Game Guessr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg></button>
     </div>
 
     <!-- Right toolbar: Language, Volume -->
@@ -87,6 +89,7 @@
     <script src="js/player.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/blitz.js"></script>
+    <script src="js/guesser.js"></script>
 
     <!-- Main game logic -->
     <script src="js/game.js"></script>

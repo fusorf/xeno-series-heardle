@@ -129,6 +129,11 @@ function activateBlitz() {
         if (endLabel) endLabel.classList.remove('visible');
     }
 
+    // Deactivate guesser if active
+    if (typeof guesserActive !== 'undefined' && guesserActive) {
+        deactivateGuesser();
+    }
+
     // Cleanup existing audio
     destroyPlayer();
     destroyResultPlayer();
@@ -816,8 +821,8 @@ function updateBlitzTimer() {
     const text = document.getElementById('blitzTimerText');
 
     if (fill) {
-        const pct = (blitzTimeLeft / BLITZ_DURATION) * 100;
-        fill.style.width = pct + '%';
+        const pct = blitzTimeLeft / BLITZ_DURATION;
+        fill.style.transform = `scaleX(${pct})`;
 
         fill.classList.remove('blitz-timer-warning', 'blitz-timer-critical');
         if (blitzTimeLeft <= 10) {

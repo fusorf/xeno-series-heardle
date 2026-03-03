@@ -68,9 +68,11 @@ h1,
 .credits-box a,
 .endless-button,
 .blitz-button,
+.guesser-button,
 .restart-button,
 .endless-mode-label,
-.blitz-mode-label {
+.blitz-mode-label,
+.guesser-mode-label {
     transition: background 0.8s ease, border-color 0.8s ease,
                 text-shadow 0.8s ease, color 0.8s ease;
 }
@@ -1093,14 +1095,14 @@ button:active::before {
 
 /* Desktop layout: two columns */
 @media (min-width: 901px) {
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)) {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: clamp(8px, 3.3vh, 30px);
         align-items: start;
     }
 
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)) .audio-player {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) .audio-player {
         grid-column: 1;
         grid-row: 1;
         margin-bottom: 0;
@@ -1110,12 +1112,12 @@ button:active::before {
         justify-content: center;
     }
 
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)) .search-section {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) .search-section {
         grid-column: 1 / -1;
         grid-row: 2;
     }
 
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)) .guess-boxes {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) .guess-boxes {
         grid-column: 2;
         grid-row: 1;
         margin-bottom: 0;
@@ -1130,7 +1132,7 @@ button:active::before {
 .credits-box {
     max-width: 700px;
     width: 100%;
-    padding: 20px;
+    padding: 8px;
     font-family: var(--theme-font-body);
     font-size: 0.85rem;
     color: #aaaaaa;
@@ -1842,8 +1844,8 @@ button:active::before {
     height: 100%;
     width: 100%;
     background: linear-gradient(90deg, var(--theme-primary), var(--theme-accent));
-    border-radius: 5px;
-    transition: width 1s linear;
+    transform-origin: left;
+    transition: transform 1s linear;
 }
 
 .blitz-timer-fill.blitz-timer-warning {
@@ -2632,6 +2634,8 @@ button:active::before {
     color: var(--theme-primary);
     letter-spacing: 0.5px;
     user-select: none;
+    min-width: 32px;
+    text-align: center;
 }
 
 .volume-slider {
@@ -3132,5 +3136,674 @@ button:active::before {
 
     .stat-label {
         font-size: 0.8rem;
+    }
+}
+
+/* ============================================ */
+/* GAME GUESSER MODE                           */
+/* ============================================ */
+
+/* Guesser button (toolbar-left, below blitz) */
+.guesser-button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--panel-border);
+    background: var(--panel-bg);
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    padding: 0;
+}
+
+.guesser-button:hover {
+    background: rgba(var(--theme-primary-rgb), 0.15);
+    border-color: var(--theme-primary);
+    box-shadow: 0 4px 15px rgba(var(--theme-primary-rgb), 0.3);
+}
+
+.guesser-button.active {
+    background: linear-gradient(135deg, var(--theme-secondary), var(--theme-primary));
+    border-color: var(--theme-primary);
+    color: #fff;
+    box-shadow:
+        0 0 15px rgba(var(--theme-primary-rgb), 0.4),
+        0 0 25px rgba(var(--theme-primary-rgb), 0.2);
+    animation: guesserBtnGlow 2s ease-in-out infinite;
+}
+
+@keyframes guesserBtnGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 15px rgba(var(--theme-primary-rgb), 0.4),
+            0 0 25px rgba(var(--theme-primary-rgb), 0.2);
+    }
+    50% {
+        box-shadow:
+            0 0 20px rgba(var(--theme-primary-rgb), 0.5),
+            0 0 35px rgba(var(--theme-primary-rgb), 0.3),
+            0 0 45px rgba(var(--theme-primary-rgb), 0.15);
+    }
+}
+
+/* Guesser mode label (title area) */
+.guesser-mode-label {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--theme-font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--theme-primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    white-space: nowrap;
+    text-shadow:
+        0 0 10px rgba(var(--theme-primary-rgb), 0.5),
+        0 0 20px rgba(var(--theme-primary-rgb), 0.2),
+        0 0 40px rgba(var(--theme-primary-rgb), 0.1);
+    opacity: 0;
+    clip-path: inset(-50px 100% -50px -50px);
+    pointer-events: none;
+}
+
+.guesser-mode-label.visible {
+    animation: labelReveal 0.6s ease forwards;
+}
+
+.guesser-mode-label.hiding {
+    animation: labelFadeOut 0.3s ease forwards;
+}
+
+/* Guesser banner (score + lives + history) */
+.guesser-banner {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--panel-bg), rgba(0, 0, 0, 0.6));
+    border: 2px solid var(--theme-primary);
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 30px var(--theme-glow),
+        inset 0 0 30px rgba(var(--theme-accent-rgb), 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Lives bar */
+.guesser-lives {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.guesser-life-bar {
+    flex: 1;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--theme-primary), var(--theme-accent));
+    transition: all 0.4s ease;
+    box-shadow: 0 0 8px rgba(var(--theme-primary-rgb), 0.3);
+}
+
+.guesser-life-bar.empty {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    opacity: 0.3;
+}
+
+/* Timer bar */
+.guesser-timer-wrapper {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.guesser-timer-bar {
+    width: 100%;
+    height: 8px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.guesser-timer-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--theme-primary), var(--theme-accent));
+    transform-origin: left;
+    transition: transform 1s linear;
+}
+
+.guesser-timer-fill.warning {
+    background: linear-gradient(90deg, #FFB700, #FF8C00);
+}
+
+.guesser-timer-fill.critical {
+    background: linear-gradient(90deg, #FF4444, #FF0000);
+    animation: guesserTimerPulse 0.5s ease-in-out infinite;
+}
+
+@keyframes guesserTimerPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.guesser-timer-text {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 1px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--theme-font-heading);
+}
+
+/* Score (animated points) */
+.guesser-score {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.guesser-points {
+    font-family: var(--theme-font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.guesser-pts-label {
+    font-family: var(--theme-font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-left: 4px;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* History rows (scrollable — matches blitz-history pattern) */
+.guesser-history {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    margin-top: 10px;
+    padding: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.15);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--theme-primary-rgb), 0.5) transparent;
+}
+
+.guesser-history::-webkit-scrollbar {
+    width: 6px;
+}
+
+.guesser-history::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px 0;
+}
+
+.guesser-history::-webkit-scrollbar-thumb {
+    background: rgba(var(--theme-primary-rgb), 0.4);
+    border-radius: 6px;
+}
+
+.guesser-history::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--theme-primary-rgb), 0.7);
+}
+
+.guesser-history:empty {
+    opacity: 0.5;
+}
+
+.guesser-history-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.guesser-history-row:last-child {
+    border-bottom: none;
+}
+
+.guesser-history-icon {
+    font-weight: 700;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.guesser-history-correct .guesser-history-icon {
+    color: #06D6A0;
+}
+
+.guesser-history-wrong .guesser-history-icon {
+    color: #FF4444;
+}
+
+.guesser-history-title {
+    flex: 1;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.6);
+    padding-left: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.guesser-history-pts {
+    font-family: var(--theme-font-heading);
+    font-weight: 700;
+    color: var(--theme-primary);
+    min-width: 35px;
+    text-align: right;
+    font-size: 0.7rem;
+}
+
+/* Choice cards */
+.guesser-choices {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto 20px;
+}
+
+.guesser-or {
+    font-family: var(--theme-font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.guesser-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 15px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    position: relative;
+    overflow: visible;
+    width: 230px;
+    flex-shrink: 0;
+}
+
+.guesser-choice:active .guesser-cover {
+    transform: scale(0.95);
+}
+
+.guesser-cover-wrapper {
+    flex-shrink: 0;
+    perspective: 600px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guesser-cover {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(var(--theme-accent-rgb), 0.15);
+    will-change: transform;
+}
+
+.guesser-cover:hover {
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(var(--theme-accent-rgb), 0.3);
+}
+
+.guesser-cover img {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    pointer-events: none;
+}
+
+.guesser-game-name {
+    font-family: var(--theme-font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    letter-spacing: 0.5px;
+    width: 200px;
+    height: 2.4em;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Feedback: correct/wrong flashes */
+.guesser-choice.correct-flash {
+    border-color: rgba(0, 255, 150, 0.7);
+    box-shadow: 0 0 25px rgba(0, 255, 150, 0.4);
+    background: linear-gradient(135deg, rgba(0, 255, 150, 0.1), rgba(0, 0, 0, 0.4));
+}
+
+.guesser-choice.wrong-flash {
+    border-color: rgba(255, 50, 50, 0.7);
+    box-shadow: 0 0 25px rgba(255, 50, 50, 0.3);
+    background: linear-gradient(135deg, rgba(255, 50, 50, 0.08), rgba(0, 0, 0, 0.4));
+}
+
+/* Floating feedback animation */
+.guesser-float-feedback {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-weight: 900;
+    pointer-events: none;
+    animation: guesserFloatUp 0.8s ease-out forwards;
+    text-shadow: 0 0 20px currentColor;
+    z-index: 10;
+}
+
+@keyframes guesserFloatUp {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px) scale(1.3);
+    }
+}
+
+/* Results header */
+.guesser-results-header {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.guesser-final-score {
+    font-family: var(--theme-font-heading);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.guesser-final-num {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.guesser-final-pts {
+    font-family: var(--theme-font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-left: 6px;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.guesser-final-subtitle {
+    font-family: var(--theme-font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+
+/* Stats grid for guesser */
+.guesser-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Recap rows */
+.guesser-recap {
+    max-height: 150px;
+    overflow-y: auto;
+    margin: 12px 0 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--theme-primary-rgb), 0.5) transparent;
+}
+
+.guesser-recap::-webkit-scrollbar {
+    width: 6px;
+}
+
+.guesser-recap::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px 0;
+}
+
+.guesser-recap::-webkit-scrollbar-thumb {
+    background: rgba(var(--theme-primary-rgb), 0.4);
+    border-radius: 6px;
+}
+
+.guesser-recap::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--theme-primary-rgb), 0.7);
+}
+
+.guesser-recap-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.guesser-recap-row:last-child {
+    border-bottom: none;
+}
+
+.guesser-recap-icon {
+    font-weight: 700;
+    width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.guesser-recap-correct .guesser-recap-icon {
+    color: #06D6A0;
+}
+
+.guesser-recap-wrong .guesser-recap-icon {
+    color: #FF4444;
+}
+
+.guesser-recap-title {
+    flex: 1;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.guesser-recap-pts {
+    font-family: var(--theme-font-heading);
+    font-weight: 700;
+    color: var(--theme-primary);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Result actions */
+.guesser-result-actions {
+    max-width: 340px;
+    margin: 10px auto 25px;
+}
+
+/* Desktop: center guesser game layout */
+@media (min-width: 901px) {
+    .game-container:has(.guesser-banner) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-container:has(.guesser-banner) .guesser-banner {
+        min-height: 300px;
+        max-height: 300px;
+    }
+
+    .guesser-button[data-tooltip] {
+        overflow: visible;
+    }
+
+    .guesser-button[data-tooltip]::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        background: rgba(0, 0, 0, 0.85);
+        color: #ffffff;
+        font-family: var(--theme-font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 5px 10px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
+    }
+
+    .guesser-button[data-tooltip]:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Mobile: guesser adjustments */
+@media (max-width: 900px) {
+    .guesser-button {
+        position: fixed;
+        bottom: auto;
+        top: 102px;
+        left: 10px;
+        right: auto;
+        z-index: 5000;
+    }
+
+    .guesser-mode-label {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        bottom: 20px;
+    }
+
+    .guesser-banner {
+        padding: 15px;
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+    .guesser-points {
+        font-size: 2rem;
+    }
+
+    .guesser-choices {
+        gap: 12px;
+    }
+
+    .guesser-cover-wrapper {
+        width: 130px;
+        height: 130px;
+    }
+
+    .guesser-cover {
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    .guesser-cover img {
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    .guesser-game-name {
+        font-size: 0.75rem;
+        width: 130px;
+    }
+
+    .guesser-choice {
+        padding: 10px;
+        width: 150px;
+    }
+
+    .guesser-or {
+        font-size: 0.85rem;
+    }
+
+    .guesser-final-score {
+        font-size: 3rem;
+    }
+
+    .guesser-final-pts {
+        font-size: 0.75rem;
+    }
+
+    .guesser-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

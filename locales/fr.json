@@ -62,11 +62,22 @@
     "playAgain": "Rejouer",
     "backToGame": "Retour"
   },
+  "guesser": {
+    "name": "Game Guessr",
+    "or": "OU",
+    "correct": "Correct",
+    "accuracy": "Précision",
+    "bestStreak": "Meilleure série",
+    "songsFound": "morceaux trouvés",
+    "playAgain": "Rejouer",
+    "pts": "pts"
+  },
   "tooltips": {
     "language": "Langue",
     "stats": "Statistiques",
     "endless": "Éternel présent",
     "blitz": "Blitz",
+    "guesser": "Game Guessr",
     "volume": "Volume"
   },
   "credits": {

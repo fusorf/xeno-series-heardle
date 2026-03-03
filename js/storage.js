@@ -384,6 +384,38 @@ function getGlobalBlitzStats(gameFilter = null) {
 }
 
 // ============================================
+// GUESSER HISTORY (per mode, like blitz)
+// ============================================
+
+function getGuesserHistory(modeId) {
+    const key = `xenoHeardle_${modeId}_guesser`;
+    return storageGet(key) || [];
+}
+
+function saveToGuesserHistory(modeId, correct, attempted, bestStreak, score = 0, game = null) {
+    const history = getGuesserHistory(modeId);
+
+    const entry = {
+        correct,
+        attempted,
+        bestStreak,
+        score,
+        timestamp: new Date().toISOString()
+    };
+    if (game) entry.game = game;
+
+    history.push(entry);
+
+    // Keep last 200 entries
+    if (history.length > 200) {
+        history.splice(0, history.length - 200);
+    }
+
+    const key = `xenoHeardle_${modeId}_guesser`;
+    storageSet(key, history);
+}
+
+// ============================================
 // DEBUG CONSOLE COMMANDS
 // ============================================
 
@@ -395,6 +427,7 @@ function clearAllData() {
         storageRemove(`xenoHeardle_${mode}_history`);
         storageRemove(`xenoHeardle_${mode}_endless`);
         storageRemove(`xenoHeardle_${mode}_blitz`);
+        storageRemove(`xenoHeardle_${mode}_guesser`);
     });
     storageRemove('xenoHeardleMode');
     storageRemove('xenoHeardleLanguage');
@@ -409,6 +442,7 @@ function clearModeData(mode) {
     storageRemove(`xenoHeardle_${mode}_history`);
     storageRemove(`xenoHeardle_${mode}_endless`);
     storageRemove(`xenoHeardle_${mode}_blitz`);
+    storageRemove(`xenoHeardle_${mode}_guesser`);
     console.log(`✅ Data cleared for mode: ${mode}. Reload the page to start fresh.`);
 }
 
