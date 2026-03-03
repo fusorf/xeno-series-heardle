@@ -6,10 +6,10 @@
 // 3 lives, floating feedback, recap screen with share text.
 
 const GUESSER_MAX_LIVES = 3;
-const GUESSER_SONG_TIME = 15;        // 15 seconds per song
+const GUESSER_SONG_TIME = 7;         // 7 seconds per song
 const GUESSER_BASE_POINTS = 50;      // Minimum points for correct answer
 const GUESSER_TIME_MULTIPLIER = 30;  // Points per second remaining
-// Max points per song: 50 + 15×30 = 500 (instant answer)
+// Max points per song: 50 + 7×30 = 260 (instant answer)
 // Min points per song: 50 + 0×30 = 50 (answered at last second)
 
 // State
@@ -194,10 +194,34 @@ function animateGuesserScore(el, from, to, duration) {
 function startGuesserTimer() {
     stopGuesserTimer();
     guesserTimeLeft = GUESSER_SONG_TIME;
-    updateGuesserTimerDisplay();
+
+    // Kick off smooth CSS animation: full → empty over total duration
+    const fill = document.getElementById('guesserTimerFill');
+    if (fill) {
+        fill.style.transition = 'none';
+        fill.style.transform = 'scaleX(1)';
+        fill.classList.remove('warning', 'critical');
+        fill.offsetWidth; // force reflow
+        fill.style.transition = `transform ${GUESSER_SONG_TIME}s linear`;
+        fill.style.transform = 'scaleX(0)';
+    }
+    const text = document.getElementById('guesserTimerText');
+    if (text) text.textContent = GUESSER_SONG_TIME + 's';
+
+    // Interval only for: text countdown, warning/critical classes, timeout logic
     guesserTimerInterval = setInterval(() => {
         guesserTimeLeft--;
-        updateGuesserTimerDisplay();
+        const t = document.getElementById('guesserTimerText');
+        const f = document.getElementById('guesserTimerFill');
+        if (t) t.textContent = guesserTimeLeft + 's';
+        if (f) {
+            f.classList.remove('warning', 'critical');
+            if (guesserTimeLeft <= 2) {
+                f.classList.add('critical');
+            } else if (guesserTimeLeft <= 3) {
+                f.classList.add('warning');
+            }
+        }
         if (guesserTimeLeft <= 0) {
             // Time's up — treat as wrong answer
             stopGuesserTimer();
@@ -212,7 +236,7 @@ function startGuesserTimer() {
                 points: 0
             });
 
-            showGuesserFeedback(false, null); // null = timeout, highlight correct only
+            showGuesserFeedback(false, null);
             updateGuesserLives();
             updateGuesserScore();
             updateGuesserHistoryDisplay();
@@ -237,20 +261,27 @@ function stopGuesserTimer() {
     }
 }
 
+/**
+ * Sync timer display after DOM rebuild (e.g. language switch).
+ * Snaps bar to current position then resumes CSS animation for remaining time.
+ */
 function updateGuesserTimerDisplay() {
     const fill = document.getElementById('guesserTimerFill');
     const text = document.getElementById('guesserTimerText');
 
     if (fill) {
         const pct = guesserTimeLeft / GUESSER_SONG_TIME;
+        fill.style.transition = 'none';
         fill.style.transform = `scaleX(${pct})`;
-
         fill.classList.remove('warning', 'critical');
-        if (guesserTimeLeft <= 3) {
+        if (guesserTimeLeft <= 2) {
             fill.classList.add('critical');
-        } else if (guesserTimeLeft <= 5) {
+        } else if (guesserTimeLeft <= 3) {
             fill.classList.add('warning');
         }
+        fill.offsetWidth; // force reflow
+        fill.style.transition = `transform ${guesserTimeLeft}s linear`;
+        fill.style.transform = 'scaleX(0)';
     }
     if (text) text.textContent = guesserTimeLeft + 's';
 }
@@ -803,7 +834,6 @@ function renderGuesserResults() {
     // Score header (animated total points)
     html += '<div class="guesser-results-header">';
     html += `<div class="guesser-final-score"><span class="guesser-final-num">0</span><span class="guesser-final-pts">${ptsLabel}</span></div>`;
-    html += `<p class="guesser-final-subtitle">${guesserCorrect} ${l.songsFound || 'songs found'}</p>`;
     html += '</div>';
 
     // Stats grid

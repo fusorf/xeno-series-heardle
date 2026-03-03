@@ -3691,6 +3691,13 @@ button:active::before {
     margin: 10px auto 25px;
 }
 
+.guesser-result-actions .submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
 /* Desktop: center guesser game layout */
 @media (min-width: 901px) {
     .game-container:has(.guesser-banner) {
