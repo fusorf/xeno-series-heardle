@@ -451,6 +451,7 @@ function renderBlitzGame() {
     html += `<div class="search-container">`;
     html += `<span class="search-icon">🔍</span>`;
     html += `<input type="text" class="search-input" id="blitzSearchInput" placeholder="${l.searchPlaceholder || locale.search}" autocomplete="off">`;
+    html += `<button type="button" class="search-clear-btn" id="blitzSearchClearBtn" aria-label="Clear">✕</button>`;
     html += `<div class="autocomplete-list" id="blitzAutocomplete"></div>`;
     html += `</div>`;
     html += `<div class="button-container">`;
@@ -479,6 +480,19 @@ function setupBlitzListeners() {
         autocomplete.addEventListener('click', (e) => {
             const item = e.target.closest('.blitz-ac-item');
             if (item) selectBlitzSongFromList(item.dataset.title);
+        });
+    }
+
+    // Clear button
+    const clearBtn = document.getElementById('blitzSearchClearBtn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.classList.remove('visible');
+            autocomplete.classList.remove('active');
+            blitzSelectedSong = null;
+            submitBtn.disabled = true;
+            searchInput.focus();
         });
     }
 }
@@ -626,6 +640,10 @@ function handleBlitzSearch(e) {
     const query = e.target.value.toLowerCase();
     const autocomplete = document.getElementById('blitzAutocomplete');
     const submitBtn = document.getElementById('blitzSubmitBtn');
+
+    // Toggle clear button visibility
+    const clearBtn = document.getElementById('blitzSearchClearBtn');
+    if (clearBtn) clearBtn.classList.toggle('visible', e.target.value.length > 0);
 
     if (query.length < 1) {
         autocomplete.classList.remove('active');

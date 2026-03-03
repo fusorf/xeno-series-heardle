@@ -496,6 +496,19 @@ function setupEventListeners() {
     searchInput.addEventListener('input', searchInputHandler);
     searchInput.addEventListener('keydown', searchKeydownHandler);
 
+    // Clear button
+    const clearBtn = document.getElementById('searchClearBtn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.classList.remove('visible');
+            document.getElementById('autocompleteList').classList.remove('active');
+            selectedSong = null;
+            document.getElementById('submitButton').disabled = true;
+            searchInput.focus();
+        });
+    }
+
     if (giveUpButton) {
         giveUpButton.addEventListener('click', giveUpButtonHandler);
     }
@@ -624,6 +637,10 @@ function handleSearchInput(e) {
     const query = e.target.value.toLowerCase();
     const autocompleteList = document.getElementById('autocompleteList');
     const submitButton = document.getElementById('submitButton');
+
+    // Toggle clear button visibility
+    const clearBtn = document.getElementById('searchClearBtn');
+    if (clearBtn) clearBtn.classList.toggle('visible', e.target.value.length > 0);
 
     if (query.length < 1) {
         autocompleteList.classList.remove('active');

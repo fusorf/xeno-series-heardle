@@ -185,6 +185,7 @@ function renderGame(currentMode, dailySong, currentAttempt, guesses, locale) {
         <div class="search-container">
             <span class="search-icon">🔍</span>
             <input type="text" class="search-input" id="searchInput" placeholder="${locale.search}" autocomplete="off">
+            <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear">✕</button>
             <div class="autocomplete-list" id="autocompleteList"></div>
         </div>
     `;
@@ -815,56 +816,3 @@ new MutationObserver(updateCreditsVisibility).observe(document.body, {
     childList: true, subtree: true, attributes: true
 });
 
-// ============================================
-// MOBILE KEYBOARD — scroll lock at top
-// ============================================
-
-if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    let scrollLockTimers = [];
-
-    function onViewportResize() {
-        const keyboardHeight = window.innerHeight - window.visualViewport.height;
-        const section = document.querySelector('.search-section');
-        if (section) {
-            section.style.bottom = keyboardHeight > 50 ? keyboardHeight + 'px' : '';
-        }
-    }
-
-    document.addEventListener('focusin', (e) => {
-        if (e.target.matches('.search-input')) {
-            // Scroll to top before locking
-            window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-            document.body.classList.add('keyboard-open');
-
-            // Re-assert after the browser's keyboard auto-scroll
-            scrollLockTimers = [50, 150, 300, 500].map(delay =>
-                setTimeout(() => {
-                    window.scrollTo(0, 0);
-                    document.documentElement.scrollTop = 0;
-                }, delay)
-            );
-
-            // Push search section above keyboard
-            if (window.visualViewport) {
-                window.visualViewport.addEventListener('resize', onViewportResize);
-                onViewportResize();
-            }
-        }
-    });
-    document.addEventListener('focusout', (e) => {
-        if (e.target.matches('.search-input')) {
-            scrollLockTimers.forEach(clearTimeout);
-            scrollLockTimers = [];
-            document.body.classList.remove('keyboard-open');
-
-            // Reset search section position
-            const section = document.querySelector('.search-section');
-            if (section) section.style.bottom = '';
-            if (window.visualViewport) {
-                window.visualViewport.removeEventListener('resize', onViewportResize);
-            }
-        }
-    });
-}

@@ -544,7 +544,7 @@ h1 {
 
 .search-input {
     width: 100%;
-    padding: clamp(10px, 2vh, 18px) 18px clamp(10px, 2vh, 18px) 55px;
+    padding: clamp(10px, 2vh, 18px) 48px clamp(10px, 2vh, 18px) 55px;
     font-size: clamp(0.9rem, 1.3vh, 1.1rem);
     border: 2px solid var(--panel-border);
     border-radius: 12px;
@@ -578,6 +578,33 @@ h1 {
     font-size: 1.3rem;
     color: var(--primary-blue);
     filter: drop-shadow(0 0 5px var(--glow-blue));
+}
+
+.search-clear-btn {
+    display: none;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--theme-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.search-clear-btn.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .autocomplete-list {
@@ -1153,18 +1180,6 @@ button:active::before {
         margin-top: 15px;
     }
 
-    body {
-        padding-bottom: 180px; /* Space for sticky search section */
-    }
-
-    /* Lock body scroll when mobile keyboard is open */
-    body.keyboard-open {
-        overflow: hidden;
-        position: fixed;
-        width: 100%;
-        top: 0;
-    }
-
     .guess-box {
         padding: 10px;
         font-size: 0.9rem;
@@ -1213,11 +1228,6 @@ button:active::before {
         font-size: 0.8rem;
     }
 
-    .game-filters {
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-        gap: 6px;
-    }
-
     .game-filter-chip {
         padding: 6px 8px;
         font-size: 0.75rem;
@@ -1233,60 +1243,28 @@ button:active::before {
         padding: 15px 15px 15px 50px;
     }
 
-    /* Sticky search section at bottom on mobile */
-    .search-section {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(135deg, rgba(var(--theme-bg-darker-rgb), 0.98), rgba(var(--theme-bg-dark-rgb), 0.98));
-        backdrop-filter: blur(10px);
-        padding: 15px;
-        margin-bottom: 0;
-        z-index: 9000;
-        border-top: 2px solid var(--panel-border);
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
-    }
-
-    .search-container {
-        margin-bottom: 12px;
-    }
-
     .game-filters {
-        margin-bottom: 12px;
-        order: -1; /* Move filters above search */
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 6px;
+        margin-bottom: 4px;
+        padding: 10px 12px;
+        scrollbar-width: none;
     }
 
-    .button-container {
-        margin-bottom: 0;
+    .game-filters::-webkit-scrollbar {
+        display: none;
     }
 
-    /* Autocomplete dropdown appears ABOVE search on mobile */
-    .autocomplete-list {
-        position: fixed;
-        top: auto;
-        bottom: 100%;
-        left: 15px;
-        right: 15px;
-        border-radius: 12px 12px 0 0;
-        border: 2px solid var(--panel-border);
-        border-bottom: none;
-        max-height: 250px;
+    .game-filters .game-filter-chip {
+        flex: 0 0 auto;
     }
 
-    .autocomplete-list.active {
-        animation: dropUp 0.3s ease-out;
-    }
-
-    @keyframes dropUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .guess-boxes {
+        margin-top: 10px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 }
 
