@@ -4064,8 +4064,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Misaki Umase"
   },
   {
-    "title": "2DXLB (Instrumental ver.)",
-    "japaneseTitle": "2DXLB (Instrumental ver.)",
+    "title": "2XDLB (Instrumental ver.)",
+    "japaneseTitle": "2XDLB (Instrumental ver.)",
     "localizedTitle": "2DXLB (Instrumental ver.)",
     "file": "5-05. 2DXLB (Instrumental ver.).mp3",
     "duration": 192,
@@ -4074,8 +4074,8 @@ const SONGS_XENOBLADE_X_DE = [
     "artist": "Hiroyuki SAWANO"
   },
   {
-    "title": "2DXLB",
-    "japaneseTitle": "2DXLB",
+    "title": "2XDLB",
+    "japaneseTitle": "2XDLB",
     "localizedTitle": "2DXLB",
     "file": "5-06. 2DXLB.mp3",
     "duration": 188,
