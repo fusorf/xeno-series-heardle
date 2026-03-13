@@ -4,21 +4,22 @@
 
 ```
 xeno-series-heardle/
-├── index.html              # Main HTML entry point (includes volume control, language selector)
+├── index.html              # Main HTML entry point (includes volume control, language selector, mobile toolbar)
 ├── style.css               # Global styles and theme system
 ├── favicon.ico             # Site favicon
 │
 ├── js/                     # All JavaScript files
 │   ├── version.js          # Auto-generated app version (pre-commit hook)
 │   ├── constants.js        # Game constants (durations, max attempts, default mode)
-│   ├── songs.js            # Song database with game metadata (705 songs) + GAME_MODES config
+│   ├── songs.js            # Song database with game metadata (723 songs) + GAME_MODES config
 │   ├── random.js           # Deterministic randomization system (seeded PRNG)
-│   ├── game.js             # Main game orchestrator (daily + endless + blitz modes)
 │   ├── storage.js          # localStorage-based state management (migrated from cookies)
 │   ├── theme.js            # CSS stylesheet swapping (gamemode + game themes)
-│   ├── player.js           # HTML5 Audio player with progress tracking
-│   ├── ui.js               # UI rendering, DOM manipulation, autocomplete, mobile keyboard handling
-│   └── blitz.js            # Blitz mode — 60-second rapid-fire challenge, combo UI, audio preloading
+│   ├── player.js           # HTML5 Audio player with progress tracking (timeupdate-based)
+│   ├── ui.js               # UI rendering, DOM manipulation, autocomplete, mobile keyboard/toolbar
+│   ├── blitz.js            # Blitz mode — 60-second rapid-fire challenge, combo UI, audio preloading
+│   ├── guesser.js          # Game Guessr mode — identify the correct game from cover art (A/B choice)
+│   └── game.js             # Main game orchestrator (daily + endless + blitz + guesser modes)
 │
 ├── images/                 # All image assets
 │   ├── noise-texture.png   # Marble texture for title text effect (Marble006 inverted, CC0)
@@ -95,10 +96,15 @@ xeno-series-heardle/
 │       ├── background.webp
 │       └── cover.jpg
 │
-├── locales/                # Internationalization (EN/FR/JA)
+├── locales/                # Internationalization (8 languages)
 │   ├── en.json             # English
 │   ├── fr.json             # French
-│   └── ja.json             # Japanese
+│   ├── ja.json             # Japanese
+│   ├── de.json             # German
+│   ├── es.json             # Spanish
+│   ├── it.json             # Italian
+│   ├── ko.json             # Korean
+│   └── zh.json             # Chinese (Simplified)
 │
 ├── themes/                 # CSS theme files (override :root variables)
 │   ├── games/              # Per-game color themes (loaded on results screen)
@@ -114,12 +120,12 @@ xeno-series-heardle/
 │
 ├── .gitignore              # Git ignore rules
 ├── README.md               # Project description
-└── architecture.md         # This file
+└── ARCHITECTURE.md         # This file
 ```
 
 ### Script Loading Order (index.html)
 ```
-version.js → constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → blitz.js → game.js
+version.js → constants.js → songs.js → random.js → storage.js → theme.js → player.js → ui.js → blitz.js → guesser.js → game.js
 ```
 
 ## Game Modes
@@ -131,7 +137,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Logo**: `images/full-xeno/logo.svg`
 - **Theme**: Red (#E63946)
 - **Random Start**: No (always 0s)
-- **Song Pool**: ~635 songs
+- **Song Pool**: ~653 songs
 
 ### 2. Xenoblade Heardle (`xenoblade`) - Default
 - **Games**: Xenoblade 1 DE, FC, 2, Torna, 3, FR, X, X DE
@@ -145,7 +151,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Logo**: `images/xenosaga/logo.svg`
 - **Theme**: Purple (#7209B7)
 - **Random Start**: No
-- **Song Pool**: ~201 songs
+- **Song Pool**: ~219 songs
 
 ### 4. Random Daily (`random`)
 - **Games**: All 14 games (including Freaks, Pied Piper)
@@ -153,10 +159,10 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Theme**: Inherits daily game's color
 - **Random Start**: YES (random timestamp between 0 and duration-16s)
 - **Special**: Daily game name is revealed to players
-- **Song Pool**: 705 songs (full database)
+- **Song Pool**: 723 songs (full database)
 
 ### 5. Endless Mode (overlay on any mode)
-- **Toggle**: Fixed button (∞) in bottom-left corner
+- **Toggle**: Fixed button (∞) in bottom-left corner (desktop) / mobile toolbar
 - **Badge**: Animated ∞ symbol next to title (Helvetica Neue, oblique, fade+expand transition)
 - **Label**: "Endless Now" text under title (clip-path left-to-right reveal animation, fade-out on disable)
 - **Behavior**: Plays random songs continuously, independent from daily game
@@ -173,7 +179,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Functions**: `toggleEndlessMode()`, `startEndlessRound()`, `setEndlessStart()` in game.js
 
 ### 6. Blitz Mode (overlay on any mode)
-- **Toggle**: Fixed button (⚡) in top-left corner (below Endless button on mobile)
+- **Toggle**: Fixed button (⚡) in top-left corner (desktop) / mobile toolbar
 - **Label**: "BLITZ" text under title (same clip-path reveal animation as Endless)
 - **Behavior**: 60-second rapid-fire challenge. Songs play continuously until guess or skip.
 - **Theme**: Inherits selected gamemode/game theme (no blitz-specific colors)
@@ -200,14 +206,31 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Integration**: `switchMode()` in game.js calls `applyBlitzTheme()` + `startBlitzRound()` when blitz is active
 - **Shared state**: Uses `endlessLockedGame` for Single Game mode (reset to null on deactivate)
 
+### 7. Game Guessr Mode (overlay, random mode only)
+- **Toggle**: Button (🎯) in toolbar (desktop) / mobile toolbar — only visible in Random mode
+- **Behavior**: Hear a 7-second clip, pick which game it's from between two cover art choices (A/B)
+- **Scoring**:
+  - Base: 50 points + (time remaining × 30) per correct answer
+  - Max: 260 points (instant answer), Min: 50 points (last second)
+  - Streak tracking with best streak recorded
+- **Lives**: 3 lives (hearts), wrong answer loses a life
+- **Audio**: Separate `guesserAudio` element, 7-second clips, random start position
+- **Song preloading**: `preloadNextGuesserSong()` for seamless transitions
+- **UI**: Two large cover art cards (A/B), timer countdown, score display, lives as hearts
+  - Floating feedback on correct/wrong answer
+  - Results screen with score, accuracy, best streak, song recap, share (copy/tweet)
+- **Stats**: Separate guesser history per mode (`xenoHeardle_{mode}_guesser`)
+- **Functions**: `toggleGuesserMode()`, `activateGuesser()`, `deactivateGuesser()`, `startGuesserRound()`, `endGuesser()` in guesser.js
+
 ## Data Flow
 
 ```
 1. User visits page
    └─> initGame() [game.js]
-       ├─> Load locale (EN/FR/JA) via fetch
+       ├─> Load locale (8 languages) via fetch
        ├─> Load saved mode preference (localStorage)
        ├─> Render mode selector tabs [ui.js]
+       ├─> Setup mobile toolbar (moves buttons on ≤900px) [ui.js]
        ├─> Get daily song (deterministic)
        │   └─> getDailySong(mode) [random.js]
        │       ├─> Standard modes: selectStandardDailySong()
@@ -227,7 +250,7 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
            ├─> Load audio via getAudioUrl() [songs.js]
            ├─> Seek to startTime (0 or random)
            ├─> Play for DURATIONS[attempt] seconds (1s, 3s, 7s, 14s, 16s)
-           └─> Update progress bar via requestAnimationFrame
+           └─> Update progress bar via timeupdate event + safety timeout
 
 3. User guesses
    └─> Search autocomplete (multi-word + game name matching)
@@ -276,13 +299,20 @@ Each mode is defined in `GAME_MODES` (songs.js) with: `id`, `name`, `description
 - **Desktop only** (hidden on mobile via CSS media query)
 - **Position**: Bottom-right corner, same style as language selector
 - **UI**: Emoji button (🔊/🔈/🔇) opens a vertical slider menu above
-- **Global**: `globalVolume` variable in game.js, applied to all Audio elements (gameplay, results, blitz, preloaded)
+- **Global**: `globalVolume` variable in game.js, applied to all Audio elements (gameplay, results, blitz, guesser, preloaded)
 - **Persistence**: Saved in `localStorage` as `globalVolume` (0–1 float)
 - **Functions**: `toggleVolumeMenu()`, `setGlobalVolume(val)`, `applyVolume()`, `updateVolumeIcon()`
 - **Tooltip**: Localized via `data-tooltip` system (same as other buttons)
 
-## Mobile Keyboard Handling
+## Mobile Layout
 
+### Toolbar
+- On mobile (≤900px), toolbar buttons (Endless, Blitz, Guessr, Stats, Language) are moved into a horizontal row (`#mobileToolbar`) below the pool selectors
+- `setupMobileToolbar()` in ui.js relocates buttons via `appendChild` on DOMContentLoaded
+- Buttons are evenly distributed via `justify-content: space-evenly`
+- Original toolbar containers hidden via `.mobile-hidden` class
+
+### Keyboard Handling
 - **Detection**: `isMobileOS` check via `navigator.userAgent` (Android/iPhone/iPad/iPod)
 - **On input focus** (`.search-input`):
   - Adds `keyboard-open` class to body (locks scroll via `position: fixed; overflow: hidden`)
@@ -379,7 +409,8 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 - **Endless history**: `xenoHeardle_{mode}_endless` (last 200 entries)
 - **Blitz history**: `xenoHeardle_{mode}_blitz` (last 200 entries)
 - **Blitz high score**: `xenoHeardle_blitz_highscore`
-- **Stats UI**: Game filter chips in header (horizontal scroll, daily/endless only — hidden for blitz)
+- **Guesser history**: `xenoHeardle_{mode}_guesser` (last 200 entries)
+- **Stats UI**: Game filter chips in header (horizontal scroll, daily/endless only — hidden for blitz/guesser)
 - **Global stats**: `getGlobalStats()` / `getGlobalEndlessStats()` / `getGlobalBlitzStats()` merge histories across all modes, displayed at top of stats modal
 
 ### Saved State Schema
@@ -395,8 +426,8 @@ Uses a seeded Linear Congruential Generator (LCG) via `SeededRandom` class.
 
 ### Debug Utilities (browser console, localhost only)
 ```javascript
-clearAllData()           // Wipe all saved games (daily + endless + blitz)
-clearModeData(mode)      // Clear specific mode (daily + endless + blitz)
+clearAllData()           // Wipe all saved games (daily + endless + blitz + guesser)
+clearModeData(mode)      // Clear specific mode (daily + endless + blitz + guesser)
 showData()               // Display all saved states
 ```
 
@@ -409,22 +440,38 @@ player.js → HTML5 <audio> element
 │   ├─ Preloads audio file
 │   ├─ Seeks to startTime (0 or random)
 │   ├─ Plays for DURATIONS[attempt] seconds
-│   └─ Progress bar via requestAnimationFrame
+│   ├─ Progress bar via timeupdate event (~4 fires/sec)
+│   └─ Safety timeout: guarantees clip stops even if timeupdate fires late
 │
 ├── Result player: full song playback
 │   ├─ Initialized after game ends
 │   ├─ Click-to-seek on progress bar
-│   └─ Time display (current / total)
+│   ├─ Time display (current / total)
+│   └─ Progress via timeupdate event
 │
-└── Blitz player: continuous playback (blitz.js)
-    ├─ Separate Audio object (blitzAudio)
-    ├─ Plays continuously until guess or skip
+├── Blitz player: continuous playback (blitz.js)
+│   ├─ Separate Audio object (blitzAudio)
+│   ├─ Plays continuously until guess or skip
+│   ├─ Random start position per song
+│   ├─ Loops from beginning (0:00) on song end
+│   ├─ Next song preloaded via preloadNextBlitzSong()
+│   ├─ Stale-reference protection on audio fallback timeout
+│   └─ All players respect globalVolume (game.js)
+│
+└── Guesser player: 7-second clips (guesser.js)
+    ├─ Separate Audio object (guesserAudio)
     ├─ Random start position per song
-    ├─ Loops from beginning (0:00) on song end
-    ├─ Next song preloaded via preloadNextBlitzSong()
-    ├─ Stale-reference protection on audio fallback timeout
-    └─ All players respect globalVolume (game.js)
+    ├─ 7-second timer countdown
+    ├─ Next song preloaded via preloadNextGuesserSong()
+    └─ Respects globalVolume
 ```
+
+### Audio URL Pattern
+```
+{AUDIO_BASE_URL}/music/{GAMES[gameId].folder}/{encodeURIComponent(song.file)}
+```
+- Song files include `.mp3` extension in the `file` field
+- URL path includes `/music/` prefix before the game folder
 
 ### Audio Sources
 - **Production**: Cloudflare R2 via `AUDIO_BASE_URL` constant in songs.js
@@ -445,22 +492,22 @@ player.js → HTML5 <audio> element
 | Xenogears | `xenogears` | 44 | #8B4513 |
 | Xenosaga I | `xenosaga-1` | 47 | #7209B7 |
 | Xenosaga II | `xenosaga-2` | 70 | #9D4EDD |
-| Xenosaga III | `xenosaga-3` | 84 | #5A189A |
+| Xenosaga III | `xenosaga-3` | 102 | #5A189A |
 | Xenosaga Freaks | `xenosaga-freaks` | 23 | #C77DFF |
 | Xenosaga Pied Piper | `xenosaga-pied-piper` | 16 | #B5179E |
-| **Total** | | **705** | |
+| **Total** | | **723** | |
 
 ### Song Entry Format
 ```javascript
 {
-  title: "Song Name",
-  japaneseTitle: "日本語タイトル",    // Japanese title (shown when locale=ja)
-  localizedTitle: "Localized Name",  // or null
-  file: "filename.mp3",
-  duration: 234.5,                    // seconds
-  game: "game-id",
-  composer: "Composer Name",          // or null
-  artist: "Artist Name"              // or null
+  "title": "Song Name",
+  "japaneseTitle": "日本語タイトル",    // Japanese title (shown when locale=ja)
+  "localizedTitle": "Localized Name",  // or null
+  "file": "filename.mp3",              // includes .mp3 extension
+  "duration": 234.5,                    // seconds
+  "game": "game-id",
+  "composer": "Composer Name",          // primary credit (required)
+  "artist": "Artist Name"              // secondary/performer credit (optional)
 }
 ```
 
@@ -488,8 +535,8 @@ testRandomnessQuality('random', 100);
 
 ### Debug Utilities
 ```javascript
-clearAllData()           // Wipe all saved games (daily + endless + blitz)
-clearModeData(mode)      // Clear specific mode (daily + endless + blitz)
+clearAllData()           // Wipe all saved games (daily + endless + blitz + guesser)
+clearModeData(mode)      // Clear specific mode (daily + endless + blitz + guesser)
 showData()               // Display all saved states
 ```
 
@@ -500,9 +547,10 @@ showData()               // Display all saved states
 - **Day #1 epoch**: 2026-02-09 (launch date)
 - **Cycle length**: 20 days (avoids immediate repeats)
 - **Max song duration**: Should be > 16s (for random start mode)
-- **Locale files**: Must match structure in en.json (EN/FR/JA)
+- **Locale files**: Must match structure in en.json (8 languages: EN/FR/JA/DE/ES/IT/KO/ZH)
 - **No build step**: Pure vanilla JS, no bundler required
 - **No backend**: 100% client-side application
 - **All music hosted on Cloudflare R2**
 - **Responsive breakpoint**: 900px (mobile ↔ desktop)
 - **iOS compatibility**: font-weight capped at 900 (iOS Safari max)
+- **Mobile toolbar**: Buttons relocated to horizontal row below pool selectors on ≤900px

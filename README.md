@@ -6,11 +6,12 @@ Listen to progressively longer snippets of a song and guess the title within 5 a
 
 ## Features
 
-- **4 game modes + Endless**: Xenoblade, Full Xeno Series, Xenosaga, Random Daily, plus an Endless mode overlay
-- **705 songs** across 14 games and DLCs
-- **Deterministic daily songs** - all players get the same song, no server needed
-- **3 languages**: English, French, Japanese
-- **Responsive** Mobile and desktop optimized
+- **4 daily modes**: Xenoblade, Full Xeno Series, Xenosaga, Random Daily
+- **3 challenge modes**: Endless, Blitz (60s rapid-fire), Game Guessr (identify the game)
+- **723 songs** across 14 games and DLCs
+- **Deterministic daily songs** — all players get the same song, no server needed
+- **8 languages**: English, French, Japanese, German, Spanish, Italian, Korean, Chinese
+- **Responsive** — mobile and desktop optimized
 
 ## How to Play
 
