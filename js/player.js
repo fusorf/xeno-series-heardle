@@ -7,7 +7,8 @@ let audioElement = null;
 let playerReady = false;
 let isPlaying = false;
 let currentTime = 0;
-let animationFrame = null;
+let playerTimeupdateHandler = null;
+let playerClipTimeout = null; // Safety timeout for short clips
 let playbackStartTime = 0; // Actual position where playback started
 let currentDailySong = null; // Reference to current song for visibility pause
 
@@ -123,10 +124,19 @@ async function playAudio(dailySong, currentAttempt) {
 
         // Record the actual start position for progress tracking
         playbackStartTime = audioElement.currentTime;
-        await audioElement.play();
 
         currentTime = 0;
-        updateProgress(dailySong, currentAttempt);
+        // Use timeupdate event instead of rAF loop (~4 fires/sec)
+        playerTimeupdateHandler = () => updateProgress(dailySong, currentAttempt);
+        audioElement.addEventListener('timeupdate', playerTimeupdateHandler);
+
+        await audioElement.play();
+
+        // Safety timeout: guarantee clip stops even if timeupdate fires too late
+        const clipMs = DURATIONS[currentAttempt] * 1000 + 50;
+        playerClipTimeout = setTimeout(() => {
+            if (isPlaying) pauseAudio(dailySong);
+        }, clipMs);
     } catch (error) {
         console.error('Playback error:', error);
         isPlaying = false;
@@ -145,14 +155,18 @@ function pauseAudio(dailySong) {
         playButton.classList.remove('playing');
     }
 
-    if (audioElement && playerReady) {
-        audioElement.pause();
-        audioElement.currentTime = playbackStartTime;
+    if (playerClipTimeout) {
+        clearTimeout(playerClipTimeout);
+        playerClipTimeout = null;
     }
 
-    if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-        animationFrame = null;
+    if (audioElement && playerReady) {
+        if (playerTimeupdateHandler) {
+            audioElement.removeEventListener('timeupdate', playerTimeupdateHandler);
+            playerTimeupdateHandler = null;
+        }
+        audioElement.pause();
+        audioElement.currentTime = playbackStartTime;
     }
 
     // Reset progress display
@@ -192,7 +206,6 @@ function updateProgress(dailySong, currentAttempt) {
     }
 
     updateProgressBar(currentAttempt);
-    animationFrame = requestAnimationFrame(() => updateProgress(dailySong, currentAttempt));
 }
 
 function updateProgressBar(currentAttempt) {
@@ -208,12 +221,16 @@ function destroyPlayer() {
     // Stop playback first
     isPlaying = false;
 
-    if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-        animationFrame = null;
+    if (playerClipTimeout) {
+        clearTimeout(playerClipTimeout);
+        playerClipTimeout = null;
     }
 
     if (audioElement) {
+        if (playerTimeupdateHandler) {
+            audioElement.removeEventListener('timeupdate', playerTimeupdateHandler);
+            playerTimeupdateHandler = null;
+        }
         audioElement.pause();
         audioElement.removeAttribute('src');
         audioElement.load(); // Reset the element
@@ -240,13 +257,8 @@ document.addEventListener('visibilitychange', () => {
 
 let resultAudioElement = null;
 let resultIsPlaying = false;
-let resultAnimationFrame = null;
 
 function destroyResultPlayer() {
-    if (resultAnimationFrame) {
-        cancelAnimationFrame(resultAnimationFrame);
-        resultAnimationFrame = null;
-    }
     if (resultAudioElement) {
         resultAudioElement.pause();
         resultAudioElement.removeAttribute('src');
@@ -273,10 +285,6 @@ function initResultAudioPlayer(dailySong) {
         resultIsPlaying = false;
         const playBtn = document.getElementById('resultPlayButton');
         if (playBtn) playBtn.classList.remove('playing');
-        if (resultAnimationFrame) {
-            cancelAnimationFrame(resultAnimationFrame);
-            resultAnimationFrame = null;
-        }
     });
 
     // Update total time when metadata loads
@@ -298,16 +306,11 @@ function toggleResultAudio() {
         resultIsPlaying = false;
         const playBtn = document.getElementById('resultPlayButton');
         if (playBtn) playBtn.classList.remove('playing');
-        if (resultAnimationFrame) {
-            cancelAnimationFrame(resultAnimationFrame);
-            resultAnimationFrame = null;
-        }
     } else {
         resultAudioElement.play();
         resultIsPlaying = true;
         const playBtn = document.getElementById('resultPlayButton');
         if (playBtn) playBtn.classList.add('playing');
-        updateResultProgress();
     }
 }
 
@@ -329,10 +332,6 @@ function updateResultProgress() {
         const minutes = Math.floor(currentTime / 60);
         const seconds = Math.floor(currentTime % 60);
         currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    }
-
-    if (resultIsPlaying) {
-        resultAnimationFrame = requestAnimationFrame(updateResultProgress);
     }
 }
 
