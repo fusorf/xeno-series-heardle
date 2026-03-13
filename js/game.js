@@ -559,6 +559,8 @@ function setupEventListeners() {
             document.getElementById('autocompleteList').classList.remove('active');
             selectedSong = null;
             document.getElementById('submitButton').disabled = true;
+            const skipBtn = document.getElementById('skipButton');
+            if (skipBtn) skipBtn.disabled = false;
             searchInput.focus();
         });
     }
@@ -695,6 +697,10 @@ function handleSearchInput(e) {
     // Toggle clear button visibility
     const clearBtn = document.getElementById('searchClearBtn');
     if (clearBtn) clearBtn.classList.toggle('visible', e.target.value.length > 0);
+
+    // Disable skip button when search field has text
+    const skipBtn = document.getElementById('skipButton');
+    if (skipBtn) skipBtn.disabled = e.target.value.length > 0;
 
     if (query.length < 1) {
         autocompleteList.classList.remove('active');
