@@ -134,6 +134,11 @@ function activateBlitz() {
         deactivateGuesser();
     }
 
+    // Deactivate play mode if active
+    if (typeof playmodeActive !== 'undefined' && playmodeActive) {
+        deactivatePlayMode();
+    }
+
     // Cleanup existing audio
     destroyPlayer();
     destroyResultPlayer();

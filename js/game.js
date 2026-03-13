@@ -182,6 +182,10 @@ function toggleEndlessMode() {
     if (typeof guesserActive !== 'undefined' && guesserActive) {
         deactivateGuesser();
     }
+    // Deactivate play mode if active
+    if (typeof playmodeActive !== 'undefined' && playmodeActive) {
+        deactivatePlayMode();
+    }
 
     endlessMode = !endlessMode;
     endlessLockedGame = null;
@@ -447,6 +451,7 @@ function applyVolume() {
     if (typeof preloadedBlitzAudio !== 'undefined' && preloadedBlitzAudio) preloadedBlitzAudio.volume = globalVolume;
     if (typeof guesserAudio !== 'undefined' && guesserAudio) guesserAudio.volume = globalVolume;
     if (typeof preloadedGuesserAudio !== 'undefined' && preloadedGuesserAudio) preloadedGuesserAudio.volume = globalVolume;
+    if (typeof playmodeAudio !== 'undefined' && playmodeAudio) playmodeAudio.volume = globalVolume;
 }
 
 function updateVolumeIcon() {

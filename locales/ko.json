@@ -84,6 +84,22 @@
     "madeBy": "제작",
     "specialThanks": "감사"
   },
+  "playmode": {
+    "library": "라이브러리",
+    "favorites": "즐겨찾기",
+    "search": "곡, 앨범 검색...",
+    "album": "앨범",
+    "tracks": "곡",
+    "play": "재생",
+    "shuffle": "셔플",
+    "viewInTracklist": "트랙리스트에서 보기",
+    "noFavorites": "즐겨찾기가 없습니다. 하트 아이콘을 눌러 추가하세요.",
+    "noResults": "결과 없음",
+    "showing": "표시 중",
+    "of": "/",
+    "results": "개",
+    "albums": "앨범"
+  },
   "modes": {
     "full-xeno": {
       "name": "Xeno 전체 시리즈",

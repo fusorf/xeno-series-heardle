@@ -84,6 +84,22 @@
     "madeBy": "制作",
     "specialThanks": "協力"
   },
+  "playmode": {
+    "library": "ライブラリ",
+    "favorites": "お気に入り",
+    "search": "曲・アルバムを検索...",
+    "album": "アルバム",
+    "tracks": "曲",
+    "play": "再生",
+    "shuffle": "シャッフル",
+    "viewInTracklist": "トラックリストで表示",
+    "noFavorites": "お気に入りはまだありません。ハートアイコンをタップして追加しましょう。",
+    "noResults": "結果なし",
+    "showing": "表示中",
+    "of": "/",
+    "results": "件",
+    "albums": "アルバム"
+  },
   "modes": {
     "full-xeno": {
       "name": "ゼノシリーズ全作品",

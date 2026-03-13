@@ -84,6 +84,22 @@
     "madeBy": "Creado por",
     "specialThanks": "Agradecimientos a"
   },
+  "playmode": {
+    "library": "Biblioteca",
+    "favorites": "Favoritos",
+    "search": "Buscar canciones, álbumes...",
+    "album": "Álbum",
+    "tracks": "canciones",
+    "play": "Reproducir",
+    "shuffle": "Aleatorio",
+    "viewInTracklist": "Ver en la lista",
+    "noFavorites": "Sin favoritos aún. Toca el corazón para añadir canciones aquí.",
+    "noResults": "Sin resultados",
+    "showing": "Mostrando",
+    "of": "de",
+    "results": "resultados",
+    "albums": "Álbumes"
+  },
   "modes": {
     "full-xeno": {
       "name": "Serie Xeno Completa",

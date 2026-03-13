@@ -84,6 +84,22 @@
     "madeBy": "制作",
     "specialThanks": "特别感谢"
   },
+  "playmode": {
+    "library": "音乐库",
+    "favorites": "收藏",
+    "search": "搜索歌曲、专辑...",
+    "album": "专辑",
+    "tracks": "首歌曲",
+    "play": "播放",
+    "shuffle": "随机播放",
+    "viewInTracklist": "在列表中查看",
+    "noFavorites": "暂无收藏。点击心形图标添加歌曲。",
+    "noResults": "未找到结果",
+    "showing": "显示",
+    "of": "/",
+    "results": "条结果",
+    "albums": "专辑"
+  },
   "modes": {
     "full-xeno": {
       "name": "Xeno 全系列",
