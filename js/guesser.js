@@ -33,31 +33,7 @@ let guesserCurrentStreak = 0;
 let preloadedGuesserSong = null;
 let preloadedGuesserAudio = null;
 let guesserWaiting = false; // true while feedback delay is pending
-let guesserUnlocked = false; // unlocked by typing secret code
-
-// ============================================
-// SECRET UNLOCK CODE
-// ============================================
-
-const GUESSER_SECRET_CODE = 'idiotexperimenteur';
-let guesserSecretBuffer = '';
-
-document.addEventListener('keydown', (e) => {
-    if (guesserUnlocked) return;
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    if (e.key.length !== 1) return; // ignore modifier keys, arrows, etc.
-
-    guesserSecretBuffer += e.key.toLowerCase();
-    if (guesserSecretBuffer.length > GUESSER_SECRET_CODE.length) {
-        guesserSecretBuffer = guesserSecretBuffer.slice(-GUESSER_SECRET_CODE.length);
-    }
-
-    if (guesserSecretBuffer === GUESSER_SECRET_CODE) {
-        guesserUnlocked = true;
-        guesserSecretBuffer = '';
-        updateGuesserButtonVisibility();
-    }
-});
+let guesserUnlocked = true;
 
 // ============================================
 // GAME LIST FOR CURRENT MODE
@@ -293,8 +269,8 @@ function updateGuesserTimerDisplay() {
 function updateGuesserButtonVisibility() {
     const btn = document.getElementById('guesserButton');
     if (!btn) return;
-    // Hidden until secret code typed, and not available on Single Game mode
-    if (!guesserUnlocked || currentMode === 'random') {
+    // Not available on Single Game mode (random)
+    if (currentMode === 'random') {
         btn.style.display = 'none';
     } else {
         btn.style.display = '';
@@ -302,7 +278,7 @@ function updateGuesserButtonVisibility() {
 }
 
 function toggleGuesserMode() {
-    if (!guesserUnlocked || currentMode === 'random') return;
+    if (currentMode === 'random') return;
     if (guesserActive) {
         deactivateGuesser();
     } else {

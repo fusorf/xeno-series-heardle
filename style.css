@@ -1193,6 +1193,7 @@ button:active::before {
         flex-direction: row;
         align-items: center;
         gap: 15px;
+        margin-bottom: 8px;
     }
 
     .play-button {
@@ -2507,6 +2508,15 @@ button:active::before {
     align-items: flex-end;
 }
 
+/* Mobile toolbar row (hidden on desktop) */
+.mobile-toolbar {
+    display: none;
+}
+
+.mobile-hidden {
+    display: none !important;
+}
+
 /* Language Selector */
 .language-selector {
     position: relative;
@@ -2689,6 +2699,7 @@ button:active::before {
     .mode-selector {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
+        margin-bottom: 11px;
     }
 
     .mode-tab {
@@ -2733,14 +2744,42 @@ button:active::before {
         display: none;
     }
 
-    .language-selector {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        bottom: auto;
-        left: auto;
-        z-index: 5001;
+    /* Mobile toolbar row under pool selectors */
+    .mobile-toolbar {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        padding: 0 0 10px;
+        margin: 0 auto;
+    }
+
+    .mobile-toolbar .endless-button,
+    .mobile-toolbar .blitz-button,
+    .mobile-toolbar .guesser-button,
+    .mobile-toolbar .history-button {
+        position: static;
+        width: 42px;
+        height: 42px;
+    }
+
+    .mobile-toolbar .language-selector {
+        position: static;
         overflow: visible;
+    }
+
+    .mobile-toolbar .lang-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .mobile-toolbar .lang-menu {
+        bottom: auto;
+        top: 50px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
 
     .lang-toggle {
@@ -2778,32 +2817,7 @@ button:active::before {
         font-size: 0.5rem;
     }
 
-    .history-button {
-        position: fixed;
-        bottom: auto;
-        top: 58px;
-        left: auto;
-        right: 10px;
-        z-index: 5000;
-    }
-
-    .endless-button {
-        position: fixed;
-        bottom: auto;
-        top: 10px;
-        left: 10px;
-        right: auto;
-        z-index: 5000;
-    }
-
-    .blitz-button {
-        position: fixed;
-        bottom: auto;
-        top: 56px;
-        left: 10px;
-        right: auto;
-        z-index: 5000;
-    }
+    /* Buttons are now in .mobile-toolbar — no fixed positioning needed */
 
 
     .blitz-stats-grid {
@@ -3744,14 +3758,7 @@ button:active::before {
 
 /* Mobile: guesser adjustments */
 @media (max-width: 900px) {
-    .guesser-button {
-        position: fixed;
-        bottom: auto;
-        top: 102px;
-        left: 10px;
-        right: auto;
-        z-index: 5000;
-    }
+    /* Guesser button is now in .mobile-toolbar */
 
     .guesser-mode-label {
         font-size: 0.75rem;

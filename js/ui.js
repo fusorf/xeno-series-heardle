@@ -816,3 +816,30 @@ new MutationObserver(updateCreditsVisibility).observe(document.body, {
     childList: true, subtree: true, attributes: true
 });
 
+// ============================================
+// MOBILE TOOLBAR SETUP
+// ============================================
+
+function setupMobileToolbar() {
+    if (window.innerWidth > 900) return;
+    const toolbar = document.getElementById('mobileToolbar');
+    if (!toolbar) return;
+
+    // Move buttons into mobile toolbar row
+    const endless = document.getElementById('endlessButton');
+    const blitz = document.getElementById('blitzButton');
+    const guesser = document.getElementById('guesserButton');
+    const stats = document.getElementById('historyButton');
+    const lang = document.querySelector('.language-selector');
+
+    [endless, blitz, guesser, stats, lang].forEach(el => {
+        if (el) toolbar.appendChild(el);
+    });
+
+    // Hide original containers
+    document.querySelector('.toolbar-left')?.classList.add('mobile-hidden');
+    document.querySelector('.toolbar-right')?.classList.add('mobile-hidden');
+}
+
+document.addEventListener('DOMContentLoaded', setupMobileToolbar);
+
