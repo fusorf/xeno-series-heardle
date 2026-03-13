@@ -25,6 +25,14 @@ function pmL(key) {
     return (locale && locale.playmode && locale.playmode[key]) || null;
 }
 
+// Credit display: "Composer, Artist" if both exist and differ, otherwise whichever is available
+function pmGetCredit(song, fallback) {
+    const c = song.composer;
+    const a = song.artist;
+    if (c && a && c !== a) return c + ', ' + a;
+    return c || a || (fallback !== undefined ? fallback : '—');
+}
+
 // ============================================
 // TOGGLE / ACTIVATE / DEACTIVATE
 // ============================================
@@ -438,6 +446,9 @@ function renderPlayMode() {
 
     // Render initial view
     renderMainContent();
+
+    // Init volume slider fill
+    pmUpdateVolumeSliderFill();
 }
 
 function renderSidebar() {
@@ -534,7 +545,7 @@ function renderNowPlayingBar() {
         </div>
         <div class="pm-np-volume">
             <button class="pm-ctrl-btn" onclick="pmToggleMute()" id="pmVolIcon">${svgVolume()}</button>
-            <input type="range" class="pm-volume-slider" id="pmVolumeSlider" min="0" max="100" value="${Math.round(globalVolume * 100)}" oninput="setGlobalVolume(this.value / 100)">
+            <input type="range" class="pm-volume-slider" id="pmVolumeSlider" min="0" max="100" value="${Math.round(globalVolume * 100)}" oninput="setGlobalVolume(this.value / 100); pmUpdateVolumeSliderFill()">
         </div>
     `;
 
@@ -759,7 +770,7 @@ function createTrackRow(song, num, albumId, globalIndex) {
     }
 
     const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-    const artist = song.artist || song.composer || '—';
+    const artist = pmGetCredit(song);
     const isFav = pmIsFavorite(song);
 
     track.innerHTML = `
@@ -849,7 +860,7 @@ function updatePlaymodeUI() {
 
     if (song) {
         const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-        const artist = song.artist || song.composer || '—';
+        const artist = pmGetCredit(song);
         const coverId = getParentGameId(song.game);
 
         // Desktop NP
@@ -903,7 +914,10 @@ function updatePlaymodeUI() {
 
     // Volume slider sync
     const pmVolSlider = document.getElementById('pmVolumeSlider');
-    if (pmVolSlider) pmVolSlider.value = Math.round(globalVolume * 100);
+    if (pmVolSlider) {
+        pmVolSlider.value = Math.round(globalVolume * 100);
+        pmUpdateVolumeSliderFill();
+    }
 
     // Update track list highlighting
     updateTrackHighlights();
@@ -1029,7 +1043,7 @@ function pmRenderFullscreenNPContent() {
 
     const song = playmodeCurrentSong;
     const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-    const artist = song.artist || song.composer || '—';
+    const artist = pmGetCredit(song);
     const coverId = getParentGameId(song.game);
     const playIcon = playmodeIsPlaying ? svgPause() : svgPlay();
 
@@ -1317,7 +1331,7 @@ function updateFullscreenNP() {
     const song = playmodeCurrentSong;
     if (song) {
         const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-        const artist = song.artist || song.composer || '—';
+        const artist = pmGetCredit(song);
         const coverId = getParentGameId(song.game);
 
         // Update song info
@@ -1438,7 +1452,7 @@ function pmFilterLibrary(query) {
         }
 
         const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-        const artist = song.artist || song.composer || '—';
+        const artist = pmGetCredit(song);
         const gameName = GAMES[gameId]?.name || '';
 
         track.innerHTML = `
@@ -1483,6 +1497,18 @@ function pmToggleMute() {
     }
     const icon = document.getElementById('pmVolIcon');
     if (icon) icon.innerHTML = globalVolume === 0 ? svgVolumeMute() : svgVolume();
+    const slider = document.getElementById('pmVolumeSlider');
+    if (slider) {
+        slider.value = Math.round(globalVolume * 100);
+        pmUpdateVolumeSliderFill();
+    }
+}
+
+function pmUpdateVolumeSliderFill() {
+    const slider = document.getElementById('pmVolumeSlider');
+    if (!slider) return;
+    const pct = slider.value;
+    slider.style.background = `linear-gradient(to right, #fff ${pct}%, rgba(255,255,255,0.15) ${pct}%)`;
 }
 
 // ============================================
@@ -1517,7 +1543,7 @@ function updateMediaSession() {
 
     const song = playmodeCurrentSong;
     const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-    const artist = song.artist || song.composer || 'Xeno Series';
+    const artist = pmGetCredit(song, 'Xeno Series');
     const coverId = getParentGameId(song.game);
     const game = GAMES[coverId];
 
@@ -1681,11 +1707,11 @@ function renderFavoritesView(container) {
         }
 
         const displayTitle = (typeof getDisplayTitle === 'function') ? getDisplayTitle(song) : song.title;
-        const artist = song.artist || song.composer || '—';
+        const artist = pmGetCredit(song);
         const gameName = GAMES[song.game]?.name || '';
 
         track.innerHTML = `
-            <div class="pm-track-title">${displayTitle}<span style="color:var(--pm-text-tertiary); font-size:12px; margin-left:8px">${gameName}</span></div>
+            <div class="pm-track-title">${displayTitle}</div>
             <div class="pm-track-artist">${artist}</div>
             <button class="pm-fav-btn active" data-file="${song.file}" data-game="${song.game}" onclick="event.stopPropagation(); pmToggleFavorite(SONG_POOLS['${song.game}'].find(s=>s.file==='${song.file}')); setTimeout(()=>{ if(playmodeView==='favorites') renderFavoritesView(document.getElementById('pmMain')); }, 200)">${svgHeartFilled()}</button>
             <div class="pm-track-duration">${formatTime(song.duration)}</div>

@@ -239,7 +239,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-01. Main Theme.mp3",
     "duration": 222,
     "game": "xenoblade-1",
-    "artist": "Yoko Shimomura"
+    "composer": "Yoko Shimomura"
   },
   {
     "title": "Prologue A",
@@ -248,6 +248,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-02. Prologue A.mp3",
     "duration": 204,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Tsutomu Narita"
   },
   {
@@ -257,6 +258,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-03. Prologue B.mp3",
     "duration": 199,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Tsutomu Narita"
   },
   {
@@ -266,7 +268,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-04. Everyday Life.mp3",
     "duration": 150,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Colony 9 (Definitive Edition ver.)",
@@ -275,6 +277,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-05. Colony 9 (Definitive Edition ver.).mp3",
     "duration": 171,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Tsutomu Narita"
   },
   {
@@ -284,6 +287,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-06. Colony 9 - Night (Definitive Edition ver.).mp3",
     "duration": 209,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -293,6 +297,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-07. Time to Fight! (Definitive Edition ver.).mp3",
     "duration": 165,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Tsutomu Narita"
   },
   {
@@ -302,6 +307,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-08. Enemies Closing In (Definitive Edition ver.).mp3",
     "duration": 257,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -311,6 +317,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-09. Hometown (Definitive Edition ver.).mp3",
     "duration": 218,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Tsutomu Narita"
   },
   {
@@ -320,6 +327,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-10. Hometown - Night (Definitive Edition ver.).mp3",
     "duration": 205,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -329,7 +337,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-11. A Friend on My Mind.mp3",
     "duration": 190,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Monado Awakens",
@@ -338,7 +346,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-12. The Monado Awakens.mp3",
     "duration": 38,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Tephra Cave (Definitive Edition ver.)",
@@ -347,7 +355,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-13. Tephra Cave (Definitive Edition ver.).mp3",
     "duration": 181,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Hostile Gazes (Definitive Edition ver.)",
@@ -356,6 +364,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-14. Hostile Gazes (Definitive Edition ver.).mp3",
     "duration": 159,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -365,7 +374,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-15. Crisis.mp3",
     "duration": 226,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "An Obstacle in Our Path (Definitive Edition ver.)",
@@ -374,6 +383,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-16. An Obstacle in Our Path (Definitive Edition ver.).mp3",
     "duration": 188,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -383,6 +393,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-17. Engage the Enemy (Definitive Edition ver.).mp3",
     "duration": 229,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -392,7 +403,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-18. Rage, Darkness of the Heart.mp3",
     "duration": 219,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Sorrow",
@@ -401,7 +412,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-19. Sorrow.mp3",
     "duration": 153,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Once We Part Ways",
@@ -410,7 +421,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "1-20. Once We Part Ways.mp3",
     "duration": 205,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Apprehension",
@@ -419,7 +430,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-01. Apprehension.mp3",
     "duration": 165,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Memories",
@@ -428,7 +439,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-02. Memories.mp3",
     "duration": 184,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Urgency",
@@ -437,7 +448,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-03. Urgency.mp3",
     "duration": 73,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Visions of the Future (Definitive Edition ver.)",
@@ -446,6 +457,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-04. Visions of the Future (Definitive Edition ver.).mp3",
     "duration": 153,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -455,7 +467,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-05. Majesty.mp3",
     "duration": 219,
     "game": "xenoblade-1",
-    "artist": "Kenji Hiramatsu"
+    "composer": "ACE+"
   },
   {
     "title": "Gaur Plain (Definitive Edition ver.)",
@@ -464,6 +476,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-06. Gaur Plain (Definitive Edition ver.).mp3",
     "duration": 265,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -473,6 +486,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-07. Gaur Plain - Night (Definitive Edition ver.).mp3",
     "duration": 198,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -482,7 +496,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-08. In the Refugee Camp (Definitive Edition ver.).mp3",
     "duration": 205,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Face",
@@ -491,7 +505,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-09. Face.mp3",
     "duration": 164,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Colony 6 - Ether Mine (Definitive Edition ver.)",
@@ -500,7 +514,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-10. Colony 6 - Ether Mine (Definitive Edition ver.).mp3",
     "duration": 175,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Unfinished Business",
@@ -509,7 +523,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-11. Unfinished Business.mp3",
     "duration": 186,
     "game": "xenoblade-1",
-    "artist": "Yoko Shimomura"
+    "composer": "Yoko Shimomura"
   },
   {
     "title": "Colony 6 - Silence (Definitive Edition ver.)",
@@ -518,6 +532,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-12. Colony 6 - Silence (Definitive Edition ver.).mp3",
     "duration": 163,
     "game": "xenoblade-1",
+    "composer": "Manami Kiyota",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -527,7 +542,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-13. Colony 6 - Rebuilding (Definitive Edition ver.).mp3",
     "duration": 165,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Colony 6 - Hope (Definitive Edition ver.)",
@@ -536,6 +551,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-14. Colony 6 - Hope (Definitive Edition ver.).mp3",
     "duration": 156,
     "game": "xenoblade-1",
+    "composer": "Manami Kiyota",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -545,6 +561,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-15. Colony 6 - Future (Definitive Edition ver.).mp3",
     "duration": 135,
     "game": "xenoblade-1",
+    "composer": "Manami Kiyota",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -554,7 +571,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-16. Satorl Marsh (Definitive Edition ver.).mp3",
     "duration": 161,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Satorl Marsh/Night (Definitive Edition ver.)",
@@ -563,7 +580,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-17. Satorl Marsh - Night (Definitive Edition ver.).mp3",
     "duration": 211,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Bionis' Interior/Carcass (Definitive Edition ver.)",
@@ -572,7 +589,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-18. Bionis' Interior - Carcass (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Forest of the Nopon (Definitive Edition ver.)",
@@ -581,7 +598,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-19. Forest of the Nopon (Definitive Edition ver.).mp3",
     "duration": 139,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Forest of the Nopon/Night (Definitive Edition ver.)",
@@ -590,7 +607,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-20. Forest of the Nopon - Night (Definitive Edition ver.).mp3",
     "duration": 219,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Frontier Village (Definitive Edition ver.)",
@@ -599,7 +616,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-21. Frontier Village (Definitive Edition ver.).mp3",
     "duration": 180,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Frontier Village/Night (Definitive Edition ver.)",
@@ -608,7 +625,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-22. Frontier Village - Night (Definitive Edition ver.).mp3",
     "duration": 200,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Riki the Legendary Heropon",
@@ -617,7 +634,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "2-23. Riki the Legendary Heropon.mp3",
     "duration": 185,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Eryth Sea (Definitive Edition ver.)",
@@ -626,7 +643,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-01. Eryth Sea (Definitive Edition ver.).mp3",
     "duration": 202,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Eryth Sea/Night (Definitive Edition ver.)",
@@ -635,7 +652,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-02. Eryth Sea - Night (Definitive Edition ver.).mp3",
     "duration": 205,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Alcamoth, Imperial Capital (Definitive Edition ver.)",
@@ -644,7 +661,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-03. Alcamoth, Imperial Capital (Definitive Edition ver.).mp3",
     "duration": 198,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Alcamoth, Imperial Capital/Night (Definitive Edition ver.)",
@@ -653,7 +670,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-04. Alcamoth, Imperial Capital - Night (Definitive Edition ver.).mp3",
     "duration": 198,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Intrigue",
@@ -662,7 +679,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-05. Intrigue.mp3",
     "duration": 159,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Where the Ancestors Sleep (Definitive Edition ver.)",
@@ -671,7 +688,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-06. Where the Ancestors Sleep (Definitive Edition ver.).mp3",
     "duration": 190,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Ancient Mysteries",
@@ -680,7 +697,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-07. Ancient Mysteries.mp3",
     "duration": 138,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Egil's Theme",
@@ -689,7 +706,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-08. Egil's Theme.mp3",
     "duration": 175,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Prison Island (Definitive Edition ver.)",
@@ -698,7 +715,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-09. Prison Island (Definitive Edition ver.).mp3",
     "duration": 186,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "You Will Know Our Names (Definitive Edition ver.)",
@@ -707,6 +724,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-10. You Will Know Our Names (Definitive Edition ver.).mp3",
     "duration": 161,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -716,7 +734,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-11. Thoughts Enshrined.mp3",
     "duration": 204,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Valak Mountain (Definitive Edition ver.)",
@@ -725,6 +743,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-12. Valak Mountain (Definitive Edition ver.).mp3",
     "duration": 246,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -734,6 +753,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-13. Valak Mountain - Night (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -743,7 +763,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-14. Sword Valley (Definitive Edition ver.).mp3",
     "duration": 143,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Sword Valley/Night (Definitive Edition ver.)",
@@ -752,7 +772,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-15. Sword Valley - Night (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Galahad Fortress (Definitive Edition ver.)",
@@ -761,7 +781,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-16. Galahad Fortress (Definitive Edition ver.).mp3",
     "duration": 184,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Mechanical Rhythm (Definitive Edition ver.)",
@@ -770,6 +790,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-17. Mechanical Rhythm (Definitive Edition ver.).mp3",
     "duration": 183,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -779,6 +800,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-18. Irregular Bound (Definitive Edition ver.).mp3",
     "duration": 143,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -788,6 +810,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "3-19. A Tragic Decision (Definitive Edition ver.).mp3",
     "duration": 226,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -797,7 +820,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-01. The Fallen Land (Definitive Edition ver.).mp3",
     "duration": 198,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Fallen Land/Night (Definitive Edition ver.)",
@@ -806,7 +829,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-02. The Fallen Land - Night (Definitive Edition ver.).mp3",
     "duration": 240,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Shulk and Fiora",
@@ -815,6 +838,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-03. Shulk and Fiora.mp3",
     "duration": 192,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "ACE+"
   },
   {
@@ -824,7 +848,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-04. Reminiscence.mp3",
     "duration": 210,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Riki's Kindness",
@@ -833,7 +857,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-05. Riki's Kindness.mp3",
     "duration": 143,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Hope",
@@ -842,7 +866,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-06. Hope.mp3",
     "duration": 201,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Hidden Machina Village (Definitive Edition ver.)",
@@ -851,7 +875,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-07. Hidden Machina Village (Definitive Edition ver.).mp3",
     "duration": 166,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Tension",
@@ -860,7 +884,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-08. Tension.mp3",
     "duration": 172,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Regret",
@@ -869,7 +893,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-09. Regret.mp3",
     "duration": 156,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Mechonis Field (Definitive Edition ver.)",
@@ -878,6 +902,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-10. Mechonis Field (Definitive Edition ver.).mp3",
     "duration": 248,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -887,7 +912,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-11. Shadows Creeping.mp3",
     "duration": 183,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Battle is Upon Us",
@@ -896,7 +921,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-12. The Battle is Upon Us.mp3",
     "duration": 219,
     "game": "xenoblade-1",
-    "artist": "ACE+"
+    "composer": "ACE+"
   },
   {
     "title": "Central Factory (Definitive Edition ver.)",
@@ -905,6 +930,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-13. Central Factory (Definitive Edition ver.).mp3",
     "duration": 301,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -914,6 +940,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-14. Agniratha, Mechonis Capital (Definitive Edition ver.).mp3",
     "duration": 248,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -923,6 +950,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-15. Agniratha, Mechonis Capital - Night (Definitive Edition ver.).mp3",
     "duration": 176,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -932,7 +960,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-16. Disquiet.mp3",
     "duration": 196,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Towering Shadow",
@@ -941,7 +969,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-17. Towering Shadow.mp3",
     "duration": 185,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Bionis' Awakening",
@@ -950,7 +978,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-18. Bionis' Awakening.mp3",
     "duration": 234,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "A Spiritual Place",
@@ -959,7 +987,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-19. A Spiritual Place.mp3",
     "duration": 163,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Reminiscence (Music Box)",
@@ -968,7 +996,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "4-20. Reminiscence (Music Box).mp3",
     "duration": 206,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Bionis' Interior/Pulse (Definitive Edition ver.)",
@@ -977,7 +1005,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-01. Bionis' Interior - Pulse (Definitive Edition ver.).mp3",
     "duration": 177,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The End Lies Ahead (Definitive Edition ver.)",
@@ -986,6 +1014,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-02. The End Lies Ahead (Definitive Edition ver.).mp3",
     "duration": 217,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "Kenji Hiramatsu"
   },
   {
@@ -995,7 +1024,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-03. Memory's End (Definitive Edition ver.).mp3",
     "duration": 176,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Zanza's World (Definitive Edition ver.)",
@@ -1004,6 +1033,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-04. Zanza's World (Definitive Edition ver.).mp3",
     "duration": 169,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -1013,7 +1043,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-05. Zanza the Divine (Definitive Edition ver.).mp3",
     "duration": 199,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The God-Slaying Sword (Definitive Edition ver.)",
@@ -1022,6 +1052,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-06. The God-Slaying Sword (Definitive Edition ver.).mp3",
     "duration": 301,
     "game": "xenoblade-1",
+    "composer": "ACE+",
     "artist": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
@@ -1031,7 +1062,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-07. Futures That Lie Ahead.mp3",
     "duration": 231,
     "game": "xenoblade-1",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Beyond the Sky",
@@ -1040,6 +1071,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-08. Beyond the Sky.mp3",
     "duration": 269,
     "game": "xenoblade-1",
+    "composer": "Yasunori Mitsuda",
     "artist": "Sarah àlainn"
   },
   {
@@ -1049,6 +1081,7 @@ const SONGS_XENOBLADE_1 = [
     "file": "5-09. Epilogue.mp3",
     "duration": 255,
     "game": "xenoblade-1",
+    "composer": "Yoko Shimomura",
     "artist": "Yoko Shimomura, Tsutomu Narita"
   },
 ];
@@ -1062,7 +1095,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-10. Bionis' Shoulder.mp3",
     "duration": 223,
     "game": "xenoblade-1-fc",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Bionis' Shoulder/Night",
@@ -1071,7 +1104,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-11. Bionis' Shoulder - Night.mp3",
     "duration": 258,
     "game": "xenoblade-1-fc",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Time to Fight! (Bionis' Shoulder)",
@@ -1080,7 +1113,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-12. Time to Fight! (Bionis' Shoulder).mp3",
     "duration": 258,
     "game": "xenoblade-1-fc",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Fogbeasts",
@@ -1089,7 +1122,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-13. Fogbeasts.mp3",
     "duration": 200,
     "game": "xenoblade-1-fc",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Gran Dell",
@@ -1098,7 +1131,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-14. Gran Dell.mp3",
     "duration": 207,
     "game": "xenoblade-1-fc",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Gran Dell/Night",
@@ -1107,7 +1140,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-15. Gran Dell - Night.mp3",
     "duration": 232,
     "game": "xenoblade-1-fc",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Roar from Beyond",
@@ -1116,7 +1149,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-16. Roar from Beyond.mp3",
     "duration": 345,
     "game": "xenoblade-1-fc",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Beyond the Sky (Acoustic Arrange)",
@@ -1125,7 +1158,7 @@ const SONGS_XENOBLADE_1_FC = [
     "file": "5-17. Beyond the Sky (Acoustic Arrange).mp3",
     "duration": 339,
     "game": "xenoblade-1-fc",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
 ];
 
@@ -1138,7 +1171,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-01. Yggdrasil.mp3",
     "duration": 215,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Past from Far Distance",
@@ -1147,7 +1180,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-02. Past from Far Distance.mp3",
     "duration": 166,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "With People and Darkness",
@@ -1156,7 +1189,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-03. With People and Darkness.mp3",
     "duration": 182,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "The Power of Jin",
@@ -1165,7 +1198,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-04. The Power of Jin.mp3",
     "duration": 198,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Praetor Amalthus - The Acting God -",
@@ -1174,7 +1207,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-05. Praetor Amalthus - The Acting God -.mp3",
     "duration": 179,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Walking with You",
@@ -1183,7 +1216,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-06. Walking with You.mp3",
     "duration": 224,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Orbital Ring",
@@ -1192,7 +1225,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-07. Orbital Ring.mp3",
     "duration": 229,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Abandoned City",
@@ -1201,7 +1234,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-08. The Abandoned City.mp3",
     "duration": 216,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Heart in the Fog",
@@ -1210,7 +1243,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-09. Heart in the Fog.mp3",
     "duration": 182,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Flashback",
@@ -1219,7 +1252,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-10. Flashback.mp3",
     "duration": 140,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Sea of Clouds",
@@ -1228,7 +1261,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-11. Sea of Clouds.mp3",
     "duration": 223,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Disappearing World",
@@ -1237,7 +1270,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-12. Disappearing World.mp3",
     "duration": 187,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Battle in the Skies Above",
@@ -1246,7 +1279,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-13. Battle in the Skies Above.mp3",
     "duration": 173,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "After Despair and Hope",
@@ -1255,7 +1288,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-14. After Despair and Hope.mp3",
     "duration": 213,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Our Hope",
@@ -1264,7 +1297,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-15. Our Hope.mp3",
     "duration": 120,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Parting",
@@ -1273,7 +1306,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-16. Parting.mp3",
     "duration": 186,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "The Tomorrow with You",
@@ -1282,7 +1315,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-17. The Tomorrow with You.mp3",
     "duration": 259,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Escape - Going Through Clouds -",
@@ -1291,7 +1324,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-18. Escape - Going Through Clouds -.mp3",
     "duration": 131,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Elysium",
@@ -1300,7 +1333,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-19. Elysium.mp3",
     "duration": 193,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "White All Around Us",
@@ -1309,7 +1342,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-20. White All Around Us.mp3",
     "duration": 182,
     "game": "xenoblade-2",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "One Last You",
@@ -1318,7 +1351,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "10-21. One Last You.mp3",
     "duration": 342,
     "game": "xenoblade-2",
-    "artist": "Jen Bird"
+    "composer": "Jen Bird"
   },
   {
     "title": "Xenoblade II - Where It All Began -",
@@ -1327,7 +1360,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-01. Xenoblade II - Where It All Began -.mp3",
     "duration": 80,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Elysium, in the Blue Sky",
@@ -1336,7 +1369,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-02. Elysium, in the Blue Sky.mp3",
     "duration": 105,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Argentum",
@@ -1345,7 +1378,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-03. Argentum.mp3",
     "duration": 219,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Argentum/Night",
@@ -1354,7 +1387,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-04. Argentum - Night.mp3",
     "duration": 177,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Bana's Theme",
@@ -1363,7 +1396,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-05. Bana's Theme.mp3",
     "duration": 29,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "A Ship in a Stormy Sea",
@@ -1372,7 +1405,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-06. A Ship in a Stormy Sea.mp3",
     "duration": 212,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "The Ancient Vessel",
@@ -1381,7 +1414,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-07. The Ancient Vessel.mp3",
     "duration": 178,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Exploration",
@@ -1390,7 +1423,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-08. Exploration.mp3",
     "duration": 169,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "A Portent Crawling Over",
@@ -1399,7 +1432,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-09. A Portent Crawling Over.mp3",
     "duration": 164,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Elysium in the Dream",
@@ -1408,7 +1441,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-10. Elysium in the Dream.mp3",
     "duration": 169,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Awakening",
@@ -1417,7 +1450,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-11. The Awakening.mp3",
     "duration": 130,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Crossing Swords",
@@ -1426,7 +1459,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-12. Crossing Swords.mp3",
     "duration": 217,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Incoming!",
@@ -1435,7 +1468,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-13. Incoming!.mp3",
     "duration": 245,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Gormotti Forest",
@@ -1444,7 +1477,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-14. Gormotti Forest.mp3",
     "duration": 203,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Gormott",
@@ -1453,7 +1486,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-15. Gormott.mp3",
     "duration": 316,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Gormott/Night",
@@ -1462,7 +1495,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-16. Gormott - Night.mp3",
     "duration": 201,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Battle!!",
@@ -1471,7 +1504,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-17. Battle!!.mp3",
     "duration": 215,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Torigoth",
@@ -1480,7 +1513,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-18. Torigoth.mp3",
     "duration": 213,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Torigoth/Night",
@@ -1489,7 +1522,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-19. Torigoth - Night.mp3",
     "duration": 159,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Wanted Nia",
@@ -1498,7 +1531,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-20. Wanted Nia.mp3",
     "duration": 130,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Omens of Life",
@@ -1507,7 +1540,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-21. Omens of Life.mp3",
     "duration": 116,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Awakened DNA",
@@ -1516,7 +1549,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-22. Awakened DNA.mp3",
     "duration": 66,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "A Nopon's Life",
@@ -1525,7 +1558,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-23. A Nopon's Life.mp3",
     "duration": 141,
     "game": "xenoblade-2",
-    "artist": "ACE (工藤ともり, CHiCO)"
+    "composer": "ACE (工藤ともり, CHiCO)"
   },
   {
     "title": "Tiger! Tiger!",
@@ -1534,7 +1567,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-24. Tiger! Tiger!.mp3",
     "duration": 144,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "A Brewing Storm",
@@ -1543,7 +1576,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "6-25. A Brewing Storm.mp3",
     "duration": 152,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Titan Battleship",
@@ -1552,7 +1585,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-01. Titan Battleship.mp3",
     "duration": 277,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Monster Surprised You",
@@ -1561,7 +1594,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-02. Monster Surprised You.mp3",
     "duration": 194,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Irritation",
@@ -1570,7 +1603,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-03. Irritation.mp3",
     "duration": 161,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Where We Used To Be",
@@ -1579,7 +1612,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-04. Where We Used To Be.mp3",
     "duration": 190,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Friendship",
@@ -1588,7 +1621,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-05. Friendship.mp3",
     "duration": 174,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "The Towering Yggdrasil",
@@ -1597,7 +1630,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-06. The Towering Yggdrasil.mp3",
     "duration": 156,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Ophion",
@@ -1606,7 +1639,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-07. Ophion.mp3",
     "duration": 145,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Womb Center",
@@ -1615,7 +1648,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-08. Womb Center.mp3",
     "duration": 184,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Garfont Mercenaries",
@@ -1624,7 +1657,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-09. Garfont Mercenaries.mp3",
     "duration": 198,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Garfont Mercenaries/Night",
@@ -1633,7 +1666,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-10. Garfont Mercenaries - Night.mp3",
     "duration": 128,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Death Match with Torna",
@@ -1642,7 +1675,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-11. Death Match with Torna.mp3",
     "duration": 203,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Kingdom of Uraya",
@@ -1651,7 +1684,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-12. Kingdom of Uraya.mp3",
     "duration": 202,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Kingdom of Uraya/Night",
@@ -1660,7 +1693,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-13. Kingdom of Uraya - Night.mp3",
     "duration": 149,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Those Who Stand Against Our Path",
@@ -1669,7 +1702,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-14. Those Who Stand Against Our Path.mp3",
     "duration": 219,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Fonsa Myma",
@@ -1678,7 +1711,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-15. Fonsa Myma.mp3",
     "duration": 180,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Fonsa Myma/Night",
@@ -1687,7 +1720,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-16. Fonsa Myma - Night.mp3",
     "duration": 175,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "The Heroic Adventures",
@@ -1696,7 +1729,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-17. The Heroic Adventures.mp3",
     "duration": 164,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Beginning of Darkness",
@@ -1705,7 +1738,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-18. The Beginning of Darkness.mp3",
     "duration": 175,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Drifting Soul",
@@ -1714,7 +1747,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "7-19. Drifting Soul.mp3",
     "duration": 336,
     "game": "xenoblade-2",
-    "artist": "Jen Bird"
+    "composer": "Jen Bird"
   },
   {
     "title": "Counterattack",
@@ -1723,7 +1756,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-01. Counterattack.mp3",
     "duration": 273,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "You Will Recall Our Names",
@@ -1732,7 +1765,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-02. You Will Recall Our Names.mp3",
     "duration": 217,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Desolation",
@@ -1741,7 +1774,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-03. Desolation.mp3",
     "duration": 188,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Contrition",
@@ -1750,7 +1783,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-04. Contrition.mp3",
     "duration": 167,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "War and Peace",
@@ -1759,7 +1792,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-05. War and Peace.mp3",
     "duration": 166,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Driver VS",
@@ -1768,7 +1801,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-06. Driver VS.mp3",
     "duration": 169,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Alba Cavanich",
@@ -1777,7 +1810,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-07. Alba Cavanich.mp3",
     "duration": 177,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Alba Cavanich/Night",
@@ -1786,7 +1819,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-08. Alba Cavanich - Night.mp3",
     "duration": 197,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Running",
@@ -1795,7 +1828,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-09. Running.mp3",
     "duration": 178,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Mor Ardain - Roaming the Wastes -",
@@ -1804,7 +1837,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-10. Mor Ardain - Roaming the Wastes -.mp3",
     "duration": 185,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Mor Ardain/Night",
@@ -1813,7 +1846,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-11. Mor Ardain - Night.mp3",
     "duration": 195,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Eye of Shining Justice",
@@ -1822,7 +1855,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-12. Eye of Shining Justice.mp3",
     "duration": 115,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Bringer of Chaos! Ultimate",
@@ -1831,7 +1864,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-13. Bringer of Chaos! Ultimate.mp3",
     "duration": 205,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Song of Giga Rosa",
@@ -1840,7 +1873,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-14. Song of Giga Rosa.mp3",
     "duration": 112,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Jump Towards the Morning Sun",
@@ -1849,7 +1882,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-15. Jump Towards the Morning Sun.mp3",
     "duration": 142,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Leftherian Archipelago",
@@ -1858,7 +1891,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-16. Leftherian Archipelago.mp3",
     "duration": 241,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Leftherian Archipelago/Night",
@@ -1867,7 +1900,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-17. Leftherian Archipelago - Night.mp3",
     "duration": 264,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Gramps",
@@ -1876,7 +1909,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-18. Gramps.mp3",
     "duration": 162,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Gramps/Night",
@@ -1885,7 +1918,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-19. Gramps - Night.mp3",
     "duration": 182,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "A Place in the Sun",
@@ -1894,7 +1927,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "8-20. A Place in the Sun.mp3",
     "duration": 154,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Our Eternal Land",
@@ -1903,7 +1936,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-01. Our Eternal Land.mp3",
     "duration": 191,
     "game": "xenoblade-2",
-    "artist": "ANúNA"
+    "composer": "ANúNA"
   },
   {
     "title": "We Are the Chosen Ones",
@@ -1912,7 +1945,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-02. We Are the Chosen Ones.mp3",
     "duration": 204,
     "game": "xenoblade-2",
-    "artist": "ANúNA"
+    "composer": "ANúNA"
   },
   {
     "title": "Misgivings",
@@ -1921,7 +1954,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-03. Misgivings.mp3",
     "duration": 170,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Impending Crisis",
@@ -1930,7 +1963,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-04. The Impending Crisis.mp3",
     "duration": 201,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Temperantia",
@@ -1939,7 +1972,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-05. Temperantia.mp3",
     "duration": 197,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Over the Sinful Entreaty",
@@ -1948,7 +1981,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-06. Over the Sinful Entreaty.mp3",
     "duration": 242,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Tantal",
@@ -1957,7 +1990,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-07. Tantal.mp3",
     "duration": 204,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Tantal/Night",
@@ -1966,7 +1999,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-08. Tantal - Night.mp3",
     "duration": 182,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Ever Come to an End",
@@ -1975,7 +2008,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-09. Ever Come to an End.mp3",
     "duration": 188,
     "game": "xenoblade-2",
-    "artist": "ANúNA"
+    "composer": "ANúNA"
   },
   {
     "title": "Shadow of the Lowlands",
@@ -1984,7 +2017,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-10. Shadow of the Lowlands.mp3",
     "duration": 174,
     "game": "xenoblade-2",
-    "artist": "ANúNA"
+    "composer": "ANúNA"
   },
   {
     "title": "The Past Revealed",
@@ -1993,7 +2026,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-11. The Past Revealed.mp3",
     "duration": 145,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "The Decision",
@@ -2002,7 +2035,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-12. The Decision.mp3",
     "duration": 301,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Loneliness",
@@ -2011,7 +2044,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-13. Loneliness.mp3",
     "duration": 171,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Spirit Crucible Elpys",
@@ -2020,7 +2053,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-14. Spirit Crucible Elpys.mp3",
     "duration": 161,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Tensed Mind",
@@ -2029,7 +2062,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-15. Tensed Mind.mp3",
     "duration": 157,
     "game": "xenoblade-2",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Drifting Soul (Violin Version)",
@@ -2038,7 +2071,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-16. Drifting Soul (Violin Version).mp3",
     "duration": 309,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "A Faint Hope",
@@ -2047,7 +2080,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-17. A Faint Hope.mp3",
     "duration": 161,
     "game": "xenoblade-2",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Cliffs of Morytha",
@@ -2056,7 +2089,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-18. Cliffs of Morytha.mp3",
     "duration": 207,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Still, Move Forward!",
@@ -2065,7 +2098,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-19. Still, Move Forward!.mp3",
     "duration": 216,
     "game": "xenoblade-2",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Land of Morytha",
@@ -2074,7 +2107,7 @@ const SONGS_XENOBLADE_2 = [
     "file": "9-20. Land of Morytha.mp3",
     "duration": 220,
     "game": "xenoblade-2",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
 ];
 
@@ -2087,7 +2120,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-01. The Beginning of Our Memory.mp3",
     "duration": 202,
     "game": "xenoblade-2-torna",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Lasaria Woodland",
@@ -2096,7 +2129,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-02. Lasaria Woodland.mp3",
     "duration": 183,
     "game": "xenoblade-2-torna",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Battle!!/Torna",
@@ -2105,7 +2138,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-03. Battle!! - Torna.mp3",
     "duration": 406,
     "game": "xenoblade-2-torna",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Four-limbed Titan/Gormott",
@@ -2114,7 +2147,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-04. Four-limbed Titan - Gormott.mp3",
     "duration": 303,
     "game": "xenoblade-2-torna",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Kingdom of Torna",
@@ -2123,7 +2156,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-05. Kingdom of Torna.mp3",
     "duration": 275,
     "game": "xenoblade-2-torna",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Kingdom of Torna/Night",
@@ -2132,7 +2165,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-06. Kingdom of Torna - Night.mp3",
     "duration": 237,
     "game": "xenoblade-2-torna",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Auresco, Royal Capital",
@@ -2141,7 +2174,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-07. Auresco, Royal Capital.mp3",
     "duration": 178,
     "game": "xenoblade-2-torna",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Auresco, Royal Capital/Night",
@@ -2150,7 +2183,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-08. Auresco, Royal Capital - Night.mp3",
     "duration": 193,
     "game": "xenoblade-2-torna",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Over Despair and Animus",
@@ -2159,7 +2192,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-09. Over Despair and Animus.mp3",
     "duration": 186,
     "game": "xenoblade-2-torna",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Our Paths May Never Cross",
@@ -2168,7 +2201,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-10. Our Paths May Never Cross.mp3",
     "duration": 186,
     "game": "xenoblade-2-torna",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "A Moment of Eternity",
@@ -2177,7 +2210,7 @@ const SONGS_XENOBLADE_2_TORNA = [
     "file": "11-11. A Moment of Eternity.mp3",
     "duration": 298,
     "game": "xenoblade-2-torna",
-    "artist": "Jen Bird"
+    "composer": "Jen Bird"
   },
 ];
 
@@ -2190,7 +2223,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-01. Off-Seer.mp3",
     "duration": 198,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Battlefield - The Scramble for Life",
@@ -2199,7 +2232,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-02. Battlefield - The Scramble for Life.mp3",
     "duration": 218,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Tactical Action (Dynamic)",
@@ -2208,7 +2241,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-03. Tactical Action (Dynamic).mp3",
     "duration": 110,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Tactical Action",
@@ -2217,7 +2250,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-04. Tactical Action.mp3",
     "duration": 95,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "The Exhausted Victorious, The Speechless Defeated",
@@ -2226,7 +2259,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-05. The Exhausted Victorious, The Speechless Defeated.mp3",
     "duration": 254,
     "game": "xenoblade-3",
-    "artist": "救仁郷裕, 藤井理央"
+    "composer": "救仁郷裕, 藤井理央"
   },
   {
     "title": "Young Warriors",
@@ -2235,7 +2268,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-06. Young Warriors.mp3",
     "duration": 195,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Lost Days of Warmth",
@@ -2244,7 +2277,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-07. Lost Days of Warmth.mp3",
     "duration": 184,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Shining Aspiration - Inherited Melody",
@@ -2253,7 +2286,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-08. Shining Aspiration - Inherited Melody.mp3",
     "duration": 257,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Yzana Plains",
@@ -2262,7 +2295,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-09. Yzana Plains.mp3",
     "duration": 277,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Yzana Plains/Night",
@@ -2271,7 +2304,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-10. Yzana Plains - Night.mp3",
     "duration": 249,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Keves Battle",
@@ -2280,7 +2313,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-11. Keves Battle.mp3",
     "duration": 199,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Soldiers' Paean",
@@ -2289,7 +2322,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-12. Soldiers' Paean.mp3",
     "duration": 205,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Indescribable Unease",
@@ -2298,7 +2331,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-13. Indescribable Unease.mp3",
     "duration": 200,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Iris Network",
@@ -2307,7 +2340,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "12-14. Iris Network.mp3",
     "duration": 204,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Alfeto Valley",
@@ -2316,7 +2349,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-01. Alfeto Valley.mp3",
     "duration": 195,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Alfeto Valley/Night",
@@ -2325,7 +2358,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-02. Alfeto Valley - Night.mp3",
     "duration": 221,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Nearing the Enemy",
@@ -2334,7 +2367,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-03. Nearing the Enemy.mp3",
     "duration": 184,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Impending Crisis",
@@ -2343,7 +2376,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-04. Impending Crisis.mp3",
     "duration": 231,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Immediate Threat",
@@ -2352,7 +2385,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-05. Immediate Threat.mp3",
     "duration": 265,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "The Two Off-Seers",
@@ -2361,7 +2394,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-06. The Two Off-Seers.mp3",
     "duration": 202,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Suffocating Reverberation",
@@ -2370,7 +2403,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-07. Suffocating Reverberation.mp3",
     "duration": 187,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Ouroboros Awakening",
@@ -2379,7 +2412,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-08. Ouroboros Awakening.mp3",
     "duration": 154,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Moebius Battle",
@@ -2388,7 +2421,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-09. Moebius Battle.mp3",
     "duration": 511,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Against the World",
@@ -2397,7 +2430,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-10. Against the World.mp3",
     "duration": 206,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "A Life Woven Together",
@@ -2406,7 +2439,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-11. A Life Woven Together.mp3",
     "duration": 192,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "A Life Sent On",
@@ -2415,7 +2448,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-12. A Life Sent On.mp3",
     "duration": 116,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Quiet Intrigue",
@@ -2424,7 +2457,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-13. Quiet Intrigue.mp3",
     "duration": 188,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Hostile Colony (Dynamic)",
@@ -2433,7 +2466,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-14. Hostile Colony (Dynamic).mp3",
     "duration": 154,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Hostile Colony",
@@ -2442,7 +2475,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-15. Hostile Colony.mp3",
     "duration": 168,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Everyday Life",
@@ -2451,7 +2484,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-16. Everyday Life.mp3",
     "duration": 221,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Bereaved and Those Left Behind",
@@ -2460,7 +2493,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-17. The Bereaved and Those Left Behind.mp3",
     "duration": 249,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda, 野口明生"
+    "composer": "Yasunori Mitsuda, 野口明生"
   },
   {
     "title": "Off-Seer - Noah",
@@ -2469,7 +2502,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "13-18. Off-Seer - Noah.mp3",
     "duration": 124,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Millick Meadows",
@@ -2478,7 +2511,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-01. Millick Meadows.mp3",
     "duration": 266,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Millick Meadows/Night",
@@ -2487,7 +2520,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-02. Millick Meadows - Night.mp3",
     "duration": 196,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "A Formidable Enemy",
@@ -2496,7 +2529,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-03. A Formidable Enemy.mp3",
     "duration": 214,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Eagus Wilderness",
@@ -2505,7 +2538,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-04. Eagus Wilderness.mp3",
     "duration": 250,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Eagus Wilderness/Night",
@@ -2514,7 +2547,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-05. Eagus Wilderness - Night.mp3",
     "duration": 249,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Suspicion",
@@ -2523,7 +2556,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-06. Suspicion.mp3",
     "duration": 175,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Sun-Dappled Glade",
@@ -2532,7 +2565,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-07. Sun-Dappled Glade.mp3",
     "duration": 178,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Blade - Those Who Know Fear",
@@ -2541,7 +2574,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-08. Blade - Those Who Know Fear.mp3",
     "duration": 176,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Moebius",
@@ -2550,7 +2583,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-09. Moebius.mp3",
     "duration": 205,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Those Who Devour Life",
@@ -2559,7 +2592,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-10. Those Who Devour Life.mp3",
     "duration": 200,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Remorse",
@@ -2568,7 +2601,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-11. Remorse.mp3",
     "duration": 196,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Keves Colony",
@@ -2577,7 +2610,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-12. Keves Colony.mp3",
     "duration": 201,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Keves Colony/Night",
@@ -2586,7 +2619,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-13. Keves Colony - Night.mp3",
     "duration": 178,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Encroaching Malice",
@@ -2595,7 +2628,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-14. Encroaching Malice.mp3",
     "duration": 183,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Ribbi Flats",
@@ -2604,7 +2637,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-15. Ribbi Flats.mp3",
     "duration": 186,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Ribbi Flats/Night",
@@ -2613,7 +2646,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-16. Ribbi Flats - Night.mp3",
     "duration": 200,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "You Will Know Our Names - Finale",
@@ -2622,7 +2655,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "14-17. You Will Know Our Names - Finale.mp3",
     "duration": 318,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Dannagh Desert",
@@ -2631,7 +2664,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-01. Dannagh Desert.mp3",
     "duration": 241,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Dannagh Desert/Night",
@@ -2640,7 +2673,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-02. Dannagh Desert - Night.mp3",
     "duration": 251,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Rae-Bel Tableland",
@@ -2649,7 +2682,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-03. Rae-Bel Tableland.mp3",
     "duration": 282,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Rae-Bel Tableland/Night",
@@ -2658,7 +2691,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-04. Rae-Bel Tableland - Night.mp3",
     "duration": 265,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Urayan Tunnels",
@@ -2667,7 +2700,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-05. Urayan Tunnels.mp3",
     "duration": 196,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Ferronis",
@@ -2676,7 +2709,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-06. Ferronis.mp3",
     "duration": 234,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Confronting Our Past",
@@ -2685,7 +2718,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-07. Confronting Our Past.mp3",
     "duration": 171,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Chain Attack",
@@ -2694,7 +2727,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-08. Chain Attack.mp3",
     "duration": 330,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Off-Seer - Mio",
@@ -2703,7 +2736,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-09. Off-Seer - Mio.mp3",
     "duration": 118,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Great Cotte Falls",
@@ -2712,7 +2745,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-10. Great Cotte Falls.mp3",
     "duration": 234,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Great Cotte Falls/Night",
@@ -2721,7 +2754,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-11. Great Cotte Falls - Night.mp3",
     "duration": 223,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Mysterious Land",
@@ -2730,7 +2763,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-12. Mysterious Land.mp3",
     "duration": 198,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Maktha Wildwood",
@@ -2739,7 +2772,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-13. Maktha Wildwood.mp3",
     "duration": 298,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Maktha Wildwood/Night",
@@ -2748,7 +2781,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-14. Maktha Wildwood - Night.mp3",
     "duration": 276,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Light of the Moon - Hope",
@@ -2757,7 +2790,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "15-15. Light of the Moon - Hope.mp3",
     "duration": 207,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Agnus Colony",
@@ -2766,7 +2799,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-01. Agnus Colony.mp3",
     "duration": 225,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Agnus Colony/Night",
@@ -2775,7 +2808,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-02. Agnus Colony - Night.mp3",
     "duration": 194,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Agnus Battle",
@@ -2784,7 +2817,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-03. Agnus Battle.mp3",
     "duration": 223,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "A Life Become Distant",
@@ -2793,7 +2826,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-04. A Life Become Distant.mp3",
     "duration": 177,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "In the Morning Mist",
@@ -2802,7 +2835,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-05. In the Morning Mist.mp3",
     "duration": 249,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Life's Fading Flame - Holding These Thoughts",
@@ -2811,7 +2844,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-06. Life's Fading Flame - Holding These Thoughts.mp3",
     "duration": 219,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Carrying the Weight of Life",
@@ -2820,7 +2853,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-07. Carrying the Weight of Life.mp3",
     "duration": 269,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Rest Spot",
@@ -2829,7 +2862,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-08. Rest Spot.mp3",
     "duration": 204,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Syra Hovering Reefs",
@@ -2838,7 +2871,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-09. Syra Hovering Reefs.mp3",
     "duration": 221,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Syra Hovering Reefs/Night",
@@ -2847,7 +2880,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-10. Syra Hovering Reefs - Night.mp3",
     "duration": 220,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Keves Castle",
@@ -2856,7 +2889,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-11. Keves Castle.mp3",
     "duration": 202,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Keves Castle (Battle)",
@@ -2865,7 +2898,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-12. Keves Castle (Battle).mp3",
     "duration": 191,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "The False Queens",
@@ -2874,7 +2907,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-13. The False Queens.mp3",
     "duration": 357,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Great Sword's Base",
@@ -2883,7 +2916,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-14. Great Sword's Base.mp3",
     "duration": 234,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Great Sword's Base/Night",
@@ -2892,7 +2925,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "16-15. Great Sword's Base - Night.mp3",
     "duration": 233,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "City",
@@ -2901,7 +2934,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-01. City.mp3",
     "duration": 248,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "City/Night",
@@ -2910,7 +2943,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-02. City - Night.mp3",
     "duration": 225,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Sailing the Seas",
@@ -2919,7 +2952,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-03. Sailing the Seas.mp3",
     "duration": 287,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Erythia Sea",
@@ -2928,7 +2961,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-04. Erythia Sea.mp3",
     "duration": 200,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Erythia Sea/Night",
@@ -2937,7 +2970,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-05. Erythia Sea - Night.mp3",
     "duration": 177,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Battle on the Seas",
@@ -2946,7 +2979,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-06. Battle on the Seas.mp3",
     "duration": 226,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Malevolent Hollow",
@@ -2955,7 +2988,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-07. Malevolent Hollow.mp3",
     "duration": 213,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Li Garte Prison Camp",
@@ -2964,7 +2997,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-08. Li Garte Prison Camp.mp3",
     "duration": 209,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Moebius Battle/M",
@@ -2973,7 +3006,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-09. Moebius Battle - M.mp3",
     "duration": 511,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "That To Which The Defeated Cling",
@@ -2982,7 +3015,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-10. That To Which The Defeated Cling.mp3",
     "duration": 196,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "A Step Away",
@@ -2991,7 +3024,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-11. A Step Away.mp3",
     "duration": 295,
     "game": "xenoblade-3",
-    "artist": "Sara Weeda"
+    "composer": "Sara Weeda"
   },
   {
     "title": "A Life Overflowing",
@@ -3000,7 +3033,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-12. A Life Overflowing.mp3",
     "duration": 268,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Homecoming",
@@ -3009,7 +3042,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-13. Homecoming.mp3",
     "duration": 437,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda, Mariam Abounnasr"
+    "composer": "Yasunori Mitsuda, Mariam Abounnasr"
   },
   {
     "title": "Words That Never Reached You",
@@ -3018,7 +3051,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "17-14. Words That Never Reached You.mp3",
     "duration": 195,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Agnus Castle",
@@ -3027,7 +3060,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-01. Agnus Castle.mp3",
     "duration": 204,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Agnus Castle/Night",
@@ -3036,7 +3069,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-02. Agnus Castle - Night.mp3",
     "duration": 186,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Captocorn Peak",
@@ -3045,7 +3078,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-03. Captocorn Peak.mp3",
     "duration": 218,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Captocorn Peak/Night",
@@ -3054,7 +3087,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-04. Captocorn Peak - Night.mp3",
     "duration": 226,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Off-Seer - Miyabi",
@@ -3063,7 +3096,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-05. Off-Seer - Miyabi.mp3",
     "duration": 138,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Feelings Risen to the Sky",
@@ -3072,7 +3105,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-06. Feelings Risen to the Sky.mp3",
     "duration": 195,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Cloudkeep",
@@ -3081,7 +3114,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-07. Cloudkeep.mp3",
     "duration": 221,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Converging Emotions",
@@ -3090,7 +3123,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-08. Converging Emotions.mp3",
     "duration": 229,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Saffronia Village",
@@ -3099,7 +3132,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-09. Saffronia Village.mp3",
     "duration": 262,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Off-Seer - Crys",
@@ -3108,7 +3141,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-10. Off-Seer - Crys.mp3",
     "duration": 109,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Feelings Upon This Melody",
@@ -3117,7 +3150,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-11. Feelings Upon This Melody.mp3",
     "duration": 188,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Fort O'Virbus",
@@ -3126,7 +3159,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-12. Fort O'Virbus.mp3",
     "duration": 183,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Fort O'Virbus/Night",
@@ -3135,7 +3168,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-13. Fort O'Virbus - Night.mp3",
     "duration": 224,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Elaice Highway",
@@ -3144,7 +3177,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-14. Elaice Highway.mp3",
     "duration": 241,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Elaice Highway/Night",
@@ -3153,7 +3186,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-15. Elaice Highway - Night.mp3",
     "duration": 258,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Great Sea Stirs",
@@ -3162,7 +3195,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-16. The Great Sea Stirs.mp3",
     "duration": 252,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Ultimate Enemy",
@@ -3171,7 +3204,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-17. Ultimate Enemy.mp3",
     "duration": 258,
     "game": "xenoblade-3",
-    "artist": "救仁郷裕, 藤井理央"
+    "composer": "救仁郷裕, 藤井理央"
   },
   {
     "title": "Brilliant Wings",
@@ -3180,7 +3213,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-18. Brilliant Wings.mp3",
     "duration": 247,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Kaleidoscopic Core",
@@ -3189,7 +3222,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "18-19. Kaleidoscopic Core.mp3",
     "duration": 215,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Origin Ascending",
@@ -3198,7 +3231,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-01. Origin Ascending.mp3",
     "duration": 219,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Origin",
@@ -3207,7 +3240,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-02. Origin.mp3",
     "duration": 418,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Origin Battle",
@@ -3216,7 +3249,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-03. Origin Battle.mp3",
     "duration": 112,
     "game": "xenoblade-3",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Noah and N",
@@ -3225,7 +3258,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-04. Noah and N.mp3",
     "duration": 337,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Grand Theater of Life",
@@ -3234,7 +3267,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-05. Grand Theater of Life.mp3",
     "duration": 216,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Z - Harbinger of the End",
@@ -3243,7 +3276,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-06. Z - Harbinger of the End.mp3",
     "duration": 225,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "The Two Queens of Aionios",
@@ -3252,7 +3285,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-07. The Two Queens of Aionios.mp3",
     "duration": 187,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Congregating Lives",
@@ -3261,7 +3294,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-08. Congregating Lives.mp3",
     "duration": 205,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Showdown with Z",
@@ -3270,7 +3303,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-09. Showdown with Z.mp3",
     "duration": 218,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "How the Future Endures",
@@ -3279,7 +3312,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-10. How the Future Endures.mp3",
     "duration": 289,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Something's Beginning to Move",
@@ -3288,7 +3321,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-11. Something's Beginning to Move.mp3",
     "duration": 282,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Where We Belong",
@@ -3297,7 +3330,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-12. Where We Belong.mp3",
     "duration": 335,
     "game": "xenoblade-3",
-    "artist": "Sara Weeda"
+    "composer": "Sara Weeda"
   },
   {
     "title": "Melia - Ancient Memories",
@@ -3306,7 +3339,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-13. Melia - Ancient Memories.mp3",
     "duration": 234,
     "game": "xenoblade-3",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Nia - Toward the Heavens",
@@ -3315,7 +3348,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-14. Nia - Toward the Heavens.mp3",
     "duration": 203,
     "game": "xenoblade-3",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Hope for the Future",
@@ -3324,7 +3357,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-15. Hope for the Future.mp3",
     "duration": 187,
     "game": "xenoblade-3",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Noah and Mio - Our Melody",
@@ -3333,7 +3366,7 @@ const SONGS_XENOBLADE_3 = [
     "file": "19-16. Noah and Mio - Our Melody.mp3",
     "duration": 47,
     "game": "xenoblade-3",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
 ];
 
@@ -3346,7 +3379,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-01. At Our Life's End.mp3",
     "duration": 233,
     "game": "xenoblade-3-fr",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "New Battle!!!",
@@ -3355,7 +3388,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-02. New Battle!!!.mp3",
     "duration": 407,
     "game": "xenoblade-3-fr",
-    "artist": "Kenji Hiramatsu"
+    "composer": "Kenji Hiramatsu"
   },
   {
     "title": "Cent-Omnia Region",
@@ -3364,7 +3397,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-03. Cent-Omnia Region.mp3",
     "duration": 265,
     "game": "xenoblade-3-fr",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Cent-Omnia Region/Night",
@@ -3373,7 +3406,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-04. Cent-Omnia Region - Night.mp3",
     "duration": 276,
     "game": "xenoblade-3-fr",
-    "artist": "ACE (TOMOri Kudo, CHiCO)"
+    "composer": "ACE (TOMOri Kudo, CHiCO)"
   },
   {
     "title": "Yesterdale - Colony 9",
@@ -3382,7 +3415,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-05. Yesterdale - Colony 9.mp3",
     "duration": 229,
     "game": "xenoblade-3-fr",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Yesterdale - Colony 9/Night",
@@ -3391,7 +3424,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-06. Yesterdale - Colony 9 - Night.mp3",
     "duration": 237,
     "game": "xenoblade-3-fr",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Black Mountains - Valak Mountain",
@@ -3400,7 +3433,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-07. Black Mountains - Valak Mountain.mp3",
     "duration": 294,
     "game": "xenoblade-3-fr",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Black Mountains - Valak Mountain/Night",
@@ -3409,7 +3442,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-08. Black Mountains - Valak Mountain - Night.mp3",
     "duration": 242,
     "game": "xenoblade-3-fr",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Black Mountains - Prison Island",
@@ -3418,7 +3451,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-09. Black Mountains - Prison Island.mp3",
     "duration": 294,
     "game": "xenoblade-3-fr",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Black Mountains - Prison Island/Night",
@@ -3427,7 +3460,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-10. Black Mountains - Prison Island - Night.mp3",
     "duration": 244,
     "game": "xenoblade-3-fr",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Redeem the Future",
@@ -3436,7 +3469,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-11. Redeem the Future.mp3",
     "duration": 223,
     "game": "xenoblade-3-fr",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Redeem the Future - Finale",
@@ -3445,7 +3478,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-12. Redeem the Future - Finale.mp3",
     "duration": 234,
     "game": "xenoblade-3-fr",
-    "artist": "Manami Kiyota"
+    "composer": "Manami Kiyota"
   },
   {
     "title": "Two Worlds and Two Hearts",
@@ -3454,7 +3487,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-13. Two Worlds and Two Hearts.mp3",
     "duration": 192,
     "game": "xenoblade-3-fr",
-    "artist": "Mariam Abounnasr"
+    "composer": "Mariam Abounnasr"
   },
   {
     "title": "Future Awaits",
@@ -3463,7 +3496,7 @@ const SONGS_XENOBLADE_3_FR = [
     "file": "20-14. Future Awaits.mp3",
     "duration": 285,
     "game": "xenoblade-3-fr",
-    "artist": "Joanne Hogg"
+    "composer": "Joanne Hogg"
   },
 ];
 
@@ -3476,8 +3509,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-01. no1=CODENAMEZ.mp3",
     "duration": 314,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no2=THEMEX",
@@ -3486,8 +3518,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-02. no2=THEMEX.mp3",
     "duration": 320,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no3=NO.EX01",
@@ -3496,8 +3527,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-03. no3=NO.EX01.mp3",
     "duration": 256,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no4=D91M",
@@ -3506,8 +3536,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-04. no4=D91M.mp3",
     "duration": 299,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no5=KAKU-WEST＊→▲★★KAI",
@@ -3516,8 +3545,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-05. no5=KAKU-WEST＊→▲★★KAI.mp3",
     "duration": 365,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no6=LP",
@@ -3526,8 +3554,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-06. no6=LP.mp3",
     "duration": 286,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no7=G-LOW-S→F.S.K.O",
@@ -3536,8 +3563,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-07. no7=G-LOW-S→F.S.K.O.mp3",
     "duration": 328,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no8=UN↑口and巨DIE",
@@ -3546,8 +3572,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-08. no8=UN↑口and巨DIE.mp3",
     "duration": 308,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no9=MONOX",
@@ -3556,8 +3581,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-09. no9=MONOX.mp3",
     "duration": 197,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no10=CR17S19S8",
@@ -3566,8 +3590,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-10. no10=CR17S19S8.mp3",
     "duration": 357,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "no11=RE:ARR.X",
@@ -3576,8 +3599,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-11. no11=REARR.X.mp3",
     "duration": 370,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "Your Voice",
@@ -3616,8 +3638,7 @@ const SONGS_XENOBLADE_X = [
     "file": "1-15. NEMOUSU秘OUS.mp3",
     "duration": 296,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "Black tar",
@@ -3636,8 +3657,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-02. z5m20i12r04a28.mp3",
     "duration": 297,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z10b2r0i1e2f0i9n1g3",
@@ -3646,8 +3666,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-03. z10b2r0i1e2f0i9n1g3.mp3",
     "duration": 269,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "Uncontrollable",
@@ -3666,8 +3685,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-05. z15f20i12e09l14d.mp3",
     "duration": 379,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z39b20co13mi01cal09",
@@ -3676,8 +3694,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-06. z39b20co13mi01cal09.mp3",
     "duration": 227,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "By my side",
@@ -3696,8 +3713,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-08. z2f0i1e2l0d914.mp3",
     "duration": 156,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z37b20a13t01t08le",
@@ -3706,8 +3722,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-09. z37b20a13t01t08le.mp3",
     "duration": 188,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z30huri2ba0tt12le1110",
@@ -3716,8 +3731,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-10. z30huri2ba0tt12le1110.mp3",
     "duration": 171,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z12e201v2e091n4t",
@@ -3726,8 +3740,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-11. z12e201v2e091n4t.mp3",
     "duration": 411,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z29ba2t0t1l301e17",
@@ -3736,8 +3749,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-12. z29ba2t0t1l301e17.mp3",
     "duration": 172,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z16b2gu012ro09u1su4",
@@ -3746,8 +3758,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-13. z16b2gu012ro09u1su4.mp3",
     "duration": 172,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z13e20v12e09n14t",
@@ -3756,8 +3767,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-14. z13e20v12e09n14t.mp3",
     "duration": 356,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "z7b2012lp0427arr",
@@ -3766,8 +3776,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-15. z7b2012lp0427arr.mp3",
     "duration": 142,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "In the forest",
@@ -3786,8 +3795,7 @@ const SONGS_XENOBLADE_X = [
     "file": "2-17. z23s20a12m0a9-1r4u.mp3",
     "duration": 296,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "The way",
@@ -3816,8 +3824,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-02. N周L辺A.mp3",
     "duration": 318,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "N木ig木ht木L",
@@ -3826,8 +3833,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-03. N木ig木ht木L.mp3",
     "duration": 330,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "N市L街A",
@@ -3836,8 +3842,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-04. N市L街A.mp3",
     "duration": 307,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "亡KEI却KOKU心",
@@ -3846,8 +3851,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-05. 亡KEI却KOKU心.mp3",
     "duration": 347,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "Melancholia",
@@ -3866,8 +3870,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-07. fiKAIeldJOU.mp3",
     "duration": 377,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "aBOreSSs",
@@ -3876,8 +3879,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-08. aBOreSSs.mp3",
     "duration": 336,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "MNN＋@0・",
@@ -3886,8 +3888,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-09. MNN＋@0・.mp3",
     "duration": 351,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "In the forest <X→Z ver.>",
@@ -3896,8 +3897,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-10. In the forest X→Z ver..mp3",
     "duration": 288,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "46-:ri9",
@@ -3906,8 +3906,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-11. 46-ri9.mp3",
     "duration": 312,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "96-:rip",
@@ -3916,8 +3915,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-12. 96-rip.mp3",
     "duration": 354,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "raTEoREkiSImeAra",
@@ -3926,8 +3924,7 @@ const SONGS_XENOBLADE_X = [
     "file": "3-13. raTEoREkiSImeAra.mp3",
     "duration": 409,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "Don't worry",
@@ -3946,8 +3943,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-01. PianoX1.mp3",
     "duration": 232,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "PianoX2",
@@ -3956,8 +3952,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-02. PianoX2.mp3",
     "duration": 233,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "PianoX3",
@@ -3966,8 +3961,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-03. PianoX3.mp3",
     "duration": 175,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "X-BT1",
@@ -3976,8 +3970,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-04. X-BT1.mp3",
     "duration": 118,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "X-BT2",
@@ -3986,8 +3979,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-05. X-BT2.mp3",
     "duration": 297,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "X-BT3",
@@ -4030,8 +4022,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-01. Don't worry 2XDv.mp3",
     "duration": 235,
     "game": "xenoblade-x-de",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "Don't worry <2XDv> (Instrumental ver.)",
@@ -4040,8 +4031,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-02. Don't worry 2XDv (Instrumental ver.).mp3",
     "duration": 235,
     "game": "xenoblade-x-de",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "2S-FIELD",
@@ -4050,8 +4040,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-03. 2S-FIELD.mp3",
     "duration": 165,
     "game": "xenoblade-x-de",
-    "composer": "Misaki Umase",
-    "artist": "Misaki Umase"
+    "composer": "Misaki Umase"
   },
   {
     "title": "2D-BATTLE",
@@ -4060,8 +4049,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-04. 2D-BATTLE.mp3",
     "duration": 170,
     "game": "xenoblade-x-de",
-    "composer": "Misaki Umase",
-    "artist": "Misaki Umase"
+    "composer": "Misaki Umase"
   },
   {
     "title": "2XDLB (Instrumental ver.)",
@@ -4070,8 +4058,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-05. 2DXLB (Instrumental ver.).mp3",
     "duration": 192,
     "game": "xenoblade-x-de",
-    "composer": "Hiroyuki SAWANO",
-    "artist": "Hiroyuki SAWANO"
+    "composer": "Hiroyuki SAWANO"
   },
   {
     "title": "2XDLB",
@@ -4100,8 +4087,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-08. 2N-ERA.mp3",
     "duration": 381,
     "game": "xenoblade-x-de",
-    "composer": "Misaki Umase",
-    "artist": "Misaki Umase"
+    "composer": "Misaki Umase"
   },
   {
     "title": "2D-TRAVELOGUE",
@@ -4110,8 +4096,7 @@ const SONGS_XENOBLADE_X_DE = [
     "file": "5-09. 2D-TRAVELOGUE.mp3",
     "duration": 447,
     "game": "xenoblade-x-de",
-    "composer": "Misaki Umase",
-    "artist": "Misaki Umase"
+    "composer": "Misaki Umase"
   },
 ];
 
@@ -4124,7 +4109,7 @@ const SONGS_XENOGEARS = [
     "file": "1-01. Dark Daybreak.mp3",
     "duration": 292,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "STARS OF TEARS (OUT TAKE)",
@@ -4133,7 +4118,7 @@ const SONGS_XENOGEARS = [
     "file": "1-02. STARS OF TEARS (OUT TAKE).mp3",
     "duration": 177,
     "game": "xenogears",
-    "artist": "Joanne Hogg"
+    "composer": "Joanne Hogg"
   },
   {
     "title": "Bonds of Sea and Flame",
@@ -4142,7 +4127,7 @@ const SONGS_XENOGEARS = [
     "file": "1-03. Bonds of Sea and Flame.mp3",
     "duration": 189,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "My Village is Number One!",
@@ -4151,7 +4136,7 @@ const SONGS_XENOGEARS = [
     "file": "1-04. My Village is Number One!.mp3",
     "duration": 244,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Valley Where the Wind Is Born",
@@ -4160,7 +4145,7 @@ const SONGS_XENOGEARS = [
     "file": "1-05. Valley Where the Wind Is Born.mp3",
     "duration": 153,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Faraway Promise",
@@ -4169,7 +4154,7 @@ const SONGS_XENOGEARS = [
     "file": "1-06. Faraway Promise.mp3",
     "duration": 112,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Steel Giant",
@@ -4178,7 +4163,7 @@ const SONGS_XENOGEARS = [
     "file": "1-07. Steel Giant.mp3",
     "duration": 149,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Blackmoon Forest",
@@ -4187,7 +4172,7 @@ const SONGS_XENOGEARS = [
     "file": "1-08. The Blackmoon Forest.mp3",
     "duration": 244,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Where the Egg of Dreams Hatches",
@@ -4196,7 +4181,7 @@ const SONGS_XENOGEARS = [
     "file": "1-09. Where the Egg of Dreams Hatches.mp3",
     "duration": 183,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Dozing Off (Short Version)",
@@ -4205,7 +4190,7 @@ const SONGS_XENOGEARS = [
     "file": "1-10. Dozing Off (Short Version).mp3",
     "duration": 10,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Dazil, Town of Burning Sands",
@@ -4214,7 +4199,7 @@ const SONGS_XENOGEARS = [
     "file": "1-11. Dazil, Town of Burning Sands.mp3",
     "duration": 208,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Aspiration",
@@ -4223,7 +4208,7 @@ const SONGS_XENOGEARS = [
     "file": "1-12. Aspiration.mp3",
     "duration": 189,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Grahf, Ruler of Darkness",
@@ -4232,7 +4217,7 @@ const SONGS_XENOGEARS = [
     "file": "1-13. Grahf, Ruler of Darkness.mp3",
     "duration": 231,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Fuse",
@@ -4241,7 +4226,7 @@ const SONGS_XENOGEARS = [
     "file": "1-14. Fuse.mp3",
     "duration": 154,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "After the Soldiers' Dreams",
@@ -4250,7 +4235,7 @@ const SONGS_XENOGEARS = [
     "file": "1-15. After the Soldiers' Dreams.mp3",
     "duration": 309,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Unstealable Jewel",
@@ -4259,7 +4244,7 @@ const SONGS_XENOGEARS = [
     "file": "1-16. Unstealable Jewel.mp3",
     "duration": 207,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Aveh, The Ancient Dance",
@@ -4268,7 +4253,7 @@ const SONGS_XENOGEARS = [
     "file": "1-17. Aveh, The Ancient Dance.mp3",
     "duration": 111,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Invasion",
@@ -4277,7 +4262,7 @@ const SONGS_XENOGEARS = [
     "file": "1-18. Invasion.mp3",
     "duration": 193,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Stage of Death",
@@ -4286,7 +4271,7 @@ const SONGS_XENOGEARS = [
     "file": "1-19. Stage of Death.mp3",
     "duration": 159,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "In A Dark Slumber...",
@@ -4295,7 +4280,7 @@ const SONGS_XENOGEARS = [
     "file": "1-20. In A Dark Slumber....mp3",
     "duration": 23,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Gentle Breeze Sings",
@@ -4304,7 +4289,7 @@ const SONGS_XENOGEARS = [
     "file": "1-21. The Gentle Breeze Sings.mp3",
     "duration": 250,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Our Wounded Bodies Shall Advance Towards the Light",
@@ -4313,7 +4298,7 @@ const SONGS_XENOGEARS = [
     "file": "1-22. Our Wounded Bodies Shall Advance Towards the Light.mp3",
     "duration": 117,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "lost... Broken Shards",
@@ -4322,7 +4307,7 @@ const SONGS_XENOGEARS = [
     "file": "1-23. lost... Broken Shards.mp3",
     "duration": 66,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Thames, Spirit of the Men of the Sea",
@@ -4331,7 +4316,7 @@ const SONGS_XENOGEARS = [
     "file": "1-24. Thames, Spirit of the Men of the Sea.mp3",
     "duration": 231,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Blue Traveler",
@@ -4340,7 +4325,7 @@ const SONGS_XENOGEARS = [
     "file": "1-25. The Blue Traveler.mp3",
     "duration": 192,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "In a Prison of Peace and Regret",
@@ -4349,7 +4334,7 @@ const SONGS_XENOGEARS = [
     "file": "2-01. In a Prison of Peace and Regret.mp3",
     "duration": 163,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Jaws of Ice",
@@ -4358,7 +4343,7 @@ const SONGS_XENOGEARS = [
     "file": "2-02. Jaws of Ice.mp3",
     "duration": 174,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Crimson Knight",
@@ -4367,7 +4352,7 @@ const SONGS_XENOGEARS = [
     "file": "2-03. Crimson Knight.mp3",
     "duration": 163,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "October Mermaid",
@@ -4376,7 +4361,7 @@ const SONGS_XENOGEARS = [
     "file": "2-04. October Mermaid.mp3",
     "duration": 268,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Wind Calls to Shevat in the Blue Sky",
@@ -4385,7 +4370,7 @@ const SONGS_XENOGEARS = [
     "file": "2-05. The Wind Calls to Shevat in the Blue Sky.mp3",
     "duration": 212,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Sky, the Clouds, and You",
@@ -4394,7 +4379,7 @@ const SONGS_XENOGEARS = [
     "file": "2-06. The Sky, the Clouds, and You.mp3",
     "duration": 156,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "A Gathering of Stars in the Night Sky",
@@ -4403,7 +4388,7 @@ const SONGS_XENOGEARS = [
     "file": "2-07. A Gathering of Stars in the Night Sky.mp3",
     "duration": 185,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Tears of the Stars, Thoughts of the People",
@@ -4412,7 +4397,7 @@ const SONGS_XENOGEARS = [
     "file": "2-08. Tears of the Stars, Thoughts of the People.mp3",
     "duration": 215,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Flight",
@@ -4421,7 +4406,7 @@ const SONGS_XENOGEARS = [
     "file": "2-09. Flight.mp3",
     "duration": 289,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Wings",
@@ -4430,7 +4415,7 @@ const SONGS_XENOGEARS = [
     "file": "2-10. Wings.mp3",
     "duration": 141,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Solaris, Celestial Paradise",
@@ -4439,7 +4424,7 @@ const SONGS_XENOGEARS = [
     "file": "2-11. Solaris, Celestial Paradise.mp3",
     "duration": 224,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Dozing Off (Long Version)",
@@ -4448,7 +4433,7 @@ const SONGS_XENOGEARS = [
     "file": "2-12. Dozing Off (Long Version).mp3",
     "duration": 14,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The One Who is Torn Apart",
@@ -4457,7 +4442,7 @@ const SONGS_XENOGEARS = [
     "file": "2-13. The One Who is Torn Apart.mp3",
     "duration": 307,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "A Prayer for the Joy Man Desires",
@@ -4466,7 +4451,7 @@ const SONGS_XENOGEARS = [
     "file": "2-14. A Prayer for the Joy Man Desires.mp3",
     "duration": 206,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Premonition",
@@ -4475,7 +4460,7 @@ const SONGS_XENOGEARS = [
     "file": "2-15. Premonition.mp3",
     "duration": 295,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Awakening",
@@ -4484,7 +4469,7 @@ const SONGS_XENOGEARS = [
     "file": "2-16. Awakening.mp3",
     "duration": 263,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "One Who Bares Fangs at God",
@@ -4493,7 +4478,7 @@ const SONGS_XENOGEARS = [
     "file": "2-17. One Who Bares Fangs at God.mp3",
     "duration": 367,
     "game": "xenogears",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Beginning and the End",
@@ -4502,7 +4487,7 @@ const SONGS_XENOGEARS = [
     "file": "2-18. The Beginning and the End.mp3",
     "duration": 277,
     "game": "xenogears",
-    "artist": "The Great Voices of Bulgaria"
+    "composer": "The Great Voices of Bulgaria"
   },
   {
     "title": "SMALL TWO OF PIECES ~Broken Shards~",
@@ -4511,7 +4496,7 @@ const SONGS_XENOGEARS = [
     "file": "2-19. SMALL TWO OF PIECES ~Broken Shards~.mp3",
     "duration": 380,
     "game": "xenogears",
-    "artist": "Joanne Hogg"
+    "composer": "Joanne Hogg"
   },
 ];
 
@@ -4524,8 +4509,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-01 Shion ~Memories of the Past~.mp3",
     "duration": 75,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Prologue",
@@ -4534,8 +4518,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-02 Prologue.mp3",
     "duration": 274,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Gnosis",
@@ -4544,8 +4527,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-03 Gnosis.mp3",
     "duration": 265,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "U-TIC Organization",
@@ -4554,8 +4536,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-04 U-TIC Organization.mp3",
     "duration": 168,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Girl Who Closed Her Heart",
@@ -4564,8 +4545,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-05 The Girl Who Closed Her Heart.mp3",
     "duration": 134,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Ormus",
@@ -4574,8 +4554,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-06 Ormus.mp3",
     "duration": 149,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Nephilim",
@@ -4584,8 +4563,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-07 Nephilim.mp3",
     "duration": 153,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Warmth <New Recording>",
@@ -4594,8 +4572,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-08 Warmth _New Recording_.mp3",
     "duration": 121,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Resurrection",
@@ -4604,8 +4581,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-09 The Resurrection.mp3",
     "duration": 113,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Beach of Nothingness <New Recording>",
@@ -4614,8 +4590,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-10 The Beach of Nothingness _New Recording_.mp3",
     "duration": 155,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Green Sleeves <New Recording>",
@@ -4624,8 +4599,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-11 Green Sleeves _New Recording_.mp3",
     "duration": 146,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "KOS-MOS",
@@ -4634,8 +4608,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-12 KOS-MOS.mp3",
     "duration": 147,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "The Miracle",
@@ -4644,8 +4617,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-13 The Miracle.mp3",
     "duration": 112,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Zarathustra",
@@ -4654,8 +4626,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-14 Zarathustra.mp3",
     "duration": 185,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Ω",
@@ -4664,8 +4635,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-15 Ω.mp3",
     "duration": 248,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Escape",
@@ -4674,8 +4644,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-16 Escape.mp3",
     "duration": 152,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Pain",
@@ -4684,8 +4653,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-17 Pain.mp3",
     "duration": 338,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Kokoro",
@@ -4694,8 +4662,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-18 Kokoro.mp3",
     "duration": 337,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Shion ~Emotion~",
@@ -4704,8 +4671,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-19 Shion ~Emotion~.mp3",
     "duration": 84,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "World to be Born",
@@ -4714,8 +4680,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-20 World to be Born.mp3",
     "duration": 199,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Pain -piano version- <New Recording>",
@@ -4724,8 +4689,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "1-21 Pain -piano version- _New Recording_.mp3",
     "duration": 165,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Opening",
@@ -4734,8 +4698,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-01 Opening.mp3",
     "duration": 242,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Battle",
@@ -4744,8 +4707,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-02 Battle.mp3",
     "duration": 179,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Battle's End",
@@ -4754,8 +4716,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-03 Battle's End.mp3",
     "duration": 42,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Startup Test",
@@ -4764,8 +4725,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-04 Startup Test.mp3",
     "duration": 142,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Reminiscence",
@@ -4774,8 +4734,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-05 Reminiscence.mp3",
     "duration": 198,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Awakening",
@@ -4784,8 +4743,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-06 Awakening.mp3",
     "duration": 140,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Shion's Crisis",
@@ -4794,8 +4752,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-07 Shion's Crisis.mp3",
     "duration": 113,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Battling KOS-MOS",
@@ -4804,8 +4761,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-08 Battling KOS-MOS.mp3",
     "duration": 199,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Sorrow",
@@ -4814,8 +4770,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-09 Sorrow.mp3",
     "duration": 234,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Life or Death",
@@ -4824,8 +4779,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-10 Life or Death.mp3",
     "duration": 195,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Game Over",
@@ -4834,8 +4788,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-11 Game Over.mp3",
     "duration": 41,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Margulis",
@@ -4844,8 +4797,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-12 Margulis.mp3",
     "duration": 269,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Pursued Spaceship",
@@ -4854,8 +4806,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-13 Pursued Spaceship.mp3",
     "duration": 222,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Relief",
@@ -4864,8 +4815,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-14 Relief.mp3",
     "duration": 167,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Everyday",
@@ -4874,8 +4824,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-15 Everyday.mp3",
     "duration": 114,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "U.M.N. MODE",
@@ -4884,8 +4833,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-16 U.M.N. MODE.mp3",
     "duration": 159,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Durandal",
@@ -4894,8 +4842,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-17 Durandal.mp3",
     "duration": 153,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Invading the Enemy Ship",
@@ -4904,8 +4851,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-18 Invading the Enemy Ship.mp3",
     "duration": 40,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Kookai Foundation",
@@ -4914,8 +4860,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-19 Kookai Foundation.mp3",
     "duration": 117,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Anxiety",
@@ -4924,8 +4869,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-20 Anxiety.mp3",
     "duration": 247,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Panic",
@@ -4934,8 +4878,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-21 Panic.mp3",
     "duration": 146,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Song of Nephilim",
@@ -4944,8 +4887,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-22 Song of Nephilim.mp3",
     "duration": 66,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Inner Space",
@@ -4954,8 +4896,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-23 Inner Space.mp3",
     "duration": 107,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Albedo",
@@ -4964,8 +4905,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-24 Albedo.mp3",
     "duration": 230,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Proto Merkabah",
@@ -4974,8 +4914,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-25 Proto Merkabah.mp3",
     "duration": 330,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
   {
     "title": "Last Battle",
@@ -4984,8 +4923,7 @@ const SONGS_XENOSAGA_1 = [
     "file": "2-26 Last Battle.mp3",
     "duration": 304,
     "game": "xenosaga-1",
-    "composer": "Yasunori Mitsuda",
-    "artist": "Yasunori Mitsuda"
+    "composer": "Yasunori Mitsuda"
   },
 ];
 
@@ -4999,7 +4937,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 239,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5010,7 +4947,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 214,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5021,7 +4957,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 51,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5032,7 +4967,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 219,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5043,7 +4977,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 176,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5054,7 +4987,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 276,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5065,7 +4997,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 191,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5076,7 +5007,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 86,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5087,7 +5017,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 350,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5098,7 +5027,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 236,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5109,7 +5037,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 159,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5120,7 +5047,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 197,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5131,7 +5057,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 186,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5142,7 +5067,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 237,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5153,7 +5077,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 319,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5164,7 +5087,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 200,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5175,7 +5097,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 117,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5186,7 +5107,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 207,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5197,7 +5117,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 243,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5208,7 +5127,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 200,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5219,7 +5137,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 224,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5230,7 +5147,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 182,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5241,7 +5157,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 195,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5252,7 +5167,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 207,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5263,7 +5177,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 219,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5274,7 +5187,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 218,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5285,7 +5197,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 271,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5296,7 +5207,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 360,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5307,7 +5217,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 283,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
   {
@@ -5318,7 +5227,6 @@ const SONGS_XENOSAGA_2_GAMERIP = [
     "duration": 188,
     "game": "xenosaga-2",
     "composer": "Shinji Hosoe",
-    "artist": "Shinji Hosoe",
     "folder": "Xenosaga II - Jenseits von Gut und Böse (PS2) (gamerip) (2004)"
   },
 ];
@@ -5332,7 +5240,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-01. in the beginning, there was.....mp3",
     "duration": 120,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5342,7 +5250,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-02. first meeting.mp3",
     "duration": 168,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5352,7 +5260,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-03. Xenosaga II opening theme.mp3",
     "duration": 152,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5362,7 +5270,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-04. assault.mp3",
     "duration": 221,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5372,7 +5280,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-05. strain-Jin.mp3",
     "duration": 235,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5382,7 +5290,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-06. here he comes.mp3",
     "duration": 117,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5392,7 +5300,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-07. fatal fight (Jin & Margulis).mp3",
     "duration": 253,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5402,7 +5310,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-08. R&D report.mp3",
     "duration": 111,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5412,7 +5320,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-09. chase.mp3",
     "duration": 159,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5422,7 +5330,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-10. surrounded.mp3",
     "duration": 175,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5432,7 +5340,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-11. lamentation.mp3",
     "duration": 324,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5442,7 +5350,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-12. Albedo.mp3",
     "duration": 119,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5452,7 +5360,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-13. communication breakdown.mp3",
     "duration": 253,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5462,7 +5370,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-14. Sakura (theme-piano ver.).mp3",
     "duration": 98,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5472,7 +5380,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-15. Sakura #2 (theme-simple voc.ver.).mp3",
     "duration": 152,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5482,7 +5390,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-16. strained.mp3",
     "duration": 68,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5492,7 +5400,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-17. Jr. #2.mp3",
     "duration": 101,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5502,7 +5410,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-18. strained #2 - Albedo #2.mp3",
     "duration": 235,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5512,7 +5420,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-19. in the beginning, there was... #2.mp3",
     "duration": 120,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5522,7 +5430,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-20. battle of Elsa.mp3",
     "duration": 182,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5532,7 +5440,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-21. here she comes (KOS-MOS).mp3",
     "duration": 158,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5542,7 +5450,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-22. battle of Elsa #2.mp3",
     "duration": 129,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5552,7 +5460,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "1-23. gate out.mp3",
     "duration": 209,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5562,7 +5470,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-01. here he comes #2.mp3",
     "duration": 210,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5572,7 +5480,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-02. creeping fear.mp3",
     "duration": 126,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5582,7 +5490,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-03. U-DO - Febronia.mp3",
     "duration": 228,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5592,7 +5500,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-04. final crisis.mp3",
     "duration": 134,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5602,7 +5510,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-05. presentiment - Jr.#3.mp3",
     "duration": 195,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5612,7 +5520,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-06. a field of battle - bitter #2.mp3",
     "duration": 176,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5622,7 +5530,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-07. inside - Sakura #3.mp3",
     "duration": 84,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5632,7 +5540,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-08. I am free.mp3",
     "duration": 100,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5642,7 +5550,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-09. Sakura #4 (theme - gentle strings ver.).mp3",
     "duration": 126,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5652,7 +5560,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-10. Sweet Song (Xenosaga II ending theme).mp3",
     "duration": 333,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5662,7 +5570,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-11. Jr..mp3",
     "duration": 206,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5672,7 +5580,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-12. Jr. #4.mp3",
     "duration": 157,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5682,7 +5590,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-13. fatal fight #2.mp3",
     "duration": 140,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5692,7 +5600,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-14. bitter.mp3",
     "duration": 173,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5702,7 +5610,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-15. Nephilim.mp3",
     "duration": 88,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5712,7 +5620,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-16. the image theme of Xenosaga II #piano ver..mp3",
     "duration": 190,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
   {
@@ -5722,7 +5630,7 @@ const SONGS_XENOSAGA_2_MOVIE = [
     "file": "2-17. the image theme of Xenosaga II.mp3",
     "duration": 204,
     "game": "xenosaga-2",
-    "artist": "Yuki Kajiura",
+    "composer": "Yuki Kajiura",
     "folder": "Xenosaga II - Jenseits von Gut und Böse ~Movie Scene Soundtrack~ (2004)"
   },
 ];
@@ -5736,8 +5644,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "01. I love you, sincerely (title screen ver.).mp3",
     "duration": 190,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "The Body of the Saint",
@@ -5746,8 +5653,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "02. The Body of the Saint.mp3",
     "duration": 79,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "S-Line Division Infiltration",
@@ -5756,8 +5662,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "03. S-Line Division Infiltration.mp3",
     "duration": 171,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Rolling Down the U.M.N. #2",
@@ -5766,8 +5671,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "04. Rolling Down the U.M.N. #2.mp3",
     "duration": 210,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "fallout",
@@ -5777,8 +5681,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 123,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "rolling down the U.M.N.",
@@ -5788,8 +5691,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 127,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Discovered!",
@@ -5798,8 +5700,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "07. Discovered!.mp3",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Battleland #2",
@@ -5808,8 +5709,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "08. Battleland #2.mp3",
     "duration": 138,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Beach",
@@ -5818,8 +5718,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "09. Beach.mp3",
     "duration": 151,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Shion's Flashback",
@@ -5828,8 +5727,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "10. Shion's Flashback.mp3",
     "duration": 147,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Margulis & Pellegri",
@@ -5838,8 +5736,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "11. Margulis & Pellegri.mp3",
     "duration": 177,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Floating Landmass Appears",
@@ -5848,8 +5745,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "12. Floating Landmass Appears.mp3",
     "duration": 10,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "survive",
@@ -5859,8 +5755,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 188,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "the battle of your soul",
@@ -5870,8 +5765,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 187,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass",
@@ -5880,8 +5774,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "15. Fatal Fight #3 ~ Battle vs. E.S. Levi - Over The Floating Landmass.mp3",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Yuriev & Sellers",
@@ -5890,8 +5783,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "16. Yuriev & Sellers.mp3",
     "duration": 256,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Fifth Jerusalem",
@@ -5900,8 +5792,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "17. Fifth Jerusalem.mp3",
     "duration": 196,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Mobius Hotel",
@@ -5910,8 +5801,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "18. Mobius Hotel.mp3",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Jingle",
@@ -5920,8 +5810,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "19. Jingle.mp3",
     "duration": 12,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "CAT Facility",
@@ -5930,8 +5819,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "20. CAT Facility.mp3",
     "duration": 111,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "T-elos",
@@ -5941,8 +5829,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 141,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Juli's Briefing",
@@ -5951,8 +5838,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "22. Juli's Briefing.mp3",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Maybe Tomorrow (strings ver.)",
@@ -5961,8 +5847,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "23. Maybe Tomorrow (strings ver.).mp3",
     "duration": 55,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Cardinal Heinlein",
@@ -5971,8 +5856,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "24. Cardinal Heinlein.mp3",
     "duration": 100,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "I love you, sincerely (piano ver.)",
@@ -5981,8 +5865,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "25. I love you, sincerely (piano ver.).mp3",
     "duration": 301,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Elsa - Start of CAT Infiltration",
@@ -5991,8 +5874,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "26. Elsa - Start of CAT Infiltration.mp3",
     "duration": 224,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Creeping Into",
@@ -6001,8 +5883,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "27. Creeping Into (extended).mp3",
     "duration": 276,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Minor Boss Battle",
@@ -6011,8 +5892,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "28. Minor Boss Battle.mp3",
     "duration": 144,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "A New World (piano ver.)",
@@ -6021,8 +5901,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "01. A New World (piano ver.).mp3",
     "duration": 112,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "in a limestone cave",
@@ -6032,8 +5911,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 136,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Ancient Temple",
@@ -6042,8 +5920,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "03. Ancient Temple.mp3",
     "duration": 192,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "T-elos's Challenge",
@@ -6052,8 +5929,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "04. T-elos's Challenge.mp3",
     "duration": 114,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "T-elos#2",
@@ -6063,8 +5939,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "A New World (variation)",
@@ -6073,8 +5948,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "06. A New World (variation).mp3",
     "duration": 50,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Old Miltia Forest",
@@ -6083,8 +5957,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "07. Old Miltia Forest.mp3",
     "duration": 87,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Old Miltia Forest #2",
@@ -6093,8 +5966,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "08. Old Miltia Forest #2.mp3",
     "duration": 87,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Rescue of Virgil",
@@ -6103,8 +5975,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "09. Rescue of Virgil.mp3",
     "duration": 134,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Sneaking Around in Miltia",
@@ -6113,8 +5984,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "10. Sneaking Around in Miltia.mp3",
     "duration": 252,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Acute Neurosis Treatment Facility",
@@ -6123,8 +5993,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "11. Acute Neurosis Treatment Facility.mp3",
     "duration": 191,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "on our ways",
@@ -6134,8 +6003,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 156,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Joachim",
@@ -6144,8 +6012,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "13. Joachim.mp3",
     "duration": 256,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "she's coming back",
@@ -6155,8 +6022,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 117,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Creeping Into #2",
@@ -6165,8 +6031,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "15. Creeping Into #2.mp3",
     "duration": 143,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Acute Neurosis Treatment Facility - Under Attack",
@@ -6175,8 +6040,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "16. Acute Neurosis Treatment Facility - Under Attack.mp3",
     "duration": 169,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Joachim's Decision",
@@ -6196,8 +6060,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 161,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Jin",
@@ -6206,8 +6069,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "19. Jin.mp3",
     "duration": 69,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "The Harsh Truth (piano ver.)",
@@ -6216,8 +6078,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "20. The Harsh Truth (piano ver.).mp3",
     "duration": 57,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Labyrinthos - Search for Shion",
@@ -6226,8 +6087,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "21. Labyrinthos - Search for Shion.mp3",
     "duration": 152,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Assault #2",
@@ -6236,8 +6096,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "22. Assault #2.mp3",
     "duration": 196,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Testament (no vocals)",
@@ -6246,8 +6105,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "23. Testament (no vocals).mp3",
     "duration": 203,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Virgil's Lament",
@@ -6256,8 +6114,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "24. Virgil's Lament.mp3",
     "duration": 148,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Song of Nephilim",
@@ -6276,8 +6133,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "26. A Dark Omen #2 ~ Merkabah.mp3",
     "duration": 170,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Survive #2 ~ Invasion of the Durandal",
@@ -6286,8 +6142,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "27. Survive #2 ~ Invasion of the Durandal.mp3",
     "duration": 201,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "godsibb",
@@ -6297,8 +6152,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 202,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "when the grief lets you go",
@@ -6308,8 +6162,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 152,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "chaos & Canaan",
@@ -6318,8 +6171,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "02. chaos & Canaan.mp3",
     "duration": 89,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Abel's Ark",
@@ -6328,8 +6180,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "03. Abel's Ark.mp3",
     "duration": 175,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "battleland",
@@ -6339,8 +6190,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 214,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Battle vs. Yuriev",
@@ -6349,8 +6199,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "05. Battle vs. Yuriev.mp3",
     "duration": 251,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Godsibb (no vocal)",
@@ -6359,8 +6208,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "06. Godsibb (no vocal).mp3",
     "duration": 173,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Destruction of the Star System",
@@ -6369,8 +6217,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "07. Destruction of the Star System.mp3",
     "duration": 85,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "to the last place",
@@ -6380,8 +6227,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 113,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "a memory of a tragedy",
@@ -6391,8 +6237,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 100,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Richard & Hermann's Appearance",
@@ -6401,8 +6246,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "10. Richard & Hermann's Appearance.mp3",
     "duration": 110,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "forgotten sanctuary",
@@ -6412,8 +6256,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 145,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Voyager",
@@ -6422,8 +6265,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "12. Voyager.mp3",
     "duration": 123,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "testament",
@@ -6433,8 +6275,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 224,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab",
@@ -6443,8 +6284,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "14. Fatal Fight #4 ~ vs. E.S. Levi - Michtam Underground Lab.mp3",
     "duration": 148,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Zarathustra dangeon",
@@ -6454,8 +6294,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 137,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "T-elos' Final Appearance",
@@ -6464,8 +6303,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "16. T-elos' Final Appearance.mp3",
     "duration": 209,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "hepatica (KOS-MOS)",
@@ -6475,8 +6313,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 314,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "the harsh truth",
@@ -6486,8 +6323,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 128,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Wilhelm",
@@ -6496,8 +6332,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "19. Wilhelm.mp3",
     "duration": 168,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Nephilim & Abel",
@@ -6506,8 +6341,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "20. Nephilim & Abel.mp3",
     "duration": 98,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "promised pain",
@@ -6517,8 +6351,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 186,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Maybe Tomorrow (piano ver.)",
@@ -6527,8 +6360,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "22. Maybe Tomorrow (piano ver.).mp3",
     "duration": 73,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Hepatica (piano ver.)",
@@ -6537,8 +6369,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "23. Hepatica (piano ver.).mp3",
     "duration": 171,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Chase (intro)",
@@ -6547,8 +6378,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "24. Chase (intro).mp3",
     "duration": 46,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Battle vs. Erde Kaiser Σ",
@@ -6557,8 +6387,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "25. Battle vs. Erde Kaiser Σ.mp3",
     "duration": 188,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "HaKox Theme A",
@@ -6567,8 +6396,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "26. HaKox Theme A.mp3",
     "duration": 144,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "HaKox Theme B",
@@ -6577,8 +6405,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "27. HaKox Theme B.mp3",
     "duration": 197,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "She's Coming Back (short ver.)",
@@ -6587,8 +6414,7 @@ const SONGS_XENOSAGA_3 = [
     "file": "28. She's Coming Back (short ver.).mp3",
     "duration": 31,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   // Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)
   {
@@ -6599,8 +6425,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 120,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "we've got to believe in something",
@@ -6610,8 +6435,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 186,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "a dark omen",
@@ -6621,8 +6445,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 147,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "inferno",
@@ -6632,8 +6455,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 114,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "a new world",
@@ -6643,8 +6465,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "the Miltia incidents",
@@ -6654,8 +6475,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 184,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Febronia",
@@ -6665,8 +6485,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 170,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "mother, I miss you",
@@ -6676,8 +6495,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 140,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "fate",
@@ -6687,8 +6505,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 131,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "shifting territories",
@@ -6698,8 +6515,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 201,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "hepatica#2",
@@ -6709,8 +6525,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 102,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "Febronia#2",
@@ -6720,8 +6535,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 132,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "crisis coming",
@@ -6731,8 +6545,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 170,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "a new world#2",
@@ -6742,8 +6555,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 114,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "when the grief lets you go#2",
@@ -6753,8 +6565,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 202,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "I love you, sincerely",
@@ -6764,8 +6575,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 211,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "hepatica#3~I believe in you",
@@ -6775,8 +6585,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 471,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
   {
     "title": "maybe tomorrow~ending medley",
@@ -6786,8 +6595,7 @@ const SONGS_XENOSAGA_3 = [
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 463,
     "game": "xenosaga-3",
-    "composer": "Yuki Kajiura",
-    "artist": "Yuki Kajiura"
+    "composer": "Yuki Kajiura"
   },
 ];
 
@@ -6800,8 +6608,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "01. Elsa.mp3",
     "duration": 188,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Elsa",
@@ -6810,8 +6617,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "02. Elsa 2.mp3",
     "duration": 287,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Consciousness ~ MOMO",
@@ -6820,8 +6626,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "03. Subconcious Domain (Sakura's World).mp3",
     "duration": 146,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Nyaa 1",
@@ -6830,8 +6635,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "04. Nyaa 1.mp3",
     "duration": 204,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "The Durandal",
@@ -6840,8 +6644,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "05. Durandal 1.mp3",
     "duration": 164,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "The Durandal - Hacked",
@@ -6850,8 +6653,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "06. Durandal 2.mp3",
     "duration": 240,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Encylopedia",
@@ -6860,8 +6662,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "07. Encylopedia.mp3",
     "duration": 184,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Depths of Consciousness",
@@ -6870,8 +6671,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "08. Unknown.mp3",
     "duration": 186,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Nyaa 2",
@@ -6880,8 +6680,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "09. Nyaa 2.mp3",
     "duration": 146,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Credits",
@@ -6890,8 +6689,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "10. Credits.mp3",
     "duration": 205,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Foundation",
@@ -6900,8 +6698,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "11. Options.mp3",
     "duration": 235,
     "game": "xenosaga-freaks",
-    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe",
-    "artist": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
+    "composer": "Shinji Hosoe, Ayako Saso, Masashi Yano, & Keiichi Okabe"
   },
   {
     "title": "Opening",
@@ -6910,8 +6707,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "12. Xeno-Pittan - Opening.mp3",
     "duration": 29,
     "game": "xenosaga-freaks",
-    "composer": "Satoru Kosaki",
-    "artist": "Satoru Kosaki"
+    "composer": "Satoru Kosaki"
   },
   {
     "title": "Top Menu",
@@ -6920,8 +6716,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "13. Xeno-Pittan - Top Menu.mp3",
     "duration": 51,
     "game": "xenosaga-freaks",
-    "composer": "Satoru Kosaki",
-    "artist": "Satoru Kosaki"
+    "composer": "Satoru Kosaki"
   },
   {
     "title": "Stage Select",
@@ -6930,7 +6725,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "14. Xeno-Pittan - Stage Select.mp3",
     "duration": 114,
     "game": "xenosaga-freaks",
-    "artist": "Namco Sound Team"
+    "composer": "Namco Sound Team"
   },
   {
     "title": "Stage Theme",
@@ -6939,7 +6734,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "15. Xeno-Pittan - Stage 01.mp3",
     "duration": 341,
     "game": "xenosaga-freaks",
-    "artist": "Namco Sound Team"
+    "composer": "Namco Sound Team"
   },
   {
     "title": "estrellita",
@@ -6988,8 +6783,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "20. Xeno-Pittan - Stage Clear.mp3",
     "duration": 6,
     "game": "xenosaga-freaks",
-    "composer": "Satoru Kosaki",
-    "artist": "Satoru Kosaki"
+    "composer": "Satoru Kosaki"
   },
   {
     "title": "Time Up",
@@ -6998,8 +6792,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "21. Xeno-Pittan - Time Up.mp3",
     "duration": 4,
     "game": "xenosaga-freaks",
-    "composer": "Satoru Kosaki",
-    "artist": "Satoru Kosaki"
+    "composer": "Satoru Kosaki"
   },
   {
     "title": "Continue",
@@ -7008,8 +6801,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "22. Xeno-Pittan - Continue.mp3",
     "duration": 13,
     "game": "xenosaga-freaks",
-    "composer": "Satoru Kosaki",
-    "artist": "Satoru Kosaki"
+    "composer": "Satoru Kosaki"
   },
   {
     "title": "Personality Test",
@@ -7018,8 +6810,7 @@ const SONGS_XENOSAGA_FREAKS = [
     "file": "23. Xeno-Pittan - Personality Test.mp3",
     "duration": 41,
     "game": "xenosaga-freaks",
-    "composer": "Satoru Kosaki",
-    "artist": "Satoru Kosaki"
+    "composer": "Satoru Kosaki"
   },
 ];
 
