@@ -5770,9 +5770,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Fallout (original ver.)",
-    "japaneseTitle": "Fallout (original ver.)",
-    "localizedTitle": "Fallout",
+    "title": "fallout",
+    "japaneseTitle": "fallout",
+    "localizedTitle": "fallout",
     "file": "1-02. fallout.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 123,
@@ -5781,9 +5781,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Rolling Down the UMN #3",
-    "japaneseTitle": "Rolling Down the UMN #3",
-    "localizedTitle": "Rolling Down the UMN",
+    "title": "rolling down the U.M.N.",
+    "japaneseTitle": "rolling down the U.M.N.",
+    "localizedTitle": "rolling down the U.M.N.",
     "file": "1-08. rolling down the UMN.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 127,
@@ -5852,9 +5852,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Survive ~ E.S. Battle",
-    "japaneseTitle": "Survive ~ E.S. Battle",
-    "localizedTitle": "Survive",
+    "title": "survive",
+    "japaneseTitle": "survive",
+    "localizedTitle": "survive",
     "file": "2-05. survive.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 188,
@@ -5863,9 +5863,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "The Battle of Your Soul (variation)",
-    "japaneseTitle": "The Battle of Your Soul (variation)",
-    "localizedTitle": "The Battle of Your Soul",
+    "title": "the battle of your soul",
+    "japaneseTitle": "the battle of your soul",
+    "localizedTitle": "the battle of your soul",
     "file": "1-07. the battle of your soul.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 187,
@@ -5934,8 +5934,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "T-elos (variation)",
-    "japaneseTitle": "T-elos (variation)",
+    "title": "T-elos",
+    "japaneseTitle": "T-elos",
     "localizedTitle": "T-elos",
     "file": "1-13. T-elos.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
@@ -6025,9 +6025,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "In a Limestone Cave",
-    "japaneseTitle": "In a Limestone Cave",
-    "localizedTitle": "In a Limestone Cave",
+    "title": "in a limestone cave",
+    "japaneseTitle": "in a limestone cave",
+    "localizedTitle": "in a limestone cave",
     "file": "1-09. in a limestone cave.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 136,
@@ -6056,8 +6056,8 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "T-elos #2 (variation)",
-    "japaneseTitle": "T-elos #2 (variation)",
+    "title": "T-elos#2",
+    "japaneseTitle": "T-elos#2",
     "localizedTitle": "T-elos#2",
     "file": "2-06. T-elos#2.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
@@ -6127,9 +6127,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "On Our Ways (extended)",
-    "japaneseTitle": "On Our Ways (extended)",
-    "localizedTitle": "On Our Ways",
+    "title": "on our ways",
+    "japaneseTitle": "on our ways",
+    "localizedTitle": "on our ways",
     "file": "1-11. on our ways.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 156,
@@ -6148,9 +6148,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "She's Coming Back (variation)",
-    "japaneseTitle": "She's Coming Back (variation)",
-    "localizedTitle": "She's Coming Back",
+    "title": "she's coming back",
+    "japaneseTitle": "she's coming back",
+    "localizedTitle": "she's coming back",
     "file": "2-07. she's coming back.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 117,
@@ -6189,9 +6189,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Outrageous (extended)",
-    "japaneseTitle": "Outrageous (extended)",
-    "localizedTitle": "Outrageous",
+    "title": "outrageous",
+    "japaneseTitle": "outrageous",
+    "localizedTitle": "outrageous",
     "file": "2-13. outrageous.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 161,
@@ -6290,9 +6290,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Godsibb (extended)",
-    "japaneseTitle": "Godsibb (extended)",
-    "localizedTitle": "Godsibb",
+    "title": "godsibb",
+    "japaneseTitle": "godsibb",
+    "localizedTitle": "godsibb",
     "file": "2-09. godsibb.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 202,
@@ -6301,9 +6301,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "When the Grief Lets You Go (extended)",
-    "japaneseTitle": "When the Grief Lets You Go (extended)",
-    "localizedTitle": "When the Grief Lets You Go",
+    "title": "when the grief lets you go",
+    "japaneseTitle": "when the grief lets you go",
+    "localizedTitle": "when the grief lets you go",
     "file": "2-08. when the grief lets you go.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 152,
@@ -6332,9 +6332,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Battleland (variation)",
-    "japaneseTitle": "Battleland (variation)",
-    "localizedTitle": "Battleland",
+    "title": "battleland",
+    "japaneseTitle": "battleland",
+    "localizedTitle": "battleland",
     "file": "2-02. battleland.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 214,
@@ -6373,9 +6373,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "To the Last Place (extended)",
-    "japaneseTitle": "To the Last Place (extended)",
-    "localizedTitle": "To the Last Place",
+    "title": "to the last place",
+    "japaneseTitle": "to the last place",
+    "localizedTitle": "to the last place",
     "file": "1-23. to the last place.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 113,
@@ -6384,9 +6384,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "A Memory of a Tragedy (extended)",
-    "japaneseTitle": "A Memory of a Tragedy (extended)",
-    "localizedTitle": "A Memory of a Tragedy",
+    "title": "a memory of a tragedy",
+    "japaneseTitle": "a memory of a tragedy",
+    "localizedTitle": "a memory of a tragedy",
     "file": "2-03. a memory of a tragedy.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 100,
@@ -6405,9 +6405,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Forgotten Sanctuary",
-    "japaneseTitle": "Forgotten Sanctuary",
-    "localizedTitle": "Forgotten Sanctuary",
+    "title": "forgotten sanctuary",
+    "japaneseTitle": "forgotten sanctuary",
+    "localizedTitle": "forgotten sanctuary",
     "file": "1-05. forgotten sanctuary.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 145,
@@ -6426,9 +6426,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Testament (extended)",
-    "japaneseTitle": "Testament (extended)",
-    "localizedTitle": "Testament",
+    "title": "testament",
+    "japaneseTitle": "testament",
+    "localizedTitle": "testament",
     "file": "2-04. testament.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 224,
@@ -6447,9 +6447,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Zarathustra Dungeon",
-    "japaneseTitle": "Zarathustra Dungeon",
-    "localizedTitle": "Zarathustra Dangeon",
+    "title": "Zarathustra dangeon",
+    "japaneseTitle": "Zarathustra dangeon",
+    "localizedTitle": "Zarathustra dangeon",
     "file": "1-19. Zarathustra dangeon.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 137,
@@ -6468,9 +6468,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Hepatica (KOS-MOS)",
-    "japaneseTitle": "Hepatica (KOS-MOS)",
-    "localizedTitle": "Hepatica (KOS-MOS)",
+    "title": "hepatica (KOS-MOS)",
+    "japaneseTitle": "hepatica (KOS-MOS)",
+    "localizedTitle": "hepatica (KOS-MOS)",
     "file": "2-01. hepatica(Kos-Mos).mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 314,
@@ -6479,9 +6479,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "The Harsh Truth ~ Battle vs. Shion & Kevin (piano+strings ver.)",
-    "japaneseTitle": "The Harsh Truth ~ Battle vs. Shion & Kevin (piano+strings ver.)",
-    "localizedTitle": "The Harsh Truth",
+    "title": "the harsh truth",
+    "japaneseTitle": "the harsh truth",
+    "localizedTitle": "the harsh truth",
     "file": "1-22. the harsh truth.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 128,
@@ -6510,9 +6510,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Promised Pain (extended)",
-    "japaneseTitle": "Promised Pain (extended)",
-    "localizedTitle": "Promised Pain",
+    "title": "promised pain",
+    "japaneseTitle": "promised pain",
+    "localizedTitle": "promised pain",
     "file": "1-16. promised pain.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 186,
@@ -6592,9 +6592,9 @@ const SONGS_XENOSAGA_3 = [
   },
   // Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)
   {
-    "title": "A Prelude to the Tragedy",
-    "japaneseTitle": "A Prelude to the Tragedy",
-    "localizedTitle": "A Prelude to the Tragedy",
+    "title": "a prelude to the tragedy",
+    "japaneseTitle": "a prelude to the tragedy",
+    "localizedTitle": "a prelude to the tragedy",
     "file": "1-01. a prelude to the tragedy.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 120,
@@ -6603,9 +6603,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "We've Got to Believe in Something",
-    "japaneseTitle": "We've Got to Believe in Something",
-    "localizedTitle": "We've Got to Believe in Something",
+    "title": "we've got to believe in something",
+    "japaneseTitle": "we've got to believe in something",
+    "localizedTitle": "we've got to believe in something",
     "file": "1-03. we've got to believe in something.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 186,
@@ -6614,9 +6614,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "A Dark Omen",
-    "japaneseTitle": "A Dark Omen",
-    "localizedTitle": "A Dark Omen",
+    "title": "a dark omen",
+    "japaneseTitle": "a dark omen",
+    "localizedTitle": "a dark omen",
     "file": "1-04. a dark omen.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 147,
@@ -6625,9 +6625,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Inferno",
-    "japaneseTitle": "Inferno",
-    "localizedTitle": "Inferno",
+    "title": "inferno",
+    "japaneseTitle": "inferno",
+    "localizedTitle": "inferno",
     "file": "1-10. inferno.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 114,
@@ -6636,9 +6636,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "A New World",
-    "japaneseTitle": "A New World",
-    "localizedTitle": "A New World",
+    "title": "a new world",
+    "japaneseTitle": "a new world",
+    "localizedTitle": "a new world",
     "file": "1-12. a new world.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 131,
@@ -6647,9 +6647,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "The Miltia Incidents",
-    "japaneseTitle": "The Miltia Incidents",
-    "localizedTitle": "The Miltia Incidents",
+    "title": "the Miltia incidents",
+    "japaneseTitle": "the Miltia incidents",
+    "localizedTitle": "the Miltia incidents",
     "file": "1-14. the Miltia incidents.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 184,
@@ -6669,9 +6669,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Mother, I Miss You",
-    "japaneseTitle": "Mother, I Miss You",
-    "localizedTitle": "Mother, I Miss You",
+    "title": "mother, I miss you",
+    "japaneseTitle": "mother, I miss you",
+    "localizedTitle": "mother, I miss you",
     "file": "1-17. mother,I miss you.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 140,
@@ -6680,9 +6680,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Fate",
-    "japaneseTitle": "Fate",
-    "localizedTitle": "Fate",
+    "title": "fate",
+    "japaneseTitle": "fate",
+    "localizedTitle": "fate",
     "file": "1-18. fate.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 131,
@@ -6691,9 +6691,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Shifting Territories",
-    "japaneseTitle": "Shifting Territories",
-    "localizedTitle": "Shifting Territories",
+    "title": "shifting territories",
+    "japaneseTitle": "shifting territories",
+    "localizedTitle": "shifting territories",
     "file": "1-20. shifting territories.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 201,
@@ -6702,9 +6702,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Hepatica #2",
-    "japaneseTitle": "Hepatica #2",
-    "localizedTitle": "Hepatica #2",
+    "title": "hepatica#2",
+    "japaneseTitle": "hepatica#2",
+    "localizedTitle": "hepatica#2",
     "file": "1-21. hepatica#2.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 102,
@@ -6713,9 +6713,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Febronia #2",
-    "japaneseTitle": "Febronia #2",
-    "localizedTitle": "Febronia #2",
+    "title": "Febronia#2",
+    "japaneseTitle": "Febronia#2",
+    "localizedTitle": "Febronia#2",
     "file": "2-10. Febronia #2.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 132,
@@ -6724,9 +6724,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Crisis Coming",
-    "japaneseTitle": "Crisis Coming",
-    "localizedTitle": "Crisis Coming",
+    "title": "crisis coming",
+    "japaneseTitle": "crisis coming",
+    "localizedTitle": "crisis coming",
     "file": "2-11. crisis coming.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 170,
@@ -6735,9 +6735,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "A New World #2",
-    "japaneseTitle": "A New World #2",
-    "localizedTitle": "A New World #2",
+    "title": "a new world#2",
+    "japaneseTitle": "a new world#2",
+    "localizedTitle": "a new world#2",
     "file": "2-12. a new world #2.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 114,
@@ -6746,9 +6746,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "When the Grief Lets You Go #2",
-    "japaneseTitle": "When the Grief Lets You Go #2",
-    "localizedTitle": "When the Grief Lets You Go #2",
+    "title": "when the grief lets you go#2",
+    "japaneseTitle": "when the grief lets you go#2",
+    "localizedTitle": "when the grief lets you go#2",
     "file": "2-14. when the grief lets you go #2.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 202,
@@ -6757,9 +6757,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "I Love You, Sincerely",
-    "japaneseTitle": "I Love You, Sincerely",
-    "localizedTitle": "I Love You, Sincerely",
+    "title": "I love you, sincerely",
+    "japaneseTitle": "I love you, sincerely",
+    "localizedTitle": "I love you, sincerely",
     "file": "2-15. I love you,sincerely.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 211,
@@ -6768,9 +6768,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Hepatica - I Believe in You",
-    "japaneseTitle": "Hepatica - I Believe in You",
-    "localizedTitle": "Hepatica - I Believe in You",
+    "title": "hepatica#3~I believe in you",
+    "japaneseTitle": "hepatica#3~I believe in you",
+    "localizedTitle": "hepatica#3~I believe in you",
     "file": "2-16. hepatica - I believe in you.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 471,
@@ -6779,9 +6779,9 @@ const SONGS_XENOSAGA_3 = [
     "artist": "Yuki Kajiura"
   },
   {
-    "title": "Maybe Tomorrow - Ending Medley",
-    "japaneseTitle": "Maybe Tomorrow - Ending Medley",
-    "localizedTitle": "Maybe Tomorrow - Ending Medley",
+    "title": "maybe tomorrow~ending medley",
+    "japaneseTitle": "maybe tomorrow~ending medley",
+    "localizedTitle": "maybe tomorrow~ending medley",
     "file": "2-17. maybe tomorrow - ending medley.mp3",
     "folder": "Xenosaga III - Also Sprach Zarathustra ORIGINAL SOUND BEST TRACKS (2006)",
     "duration": 463,
