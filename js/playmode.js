@@ -145,9 +145,10 @@ function playSong(song, gameId) {
 
     // Guard against stale callbacks when user changes tracks quickly:
     // if the src has changed by the time canplaythrough fires, skip.
-    const expectedSrc = url;
+    // Browser normalises .src (encoding spaces as %20 etc.), so compare normalised forms.
+    const expectedSrc = new URL(url, window.location.href).href;
     const onReady = () => {
-        if (playmodeAudio.src !== expectedSrc && !playmodeAudio.src.endsWith(expectedSrc)) return;
+        if (playmodeAudio.src !== expectedSrc) return;
         playmodeAudio.play().then(() => {
             playmodeIsPlaying = true;
             updatePlaymodeUI();

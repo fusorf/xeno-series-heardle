@@ -1252,15 +1252,17 @@ button:active::before {
         overflow-x: auto;
         gap: 6px;
         margin-bottom: 4px;
-        padding: 10px 20px 10px 0;
+        padding: 10px 20px;
+        margin-left: -20px;
+        margin-right: -20px;
         scrollbar-width: none;
         -webkit-mask-image: linear-gradient(
             to right,
-            black 0%, black calc(100% - 20px), transparent
+            transparent, black 20px, black calc(100% - 20px), transparent
         );
         mask-image: linear-gradient(
             to right,
-            black 0%, black calc(100% - 20px), transparent
+            transparent, black 20px, black calc(100% - 20px), transparent
         );
     }
 
@@ -2773,7 +2775,7 @@ button:active::before {
     }
 
     .mobile-toolbar .language-selector {
-        position: static;
+        position: relative;
         overflow: visible;
     }
 
