@@ -103,6 +103,7 @@ function deactivatePlayMode() {
 
 function destroyPlaymodeAudio() {
     if (playmodeAudio) {
+        playmodeAudio.removeEventListener('ended', onTrackEnded);
         playmodeAudio.removeEventListener('timeupdate', updatePlaymodeProgressUI);
         playmodeAudio.pause();
         playmodeAudio.removeAttribute('src');
@@ -117,35 +118,44 @@ function playSong(song, gameId) {
     const url = getAudioUrl(song);
     if (!url) return;
 
-    // Clean up previous
-    if (playmodeAudio) {
-        playmodeAudio.removeEventListener('timeupdate', updatePlaymodeProgressUI);
-        playmodeAudio.pause();
-        playmodeAudio.removeAttribute('src');
-        playmodeAudio.load();
-    }
-
     playmodeCurrentSong = song;
     playmodeCurrentGame = gameId || song.game;
 
-    playmodeAudio = new Audio(url);
-    playmodeAudio.volume = globalVolume;
-    playmodeAudio.preload = 'auto';
+    // Reuse the same Audio element to preserve background playback on mobile.
+    // Creating a new Audio() each time causes mobile browsers to block playback
+    // when the tab is in background (phone locked / app switched).
+    if (!playmodeAudio) {
+        playmodeAudio = new Audio();
+        playmodeAudio.preload = 'auto';
+        playmodeAudio.addEventListener('ended', onTrackEnded);
+        playmodeAudio.addEventListener('timeupdate', updatePlaymodeProgressUI);
+        playmodeAudio.addEventListener('error', (e) => {
+            console.error('Playmode audio error:', e);
+            // Try advancing to next track on load error (e.g. 404)
+            if (playmodeQueue.length > 0 && playmodeQueueIndex < playmodeQueue.length - 1) {
+                playNextTrack();
+            }
+        });
+    } else {
+        playmodeAudio.pause();
+    }
 
-    playmodeAudio.addEventListener('canplaythrough', () => {
+    playmodeAudio.src = url;
+    playmodeAudio.volume = globalVolume;
+
+    // Guard against stale callbacks when user changes tracks quickly:
+    // if the src has changed by the time canplaythrough fires, skip.
+    const expectedSrc = url;
+    const onReady = () => {
+        if (playmodeAudio.src !== expectedSrc && !playmodeAudio.src.endsWith(expectedSrc)) return;
         playmodeAudio.play().then(() => {
             playmodeIsPlaying = true;
             updatePlaymodeUI();
             updateMediaSession();
         }).catch(err => console.error('Playmode play error:', err));
-    }, { once: true });
+    };
 
-    playmodeAudio.addEventListener('ended', onTrackEnded);
-    playmodeAudio.addEventListener('timeupdate', updatePlaymodeProgressUI);
-    playmodeAudio.addEventListener('error', (e) => {
-        console.error('Playmode audio error:', e);
-    });
-
+    playmodeAudio.addEventListener('canplaythrough', onReady, { once: true });
     playmodeAudio.load();
 
     // Update background blur

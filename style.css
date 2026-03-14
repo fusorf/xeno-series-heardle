@@ -1252,8 +1252,16 @@ button:active::before {
         overflow-x: auto;
         gap: 6px;
         margin-bottom: 4px;
-        padding: 10px 12px;
+        padding: 10px 20px 10px 0;
         scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(
+            to right,
+            black 0%, black calc(100% - 20px), transparent
+        );
+        mask-image: linear-gradient(
+            to right,
+            black 0%, black calc(100% - 20px), transparent
+        );
     }
 
     .game-filters::-webkit-scrollbar {
