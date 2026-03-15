@@ -3988,7 +3988,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-06. X-BT3.mp3",
     "duration": 283,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki Sawano",
+    "composer": "Hiroyuki SAWANO",
     "artist": "Hiroyuki SAWANO"
   },
   {
@@ -3998,7 +3998,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-07. X-BT4.mp3",
     "duration": 300,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki Sawano",
+    "composer": "Hiroyuki SAWANO",
     "artist": "Hiroyuki SAWANO"
   },
   {
@@ -4008,7 +4008,7 @@ const SONGS_XENOBLADE_X = [
     "file": "4-08. In the forest (no vocal effects ver.).mp3",
     "duration": 313,
     "game": "xenoblade-x",
-    "composer": "Hiroyuki Sawano",
+    "composer": "Hiroyuki SAWANO",
     "artist": "Hiroyuki SAWANO"
   },
 ];
