@@ -1617,6 +1617,53 @@ button:active::before {
     width: 100%;
 }
 
+/* Outer: handles positioning + rotation (fixed origin = consistent position) */
+.splash-text {
+    position: absolute;
+    bottom: -0.1em;
+    left: 100%;
+    margin-left: 0;
+    translate: -50% 0;
+    rotate: -16deg;
+    pointer-events: none;
+    z-index: 2;
+    /* Reset h1 inherited styles */
+    font-style: normal;
+    letter-spacing: 0;
+    -webkit-text-fill-color: #FFFF00;
+    background: none;
+}
+
+/* Inner: handles visuals + scale pulse (center origin = symmetrical growth) */
+.splash-inner {
+    display: inline-block;
+    white-space: nowrap;
+    color: #FFFF00;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.3em;
+    font-weight: 800;
+    text-shadow:
+        2px 2px 0 #3F3F00,
+        0 0 10px rgba(255, 255, 0, 0.4);
+    animation: splashPulse 0.5s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes splashPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@media (max-width: 900px) {
+    .splash-inner {
+        font-size: 0.2em;
+    }
+}
+
 /* Mode labels (shown under title when active) */
 .endless-mode-label {
     position: absolute;

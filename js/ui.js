@@ -4,6 +4,66 @@
 
 // MAX_ATTEMPTS is defined in game.js
 
+// ============================================
+// SPLASH TEXT
+// ============================================
+const SPLASH_QUOTES = [
+    // Xenoblade 1
+    "I'M REALLY FEELING IT!",
+    "NOW IT'S REYN TIME!",
+    "BACKSLASH!",
+    "Man, what a bunch of jokers!",
+    "Let's not lose our heads though!",
+    "Can't have a rainbow without Reyn, baby!",
+    "BLOSSOM DANCE!",
+    "This is the Monado's power!",
+    "Today, we use our power to fell a god",
+    "Heropon very cool!",
+    "Riki can do!",
+    "Your blade... it did not cut deep enough",
+    // Xenoblade 2
+    "THINK YOU CAN TAKE ME?!",
+    "DON'T FORGET ME!",
+    "YER DONE!",
+    "I love you... and all you guys!",
+    "I'll show you a thing or three!",
+    "Eye of Shining Justice!",
+    "Handling a man's turtle!",
+    "We'll beat them with the power of friendship!",
+    // Xenoblade 3
+    "Lanz wants something a bit meatier",
+    "I'm the girl with the gall!",
+    "YIPPEEEE!",
+    "Yas, Eunie's the boss!",
+    "Eunie's the bus!",
+    "Spark thissss!",
+    "MIOOOOOO!",
+    "You guys got any babies ?",
+    "Feathers are a bitch to dry",
+    // Xenoblade X
+    "SHUT UP TATSU!",
+    // Xenogears
+    "Stand tall and shake the heavens!",
+    "I am the seeker of power",
+    "My name is Grahf!",
+    // Xenosaga
+    "I am KOS-MOS",
+    "I am merely a weapon",
+    // Meta
+    "723 songs and counting!",
+    "Seeded PRNG is my passion",
+];
+
+function initSplashText() {
+    const el = document.getElementById('splashText');
+    if (!el) return;
+    const quote = SPLASH_QUOTES[Math.floor(Math.random() * SPLASH_QUOTES.length)];
+    const inner = document.createElement('span');
+    inner.className = 'splash-inner';
+    inner.textContent = quote;
+    el.appendChild(inner);
+}
+
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;

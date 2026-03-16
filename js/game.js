@@ -73,6 +73,9 @@ async function initGame() {
     // Render mode selector
     renderModeSelector(currentMode, locale);
 
+    // Initialize splash text
+    initSplashText();
+
     // Get daily song for current mode
     dailySong = getDailySong(currentMode);
 
