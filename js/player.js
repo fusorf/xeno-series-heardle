@@ -7,7 +7,7 @@ let audioElement = null;
 let playerReady = false;
 let isPlaying = false;
 let currentTime = 0;
-let playerTimeupdateHandler = null;
+let playerAnimationFrame = null;
 let playerClipTimeout = null; // Safety timeout for short clips
 let playbackStartTime = 0; // Actual position where playback started
 let currentDailySong = null; // Reference to current song for visibility pause
@@ -126,11 +126,15 @@ async function playAudio(dailySong, currentAttempt) {
         playbackStartTime = audioElement.currentTime;
 
         currentTime = 0;
-        // Use timeupdate event instead of rAF loop (~4 fires/sec)
-        playerTimeupdateHandler = () => updateProgress(dailySong, currentAttempt);
-        audioElement.addEventListener('timeupdate', playerTimeupdateHandler);
 
         await audioElement.play();
+
+        // Use requestAnimationFrame for smooth progress bar (~60fps)
+        const animateProgress = () => {
+            updateProgress(dailySong, currentAttempt);
+            if (isPlaying) playerAnimationFrame = requestAnimationFrame(animateProgress);
+        };
+        playerAnimationFrame = requestAnimationFrame(animateProgress);
 
         // Safety timeout: guarantee clip stops even if timeupdate fires too late
         const clipMs = DURATIONS[currentAttempt] * 1000 + 50;
@@ -160,11 +164,12 @@ function pauseAudio(dailySong) {
         playerClipTimeout = null;
     }
 
+    if (playerAnimationFrame) {
+        cancelAnimationFrame(playerAnimationFrame);
+        playerAnimationFrame = null;
+    }
+
     if (audioElement && playerReady) {
-        if (playerTimeupdateHandler) {
-            audioElement.removeEventListener('timeupdate', playerTimeupdateHandler);
-            playerTimeupdateHandler = null;
-        }
         audioElement.pause();
         audioElement.currentTime = playbackStartTime;
     }
@@ -174,13 +179,7 @@ function pauseAudio(dailySong) {
     const fillEl = document.getElementById('progressFill');
     const labelEl = document.getElementById('currentTimeLabel');
     if (fillEl) {
-        // Remove transition for instant reset
-        fillEl.style.transition = 'none';
         fillEl.style.width = '0%';
-        // Force reflow to ensure the change is applied
-        void fillEl.offsetWidth;
-        // Re-enable transition
-        fillEl.style.transition = '';
     }
     if (labelEl) labelEl.textContent = '0s';
 }
@@ -226,11 +225,12 @@ function destroyPlayer() {
         playerClipTimeout = null;
     }
 
+    if (playerAnimationFrame) {
+        cancelAnimationFrame(playerAnimationFrame);
+        playerAnimationFrame = null;
+    }
+
     if (audioElement) {
-        if (playerTimeupdateHandler) {
-            audioElement.removeEventListener('timeupdate', playerTimeupdateHandler);
-            playerTimeupdateHandler = null;
-        }
         audioElement.pause();
         audioElement.removeAttribute('src');
         audioElement.load(); // Reset the element
