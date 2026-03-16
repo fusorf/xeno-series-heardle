@@ -139,7 +139,7 @@ async function playAudio(dailySong, currentAttempt) {
         // Safety timeout: guarantee clip stops even if timeupdate fires too late
         const clipMs = DURATIONS[currentAttempt] * 1000 + 50;
         playerClipTimeout = setTimeout(() => {
-            if (isPlaying) pauseAudio(dailySong);
+            if (isPlaying) pauseAudio(dailySong, true);
         }, clipMs);
     } catch (error) {
         console.error('Playback error:', error);
@@ -150,7 +150,7 @@ async function playAudio(dailySong, currentAttempt) {
     }
 }
 
-function pauseAudio(dailySong) {
+function pauseAudio(dailySong, clipEnded) {
     if (!isPlaying) return;
 
     isPlaying = false;
@@ -178,10 +178,27 @@ function pauseAudio(dailySong) {
     currentTime = 0;
     const fillEl = document.getElementById('progressFill');
     const labelEl = document.getElementById('currentTimeLabel');
-    if (fillEl) {
-        fillEl.style.width = '0%';
+
+    if (clipEnded && fillEl) {
+        // Clip ended naturally: fill to 100% first, then reset
+        fillEl.style.width = '100%';
+        setTimeout(() => {
+            fillEl.style.transition = 'none';
+            fillEl.style.width = '0%';
+            void fillEl.offsetWidth;
+            fillEl.style.transition = '';
+            if (labelEl) labelEl.textContent = '0s';
+        }, 300);
+    } else {
+        // User paused manually: instant reset
+        if (fillEl) {
+            fillEl.style.transition = 'none';
+            fillEl.style.width = '0%';
+            void fillEl.offsetWidth;
+            fillEl.style.transition = '';
+        }
+        if (labelEl) labelEl.textContent = '0s';
     }
-    if (labelEl) labelEl.textContent = '0s';
 }
 
 function updateProgress(dailySong, currentAttempt) {
@@ -193,13 +210,13 @@ function updateProgress(dailySong, currentAttempt) {
 
         // Check if audio has ended (reached the end of the file)
         if (audioElement.ended || audioElement.currentTime >= dailySong.duration) {
-            pauseAudio(dailySong);
+            pauseAudio(dailySong, true);
             return;
         }
 
         // Check if we've exceeded the allowed duration
         if (currentTime >= DURATIONS[currentAttempt]) {
-            pauseAudio(dailySong);
+            pauseAudio(dailySong, true);
             return;
         }
     }
