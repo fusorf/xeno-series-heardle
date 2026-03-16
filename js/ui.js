@@ -84,7 +84,7 @@ const SPLASH_QUOTES = [
     "Mystic power, grant me a miracle!",
     "Sayonara, baby",
     "Yo, Rubedo",
-    "I'm to repent, am I? I thin,k not",
+    "I'm to repent, am I? I think not",
     "I AM THE INFINITE TELOMERASE!",
     "WE! ARE MEN! OF THE SEA!",
     "Doth thou desire the power?",
