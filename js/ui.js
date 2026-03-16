@@ -78,7 +78,7 @@ const SPLASH_QUOTES = [
     "Shion, I need to be cleaned",
     "Ma petite pèche",
     "No, it's nothing",
-    "That bastard ! He activated the emulators!",
+    "That bastard! He activated the emulators!",
     "///CAUTION/// I AM A BOOZER BANZAI!! BANZAI!!",
     "OPEN ETHER CIRCUIT",
     "Mystic power, grant me a miracle!",
