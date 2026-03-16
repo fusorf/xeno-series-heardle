@@ -904,26 +904,44 @@ new MutationObserver(updateCreditsVisibility).observe(document.body, {
 // MOBILE TOOLBAR SETUP
 // ============================================
 
-function setupMobileToolbar() {
-    if (window.innerWidth > 900) return;
-    const toolbar = document.getElementById('mobileToolbar');
-    if (!toolbar) return;
+let currentToolbarLayout = null;
 
-    // Move buttons into mobile toolbar row
+function setupMobileToolbar() {
+    const isMobile = window.innerWidth <= 900;
+    if (isMobile && currentToolbarLayout === 'mobile') return;
+    if (!isMobile && currentToolbarLayout === 'desktop') return;
+
+    const toolbar = document.getElementById('mobileToolbar');
+    const toolbarLeft = document.querySelector('.toolbar-left');
+    const toolbarRight = document.querySelector('.toolbar-right');
+    if (!toolbar || !toolbarLeft || !toolbarRight) return;
+
     const endless = document.getElementById('endlessButton');
     const blitz = document.getElementById('blitzButton');
     const guesser = document.getElementById('guesserButton');
     const stats = document.getElementById('historyButton');
     const lang = document.querySelector('.language-selector');
 
-    [endless, blitz, guesser, stats, lang].forEach(el => {
-        if (el) toolbar.appendChild(el);
-    });
-
-    // Hide original containers
-    document.querySelector('.toolbar-left')?.classList.add('mobile-hidden');
-    document.querySelector('.toolbar-right')?.classList.add('mobile-hidden');
+    if (isMobile) {
+        // Move buttons into mobile toolbar row
+        [endless, blitz, guesser, stats, lang].forEach(el => {
+            if (el) toolbar.appendChild(el);
+        });
+        toolbarLeft.classList.add('mobile-hidden');
+        toolbarRight.classList.add('mobile-hidden');
+        currentToolbarLayout = 'mobile';
+    } else {
+        // Move buttons back to desktop toolbars
+        [stats, endless, blitz, guesser].forEach(el => {
+            if (el) toolbarLeft.appendChild(el);
+        });
+        if (lang) toolbarRight.insertBefore(lang, toolbarRight.firstChild);
+        toolbarLeft.classList.remove('mobile-hidden');
+        toolbarRight.classList.remove('mobile-hidden');
+        currentToolbarLayout = 'desktop';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', setupMobileToolbar);
+window.addEventListener('resize', setupMobileToolbar);
 

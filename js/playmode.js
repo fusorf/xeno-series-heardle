@@ -6,7 +6,7 @@
 let playmodeActive = false;
 let playmodeAudio = null;
 let playmodeIsPlaying = false;
-let playmodeAnimFrame = null; // kept for legacy cleanup, no longer used for progress
+
 let playmodeCurrentSong = null;
 let playmodeCurrentGame = null;
 let playmodeView = 'library'; // 'library' | 'album' | 'favorites'

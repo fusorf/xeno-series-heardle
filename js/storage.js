@@ -25,69 +25,6 @@ function storageRemove(key) {
 }
 
 // ============================================
-// BACKFILL: Add missing 'game' field to old history entries
-// ============================================
-
-(function backfillHistoryGames() {
-    // Build reverse index: title (lowercase) → game id
-    const titleToGame = {};
-    for (const [gameId, songs] of Object.entries(SONG_POOLS)) {
-        songs.forEach(song => {
-            titleToGame[song.title.toLowerCase()] = gameId;
-        });
-    }
-
-    const modes = ['xenoblade', 'full-xeno', 'xenosaga', 'random'];
-
-    modes.forEach(modeId => {
-        // Patch daily history
-        const historyKey = `xenoHeardle_${modeId}_history`;
-        const history = storageGet(historyKey);
-        if (history && history.length > 0) {
-            let patched = false;
-            history.forEach(entry => {
-                if (!entry.game && entry.guesses) {
-                    for (let i = entry.guesses.length - 1; i >= 0; i--) {
-                        const guess = entry.guesses[i];
-                        if (guess && guess !== 'skip') {
-                            const game = titleToGame[guess.toLowerCase()];
-                            if (game) {
-                                entry.game = game;
-                                patched = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            });
-            if (patched) storageSet(historyKey, history);
-        }
-
-        // Patch endless history
-        const endlessKey = `xenoHeardle_${modeId}_endless`;
-        const endless = storageGet(endlessKey);
-        if (endless && endless.length > 0) {
-            let patched = false;
-            endless.forEach(entry => {
-                if (!entry.game && entry.guesses) {
-                    for (let i = entry.guesses.length - 1; i >= 0; i--) {
-                        const guess = entry.guesses[i];
-                        if (guess && guess !== 'skip') {
-                            const game = titleToGame[guess.toLowerCase()];
-                            if (game) {
-                                entry.game = game;
-                                patched = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            });
-            if (patched) storageSet(endlessKey, endless);
-        }
-    });
-})();
-
 // ============================================
 
 function loadGameState(currentMode, dailySong) {
@@ -432,7 +369,6 @@ function clearAllData() {
     storageRemove('xenoHeardleMode');
     storageRemove('xenoHeardleLanguage');
     storageRemove('xenoHeardle_blitz_highscore');
-    storageRemove('xenoHeardle_blitz_stats');
     console.log('✅ All data cleared! Reload the page to start fresh.');
 }
 

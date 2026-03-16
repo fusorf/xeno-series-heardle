@@ -109,16 +109,14 @@ const GAMES = {
     name: 'Xenosaga Freaks',
     shortName: 'XS Freaks',
     color: '#C77DFF',
-    folder: 'Xenosaga Freaks (PS2) (gamerip) (2004)',
-    isSpinOff: true
+    folder: 'Xenosaga Freaks (PS2) (gamerip) (2004)'
   },
   'xenosaga-pied-piper': {
     id: 'xenosaga-pied-piper',
     name: 'Xenosaga Pied Piper',
     shortName: 'XS Pied Piper',
     color: '#B5179E',
-    folder: 'Xenosaga Pied Piper (Mobile) (gamerip) (2004)',
-    isSpinOff: true
+    folder: 'Xenosaga Pied Piper (Mobile) (gamerip) (2004)'
   },
 
   // ========== OTHER ==========

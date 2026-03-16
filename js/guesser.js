@@ -33,7 +33,6 @@ let guesserCurrentStreak = 0;
 let preloadedGuesserSong = null;
 let preloadedGuesserAudio = null;
 let guesserWaiting = false; // true while feedback delay is pending
-let guesserUnlocked = true;
 
 // ============================================
 // GAME LIST FOR CURRENT MODE
@@ -339,7 +338,7 @@ function deactivateGuesser() {
     // Remove guesser UI state classes
     const container = document.getElementById('gameContainer');
     if (container) {
-        container.classList.remove('guesser-active', 'results-screen');
+        container.classList.remove('results-screen');
     }
 
     // Button
@@ -525,7 +524,6 @@ function cleanupGuesserPreload() {
 function renderGuesserGame() {
     const container = document.getElementById('gameContainer');
     container.classList.remove('results-screen');
-    container.classList.add('guesser-active');
 
     const l = locale.guesser || {};
     const isMobile = window.innerWidth <= 900;
@@ -800,7 +798,6 @@ function endGuesser() {
 function renderGuesserResults() {
     const container = document.getElementById('gameContainer');
     container.classList.add('results-screen');
-    container.classList.remove('guesser-active');
 
     // Hide game selector banner on results
     const banner = document.getElementById('dailyGameBanner');

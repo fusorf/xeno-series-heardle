@@ -1095,14 +1095,14 @@ button:active::before {
 
 /* Desktop layout: two columns */
 @media (min-width: 901px) {
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-overlay)):not(:has(.guesser-banner)) {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: clamp(8px, 3.3vh, 30px);
         align-items: start;
     }
 
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) .audio-player {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-overlay)):not(:has(.guesser-banner)) .audio-player {
         grid-column: 1;
         grid-row: 1;
         margin-bottom: 0;
@@ -1112,12 +1112,12 @@ button:active::before {
         justify-content: center;
     }
 
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) .search-section {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-overlay)):not(:has(.guesser-banner)) .search-section {
         grid-column: 1 / -1;
         grid-row: 2;
     }
 
-    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-area)):not(:has(.guesser-banner)) .guess-boxes {
+    .game-container:not(.results-screen):not(:has(.blitz-banner)):not(:has(.blitz-countdown-overlay)):not(:has(.guesser-banner)) .guess-boxes {
         grid-column: 2;
         grid-row: 1;
         margin-bottom: 0;
@@ -2132,13 +2132,6 @@ button:active::before {
     opacity: 0.35;
 }
 
-/* Countdown area (inside banner) */
-.blitz-countdown-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 180px;
-}
 
 .blitz-countdown-num {
     font-family: var(--theme-font-heading);
@@ -3664,15 +3657,6 @@ button:active::before {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-.guesser-final-subtitle {
-    font-family: var(--theme-font-body);
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 4px;
-    text-transform: lowercase;
-    letter-spacing: 1px;
 }
 
 /* Stats grid for guesser */

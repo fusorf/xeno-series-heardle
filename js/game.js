@@ -892,7 +892,6 @@ function endGame(won) {
 // RESULTS / SHARE
 // ============================================
 
-const SITE_URL = 'fusorf.github.io/xeno-series-heardle/';
 
 function buildModeResult(mode, modeDailySong, savedState) {
     const emoji = [];
