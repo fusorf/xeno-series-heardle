@@ -1,5 +1,5 @@
 {
-  "search": "Search for a song...",
+  "search": "Search for a track...",
   "skip": "Skip",
   "submit": "Submit",
   "giveUp": "Give Up",
@@ -54,7 +54,7 @@
     "quit": "Quit",
     "newHighScore": "New High Score!",
     "points": "points",
-    "songsGuessed": "Songs",
+    "songsGuessed": "Tracks",
     "accuracy": "Accuracy",
     "bestCombo": "Best Combo",
     "highScore": "High Score",
@@ -68,7 +68,7 @@
     "correct": "Correct",
     "accuracy": "Accuracy",
     "bestStreak": "Best Streak",
-    "songsFound": "songs found",
+    "songsFound": "tracks found",
     "playAgain": "Play Again",
     "pts": "pts"
   },
