@@ -22,7 +22,7 @@ const GAMES = {
     name: 'Xenoblade Chronicles X Definitive Edition',
     shortName: 'XCX DE',
     color: '#00D4FF',
-    folder: 'Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)',
+    folder: 'Xenoblade X DE - Final Tracks',
     parentGame: 'xenoblade-x',
     isDLC: true
   },
@@ -4019,8 +4019,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "Don't worry <2XDv>",
     "japaneseTitle": "Don't worry <2XDv>",
     "localizedTitle": "Don't worry <2XDv>",
-    "file": "5-01. Don't worry 2XDv.mp3",
-    "duration": 235,
+    "file": "Don_t worry ＜2XDv＞.mp3",
+    "duration": 233,
     "game": "xenoblade-x-de",
     "composer": "Hiroyuki SAWANO"
   },
@@ -4028,8 +4028,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "Don't worry <2XDv> (Instrumental ver.)",
     "japaneseTitle": "Don't worry <2XDv> (Instrumental ver.)",
     "localizedTitle": "Don't worry <2XDv> (Instrumental ver.)",
-    "file": "5-02. Don't worry 2XDv (Instrumental ver.).mp3",
-    "duration": 235,
+    "file": "Don_t worry ＜2XDv＞ (no vocals ver.).mp3",
+    "duration": 233,
     "game": "xenoblade-x-de",
     "composer": "Hiroyuki SAWANO"
   },
@@ -4037,8 +4037,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "2S-FIELD",
     "japaneseTitle": "2S-FIELD",
     "localizedTitle": "Volitaris Field",
-    "file": "5-03. 2S-FIELD.mp3",
-    "duration": 165,
+    "file": "2S-FIELD.mp3",
+    "duration": 170,
     "game": "xenoblade-x-de",
     "composer": "Misaki Umase"
   },
@@ -4046,8 +4046,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "2D-BATTLE",
     "japaneseTitle": "2D-BATTLE",
     "localizedTitle": "Volitaris Battle",
-    "file": "5-04. 2D-BATTLE.mp3",
-    "duration": 170,
+    "file": "2D-BATTLE.mp3",
+    "duration": 178,
     "game": "xenoblade-x-de",
     "composer": "Misaki Umase"
   },
@@ -4056,6 +4056,7 @@ const SONGS_XENOBLADE_X_DE = [
     "japaneseTitle": "2XDLB (Instrumental ver.)",
     "localizedTitle": "2DXLB (Instrumental ver.)",
     "file": "5-05. 2DXLB (Instrumental ver.).mp3",
+    "folder": "Xenoblade Chronicles X - Definitive Edition (Switch, Switch 2) (gamerip) (2025)",
     "duration": 192,
     "game": "xenoblade-x-de",
     "composer": "Hiroyuki SAWANO"
@@ -4064,8 +4065,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "2XDLB",
     "japaneseTitle": "2XDLB",
     "localizedTitle": "2DXLB",
-    "file": "5-06. 2DXLB.mp3",
-    "duration": 188,
+    "file": "2XDLB.mp3",
+    "duration": 186,
     "game": "xenoblade-x-de",
     "composer": "Hiroyuki SAWANO",
     "artist": "Laco"
@@ -4074,8 +4075,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "The key we've lost <2XDv>",
     "japaneseTitle": "The key we've lost <2XDv>",
     "localizedTitle": "The key we've lost <2XDv>",
-    "file": "5-07. The key we've lost 2XDv.mp3",
-    "duration": 200,
+    "file": "The key we_ve lost ＜2XDv＞.mp3",
+    "duration": 198,
     "game": "xenoblade-x-de",
     "composer": "Hiroyuki SAWANO",
     "artist": "Laco"
@@ -4084,7 +4085,7 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "2N-ERA",
     "japaneseTitle": "2N-ERA",
     "localizedTitle": "2N-ERA",
-    "file": "5-08. 2N-ERA.mp3",
+    "file": "2N-ERA.mp3",
     "duration": 381,
     "game": "xenoblade-x-de",
     "composer": "Misaki Umase"
@@ -4093,8 +4094,8 @@ const SONGS_XENOBLADE_X_DE = [
     "title": "2D-TRAVELOGUE",
     "japaneseTitle": "2D-TRAVELOGUE",
     "localizedTitle": "2D-TRAVELOGUE",
-    "file": "5-09. 2D-TRAVELOGUE.mp3",
-    "duration": 447,
+    "file": "2D-TRAVELOGUE.mp3",
+    "duration": 444,
     "game": "xenoblade-x-de",
     "composer": "Misaki Umase"
   },
