@@ -24,7 +24,8 @@ const SPLASH_QUOTES = [
     "Reyn! Hit that yoinky sploinky!",
     "Crashing the mobile artillery into a house??",
     "TO YOU! TO ME!",
-
+    "Like a hot knife through butter",
+    "Check out this massive plant",
     // Xenoblade 2
     "THINK YOU CAN TAKE ME?!",
     "DON'T FORGET ME!",
@@ -64,6 +65,7 @@ const SPLASH_QUOTES = [
     "She was standing there, in an hangar",
     "The wind blows hard in December",
     "In the forest? 50/50!",
+    "So long, sexy friend",
     // Xenogears
     "Stand tall and shake the heavens!",
     "Mm-mm, scrumdidlyumptious!",
@@ -73,6 +75,19 @@ const SPLASH_QUOTES = [
     // Xenosaga
     "I am KOS-MOS",
     "I am merely a weapon",
+    "Shion, I need to be cleaned",
+    "Ma petite pèche",
+    "No, it's nothing",
+    "That bastard ! He activated the emulators!",
+    "///CAUTION/// I AM A BOOZER BANZAI!! BANZAI!!",
+    "OPEN ETHER CIRCUIT",
+    "Mystic power, grant me a miracle!",
+    "Sayonara, baby",
+    "Yo, Rubedo",
+    "I'm to repent, am I? I thin,k not",
+    "I AM THE INFINITE TELOMERASE!",
+    "WE! ARE MEN! OF THE SEA!",
+    "Doth thou desire the power?",
     // Meta
     "723 songs and counting!",
     "Seeded PRNG is my passion",
