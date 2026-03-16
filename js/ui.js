@@ -49,7 +49,7 @@ const SPLASH_QUOTES = [
     "Eunie's the bus!",
     "Spark thissss!",
     "MIOOOOOO!",
-    "You guys got any babies ?",
+    "You guys got any babies?",
     "Feathers are a bitch to dry",
     "Man, I'm freezing my balls off...",
     "Because it amuses me",
