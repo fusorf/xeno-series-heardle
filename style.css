@@ -2688,7 +2688,7 @@ button:active::before {
 }
 
 .volume-value {
-    font-family: var(--theme-font-body), sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--theme-primary);
@@ -3789,6 +3789,7 @@ button:active::before {
         opacity: 0;
         transition: opacity 0.2s ease, transform 0.2s ease;
         border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
+        text-transform: none;
     }
 
     .guesser-button[data-tooltip]:hover::after {

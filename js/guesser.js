@@ -416,6 +416,10 @@ function nextGuesserSong() {
         playGuesserSong(null);
     }
 
+    // Scroll history to show latest entries
+    const historyEl = document.getElementById('guesserHistory');
+    if (historyEl) historyEl.scrollTop = historyEl.scrollHeight;
+
     // Start countdown timer for this song
     startGuesserTimer();
 
