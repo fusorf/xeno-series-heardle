@@ -51,7 +51,7 @@ class SeededRandom {
 // ============================================
 
 // Get current UTC date as YYYY-MM-DD string
-// Song changes at 23:00 UTC (1 hour before midnight)
+// Song changes at 22:00 UTC (midnight CEST / 23:00 CET)
 function getUTCDateString() {
   // Allow date override for testing (set via setDateOverride())
   if (window.DATE_OVERRIDE) {
@@ -60,8 +60,8 @@ function getUTCDateString() {
 
   const now = new Date();
 
-  // Add 1 hour offset so the day changes at 23:00 UTC instead of 00:00 UTC
-  const offsetDate = new Date(now.getTime() + (1 * 60 * 60 * 1000));
+  // Add 2 hours offset so the day changes at 22:00 UTC (midnight CEST / 23:00 CET)
+  const offsetDate = new Date(now.getTime() + (2 * 60 * 60 * 1000));
 
   const year = offsetDate.getUTCFullYear();
   const month = String(offsetDate.getUTCMonth() + 1).padStart(2, '0');

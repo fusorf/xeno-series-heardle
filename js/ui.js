@@ -76,7 +76,7 @@ const SPLASH_QUOTES = [
     "I am KOS-MOS",
     "I am merely a weapon",
     "Shion, I need to be cleaned",
-    "Ma petite pèche",
+    "Ma belle pêche",
     "No, it's nothing",
     "That bastard! He activated the emulators!",
     "///CAUTION/// I AM A BOOZER BANZAI!! BANZAI!!",
