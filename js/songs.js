@@ -6983,6 +6983,61 @@ const SONG_POOLS = {
 };
 
 // ============================================
+// APRIL FOOLS - POISSON D'AVRIL
+// ============================================
+
+const APRIL_FOOLS_SONGS = {
+  'full-xeno': {
+    title: "Crimson Knight (Kazoo ver.)",
+    localizedTitle: "Blazing Knights (Kazoo ver.)",
+    file: "Crimson Knight (Kazoo ver.).mp3",
+    duration: 158,
+    game: "xenogears",
+    composer: "Yasunori Mitsuda",
+    folder: "poisson"
+  },
+  'xenoblade': {
+    title: "Battle!! (but you won't forget)",
+    localizedTitle: "Battle!! (but you won't forget)",
+    file: "Battle!! (but you won't forget).mp3",
+    duration: 205,
+    game: "xenoblade-2",
+    composer: "ACE+",
+    folder: "poisson"
+  },
+  'xenosaga': {
+    title: "Battle (DS)",
+    localizedTitle: "Battle (DS)",
+    file: "Battle (DS).mp3",
+    duration: 180,
+    game: "xenosaga-1",
+    composer: "Yasunori Mitsuda",
+    folder: "poisson"
+  },
+  'random': {
+    title: "Uncontrollable (OST Version)",
+    localizedTitle: "Uncontrollable (OST Version)",
+    file: "Uncontrollable (OST Version).mp3",
+    duration: 228,
+    game: "xenoblade-x",
+    composer: "Hiroyuki Sawano",
+    folder: "poisson"
+  }
+};
+
+// Check if today is April 1st (uses same 2h offset as daily song changeover)
+function isAprilFools() {
+  const dateString = window.DATE_OVERRIDE || null;
+  if (dateString) {
+    const parts = dateString.split('-');
+    return parseInt(parts[1], 10) === 4 && parseInt(parts[2], 10) === 1;
+  }
+  const now = new Date();
+  const offsetDate = new Date(now.getTime() + (2 * 60 * 60 * 1000));
+  return offsetDate.getUTCMonth() === 3 && offsetDate.getUTCDate() === 1;
+}
+
+// ============================================
 // HELPER FUNCTIONS
 // ============================================
 
@@ -6996,6 +7051,13 @@ function getSongsForMode(modeId) {
     const gameSongs = SONG_POOLS[gameId] || [];
     songs.push(...gameSongs);
   });
+
+  if (isAprilFools()) {
+    const afSong = APRIL_FOOLS_SONGS[modeId];
+    if (afSong) {
+      songs.push(afSong);
+    }
+  }
 
   return songs;
 }

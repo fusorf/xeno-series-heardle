@@ -217,6 +217,25 @@ function getDailySong(modeId = 'full-xeno') {
     return null;
   }
 
+  // April Fools override — force predetermined songs
+  if (isAprilFools()) {
+    const afSong = APRIL_FOOLS_SONGS[modeId];
+    if (afSong) {
+      const dayNumber = getDaysSinceEpoch(dateString);
+      const result = {
+        ...afSong,
+        dayNumber,
+        startTime: 0,
+        mode: modeId
+      };
+      // Random mode needs dailyGame info for the banner
+      if (modeId === 'random') {
+        result.dailyGame = GAMES[afSong.game];
+      }
+      return result;
+    }
+  }
+
   // Random mode uses special logic
   if (mode.randomGameDaily) {
     return selectRandomDailySong(dateString);

@@ -62,6 +62,17 @@ async function loadLocale(forceLang = null) {
 }
 
 async function initGame() {
+    // Force reload if a new version has been deployed (or first time with this system)
+    const lastVersion = storageGet('xenoHeardleVersion');
+    if (lastVersion !== APP_VERSION) {
+        storageSet('xenoHeardleVersion', APP_VERSION);
+        // Only reload if we're not already on a cache-busted URL
+        if (!window.location.search.includes('_=')) {
+            window.location.href = window.location.pathname + '?_=' + Date.now();
+            return;
+        }
+    }
+
     await loadLocale();
 
     // Load saved mode preference
