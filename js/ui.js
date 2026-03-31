@@ -484,10 +484,10 @@ function initCover3D() {
 
 function updateCountdown(locale) {
     const now = new Date();
-    // Next song change is at 23:00 UTC
-    const nextChange = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 0, 0));
+    // Next song change is at 22:00 UTC (midnight CEST / 23:00 CET)
+    const nextChange = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 22, 0, 0));
 
-    // If we're already past 23:00 UTC today, the next change is tomorrow at 23:00 UTC
+    // If we're already past 22:00 UTC today, the next change is tomorrow at 22:00 UTC
     if (now >= nextChange) {
         nextChange.setUTCDate(nextChange.getUTCDate() + 1);
     }
